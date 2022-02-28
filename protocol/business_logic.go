@@ -31,8 +31,8 @@ type Business_Logic interface {
 	SearchUser()
 
 	// Authentication
-	LogInUser()
-	RegisterUser()
+	LogInUser(email string , password string)
+	RegisterUser(email string, phone_number string,full_name string, password string)
 
 	// Authorization
 	// libgo - 
@@ -40,9 +40,9 @@ type Business_Logic interface {
 	// blog
 	GetPost()
 	CreatePost()
-	GetPosts()
-	SearchPost()
-	DeletePost()
+	GetPosts(postID int , )
+	SearchPost(tilte string , )
+	DeletePost(postID int)
 	UpdatePost()
 
 	SearchMusic()
@@ -67,10 +67,36 @@ type Business_Logic interface {
 	GetInvoices()
 	GetInvoicesByAdmin()
 	RegisterInvoice()
-	UpdateInvoice()
+
+	// Find Invoice
+    FindInvoiceByProductID()
+	FindInvoiceByUserID()
+    FindInvoiceByAcossiatedOwner()
+	FindInvoiceByDateTime()
+	FindInvoiceByState()
+
+	// the state of our purchase ??? the products are staying in the cart with a time limitation
+	// how should i present the state of Return from purchase ?
+	// event's invoice
+	// add item ? 
+
+
+	// product price
+    GetProductPrice()
+	UpdatePrice()
+	DeletePrice()
+	DiscountedPrice()
+	FindAllPricesByDate()
+
+
+	// user's wallet
+
+
+	// vouchers
+
 
 	RegisterReservation()
-	SuccessReservation()
+	ChangeReservationState()
 	DeleteReservation()
 	UpdateReservation()
 	GetReservation()
@@ -98,5 +124,8 @@ type Business_Logic interface {
 	// ObjectStorage
 	// There are some apis for it - we can separately read it or download it => 256kb
 	// Taghsim e bar 
-	// stree amazon  / storage-object libgo 
+	// s3 amazon  / storage-object libgo 
 }
+
+
+
