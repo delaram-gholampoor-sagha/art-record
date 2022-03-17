@@ -6,11 +6,12 @@ type tutorial_Content struct {
 	Body          string `json:"body"`
 	Product_Price string `json:"product_price"`
 	//published or saved ? or maybe other state ?
-	State      string `json:"state"`
-	UserID     uint64 `json:"user_id"`
-	CategoryId uint64 `json:"Category_id"`
-	Video_URL  string `json:"video_url"`
-	Pic_URL    string `json:"pic_url"`
+	State         string `json:"state"`
+	// UserID     uint64 `json:"user_id"`
+	Teacher_name string `json:"teacher_name"`
+	CategoryId   uint64 `json:"Category_id"`
+	VideoID    string `json:"video_url"`
+	Pic_URL      string `json:"pic_url"`
 }
 
 type Tutorial interface {

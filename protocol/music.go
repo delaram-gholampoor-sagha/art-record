@@ -13,12 +13,16 @@ type Music_Content struct {
 // can we filter our search ?
 
 type Music interface {
+	DeleteMusic(musicID uint64) error
+	RegisterMusic(music Music) (Music, error)
+	GetMusic(musicID uint64) (Music, error)
+	GetMusics() ([]Music, error)
+
 	SearchMusicByTag(tag string) ([]Music_Content, error)
 	SearchMusicByCategory(Category string) ([]Music_Content, error)
 	SearchMusicBySinger(singer string) ([]Music_Content, error)
 	SearchMusicByTitle(title string) ([]Music_Content, error)
-	DeleteMusic(musicID uint64) error
-	CreateMusic(music Music) (Music, error)
-	GetMusic(musicID uint64) (Music, error)
-	GetMusics() ([]Music, error)
 }
+
+// approved by someone called admin ?? => maybe another microservice ?
+

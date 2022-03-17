@@ -41,7 +41,8 @@ type User_Identification interface {
 	GetUser(userID uint64) (User, error)
 	UpdateUser(isPartial bool, user User) (User, error)
 	// disable or delete ?
-	DeleteUser(userID uint64) error
+	DisableUser(userID uint64) error
+	
 	FindUserByEmail(email string) ([]User , error)
 	FindUserByFullName(fullname string) ([]User, error)
 	FindUserByReservedEvent(eventID uint64 ) ([]User ,error) 

@@ -3,6 +3,7 @@ package protocol
 type Tag_Content struct {
 	ID      uint64 `json:"id"`
 	Content string `json:"content"`
+	Status string `json:"status"`
 }
 
 type Tag interface {
