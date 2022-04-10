@@ -1,28 +1,31 @@
 package protocol
 
-type Music_Content struct {
-	ID                  uint64 `json:"id"`
-	Title               string `json:"title"`
-	Acossiated_Category string `json:"acossiated_Category"`
-	AlbumID             uint64 `json:"album_id"`
-	Tag                 string `json:"tag"`
-	Music_URL           string `json:"music_url"`
-	Pic_URL             string `json:"pic_url"`
+import "time"
+
+// isnt it the same as audio ?
+type Music struct {
+	ID                     uint64
+	Quiddity_ID            [16]byte
+	// ???
+	Song_Related_People_ID [16]byte
+	// Category_ID    uint64
+	// Album_ID       uint64
+	// Tag_ID         uint64
+	// PictureID      uint64
+	// AudioID        uint64
+	// Song_Related_People  uint64
+	Status     uint8
+	Created_At time.Time
+	Updated_At time.Time
 }
 
-// can we filter our search ?
-
-type Music interface {
+type MusicService interface {
 	DeleteMusic(musicID uint64) error
 	RegisterMusic(music Music) (Music, error)
-	GetMusic(musicID uint64) (Music, error)
-	GetMusics() ([]Music, error)
+	UpdateMusic(isPartial bool, music Music) (Music, error)
 
-	SearchMusicByTag(tag string) ([]Music_Content, error)
-	SearchMusicByCategory(Category string) ([]Music_Content, error)
-	SearchMusicBySinger(singer string) ([]Music_Content, error)
-	SearchMusicByTitle(title string) ([]Music_Content, error)
+	SearchMusicByTag(tag string) ([]Music, error)
+	SearchMusicByCategory(Category string) ([]Music, error)
+	SearchMusicBySinger(singer string) ([]Music, error)
+	SearchMusicByAlbum(title string) ([]Music, error)
 }
-
-// approved by someone called admin ?? => maybe another microservice ?
-

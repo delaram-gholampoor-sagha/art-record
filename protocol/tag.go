@@ -1,14 +1,15 @@
 package protocol
 
-type Tag_Content struct {
-	ID      uint64 `json:"id"`
-	Content string `json:"content"`
-	Status string `json:"status"`
+// Do we ever need tags in this software ?
+type Tag struct {
+	ID      uint64
+	Content string
+	Status  string
 }
 
-type Tag interface {
-	RegisterTag(tag Tag_Content) (Tag_Content, error)
-	UpdateTag(rag string) (Tag_Content , error)
+type TagServices interface {
+	RegisterTag(tag Tag) (Tag, error)
+	UpdateTag(rag string) (Tag, error)
 	DeleteTag(tagID uint64) error
-	SearchTags(content string ) ([]Tag_Content, error)
+	FindTagByTitle(content string) ([]Tag, error)
 }

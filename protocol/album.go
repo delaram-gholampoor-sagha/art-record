@@ -1,16 +1,15 @@
 package protocol
 
-type Album_Content struct {
-	ID      uint64 `json:"id"`
-	Title   string `json:"title"`
-	Body    string `json:"body"`
-	Pic_URL string `json:"pic_url"`
+type Album struct {
+	ID         [16]byte
+	QuiddityID [16]byte
+	Status     uint8
 }
 
-type Album interface {
-	CreateAlbum(album Album_Content) (Album_Content, error)
+type AlbumServices interface {
+	CreateAlbum(album Album) error
 	DeleteAlbum(albumID uint64) error
-	GetAlbum(albumID uint64) (Album_Content, error)
+	GetAlbum(albumID uint64) (Album, error)
 	UpdateAlbum(isPartial bool, albumID uint64)
-	FindAlbumByTitle(name string) (Album_Content, error)
+	FindAlbumByTitle(name string) (Album, error)
 }
