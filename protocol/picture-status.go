@@ -1,18 +1,15 @@
+
+
 package protocol
-
-import "time"
-
-
+import (
+	"../libgo/protocol"
+)
 
 type PictureStatus interface {
 	ObjectID() [16]byte           //
 	Status() PictureStatus_Status //
-	Time() time.Time              // Save time
+	Time() protocol.Time          // Save time
 	RequestID() [16]byte          // user-request domain
-}
-
-type PictureStatusServices_StorageServices interface {
-	
 }
 
 type PictureStatus_Status uint8

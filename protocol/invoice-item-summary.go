@@ -1,21 +1,25 @@
+
+
 package protocol
 
-import "time"
+import (
+	"../libgo/protocol"
+)
 
-// InvoiceItemSummary indicate the invoice-item-summary domain record data fields.
+// InvoiceItemSummary indicate the domain record data fields.
 type InvoiceItemSummary interface {
-	InvoiceID() [16]byte                     // invoice domain
-	QuiddityID() [16]byte                    // product domain
+	InvoiceID() [16]byte                     // invoice-status domain
+	ProductID() [16]byte                     // product-status domain
 	SuggestedPrice() protocol.AmountOfMoney  // Total should pay before any discount or auction
 	DiscountedPrice() protocol.AmountOfMoney // user profit from this product purchase by auctions
 	PayablePrice() protocol.AmountOfMoney    // Total price user pay to organization
 	VAT() protocol.AmountOfMoney             // Total VAT user pay to its country government
-	Time() time.Time                         // Save time
+	Time() protocol.Time                     // Save time
 }
 
 type InvoiceItemSummary_StorageServices interface {
-	Save(iis InvoiceItemSummary) (err error)
+	Save(iis InvoiceItemSummary) (err protocol.Error)
 
-	Count(invoiceID [16]byte) (numbers uint64, err error)
-	Get(invoiceID [16]byte, versionOffset uint64) (iis InvoiceItemSummary, err error)
+	Count(invoiceID [16]byte) (numbers uint64, err protocol.Error)
+	Get(invoiceID [16]byte, versionOffset uint64) (iis InvoiceItemSummary, err protocol.Error)
 }

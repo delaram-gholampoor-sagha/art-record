@@ -1,16 +1,16 @@
+
+
 package protocol
 
 import (
-	"time"
-
-
+	"../libgo/protocol"
 )
 
 type UserName interface {
 	UserID() [16]byte        // user-status domain
 	Username() string        // It is not replace of user ID. It usually use to find user by their friends in more human friendly manner.
 	Status() UserName_Status //
-	Time() time.Time     // Save time
+	Time() protocol.Time     // Save time
 	RequestID() [16]byte     // user-request domain
 }
 
@@ -27,13 +27,13 @@ const (
 )
 
 type UserName_StorageServices interface {
-	Save(u UserName) error
+	Save(u UserName) protocol.Error
 
-	Count(userID [16]byte) (numbers uint64, err error)
-	Get(userID [16]byte, versionOffset uint64) (u UserName, err error)
-	Last(userID [16]byte) (u UserName, err error)
+	Count(userID [16]byte) (numbers uint64, err protocol.Error)
+	Get(userID [16]byte, versionOffset uint64) (u UserName, err protocol.Error)
+	Last(userID [16]byte) (u UserName, err protocol.Error)
 
-	Find(username string) (userID [16]byte, err error)
+	Find(username string) (userID [16]byte, err protocol.Error)
 }
 
 /*

@@ -15,13 +15,13 @@ type UserDomain interface {
 }
 
 type UserDomain_StorageServices interface {
-	Save(ud UserDomain) (err error)
+	Save(ud UserDomain) (err protocol.Error)
 
-	Count(domain string) (numbers uint64, err error)
-	Get(domain string, versionOffset uint64) (ud UserDomain, err error)
-	Last(domain string) (ud UserDomain, err error)
+	Count(domain string) (numbers uint64, err protocol.Error)
+	Get(domain string, versionOffset uint64) (ud UserDomain, err protocol.Error)
+	Last(domain string) (ud UserDomain, err protocol.Error)
 
-	FindByUserID(userID [16]byte , offset uint64 , limit uint64) (domains []string, numbers uint64, err error)
+	FindByUserID(userID [16]byte, offset uint64, limit uint64) (domains []string, numbers uint64, err protocol.Error)
 }
 
 // UserDomain_Status indicate UserDomain record status

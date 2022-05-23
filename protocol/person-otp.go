@@ -9,8 +9,3 @@ type PersonOTP interface {
 	OTPAdditional() int32 // easy to remember and must be 2 to 7 digit. https://en.wikipedia.org/wiki/Personal_identification_number
 	RequestID() [16]byte  // user-request domain
 }
-
-
-type PersonOTPServices_StorageServices interface {
-	
-}

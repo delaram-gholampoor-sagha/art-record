@@ -1,4 +1,5 @@
 
+
 package protocol
 
 import (
@@ -16,16 +17,16 @@ type UserDelegate interface {
 }
 
 type UserDelegate_StorageServices interface {
-	Save(ud UserDelegate) error
+	Save(ud UserDelegate) protocol.Error
 
-	Count(userID [16]byte, delegateUserID [16]byte) (numbers uint64, err error)
-	Get(userID [16]byte, delegateUserID [16]byte, versionOffset uint64) (ud UserDelegate, err error)
-	Last(userID [16]byte, delegateUserID [16]byte) (ud UserDelegate, err error)
+	Count(userID [16]byte, delegateUserID [16]byte) (numbers uint64, err protocol.Error)
+	Get(userID [16]byte, delegateUserID [16]byte, versionOffset uint64) (ud UserDelegate, err protocol.Error)
+	Last(userID [16]byte, delegateUserID [16]byte) (ud UserDelegate, err protocol.Error)
 
-	FindByDelegateUserID(delegateUserID [16]byte, offset, limit uint64) (userIDs [][16]byte, numbers uint64, err error)
-	FindByRole(roleID [16]byte, offset, limit uint64) (userIDs [][16]byte, numbers uint64, err error)
+	FindByDelegateUserID(delegateUserID [16]byte, offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindByRole(roleID [16]byte, offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)
 
-	ListGivenDelegate(userID [16]byte, offset, limit uint64) (delegateUserIDs [][16]byte, numbers uint64, err error)
+	ListGivenDelegate(userID [16]byte, offset, limit uint64) (delegateUserIDs [][16]byte, numbers uint64, err protocol.Error)
 }
 
 type UserDelegate_Status uint8

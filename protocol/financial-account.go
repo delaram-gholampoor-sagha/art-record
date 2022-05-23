@@ -11,19 +11,20 @@ type FinancialAccount interface {
 	UserID() [16]byte                // user-status domain
 	SocietyID() [16]byte             // society domain
 	Status() FinancialAccount_Status //
+	Time() protocol.Time             // Save time
 	RequestID() [16]byte             // user-request domain
 }
 
 type FinancialAccount_StorageServices interface {
-	Save(fa FinancialAccount) (err error)
+	Save(fa FinancialAccount) (err protocol.Error)
 
-	Count(accountID [16]byte) (numbers uint64, err error)
-	Get(accountID [16]byte, versionOffset uint64) (fa FinancialAccount, err error)
-	Last(accountID [16]byte) (fa FinancialAccount, err error)
+	Count(accountID [16]byte) (numbers uint64, err protocol.Error)
+	Get(accountID [16]byte, versionOffset uint64) (fa FinancialAccount, err protocol.Error)
+	Last(accountID [16]byte) (fa FinancialAccount, err protocol.Error)
 
-	FindByUserID(userID [16]byte, offset, limit uint64) (accountIDs [][16]byte, numbers uint64, err error)
+	FindByUserID(userID [16]byte, offset, limit uint64) (accountIDs [][16]byte, numbers uint64, err protocol.Error)
 
-	ListUserSocieties(userID [16]byte, offset, limit uint64) (societyIDs [][16]byte, numbers uint64, err error)
+	ListUserSocieties(userID [16]byte, offset, limit uint64) (societyIDs [][16]byte, numbers uint64, err protocol.Error)
 }
 
 // FinancialAccount_Status indicate FinancialAccount record status

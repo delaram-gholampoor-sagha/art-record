@@ -1,5 +1,3 @@
-
-
 package protocol
 
 /*
@@ -15,15 +13,4 @@ type UserRequest interface {
 	CompressID() uint64         // gzip, ...
 	Request() []byte            // Decode by service request structure and compress type.
 	Signature() []byte          // Store to prove user requested to set||update this record.
-}
-
-
-type UserRequest_StorageServices interface {
-	Save(ur UserRequest) error
-
-	Count(userID [16]byte) (length uint64, err error)
-	Get(userID [16]byte, versionOffset uint64) (ur UserRequest, err error)
-	Last(userID [16]byte) (ur UserRequest, length uint64, err error)
-
-	
 }

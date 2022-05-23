@@ -1,35 +1,29 @@
+
+
 package protocol
 
-/*
-	Storage Data Structure
-*/
+import (
+	"../libgo/protocol"
+)
 
-// UserPublicKey indicate the user-public-key domain record data fields.
+// UserPublicKey indicate the domain record data fields.
 type UserPublicKey interface {
-	UserID() [16]byte            // user-status domain
-	PublicKey() []byte           // suggest use DER format
-	Status() UserPublicKeyStatus //
-	RequestID() [16]byte         // user-request domain
+	UserID() [16]byte             // user-status domain
+	PublicKey() []byte            // suggest use DER format
+	Issuer() [16]byte             // user-status domain. Use to get notify about status of the PK e.g. revoked notification, ...
+	Status() UserPublicKey_Status //
+	Time() protocol.Time          // Save time
+	RequestID() [16]byte          // user-request domain
 }
 
-type UserPublicKey_StorageServices interface {
-	Save(up UserPublicKey) error
-
-	Count(userID [16]byte) (length uint64, err error)
-	Get(userID [16]byte, versionOffset uint64) (up UserPublicKey, err error)
-	Last(userID [16]byte) (up UserPublicKey, length uint64, err error)
-}
-
-
-
-// UserPublicKeyStatus use to indicate UserPublicKey record status
-type UserPublicKeyStatus uint8
+// UserPublicKey_Status use to indicate UserPublicKey record status
+type UserPublicKey_Status uint8
 
 // UserPublicKey status
 const (
-	UserPublicKeyStatus_Unset UserPublicKeyStatus = iota
-	UserPublicKeyStatus_Active
-	UserPublicKeyStatus_Inactive
-	UserPublicKeyStatus_Blocked
-	UserPublicKeyStatus_Revoked
+	UserPublicKey_Status_Unset UserPublicKey_Status = iota
+	UserPublicKey_Status_Active
+	UserPublicKey_Status_Inactive
+	UserPublicKey_Status_Blocked
+	UserPublicKey_Status_Revoked
 )

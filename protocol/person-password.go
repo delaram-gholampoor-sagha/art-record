@@ -10,11 +10,6 @@ type PersonPassword interface {
 	RequestID() [16]byte // user-request domain
 }
 
-
-type PersonPasswordServices_StorageServices interface {
-	
-}
-
 // PersonPasswordStatus indicate PersonPassword record status
 type PersonPasswordStatus uint8
 

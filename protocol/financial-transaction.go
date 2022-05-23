@@ -17,6 +17,7 @@ type FinancialTransaction interface {
 	Amount() protocol.AmountOfMoney  // This transaction
 	Balance() protocol.AmountOfMoney // Account balance with this transaction
 	Type() FinancialTransaction_Type //
+	Time() protocol.Time             // Save time
 	RequestID() [16]byte             // user-request domain
 }
 

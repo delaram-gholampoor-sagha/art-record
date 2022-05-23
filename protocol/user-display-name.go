@@ -9,12 +9,3 @@ type UserDisplayName interface {
 	DisplayName() string //
 	RequestID() [16]byte // user-request domain
 }
-
-
-type UserDisplayName_StorageServices interface {
-	Save(udn UserDisplayName) error
-
-	Count(userID [16]byte) (length uint64, err error)
-	Get(userID [16]byte,  versionOffset uint64) (udn UserDisplayName, err error)
-	Last(userID [16]byte ) (udn UserDisplayName, err error)
-}

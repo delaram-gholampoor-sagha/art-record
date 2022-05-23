@@ -1,6 +1,4 @@
-/* For license and copyright information please see LEGAL file in repository */
-
-package org
+package protocol
 
 import (
 	"../libgo/protocol"
