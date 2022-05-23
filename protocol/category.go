@@ -2,21 +2,26 @@ package protocol
 
 import "time"
 
-type Category struct {
-	ID uint64
-	// ParentID   uint64
-	// QuiddityID [16]byte
-	// PictureID  uint64
-	RelatedID      [16]byte
-	Status         uint8
-	Created_at     time.Time
-	Updated_At     time.Time
+// Category or Topic
+type Category interface {
+	QuiddityID() [16]byte // CategoryID
+	ParentID() [16]byte   // CategoryID, Exist if it isn't top category.
+	Time() time.Time      // Save time
+	RequestID() [16]byte  // user-request domain
 }
 
-type CategoryServices interface {
-	CreateCategory(category Category) (Category, error)
-	UpdateCategory(isParual bool, category Category) (Category, error)
-	DeleteCategory(categoryID uint64) error
-	GetCategory(CategoryID uint64) (Category, error)
-	FindCategoryByTitle(title string) ([]Category, error)
+// TODO::: cache strategy?? 1 day or what?
+type Category_StorageServices interface {
+	Save(c Category) (err error)
+
+	// count 
+	Count(QuiddityID [16]byte) (numbers uint64, err error)
+	
+	// az inja 70 , 30 ta behem bede
+	GetIDs(offset, limit uint64) (quiddityIDs [][16]byte, length uint64, err error)
+
+	FindCategoryByParentID(id [16]byte) (ci [16]byte, err error)
+
+	Delete(quiddityID [16]byte) (err error)
 }
+

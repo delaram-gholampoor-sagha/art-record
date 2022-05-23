@@ -1,71 +1,38 @@
 package protocol
 
+import (
+	"time"
+)
 
-	// ماهیت یعنی ذات و چیستی یک شئ که دارای نام یا عنوان مشخص در زبان های انسانی و جدیدا در زبان های ماشین می باشد.
+/*
+	Storage Data Structure
+*/
+
 type Quiddity interface {
-	ID() [16]byte               
-	OrgID() [16]byte             
-	Status() QuiddityStatus      
-	RequestID() [16]byte        
+	ID() [16]byte            // Unique content ID
+	OrgID() [16]byte         // Owner of the quiddity
+	Status() Quiddity_Status //
+	Time() time.Time         // Set or update time
+	RequestID() [16]byte     // user-request domain
 }
 
+type Quiddity_StorageServices interface {
+	Save(q Quiddity) (err error)
 
-// QuiddityStatus indicate Quiddity record status
-type QuiddityStatus uint8
+	Count(id [16]byte) (numbers uint64, err error)
+	Get(id [16]byte, versionOffset uint64) (q Quiddity, err error)
+	Last(id [16]byte) (q Quiddity, err error)
+
+	ListUserQuiddities(orgID [16]byte, offset, limit uint64) (ids [][16]byte, err error)
+}
+
+// Quiddity_Status indicate Quiddity record status
+type Quiddity_Status uint8
 
 // Quiddity status
 const (
-	QuiddityStatusUnset = iota
-	QuiddityStatusRegister
-	QuiddityStatusUnRegister
-	QuiddityStatusSuggestion
-	QuiddityStatusBlocked
+	Quiddity_Status_Unset = iota
+	Quiddity_Status_Registered
+	Quiddity_Status_UnRegistered
+	Quiddity_Status_Blocked
 )
-
-type QuiddityServices interface {
-
-	// 	{
-	// 		How:  protocol.IndexType_Hash_OneToMany,
-	// 		What: "ObjectID",
-	// 		For:  "ID",
-	// 		Pair: []string{"Language"},
-	// 	}, {
-	// 		How:  protocol.IndexType_Hash_OneToMany,
-	// 		What: "Language",
-	// 		For:  "ID",
-	// 	}, {
-	// 		How:  protocol.IndexType_Hash_OneToMany,
-	// 		What: "ID",
-	// 		For:  "OrgID",
-	// 	}, {
-	// 		How:  protocol.IndexType_Hash_OneToMany,
-	// 		What: "ID",
-	// 		For:  "URI",
-	// 		If:   "URI",
-	// 	}, {
-	// 		How:  protocol.IndexType_Text,
-	// 		What: "ID",
-	// 		For:  "Title",
-	// 		If:   "Title",
-	// 	},
-}
-
-/*
-	Services
-*/
-
-const QuiddityServiceFindByOrgID = "urn:giti:quiddity.sabz.city:service:find-by-org-id"
-
-// Service request and response shape
-type QuiddityServiceFindByOrgIDRequest interface {
-	OrgID() [32]byte
-	Offset() uint64
-	Limit() uint64
-}
-type QuiddityServiceFindByOrgIDResponse interface {
-	IDs() [][32]byte
-}
-
-/*
-	Errors
-*/
