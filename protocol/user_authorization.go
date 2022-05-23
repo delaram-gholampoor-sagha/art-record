@@ -1,6 +1,0 @@
-package protocol
-
-
-
-// Authorization
-// libgo - 
