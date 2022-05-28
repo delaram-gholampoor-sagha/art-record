@@ -1,5 +1,3 @@
-
-
 package protocol
 
 import (
@@ -10,9 +8,9 @@ import (
 // Use version to save multi transactions for the same reference.
 type FinancialTransactionReference interface {
 	ReferenceID() [16]byte         // any domain base on FinancialTransaction_Type
-	SenderAccountID() [16]byte     // financial-account || financial-bank-account domain
+	SenderAccountID() [16]byte     // financial-account domain
 	SenderAccountOffset() uint64   //
-	ReceiverAccountID() [16]byte   // financial-account || financial-bank-account domain. or AccountPartyID
+	ReceiverAccountID() [16]byte   // financial-account domain. or AccountPartyID
 	ReceiverAccountOffset() uint64 //
 	Time() protocol.Time           // Save time
 }

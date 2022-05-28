@@ -1,5 +1,3 @@
-
-
 package protocol
 
 import (
@@ -7,17 +5,17 @@ import (
 )
 
 type UserOtherAppStatus interface {
-	UserOtherAppID() [16]byte          // user-other-app domain
-	Status() UserOtherAppStatus_Status //
-	Time() protocol.Time               // Save time
-	RequestID() [16]byte               // user-request domain
+	UserOtherAppID() [16]byte    // user-other-app domain
+	Status() UserOtherApp_Status //
+	Time() protocol.Time         // Save time
+	RequestID() [16]byte         // user-request domain
 }
 
-type UserOtherAppStatus_Status uint8
+type UserOtherApp_Status uint8
 
 const (
-	UserOtherAppStatus_Status_Unset UserOtherAppStatus_Status = iota
-	UserOtherAppStatus_Status_Registered
-	UserOtherAppStatus_Status_Inactivated
-	UserOtherAppStatus_Status_Blocked
+	UserOtherApp_Status_Unset UserOtherApp_Status = iota
+	UserOtherApp_Status_Registered
+	UserOtherApp_Status_Inactivated
+	UserOtherApp_Status_Blocked
 )

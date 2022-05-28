@@ -1,12 +1,10 @@
-
-
 package protocol
 
 import (
 	"../libgo/protocol"
 )
 
-// UserDelegate indicate the user-delegate domain record data fields.
+// UserDelegate indicate the domain record data fields.
 type UserDelegate interface {
 	UserID() [16]byte            // user-status domain
 	DelegateUserID() [16]byte    // user-status domain
@@ -21,9 +19,9 @@ type UserDelegate_StorageServices interface {
 
 	Count(userID [16]byte, delegateUserID [16]byte) (numbers uint64, err protocol.Error)
 	Get(userID [16]byte, delegateUserID [16]byte, versionOffset uint64) (ud UserDelegate, err protocol.Error)
-	Last(userID [16]byte, delegateUserID [16]byte) (ud UserDelegate, err protocol.Error)
+	Last(userID [16]byte, delegateUserID [16]byte) (ud UserDelegate, numbers uint64, err protocol.Error)
 
-	FindByDelegateUserID(delegateUserID [16]byte, offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindByDelegateUser(delegateUserID [16]byte, offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)
 	FindByRole(roleID [16]byte, offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)
 
 	ListGivenDelegate(userID [16]byte, offset, limit uint64) (delegateUserIDs [][16]byte, numbers uint64, err protocol.Error)
@@ -36,3 +34,5 @@ const (
 	UserDelegate_Status_Deleted
 	UserDelegate_Status_Revoked
 )
+
+// Service: delegate user delegate its role to other. blocked this service by default.

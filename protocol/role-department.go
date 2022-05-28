@@ -1,5 +1,3 @@
-
-
 package protocol
 
 import (
@@ -19,7 +17,7 @@ type RoleDepartment_StorageServices interface {
 
 	Count(roleID [16]byte) (numbers uint64, err protocol.Error)
 	Get(roleID [16]byte, versionOffset uint64) (rd RoleDepartment, err protocol.Error)
-	Last(roleID [16]byte) (rd RoleDepartment, err protocol.Error)
+	Last(roleID [16]byte) (rd RoleDepartment, numbers uint64, err protocol.Error)
 
 	FindByDepartmentID(departmentID [16]byte, offset, limit uint64) (roleIDs [][16]byte, numbers uint64, err protocol.Error)
 }

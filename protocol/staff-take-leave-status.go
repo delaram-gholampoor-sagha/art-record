@@ -18,6 +18,8 @@ type StaffTakeLeave_Status uint8
 const (
 	StaffTakeLeave_Status_Unset StaffTakeLeave_Status = iota
 	StaffTakeLeave_Status_Changed
+	StaffTakeLeave_Status_NeedAlternateAprove
+	StaffTakeLeave_Status_AlternateAprove
 	StaffTakeLeave_Status_NeedManagerAprove
 	StaffTakeLeave_Status_ManagerApprove
 )

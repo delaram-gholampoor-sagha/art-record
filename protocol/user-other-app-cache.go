@@ -1,5 +1,3 @@
-
-
 package protocol
 
 import (
@@ -17,7 +15,7 @@ type UserOtherAppCache interface {
 	Givenname() string           // Lastname
 	Nickname() string            //
 	Username() string            // it is also be user email address
-	Phone() string               //
+	PhoneNumber() string         //
 	TaxID() string               //
 	Picture() [16]byte           // Object UUID
 	Bio() string                 //

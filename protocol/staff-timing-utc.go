@@ -8,8 +8,7 @@ import (
 
 type StaffTimingUTC interface {
 	StaffID() [16]byte        // staff-status domain
-	Week() utc.WeekElapsed    //
-	Weekdays() utc.Weekdays   // what days in weekday in utc time week allow to use this product
+	Day() utc.DayElapsed      //
 	DayHours() earth.DayHours // what hours in a day this role active to provide services
 	Time() protocol.Time      // Save time
 	RequestID() [16]byte      // user-request domain

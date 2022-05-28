@@ -1,5 +1,3 @@
-
-
 package protocol
 
 import (
@@ -20,5 +18,5 @@ type RoleLocation_StorageServices interface {
 
 	Count(roleID [16]byte) (numbers uint64, err protocol.Error)
 	Get(roleID [16]byte, versionOffset uint64) (rl RoleLocation, err protocol.Error)
-	Last(roleID [16]byte) (rl RoleLocation, err protocol.Error)
+	Last(roleID [16]byte) (rl RoleLocation, numbers uint64, err protocol.Error)
 }

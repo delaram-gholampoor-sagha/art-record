@@ -18,7 +18,7 @@ type UserRole_StorageServices interface {
 
 	Count(userID [16]byte) (numbers uint64, err protocol.Error)
 	Get(userID [16]byte, versionOffset uint64) (ur UserRole, err protocol.Error)
-	Last(userID [16]byte) (ur UserRole, err protocol.Error)
+	Last(userID [16]byte) (ur UserRole, numbers uint64, err protocol.Error)
 
 	FindByRoleID(roleID [16]byte, offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)
 }

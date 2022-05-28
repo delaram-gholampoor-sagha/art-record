@@ -1,7 +1,4 @@
-
-
 package protocol
-
 import (
 	"../libgo/protocol"
 )
@@ -27,13 +24,13 @@ const (
 )
 
 type UserName_StorageServices interface {
-	Save(u UserName) protocol.Error
+	Save(u Username) protocol.Error
 
 	Count(userID [16]byte) (numbers uint64, err protocol.Error)
-	Get(userID [16]byte, versionOffset uint64) (u UserName, err protocol.Error)
-	Last(userID [16]byte) (u UserName, err protocol.Error)
+	Get(userID [16]byte, versionOffset uint64) (u Username, err protocol.Error)
+	Last(userID [16]byte) (u Username, numbers uint64, err protocol.Error)
 
-	Find(username string) (userID [16]byte, err protocol.Error)
+	FindByUsername(username string) (userID [16]byte, err protocol.Error)
 }
 
 /*
@@ -50,14 +47,14 @@ type UserName_Service_Get_Request interface {
 	VersionOffset() uint64
 }
 type UserName_Service_Get_Response interface {
-	UserName
+	Username
 }
 
 type UserName_Service_GetLast_Request interface {
 	UserID() [16]byte
 }
 type UserName_Service_GetLast_Response interface {
-	UserName
+	Username
 }
 
 type UserName_Service_GetStatus_Request interface {
