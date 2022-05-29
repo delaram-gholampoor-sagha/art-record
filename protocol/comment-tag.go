@@ -7,15 +7,18 @@ import (
 
 )
 
-// CommentTag or hashtag indicate the comment-tag domain record data fields.
+// CommentTag indicate the domain record data fields.
+// It must just use to index hashtag words from comment-text domain
 type CommentTag interface {
 	Tag() string         //
 	CommentID() [16]byte // comment domain
-	Time() time.Time     // Save time
+	Time() protocol.Time // Save time
 }
 
-// do we even need this domain in our software ? as we don't tag in our software
-
 type CommentTag_StorageServices interface {
+	Save(ct CommentTag) protocol.Error
 
+	Count(tag string) (numbers uint64, err protocol.Error)
+	Get(tag string, versionOffset uint64) (ct CommentTag, err protocol.Error)
+	Last(tag string) (ct CommentTag, numbers uint64, err protocol.Error)
 }

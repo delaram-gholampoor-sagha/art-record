@@ -5,7 +5,7 @@ import (
 )
 
 // GroupJoinByInvite indicate the domain record data fields.
-type GroupJoinByInvite interface {
+type InviteStatus interface {
 	GroupID() [16]byte                // group-status domain
 	UserID() [16]byte                 // user-status domain
 	Status() GroupJoinByInvite_Status //

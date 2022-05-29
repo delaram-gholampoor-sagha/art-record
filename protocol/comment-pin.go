@@ -1,35 +1,18 @@
-
-
 package protocol
 
-import "time"
-
-// CommentPin indicate the comment-pin domain record data fields.
+// CommentPin indicate the domain record data fields.
 type CommentPin interface {
-	GroupID() [16]byte   // comment-group domain.
 	CommentID() [16]byte // comment domain
-	Status() CommnetPin_Status
-	Time() time.Time     // Save time
+	GroupID() [16]byte   // group domain
+	PinedID() [16]byte   // comment domain
+	Time() protocol.Time // Save time
 	RequestID() [16]byte // user-request domain
 }
 
+type CommentPin_StorageServices interface {
+	Save(cp CommentPin) protocol.Error
 
-type CommentPin_StorageService interface {
-	Save(cp CommentPin) error
+	Get(commentID [16]byte) (cp CommentPin, err protocol.Error)
 
-	Count(commentID [16]byte) (length uint64, err error)
-	Get(GrouopID [16]byte, versionOffset uint64) (groupids [16]byte, err error)
-	Last(commentID [16]byte) (cp CommentPin, length uint64, err error)
-
-   
-
-	FindByGroupID(groupIDs  [][16]byte) (id [16]byte , err error)
+	FindByGroupID(groupID [16]byte, offset, limit uint64) (commentIDs [][16]byte, numbers uint64, err protocol.Error)
 }
-
-type CommnetPin_Status uint8
-
-const (
-    CommnetPin_Status_Unset = iota
-	CommnetPin_Status_Unpin
-	CommnetPin_Status_Pin
-)

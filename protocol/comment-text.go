@@ -21,6 +21,4 @@ type CommentText_StorageServices interface {
 	Count(commentID [16]byte) (length uint64, err error)
 	Get(commentID [16]byte, versionOffset uint64) (c CommentText, err error)
 	Last(commentID [16]byte) (c CommentText, length uint64, err error)
-
-	
 }
