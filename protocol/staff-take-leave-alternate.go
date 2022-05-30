@@ -5,6 +5,8 @@ import (
 	"../libgo/time/utc"
 )
 
+// the person that is your alternate 
+
 // StaffTakeLeaveAlternate or staff replace
 type StaffTakeLeaveAlternate interface {
 	StaffID() [16]byte     // staff-status domain

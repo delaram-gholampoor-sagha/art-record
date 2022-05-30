@@ -5,6 +5,7 @@ import (
 	"../libgo/time/utc"
 )
 
+// in every dat we could have a different status
 type StaffMissionStatus interface {
 	StaffID() [16]byte           // staff-status domain
 	Day() utc.DayElapsed         //
