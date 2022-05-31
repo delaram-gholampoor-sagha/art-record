@@ -1,6 +1,5 @@
-
-
 package protocol
+
 import (
 	"../libgo/protocol"
 )
@@ -20,5 +19,5 @@ type InvoiceItemProvider_StorageServices interface {
 	Get(invoiceID [16]byte, versionOffset uint64) (iip InvoiceItemProvider, err protocol.Error)
 
 	// FindByProductID(productID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
-	// FindByUserID(userID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
+	// FindByStaffID(staffID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
 }

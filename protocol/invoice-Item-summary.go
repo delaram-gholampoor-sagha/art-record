@@ -1,6 +1,5 @@
+package protocol 
 
-
-package protocol
 
 import (
 	"../libgo/protocol"
