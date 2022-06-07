@@ -1,10 +1,5 @@
-
-
 package protocol
 
-import (
-	"../libgo/protocol"
-)
 
 // GroupName indicate the domain record data fields.
 // It is not the group title as display name, It is the unique group name.
@@ -21,7 +16,7 @@ type GroupName_StorageServices interface {
 
 	Count(groupID [16]byte) (numbers uint64, err protocol.Error)
 	Get(groupID [16]byte, versionOffset uint64) (gn GroupName, err protocol.Error)
-	Last(groupID [16]byte) (gn GroupName, err protocol.Error)
+	Last(groupID [16]byte) (gn GroupName, numbers uint64, err protocol.Error)
 
 	FindByGroupName(groupname string) (groupID [16]byte, err protocol.Error)
 }

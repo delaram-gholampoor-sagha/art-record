@@ -1,10 +1,7 @@
 
-
 package protocol
 
-import (
-	"time"
-)
+
 
 // CommentObject indicate the comment-object domain record data fields.
 // Object can be any such as image, video, voice, ...

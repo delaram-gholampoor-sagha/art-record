@@ -1,9 +1,5 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 // GroupRole indicate the domain record data fields.
 type GroupSettings interface {
 	GroupID() [16]byte                     // group-status domain

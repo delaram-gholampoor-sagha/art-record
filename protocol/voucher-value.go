@@ -12,3 +12,5 @@ type VoucherValue interface {
 	Time() protocol.Time           // Save time
 	RequestID() [16]byte           // user-request domain
 }
+
+

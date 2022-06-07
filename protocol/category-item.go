@@ -1,10 +1,5 @@
-
-
 package protocol
 
-import (
-	"../libgo/protocol"
-)
 
 type CategoryItem interface {
 	ItemID() [16]byte     // any domain usually product, content, ... domain

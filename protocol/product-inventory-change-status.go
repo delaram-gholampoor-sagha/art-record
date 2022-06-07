@@ -1,9 +1,5 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 type ProductInventoryChangeStatus interface {
 	ProductInventoryChangeID() [16]byte           // product-inventory-change domain
 	Status() ProductInventoryChange_Status // overall

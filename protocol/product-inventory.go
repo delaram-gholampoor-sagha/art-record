@@ -1,13 +1,9 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 // ProductInventory or good stock
 type ProductInventory interface {
-	ProductID() [16]byte                // product-status domain
-	LocationID() [16]byte               // location domain
+	ProductID() [16]byte                // product domain
+	BuildingLocationID() [16]byte       // building-location domain
 	ReferenceID() [16]byte              // Depend on ReferenceType()
 	ReferenceType() ProductInventory_RT //
 	Amount() int64                      // this transaction

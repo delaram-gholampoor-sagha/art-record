@@ -1,10 +1,5 @@
-
-
 package protocol
 
-import (
-	"../libgo/protocol"
-)
 
 // GroupAssociatedStatus indicate the domain record data fields
 type GroupAssociatedStatus interface {

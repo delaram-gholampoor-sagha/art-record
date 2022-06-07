@@ -1,13 +1,9 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 // ProductAttribute store some key/value for a product to describe it e.g. mobile-cpu, ...
 // TODO::: is it good idea to add detail manually by users?? or quiddity-model is better??
 type ProductAttribute interface {
-	ProductID() [16]byte         // product-status domain
+	ProductID() [16]byte         // product domain
 	Type() ProductAttribute_Type //
 	Value() string               //
 	Time() protocol.Time         // Save time

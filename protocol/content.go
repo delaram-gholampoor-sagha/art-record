@@ -1,29 +1,26 @@
-
 package protocol
 
-import (
-	"time"	
-)
 
+// 3 type of content exist: 1:about persons, 2:about events, 3:about sciences
 type Content interface {
-	QuiddityID() [16]byte       // quiddity domain. As content UUID
-	UserID() [16]byte           // user-status domain
-	Content_Type() Content_Type //
-	Time() time.Time            // Save time
-	RequestID() [16]byte        // user-request domain
+	ContentID() [16]byte // quiddity domain
+	UserID() [16]byte    // user-status domain
+	Type() Content_Type  //
+	Time() protocol.Time // Save time
+	RequestID() [16]byte // user-request domain
 }
 
 type Content_StorageServices interface {
-	Save(c Content) error
+	Save(c Content) protocol.Error
 
-	Count(quiddityID [16]byte) (length uint64, err error)
-	Get(quiddityID [16]byte, versionOffset uint64) (c Content, err error)
-	Last(quiddityID [16]byte) (c Content, length uint64, err error)
+	Count(contentID [16]byte) (numbers uint64, err protocol.Error)
+	Get(contentID [16]byte, versionOffset uint64) (c Content, err protocol.Error)
+	Last(contentID [16]byte) (c Content, numbers uint64, err protocol.Error)
 
-	GetIDs(offset, limit uint64) (quiddityIDs [][16]byte, length uint64, err error)
-	// GetIDsByDateTime(time protocol.Time, offset, limit uint64) (quiddityIDs [][16]byte, numbers uint64, err error)
+	GetIDs(offset, limit uint64) (contentIDs [][16]byte, numbers uint64, err protocol.Error)
+	// GetIDsByDateTime(time protocol.Time, offset, limit uint64) (contentIDs [][16]byte, numbers uint64, err protocol.Error)
 
-	FindByUserID(userID [16]byte, offset, limit uint64) (quiddityIDs [][16]byte, length uint64, err error)
+	FindByUserID(userID [16]byte, offset, limit uint64) (contentIDs [][16]byte, numbers uint64, err protocol.Error)
 }
 
 type Content_Type uint16
@@ -31,6 +28,7 @@ type Content_Type uint16
 const (
 	Content_Type_Unset Content_Type = iota
 
+	// Article use for many thing like NEWS, blog, education systems, features, ...
 	Content_Type_Article
 	Content_Type_BlogPost
 
@@ -40,9 +38,12 @@ const (
 
 	Content_Type_Album
 	Content_Type_Music
+	Content_Type_Concert
 	Content_Type_MusicVideo
 
 	Content_Type_Movie
 	Content_Type_Serial
 	Content_Type_SerialEpisode
+
+	Content_Type_Game
 )

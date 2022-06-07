@@ -1,12 +1,8 @@
-package protocol 
-
-import (
-	"../libgo/protocol"
-)
+package protocol
 
 // FinancialTransactionOrder to 
 type FinancialTransactionOrder struct {
-	ID() [16]byte                      // FinancialExchangeOrderID
+	ID() [16]byte                      // FinancialTransactionOrderID
 	UserID() [16]byte                  // user-status domain
 	ReferenceID  [16]byte // Other Platform transaction ID e.g. bank
 	PlatformID   [4]byte  // Detect to||from Currency

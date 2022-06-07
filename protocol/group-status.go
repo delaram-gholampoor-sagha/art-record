@@ -1,10 +1,4 @@
-
-
 package protocol
-
-import (
-	"../libgo/protocol"
-)
 
 // GroupStatus indicate the domain record data fields.
 type GroupStatus interface {
@@ -19,7 +13,7 @@ type GroupStatus_StorageServices interface {
 
 	Count(groupID [16]byte) (numbers uint64, err protocol.Error)
 	Get(groupID [16]byte, versionOffset uint64) (ur GroupStatus, err protocol.Error)
-	Last(groupID [16]byte) (ur GroupStatus, err protocol.Error)
+	Last(groupID [16]byte) (ur GroupStatus, numbers uint64, err protocol.Error)
 }
 
 type Group_Status uint
@@ -30,3 +24,5 @@ const (
 	Group_Status_Removed
 	Group_Status_Blocked
 )
+
+

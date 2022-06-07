@@ -1,8 +1,5 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
 
 type Contract interface {
 	ContractID() [16]byte    // contract domain

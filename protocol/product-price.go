@@ -1,14 +1,10 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 // ProductPrice can be register just by producer organization whom own the related quiddity
 type ProductPrice interface {
-	ProductID() [16]byte           // product-status domain
-	Currency() uint64              //
-	Price() protocol.AmountOfMoney // Basic Price not payable price in the society currency
+	ProductID() [16]byte           // product domain
+	Currency() [16]byte            // financial-currency
+	Price() protocol.AmountOfMoney // Basic Price not payable price in the currency
 	Time() protocol.Time           // Save time
 	RequestID() [16]byte           // user-request domain
 }

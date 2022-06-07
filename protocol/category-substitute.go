@@ -2,9 +2,6 @@
 
 package protocol
 
-import (
-	"../libgo/protocol"
-)
 
 type CategorySubstitute interface {
 	CategoryID() [16]byte   // category domain

@@ -1,16 +1,12 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 // InvoiceItem indicate the domain record data fields.
 // each InvoiceItem is immutable record and so use version mechanism to chain InvoiceItem in InvoiceID group.
 // Ship service can add as an item to invoice
 // Each item must check for reserve validity and make action in end of validity
 type InvoiceItem interface {
 	InvoiceID() [16]byte // invoice-status domain
-	ProductID() [16]byte // product-status domain
+	ProductID() [16]byte // product domain
 	Quantity() uint64    // decimal >> 1.5 >> 1.2 >> 10 >> 0
 	Time() protocol.Time // Save time
 	RequestID() [16]byte // user-request domain

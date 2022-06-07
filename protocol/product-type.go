@@ -1,9 +1,5 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 type ProductType interface {
 	ProductID() [16]byte // product-status domain
 	Kind() Product_Kind  //

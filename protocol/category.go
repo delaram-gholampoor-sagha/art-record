@@ -2,9 +2,6 @@
 
 package protocol
 
-import (
-	"../libgo/protocol"
-)
 
 // Category or Topic
 type Category interface {

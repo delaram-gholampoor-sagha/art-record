@@ -1,9 +1,5 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 // InvoiceSides indicate the domain record data fields.
 type InvoiceSides interface {
 	InvoiceID() [16]byte  // invoice-status domain

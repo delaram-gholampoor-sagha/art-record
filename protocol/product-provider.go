@@ -1,9 +1,4 @@
 package protocol
-
-import (
-	"../libgo/protocol"
-)
-
 // ProductProvider or product operator is to supply a particular service.
 type ProductProvider interface {
 	ProductID() [16]byte // product-status domain

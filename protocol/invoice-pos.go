@@ -1,10 +1,4 @@
 package protocol
-
-
-import (
-	"../libgo/protocol"
-)
-
 // InvoicePOS indicate the domain record data fields.
 type InvoicePOS interface {
 	InvoiceID() [16]byte // invoice-status domain
@@ -14,7 +8,7 @@ type InvoicePOS interface {
 	RequestID() [16]byte // user-request domain
 }
 
-type InvoiceSides_StorageServices interface {
+type InvoicePOS_StorageServices interface {
 	Save(ip InvoicePOS) protocol.Error
 
 	Get(invoiceID [16]byte) (ip InvoicePOS, err protocol.Error)

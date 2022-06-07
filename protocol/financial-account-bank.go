@@ -1,10 +1,5 @@
 package protocol
 
-import (
-	"../libgo/iso"
-	"../libgo/protocol"
-)
-
 type FinancialBankAccount interface {
 	AccountID() [16]byte  // financial-account-status domain
 	IBAN() iso.IBAN       // International Bank Account Number

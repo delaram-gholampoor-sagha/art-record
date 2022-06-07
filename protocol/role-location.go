@@ -1,16 +1,13 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
 
 // RoleLocation indicate the domain record data fields.
 // Let staffs register enter and exit time by their mobiles in specific location.
 type RoleLocation interface {
-	RoleID() [16]byte     // role domain
-	LocationID() [16]byte // location domain
-	Time() protocol.Time  // Save time
-	RequestID() [16]byte  // user-request domain
+	RoleID() [16]byte             // role domain
+	BuildingLocationID() [16]byte // building-location domain
+	Time() protocol.Time          // Save time
+	RequestID() [16]byte          // user-request domain
 }
 
 type RoleLocation_StorageServices interface {

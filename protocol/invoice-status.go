@@ -1,9 +1,5 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 // InvoiceStatus indicate the domain record data fields.
 // Also usually known as shopping-cart, ... in GUI part of applications
 type InvoiceStatus interface {

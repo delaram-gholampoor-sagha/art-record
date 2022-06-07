@@ -1,10 +1,4 @@
-
 package protocol
-
-import (
-	"../libgo/protocol"
-)
-
 
 // Department indicate the domain record data fields.
 // It can use to show organizational chart. Also staffs can join to the related group.

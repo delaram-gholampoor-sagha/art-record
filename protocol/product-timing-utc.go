@@ -1,11 +1,4 @@
 package protocol
-
-import (
-	"../libgo/protocol"
-	"../libgo/time/earth"
-	"../libgo/time/utc"
-)
-
 type ProductTimingUTC interface {
 	ProductID() [16]byte         // product-status domain
 	Weekdays() utc.Weekdays      // what days in weekday in utc time week allow to use this product

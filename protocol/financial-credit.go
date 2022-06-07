@@ -1,8 +1,5 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
 
 type FinancialCredit interface {
 	UserID() [16]byte                // user-status domain
