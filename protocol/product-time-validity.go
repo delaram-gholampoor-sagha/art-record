@@ -1,13 +1,7 @@
-
-
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 type ProductTimeValidity interface {
-	ProductID() [16]byte  // product-status domain
+	ProductID() [16]byte  // product domain
 	Start() protocol.Time //
 	End() protocol.Time   //
 	Time() protocol.Time  // Save time

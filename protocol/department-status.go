@@ -1,8 +1,5 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
 
 type DepartmentStatus interface {
 	DepartmentID() [16]byte    // department domain

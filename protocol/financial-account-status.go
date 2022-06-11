@@ -1,11 +1,8 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
 
 type FinancialAccountStatus interface {
-	AccountID() [16]byte             //
+	AccountID() [16]byte             // financial-account domain
 	Status() FinancialAccount_Status //
 	Time() protocol.Time             // Save time
 	RequestID() [16]byte             // user-request domain

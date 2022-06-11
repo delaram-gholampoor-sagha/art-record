@@ -1,9 +1,5 @@
 package protocol
 
-import (
-	"../libgo/math"
-	"../libgo/protocol"
-)
 
 // due to organization payment capacity set values to show how many percent add or remove due to organization profit status
 type DepartmentSalaryCoefficients interface {

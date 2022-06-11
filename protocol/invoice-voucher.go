@@ -1,7 +1,4 @@
-
-
 package protocol
-
 import (
 	"../libgo/protocol"
 )

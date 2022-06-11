@@ -1,9 +1,5 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 // GroupJoinByInvite indicate the domain record data fields.
 type InviteStatus interface {
 	GroupID() [16]byte                // group-status domain

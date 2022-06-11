@@ -2,9 +2,6 @@
 
 package protocol
 
-import (
-	"../libgo/protocol"
-)
 
 type CategoryStatus interface {
 	CategoryID() [16]byte    // category domain

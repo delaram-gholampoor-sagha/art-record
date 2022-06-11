@@ -1,11 +1,5 @@
-
 package protocol
 
-import (
-	"../libgo/protocol"
-	"../libgo/time/earth"
-	"../libgo/time/utc"
-)
 
 type DepartmentTimingUTC interface {
 	DepartmentID() [16]byte   // department domain

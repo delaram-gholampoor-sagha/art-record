@@ -1,8 +1,5 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
 
 // FinancialTransactionReference store the secondary index that complicated than regular indexes.
 // Use version to save multi transactions for the same reference.

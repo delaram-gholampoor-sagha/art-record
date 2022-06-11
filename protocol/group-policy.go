@@ -1,9 +1,5 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 // GroupPolicy indicate the domain record data fields.
 type GroupPolicy interface {
 	GroupID() [16]byte                 // group-status domain

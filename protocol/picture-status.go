@@ -1,23 +1,19 @@
-
-
 package protocol
-import (
-	"../libgo/protocol"
-)
+
 
 type PictureStatus interface {
-	ObjectID() [16]byte           //
-	Status() PictureStatus_Status //
-	Time() protocol.Time          // Save time
-	RequestID() [16]byte          // user-request domain
+	ObjectID() [16]byte     //
+	Status() Picture_Status //
+	Time() protocol.Time    // Save time
+	RequestID() [16]byte    // user-request domain
 }
 
-type PictureStatus_Status uint8
+type Picture_Status uint8
 
 const (
-	PictureStatus_Status_Unset PictureStatus_Status = iota
-	PictureStatus_Status_Registered
-	PictureStatus_Status_Hidden
-	PictureStatus_Status_Deleted
-	PictureStatus_Status_Blocked
+	Picture_Status_Unset Picture_Status = iota
+	Picture_Status_Registered
+	Picture_Status_Hidden
+	Picture_Status_Deleted
+	Picture_Status_Blocked
 )

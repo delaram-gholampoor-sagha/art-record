@@ -1,10 +1,5 @@
-
-
 package protocol
 
-import (
-	"../libgo/protocol"
-)
 
 // GroupAssociatedRole indicate the domain record data fields.
 type GroupAssociatedRole interface {

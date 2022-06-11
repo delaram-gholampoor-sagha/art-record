@@ -1,10 +1,5 @@
-
-
 package protocol
 
-import (
-	"../libgo/protocol"
-)
 
 type Picture interface {
 	RelatedID() [16]byte     // any domain e.g. user, quiddity, ...

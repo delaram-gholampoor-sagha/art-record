@@ -1,8 +1,5 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
 
 // https://en.wikipedia.org/wiki/Credit_card_debt
 type FinancialCreditDebt interface {

@@ -1,10 +1,5 @@
 package protocol
 
-import (
-	"time"
-
-	"../libgo/protocol"
-)
 
 type PersonNumber interface {
 	PersonID() [16]byte // user-status domain

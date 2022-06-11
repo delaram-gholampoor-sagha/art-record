@@ -1,7 +1,5 @@
 package protocol
-import (
-	"../libgo/protocol"
-)
+
 
 type UserName interface {
 	UserID() [16]byte        // user-status domain
@@ -9,6 +7,16 @@ type UserName interface {
 	Status() UserName_Status //
 	Time() protocol.Time     // Save time
 	RequestID() [16]byte     // user-request domain
+}
+
+type UserName_StorageServices interface {
+	Save(un UserName) protocol.Error
+
+	Count(userID [16]byte) (numbers uint64, err protocol.Error)
+	Get(userID [16]byte, versionOffset uint64) (un UserName, err protocol.Error)
+	Last(userID [16]byte) (un UserName, numbers uint64, err protocol.Error)
+
+	FindByUsername(username string) (userID [16]byte, err protocol.Error)
 }
 
 // UserName_Status indicate UserName record status
@@ -22,16 +30,6 @@ const (
 	UserName_Status_Blocked                                //= (1 << 2)
 	UserName_Status_Reserved                               //= (1 << 3)
 )
-
-type UserName_StorageServices interface {
-	Save(u Username) protocol.Error
-
-	Count(userID [16]byte) (numbers uint64, err protocol.Error)
-	Get(userID [16]byte, versionOffset uint64) (u Username, err protocol.Error)
-	Last(userID [16]byte) (u Username, numbers uint64, err protocol.Error)
-
-	FindByUsername(username string) (userID [16]byte, err protocol.Error)
-}
 
 /*
 	Business Services
@@ -47,14 +45,14 @@ type UserName_Service_Get_Request interface {
 	VersionOffset() uint64
 }
 type UserName_Service_Get_Response interface {
-	Username
+	UserName
 }
 
 type UserName_Service_GetLast_Request interface {
 	UserID() [16]byte
 }
 type UserName_Service_GetLast_Response interface {
-	Username
+	UserName
 }
 
 type UserName_Service_GetStatus_Request interface {

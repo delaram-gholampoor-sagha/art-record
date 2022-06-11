@@ -1,9 +1,5 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 // Individual and General score
 type FinancialScore interface {
 	UserID() [16]byte    // user-status domain
