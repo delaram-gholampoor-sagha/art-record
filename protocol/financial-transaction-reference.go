@@ -1,6 +1,6 @@
 package protocol
 
-
+// FinancialTransactionReference indicate the domain record data fields.
 // FinancialTransactionReference store the secondary index that complicated than regular indexes.
 // Use version to save multi transactions for the same reference.
 type FinancialTransactionReference interface {
@@ -9,7 +9,7 @@ type FinancialTransactionReference interface {
 	SenderAccountOffset() uint64   //
 	ReceiverAccountID() [16]byte   // financial-account domain. or AccountPartyID
 	ReceiverAccountOffset() uint64 //
-	Time() protocol.Time           // Save time
+	Time() protocol.Time           // save time
 }
 
 type FinancialTransactionReference_StorageServices interface {

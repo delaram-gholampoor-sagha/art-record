@@ -1,18 +1,20 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-	"../libgo/time/earth"
-	"../libgo/time/utc"
-)
-
 type StaffTakeLeave interface {
-	StaffID() [16]byte         // staff-status domain
-	Type() StaffTakeLeave_Type //
+	StaffID() [16]byte         // staff domain
 	Day() utc.DayElapsed       //
 	DayHours() earth.DayHours  //
-	Time() protocol.Time       // Save time
+	Type() StaffTakeLeave_Type //
+	Time() protocol.Time       // save time
 	RequestID() [16]byte       // user-request domain
+}
+
+type StaffTakeLeave_StorageServices interface {
+	Save(st StaffTakeLeave) protocol.Error
+
+	Count(staffID [16]byte) (numbers uint64, err protocol.Error)
+	Get(staffID [16]byte, versionOffset uint64) (st StaffTakeLeave, err protocol.Error)
+	Last(staffID [16]byte) (st StaffTakeLeave, numbers uint64, err protocol.Error)
 }
 
 type StaffTakeLeave_Type uint8
@@ -25,10 +27,11 @@ const (
 	StaffTakeLeave_Type_Travel
 	StaffTakeLeave_Type_Rest
 	StaffTakeLeave_Type_Study
-	StaffTakeLeave_Type_Marriage 
+	StaffTakeLeave_Type_Marriage
 	StaffTakeLeave_Type_Casual
 
 	StaffTakeLeave_Type_Sick // time off given by the company to allow employees to recover from an illness and take care of their health
+	StaffTakeLeave_Type_Pain // Women period, ...
 	StaffTakeLeave_Type_TemporaryDisability
 
 	// Certain weather conditions make it extremely difficult, dangerous, and sometimes impossible for employees to travel to work.
@@ -62,5 +65,5 @@ const (
 	StaffTakeLeave_Type_ReligiousHolidays
 	StaffTakeLeave_Type_JuryDuty
 	StaffTakeLeave_Type_Protest
-	StaffTakeLeave_Type_Volunteer 
+	StaffTakeLeave_Type_Volunteer
 )

@@ -1,18 +1,11 @@
-
-
 package protocol
-
-import (
-	"time"
-
-)
 
 // CommentTag indicate the domain record data fields.
 // It must just use to index hashtag words from comment-text domain
 type CommentTag interface {
 	Tag() string         //
 	CommentID() [16]byte // comment domain
-	Time() protocol.Time // Save time
+	Time() protocol.Time // save time
 }
 
 type CommentTag_StorageServices interface {

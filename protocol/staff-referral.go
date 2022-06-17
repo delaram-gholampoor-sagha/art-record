@@ -1,10 +1,8 @@
 package protocol
 
-import "../libgo/protocol"
-
 type StaffReferral interface {
-	StaffID() [16]byte    // staff-status domain
-	ReferralID() [16]byte // user-status domain
-	Time() protocol.Time  // Save time
+	StaffID() [16]byte    // staff domain
+	ReferralID() [16]byte // user domain
+	Time() protocol.Time  // save time
 	RequestID() [16]byte  // user-request domain
 }

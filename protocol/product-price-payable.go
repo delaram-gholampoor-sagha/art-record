@@ -1,13 +1,13 @@
 package protocol
 
-
+// ProductPricePayable indicate the domain record data fields.
 // ProductPricePayable store historically price with discount to show to users in price change chart.
 type ProductPricePayable interface {
 	ProductID() [16]byte // product domain
 	// OrgID() [16]byte               //
 	Currency() uint64              //
 	Price() protocol.AmountOfMoney // Basic Price not payable price in the society currency
-	Time() protocol.Time           // Save time
+	Time() protocol.Time           // save time
 	RequestID() [16]byte           // user-request domain
 }
 

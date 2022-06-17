@@ -1,12 +1,10 @@
 package protocol
-
-
 type FinancialAccountCard interface {
 	AccountID() [16]byte       // financial-account domain
 	CardNumber() iso.Card      //
 	ExpireDate() protocol.Time //
 	CVC() uint16               //
-	Time() protocol.Time       // Save time
+	Time() protocol.Time       // save time
 	RequestID() [16]byte       // user-request domain
 }
 

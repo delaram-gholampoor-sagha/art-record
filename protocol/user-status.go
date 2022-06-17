@@ -1,13 +1,9 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 type UserStatus interface {
 	UserID() [16]byte    // Generated unique ID for the user
 	Status() User_Status //
-	Time() protocol.Time // Save time
+	Time() protocol.Time // save time
 	RequestID() [16]byte // user-request domain
 }
 
@@ -19,16 +15,12 @@ type UserStatus_StorageServices interface {
 	Last(userID [16]byte) (us UserStatus, numbers uint64, err protocol.Error)
 
 	GetIDs(offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)
-	// GetIDsByDateTime(time protocol.Time, offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)
+	// FindByTime(day utc.DayElapsed, offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)
+	// protocol.EventTarget
 }
 
-// User_Status indicate UserStatus record status
-type User_Status uint8
+type User_Status Quiddity_Status
 
-// User status
 const (
-	User_Status_Unset User_Status = iota
-	User_Status_Active
-	User_Status_Inactive
-	User_Status_Blocked
+// User_Status_ = User_Status(Quiddity_Status_FreeFlag << iota)
 )

@@ -4,8 +4,8 @@ package protocol
 type ContentParticipant interface {
 	ContentID() [16]byte           // content domain
 	Type() ContentParticipant_Type //
-	UserID() [16]byte              // user-status domain
-	Time() protocol.Time           // Save time
+	UserID() [16]byte              // user domain
+	Time() protocol.Time           // save time
 	RequestID() [16]byte           // user-request domain
 }
 
@@ -21,14 +21,21 @@ type ContentParticipant_StorageServices interface {
 }
 
 // ContentParticipant_Type indicate participant type or role
-type ContentParticipant_Type uint16
+type ContentParticipant_Type uint32
 
 // ContentParticipant types
 const (
 	ContentParticipant_Type_Unset ContentParticipant_Type = iota
+
+	// Content_Type_Music
 	ContentParticipant_Type_SongWriter
 	ContentParticipant_Type_Composer
 	ContentParticipant_Type_Regulator
-	ContentParticipant_Type_Director
 	ContentParticipant_Type_MusicSupplier
+
+	// Content_Type_Movie
+	ContentParticipant_Type_Director
+
+	// Content_Type_Game
+	ContentParticipant_Type_SportTeam
 )

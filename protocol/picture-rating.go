@@ -1,13 +1,9 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 type PictureRating interface {
 	ObjectID() [16]byte         //
 	Rating() PictureRating_Rate //
-	Time() protocol.Time        // Save time
+	Time() protocol.Time        // save time
 	RequestID() [16]byte        // user-request domain
 }
 

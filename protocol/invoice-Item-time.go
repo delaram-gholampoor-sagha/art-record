@@ -1,10 +1,11 @@
 package protocol
 
+// InvoiceItemTime indicate the domain record data fields.
 type InvoiceItemTime interface {
-	InvoiceID() [16]byte        // invoice-status domain
+	InvoiceID() [16]byte        // invoice domain
 	ProductID() [16]byte        // product domain
 	Type() InvoiceItemTime_Type //
-	Time() protocol.Time        // Save time
+	Time() protocol.Time        // save time
 	RequestID() [16]byte        // user-request domain
 }
 
@@ -13,8 +14,6 @@ type InvoiceItemTime_StorageServices interface {
 
 	Count(invoiceID [16]byte) (numbers uint64, err protocol.Error)
 	Get(invoiceID [16]byte, versionOffset uint64) (iit InvoiceItemTime, err protocol.Error)
-
-	// FindByProductID(productID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
 }
 
 type InvoiceItemTime_Type uint8
@@ -28,4 +27,3 @@ const (
 	InvoiceItemTime_Type_Start
 	InvoiceItemTime_Type_End
 )
-

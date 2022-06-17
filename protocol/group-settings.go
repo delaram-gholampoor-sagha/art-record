@@ -2,15 +2,15 @@ package protocol
 
 // GroupRole indicate the domain record data fields.
 type GroupSettings interface {
-	GroupID() [16]byte                     // group-status domain
+	GroupID() [16]byte                     // group domain
 	ArchiveThreadAfter() protocol.Duration //
 	BlockedWords() []string                //
 	Join() GroupSettings                   //
-	Time() protocol.Time                   // Save time
+	Time() protocol.Time                   // save time
 	RequestID() [16]byte                   // user-request domain
 }
 
-type Group_StorageServices interface {
+type GroupSettings_StorageServices interface {
 	Save(gs GroupSettings) protocol.Error
 
 	Count(groupID [16]byte) (numbers uint64, err protocol.Error)

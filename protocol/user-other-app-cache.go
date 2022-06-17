@@ -1,13 +1,9 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 // UserOtherAppCache cache all foreign fundamental user data
 type UserOtherAppCache interface {
 	UserOtherAppID() [16]byte    // user-other-app domain
-	UserID() [16]byte            // user-status domain
+	UserID() [16]byte            // user domain
 	Gender() string              // In ISO format
 	PassportID() string          // If exist mean user have that country Nationality
 	Surename() string            // Firstname
@@ -24,5 +20,5 @@ type UserOtherAppCache interface {
 	DateOfBirth() protocol.Time  //
 	PlaceOfBirth() string        //
 	VerifiedDate() protocol.Time // If !=0 user got famous blue badge(tick) like instagram, twitter,...
-	Time() protocol.Time         // Save time
+	Time() protocol.Time         // save time
 }

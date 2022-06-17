@@ -8,8 +8,8 @@ import (
 type VoucherProduct interface {
 	VoucherID() [16]byte // voucher domain
 	Each() uint8         // Each time use
-	ProductID() [16]byte // product-status domain
-	Time() protocol.Time // Save time
+	ProductID() [16]byte // product domain
+	Time() protocol.Time // save time
 	RequestID() [16]byte // user-request domain
 }
 

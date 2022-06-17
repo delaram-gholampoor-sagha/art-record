@@ -1,16 +1,12 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 // RoleStaff indicate the domain record data fields.
 type RoleStaff interface {
 	RoleID() [16]byte    // role domain
 	Minimum() int        // Minimum number of employees for this job position
 	Expected() int       // Expected number of employees for this job position
 	Maximum() int        // Maximum number of employees for this job position
-	Time() protocol.Time // Save time
+	Time() protocol.Time // save time
 	RequestID() [16]byte // user-request domain
 }
 

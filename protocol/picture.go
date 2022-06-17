@@ -1,12 +1,10 @@
 package protocol
 
-
 type Picture interface {
-	RelatedID() [16]byte     // any domain e.g. user, quiddity, ...
-	RelatedDomainID() uint64 //
-	ObjectID() [16]byte      //
-	Time() protocol.Time     // Save time
-	RequestID() [16]byte     // user-request domain
+	RelatedID() [16]byte // any domain e.g. user, quiddity, ...
+	ObjectID() [16]byte  //
+	Time() protocol.Time // save time
+	RequestID() [16]byte // user-request domain
 }
 
 type Picture_StorageServices interface {

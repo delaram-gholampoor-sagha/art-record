@@ -1,4 +1,7 @@
 package protocol
+
+
+// ProductCost indicate the domain record data fields.
 type ProductCost interface {
 	ProductID() [16]byte // product domain
 	OrgID() [16]byte     // Sell can be register just by producer organization

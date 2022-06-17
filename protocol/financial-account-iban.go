@@ -1,10 +1,8 @@
 package protocol
-
-
 type FinancialAccountIBAN interface {
 	AccountID() [16]byte // financial-account domain
 	IBAN() iso.IBAN      //
-	Time() protocol.Time // Save time
+	Time() protocol.Time // save time
 	RequestID() [16]byte // user-request domain
 }
 

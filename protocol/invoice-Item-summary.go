@@ -1,15 +1,14 @@
 package protocol
 
-
 // InvoiceItemSummary indicate the domain record data fields.
 type InvoiceItemSummary interface {
-	InvoiceID() [16]byte                     // invoice-status domain
+	InvoiceID() [16]byte                     // invoice domain
 	ProductID() [16]byte                     // product domain
 	SuggestedPrice() protocol.AmountOfMoney  // Total should pay before any discount or auction
 	DiscountedPrice() protocol.AmountOfMoney // user profit from this product purchase by auctions
 	PayablePrice() protocol.AmountOfMoney    // Total price user pay to organization
 	VAT() protocol.AmountOfMoney             // Total VAT user pay to its country government
-	Time() protocol.Time                     // Save time
+	Time() protocol.Time                     // save time
 }
 
 type InvoiceItemSummary_StorageServices interface {

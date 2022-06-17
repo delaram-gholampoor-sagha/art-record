@@ -1,4 +1,5 @@
 package protocol
+
 type OrgShift_Type uint8
 
 const (

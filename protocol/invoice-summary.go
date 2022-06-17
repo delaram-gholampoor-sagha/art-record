@@ -1,19 +1,16 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
+// InvoiceSummary indicate the domain record data fields.
 // InvoiceSummary is summary data that calculated to reduce fetch and calculate on each client device.
 type InvoiceSummary interface {
-	InvoiceID() [16]byte                     // invoice-status domain
+	InvoiceID() [16]byte                     // invoice domain
 	Quantity() uint64                        // Total product count
 	SuggestedPrice() protocol.AmountOfMoney  // Total should pay before any discount or auction
 	DiscountedPrice() protocol.AmountOfMoney // user profit from this purchase by vouchers+auctions
 	VoucherPrice() protocol.AmountOfMoney    // the sum of all vouchers apply for this invoice
 	PayablePrice() protocol.AmountOfMoney    // Total price user pay to organization
 	VAT() protocol.AmountOfMoney             // Total VAT user pay to its country government
-	Time() protocol.Time                     // Save time
+	Time() protocol.Time                     // save time
 }
 
 type InvoiceSummary_StorageServices interface {

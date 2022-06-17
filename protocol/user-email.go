@@ -7,7 +7,7 @@ import "time"
 */
 
 type UserEmail interface {
-	UserID() [16]byte        // user-status domain
+	UserID() [16]byte        // user domain
 	Email() string           //
 	Status() UserEmailStatus //
 	RequestID() [16]byte     // user-request domain

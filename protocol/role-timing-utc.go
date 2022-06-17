@@ -1,16 +1,10 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-	"../libgo/time/earth"
-	"../libgo/time/utc"
-)
-
 type RoleTimingUTC interface {
 	RoleID() [16]byte         // role domain
 	Weekdays() utc.Weekdays   // what days in weekday in utc time week this role active to provide services
 	DayHours() earth.DayHours // what hours in day in utc time week this role active to provide services
-	Time() protocol.Time      // Save time
+	Time() protocol.Time      // save time
 	RequestID() [16]byte      // user-request domain
 }
 

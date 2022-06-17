@@ -1,19 +1,25 @@
 package protocol
 
-
 type PictureStatus interface {
-	ObjectID() [16]byte     //
+	ObjectID() [16]byte     // object domain
 	Status() Picture_Status //
-	Time() protocol.Time    // Save time
+	Time() protocol.Time    // save time
 	RequestID() [16]byte    // user-request domain
 }
 
-type Picture_Status uint8
+type PictureStatus_StorageServices interface {
+	Save(ps PictureStatus) (err protocol.Error)
+
+	Count(objectID [16]byte) (numbers uint64, err protocol.Error)
+	Get(objectID [16]byte, versionOffset uint64) (ps PictureStatus, err protocol.Error)
+	Last(objectID [16]byte) (ps PictureStatus, numbers uint64, err protocol.Error)
+
+	// FilterByStatus(status Picture_Status, offset, limit uint64) (objectIDs [][16]byte, numbers uint64, err protocol.Error)
+	// protocol.EventTarget
+}
+
+type Picture_Status Quiddity_Status
 
 const (
-	Picture_Status_Unset Picture_Status = iota
-	Picture_Status_Registered
-	Picture_Status_Hidden
-	Picture_Status_Deleted
-	Picture_Status_Blocked
+// Picture_Status_ Picture_Status = (Quiddity_Status_FreeFlag << iota)
 )

@@ -6,7 +6,7 @@ package protocol
 type RoleLocation interface {
 	RoleID() [16]byte             // role domain
 	BuildingLocationID() [16]byte // building-location domain
-	Time() protocol.Time          // Save time
+	Time() protocol.Time          // save time
 	RequestID() [16]byte          // user-request domain
 }
 

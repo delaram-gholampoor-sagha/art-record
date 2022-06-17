@@ -1,12 +1,11 @@
 package protocol
 
-
 // 3 type of content exist: 1:about persons, 2:about events, 3:about sciences
 type Content interface {
 	ContentID() [16]byte // quiddity domain
-	UserID() [16]byte    // user-status domain
+	UserID() [16]byte    // user domain
 	Type() Content_Type  //
-	Time() protocol.Time // Save time
+	Time() protocol.Time // save time
 	RequestID() [16]byte // user-request domain
 }
 
@@ -36,8 +35,8 @@ const (
 	Content_Type_Course
 	Content_Type_Tutorial
 
-	Content_Type_Album
 	Content_Type_Music
+	Content_Type_Album
 	Content_Type_Concert
 	Content_Type_MusicVideo
 
@@ -46,4 +45,5 @@ const (
 	Content_Type_SerialEpisode
 
 	Content_Type_Game
+	Content_Type_SportGame
 )

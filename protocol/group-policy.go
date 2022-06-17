@@ -2,11 +2,11 @@ package protocol
 
 // GroupPolicy indicate the domain record data fields.
 type GroupPolicy interface {
-	GroupID() [16]byte                 // group-status domain
+	GroupID() [16]byte                 // group domain
 	GetPolicy() GroupPolicy_Policy     // Visibility level
 	SetPolicy() GroupPolicy_Policy     //
 	ForwardPolicy() GroupPolicy_Policy //
-	Time() protocol.Time               // Save time
+	Time() protocol.Time               // save time
 	RequestID() [16]byte               // user-request domain
 }
 

@@ -1,13 +1,12 @@
 package protocol
-import (
-	"../libgo/protocol"
-)
 
+// InvoiceVoucher indicate the domain record data fields.
+// This domain will let users redeem their vouchers and track vouchers rules.
 type InvoiceVoucher interface {
-	InvoiceID() [16]byte                // invoice-status domain
+	InvoiceID() [16]byte                // invoice domain
 	VoucherID() [16]byte                // voucher domain
 	Discounted() protocol.AmountOfMoney //
-	Time() protocol.Time                // Save time
+	Time() protocol.Time                // save time
 	RequestID() [16]byte                // user-request domain
 }
 

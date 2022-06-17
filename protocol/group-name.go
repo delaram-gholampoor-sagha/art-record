@@ -1,13 +1,12 @@
 package protocol
 
-
 // GroupName indicate the domain record data fields.
 // It is not the group title as display name, It is the unique group name.
 type GroupName interface {
-	GroupID() [16]byte        // group-status domain
+	GroupID() [16]byte        // group domain
 	Name() string             // It is not replace of group ID. It usually use to find the group in more human friendly manner.
 	Status() GroupName_Status //
-	Time() protocol.Time      // Save time
+	Time() protocol.Time      // save time
 	RequestID() [16]byte      // user-request domain
 }
 

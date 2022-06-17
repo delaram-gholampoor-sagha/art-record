@@ -1,15 +1,11 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 // VoucherCategory restrict use voucher on specific category.
 type VoucherCategory interface {
 	VoucherID() [16]byte  // voucher domain
 	Each() uint8          // Each time use
 	CategoryID() [16]byte // category domain
-	Time() protocol.Time  // Save time
+	Time() protocol.Time  // save time
 	RequestID() [16]byte  // user-request domain
 }
 

@@ -3,7 +3,7 @@ package protocol
 type ContentAccess interface {
 	ContentID() [16]byte    // content domain
 	Access() Content_Access //
-	Time() protocol.Time    // Save time
+	Time() protocol.Time    // save time
 	RequestID() [16]byte    // user-request domain
 }
 

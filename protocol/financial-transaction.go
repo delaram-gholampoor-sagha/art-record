@@ -1,5 +1,6 @@
 package protocol
 
+// FinancialTransaction indicate the domain record data fields.
 // each FinancialTransaction is an immutable record and so use version mechanism to chain FinancialTransactions in AccountID way.
 type FinancialTransaction interface {
 	AccountID() [16]byte                    // financial-account domain
@@ -8,7 +9,7 @@ type FinancialTransaction interface {
 	ReferenceType() FinancialTransaction_RT //
 	Amount() protocol.AmountOfMoney         // This transaction
 	Balance() protocol.AmountOfMoney        // Account balance with this transaction
-	Time() protocol.Time                    // Save time
+	Time() protocol.Time                    // save time
 	RequestID() [16]byte                    // user-request domain
 }
 
@@ -52,15 +53,14 @@ const (
 	FinancialTransaction_RT_Commission
 	FinancialTransaction_RT_Salary // Reward
 	FinancialTransaction_RT_Profit
+	FinancialTransaction_RT_Credit
 	FinancialTransaction_RT_Loan
 	FinancialTransaction_RT_BadDebt // Debt default
 	FinancialTransaction_RT_Installment
 	FinancialTransaction_RT_Compensation
 )
 
-const FinancialTransaction_Service_Register = "urn:giti:financial-transaction.protocol:service:transfer"
-
-const FinancialTransaction_Service_GetLast = "urn:giti:financial-transaction.protocol:service:get-last"
+type FinancialTransaction_Service_Transfer_Request interface{}
 
 type FinancialTransaction_Service_GetLast_Request interface {
 	RequestID() [16]byte           // user-request domain
@@ -72,5 +72,6 @@ type FinancialTransaction_Service_GetLast_Request interface {
 	Type() FinancialTransaction_RT //
 }
 
-const FinancialTransaction_Service_GetByTime = "urn:giti:financial-transaction.protocol:service:get-by-time"
-const FinancialTransaction_Service_Find = "urn:giti:financial-transaction.protocol:service:find"
+type FinancialTransaction_Service_GetByTime_Request interface{}
+
+type FinancialTransaction_Service_Find_Request interface{}

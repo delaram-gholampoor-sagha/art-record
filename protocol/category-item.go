@@ -1,11 +1,9 @@
 package protocol
 
-
 type CategoryItem interface {
 	ItemID() [16]byte     // any domain usually product, content, ... domain
-	ItemDomainID() uint64 // Domain MediatypeID
 	CategoryID() [16]byte // category domain
-	Time() protocol.Time  // Save time
+	Time() protocol.Time  // save time
 	RequestID() [16]byte  // user-request domain
 }
 

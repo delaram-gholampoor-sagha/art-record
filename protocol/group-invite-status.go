@@ -2,10 +2,10 @@ package protocol
 
 // GroupInviteStatus indicate the domain record data fields.
 type GroupInviteStatus interface {
-	GroupID() [16]byte          // group-status domain
-	UserID() [16]byte           // user-status domain
+	GroupID() [16]byte          // group domain
+	UserID() [16]byte           // user domain
 	Status() GroupInvite_Status //
-	Time() protocol.Time        // Save time
+	Time() protocol.Time        // save time
 	RequestID() [16]byte        // user-request domain
 }
 

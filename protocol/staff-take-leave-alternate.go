@@ -1,17 +1,11 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-	"../libgo/time/utc"
-)
-
-// the person that is your alternate 
 
 // StaffTakeLeaveAlternate or staff replace
 type StaffTakeLeaveAlternate interface {
-	StaffID() [16]byte     // staff-status domain
+	StaffID() [16]byte     // staff domain
 	Day() utc.DayElapsed   //
-	PresentedID() [16]byte // staff-status domain
-	Time() protocol.Time   // Save time
+	PresentedID() [16]byte // staff domain
+	Time() protocol.Time   // save time
 	RequestID() [16]byte   // user-request domain
 }

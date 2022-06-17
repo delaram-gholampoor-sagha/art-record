@@ -1,15 +1,11 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 type VoucherDuration interface {
 	VoucherID() [16]byte          // voucher domain
 	Each() uint8                  // Each time use
 	Epoch() VoucherDuration_Epoch //
 	Duration() protocol.Duration  // from Epoch()
-	Time() protocol.Time          // Save time
+	Time() protocol.Time          // save time
 	RequestID() [16]byte          // user-request domain
 }
 

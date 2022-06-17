@@ -1,17 +1,10 @@
 package protocol
-
-import (
-	"../libgo/protocol"
-	"../libgo/time/earth"
-	"../libgo/time/utc"
-)
-
 type StaffMission interface {
-	StaffID() [16]byte        // staff-status domain
-	Type() StaffMission_Type  //
+	StaffID() [16]byte        // staff domain
 	Day() utc.DayElapsed      //
 	DayHours() earth.DayHours //
-	Time() protocol.Time      // Save time
+	Type() StaffMission_Type  //
+	Time() protocol.Time      // save time
 	RequestID() [16]byte      // user-request domain
 }
 

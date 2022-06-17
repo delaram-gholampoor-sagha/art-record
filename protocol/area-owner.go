@@ -1,7 +1,5 @@
 package protocol
 
-
-
 const (
 	LandDomain = "land.protocol"
 

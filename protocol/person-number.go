@@ -1,8 +1,7 @@
 package protocol
 
-
 type PersonNumber interface {
-	PersonID() [16]byte // user-status domain
+	PersonID() [16]byte // user domain
 	Number() uint64     // must start with country code e.g. (00)98-912-345-6789
 	Status() PersonNumber_Status
 	RequestID() [16]byte // Request RecordID to prove how this object created in the chain of other objects.

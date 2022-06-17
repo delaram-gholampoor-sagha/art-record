@@ -1,12 +1,11 @@
 package protocol
 
-
 // GroupRole indicate the domain record data fields.
 type GroupRole interface {
 	GroupRoleID() [16]byte                 // quiddity domain
-	GroupID() [16]byte                     // group-status domain
+	GroupID() [16]byte                     // group domain
 	AccessControl() protocol.AccessControl //
-	Time() protocol.Time                   // Save time
+	Time() protocol.Time                   // save time
 	RequestID() [16]byte                   // user-request domain
 }
 

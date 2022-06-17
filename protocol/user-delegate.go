@@ -1,16 +1,13 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
 
 // UserDelegate indicate the domain record data fields.
 type UserDelegate interface {
-	UserID() [16]byte            // user-status domain
-	DelegateUserID() [16]byte    // user-status domain
+	UserID() [16]byte            // user domain
+	DelegateUserID() [16]byte    // user domain
 	UserRoleID() [16]byte        // user-role domain
 	Status() UserDelegate_Status //
-	Time() protocol.Time         // Save time
+	Time() protocol.Time         // save time
 	RequestID() [16]byte         // user-request domain
 }
 

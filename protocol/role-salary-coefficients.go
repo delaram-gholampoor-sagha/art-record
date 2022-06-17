@@ -1,10 +1,5 @@
 package protocol
 
-import (
-	"../libgo/math"
-	"../libgo/protocol"
-)
-
 type RoleSalaryCoefficients interface {
 	RoleID() [16]byte // role domain
 
@@ -21,6 +16,6 @@ type RoleSalaryCoefficients interface {
 	Income() math.PerMyriad          // whole organization income
 	DepartmenIncome() math.PerMyriad //
 
-	Time() protocol.Time // Save time
+	Time() protocol.Time // save time
 	RequestID() [16]byte // user-request domain
 }

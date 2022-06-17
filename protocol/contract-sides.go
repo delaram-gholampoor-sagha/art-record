@@ -1,11 +1,11 @@
 package protocol
 
-
 type ContractSides interface {
 	ContractID() [16]byte       // contract domain
 	SideType() ContractSides_ST //
-	UserID() [16]byte           // user-status domain. Can be any user type e.g. staff
-	Time() protocol.Time        // Save time
+	UserID() [16]byte           // user domain. Can be any user type e.g. staff
+	UserSignature() [16]byte    //
+	Time() protocol.Time        // save time
 	RequestID() [16]byte        // user-request domain
 }
 
@@ -18,4 +18,5 @@ const (
 	ContractSides_ST_Third
 	ContractSides_ST_Witness
 	ContractSides_ST_Arbitrator
+	ContractSides_ST_Expert
 )

@@ -1,12 +1,10 @@
 package protocol
-
-
 type FinancialAccount interface {
-	AccountID() [16]byte                // quiddity domain
+	AccountID() [16]byte                // quiddity domain?
 	Currency() [16]byte                 // financial-currency
-	UserID() [16]byte                   // user-status domain
-	MoneySettlementReference() [16]byte // user-status domain. can be any org or society user.
-	Time() protocol.Time                // Save time
+	UserID() [16]byte                   // user domain
+	MoneySettlementReference() [16]byte // user domain. can be any org or society user.
+	Time() protocol.Time                // save time
 	RequestID() [16]byte                // user-request domain
 }
 
@@ -19,5 +17,6 @@ type FinancialAccount_StorageServices interface {
 
 	FindByUserID(userID [16]byte, offset, limit uint64) (accountIDs [][16]byte, numbers uint64, err protocol.Error)
 
-	ListSettlementReferences(userID [16]byte, offset, limit uint64) (moneySettlementReferences [][16]byte, numbers uint64, err protocol.Error)
+	ListUserCurrencies(userID [16]byte, offset, limit uint64) (currency [][16]byte, numbers uint64, err protocol.Error)
+	ListUserSettlementReferences(userID [16]byte, offset, limit uint64) (moneySettlementReferences [][16]byte, numbers uint64, err protocol.Error)
 }

@@ -1,9 +1,5 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
-
 // Store user requests as drafts for users to send later
 
 // RequestID of this record use to prove how other records created as a chain to other records or standalone data.
@@ -15,6 +11,6 @@ type RequestDraft interface {
 	PageID() uint64
 	ServiceID() uint64
 	CompressID() uint64  // gzip
-	Time() protocol.Time // Save time
+	Time() protocol.Time // save time
 	Request() []byte     // Decode by service request structure and compress type.
 }

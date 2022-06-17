@@ -1,8 +1,5 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-)
 
 // RoleDepartment indicate the domain record data fields.
 type RoleDepartment interface {

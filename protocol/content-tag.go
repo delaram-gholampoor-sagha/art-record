@@ -3,7 +3,7 @@ package protocol
 type ContentTag interface {
 	Tag() string         //
 	ContentID() [16]byte // content domain
-	Time() protocol.Time // Save time
+	Time() protocol.Time // save time
 }
 
 type ContentTag_StorageServices interface {

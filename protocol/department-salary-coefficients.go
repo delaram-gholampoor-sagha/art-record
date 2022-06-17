@@ -18,6 +18,6 @@ type DepartmentSalaryCoefficients interface {
 	Income() math.PerMyriad           // whole organization income in each week
 	DepartmentIncome() math.PerMyriad //
 
-	Time() protocol.Time // Save time
+	Time() protocol.Time // save time
 	RequestID() [16]byte // user-request domain
 }

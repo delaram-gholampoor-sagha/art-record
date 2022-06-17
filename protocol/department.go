@@ -3,7 +3,7 @@ package protocol
 // Department indicate the domain record data fields.
 // It can use to show organizational chart. Also staffs can join to the related group.
 type Department interface {
-	DepartmentID() [16]byte // quiddity domain. use to get and show locale title.
+	DepartmentID() [16]byte // group domain
 	ParentID() [16]byte     // DepartmentID, Exist if it isn't top of the organization.
 	Time() protocol.Time    // save time
 	RequestID() [16]byte    // user-request domain

@@ -6,10 +6,10 @@ type Comment interface {
 	GroupID() [16]byte          // group domain
 	CommentID() [16]byte        //
 	ReplyTo() [16]byte          // other CommentID. Comment can be reply to other comment in the same group.
-	UserID() [16]byte           // user-status domain
+	UserID() [16]byte           // user domain
 	Type() Comment_Type         //
 	Settings() Comment_Settings //
-	Time() protocol.Time        // Save time
+	Time() protocol.Time        // save time
 	RequestID() [16]byte        // user-request domain
 }
 
@@ -60,4 +60,3 @@ const (
 	Comment_Settings_PreviewLinks Comment_Settings = (1 << iota) // Render web links as small widget or not
 	Comment_Settings_Forwardable                                 // Allow to forward it
 )
-

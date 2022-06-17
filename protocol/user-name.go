@@ -1,11 +1,10 @@
 package protocol
 
-
 type UserName interface {
-	UserID() [16]byte        // user-status domain
+	UserID() [16]byte        // user domain
 	Username() string        // It is not replace of user ID. It usually use to find user by their friends in more human friendly manner.
 	Status() UserName_Status //
-	Time() protocol.Time     // Save time
+	Time() protocol.Time     // save time
 	RequestID() [16]byte     // user-request domain
 }
 
