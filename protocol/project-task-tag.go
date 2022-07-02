@@ -1,5 +1,6 @@
 package protocol
 
+
 // ProjectTaskTag indicate the domain record data fields.
 type ProjectTaskTag interface {
 	TaskID() [16]byte    // task domain

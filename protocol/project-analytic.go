@@ -1,10 +1,5 @@
 package protocol
 
-import (
-	"../libgo/protocol"
-	"../libgo/time/utc"
-)
-
 // ProjectBudget indicate the domain record data fields.
 type ProjectAnalytic interface {
 	ProjectID() [16]byte // project domain

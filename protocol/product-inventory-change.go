@@ -13,11 +13,10 @@ type ProductInventoryChange interface {
 }
 
 type ProductInventoryChange_StorageServices interface {
-	Save(pi ProductInventoryChange) protocol.Error
+	Save(pi ProductInventoryChange) (numbers uint64, err protocol.Error)
 
 	Count(productID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, versionOffset uint64) (pi ProductInventoryChange, err protocol.Error)
-	Last(productID [16]byte) (pi ProductInventoryChange, numbers uint64, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (pi ProductInventoryChange, numbers uint64, err protocol.Error)
 
 	FindByProduct(productID [16]byte, offset, limit uint64) (productIDs [][16]byte, numbers uint64, err protocol.Error)
 }

@@ -10,13 +10,12 @@ type ProductProviderRole interface {
 }
 
 type ProductProviderRole_StorageServices interface {
-	Save(pp ProductProviderRole) protocol.Error
+	Save(pp ProductProviderRole) (numbers uint64, err protocol.Error)
 
 	Count(productID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, versionOffset uint64) (pp ProductProviderRole, err protocol.Error)
-	Last(productID [16]byte) (pp ProductProviderRole, numbers uint64, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (pp ProductProviderRole, numbers uint64, err protocol.Error)
 
-	FindByRoleID(roleID [16]byte, offset, limit uint64) (productIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindByRole(roleID [16]byte, offset, limit uint64) (productIDs [][16]byte, numbers uint64, err protocol.Error)
 }
 
 // related UserIDs by RoleID use to get Coordinate(domain)

@@ -14,7 +14,7 @@ type InvoiceItem interface {
 }
 
 type InvoiceItem_StorageServices interface {
-	Save(ii InvoiceItem) (err protocol.Error)
+	Save(ii InvoiceItem) (numbers uint64, err protocol.Error)
 
 	Count(invoiceID [16]byte) (numbers uint64, err protocol.Error)
 	Get(invoiceID [16]byte, versionOffset uint64) (ii InvoiceItem, err protocol.Error)

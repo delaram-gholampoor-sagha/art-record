@@ -9,13 +9,13 @@ type GroupStatus interface {
 }
 
 type GroupStatus_StorageServices interface {
-	Save(gs GroupStatus) protocol.Error
+	Save(gs GroupStatus) (numbers uint64, err protocol.Error)
 
 	Count(groupID [16]byte) (numbers uint64, err protocol.Error)
-	Get(groupID [16]byte, versionOffset uint64) (gs GroupStatus, err protocol.Error)
-	Last(groupID [16]byte) (gs GroupStatus, numbers uint64, err protocol.Error)
+	Get(groupID [16]byte, versionOffset uint64) (gs GroupStatus, numbers uint64, err protocol.Error)
 
 	// FilterByStatus(status Picture_Status, offset, limit uint64) (groupIDs [][16]byte, numbers uint64, err protocol.Error)
+
 	// protocol.EventTarget
 }
 

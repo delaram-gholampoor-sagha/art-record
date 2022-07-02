@@ -1,6 +1,5 @@
 package protocol
 
-
 // ProductTimingInterval indicate the domain record data fields.
 // e.g. flight duration, doctor visit, carwash, ...
 type ProductTimingInterval interface {
@@ -13,9 +12,8 @@ type ProductTimingInterval interface {
 }
 
 type ProductTimingInterval_StorageServices interface {
-	Save(pt ProductTimingInterval) protocol.Error
+	Save(pt ProductTimingInterval) (numbers uint64, err protocol.Error)
 
 	Count(productID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, versionOffset uint64) (pt ProductTimingInterval, err protocol.Error)
-	Last(productID [16]byte) (pt ProductTimingInterval, numbers uint64, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (pt ProductTimingInterval, numbers uint64, err protocol.Error)
 }

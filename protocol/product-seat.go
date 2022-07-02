@@ -1,5 +1,6 @@
 package protocol
 
+
 // ProductSeat indicate the domain record data fields.
 type ProductSeat interface {
 	ProductID() [16]byte    // product domain
@@ -11,11 +12,10 @@ type ProductSeat interface {
 }
 
 type ProductSeat_StorageServices interface {
-	Save(ps ProductSeat) protocol.Error
+	Save(ps ProductSeat) (numbers uint64, err protocol.Error)
 
 	Count(productID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, versionOffset uint64) (ps ProductSeat, err protocol.Error)
-	Last(productID [16]byte) (ps ProductSeat, numbers uint64, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (ps ProductSeat, numbers uint64, err protocol.Error)
 }
 
 type ProductSeat_Type uint8

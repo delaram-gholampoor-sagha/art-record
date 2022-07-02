@@ -9,11 +9,10 @@ type ContractTemplateStatus interface {
 }
 
 type ContractTemplateStatus_StorageServices interface {
-	Save(cts ContractTemplateStatus) protocol.Error
+	Save(cts ContractTemplateStatus) (numbers uint64, err protocol.Error)
 
 	Count(contractTemplateID [16]byte) (numbers uint64, err protocol.Error)
-	Get(contractTemplateID [16]byte, versionOffset uint64) (cts ContractTemplateStatus, err protocol.Error)
-	Last(contractTemplateID [16]byte) (cts ContractTemplateStatus, numbers uint64, err protocol.Error)
+	Get(contractTemplateID [16]byte, versionOffset uint64) (cts ContractTemplateStatus, numbers uint64, err protocol.Error)
 
 	FilterByStatus(status Content_Status, offset, limit uint64) (contractTemplateIDs [][16]byte, numbers uint64, err protocol.Error)
 }

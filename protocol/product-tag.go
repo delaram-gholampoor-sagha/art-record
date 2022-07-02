@@ -10,11 +10,10 @@ type ProductTag interface {
 }
 
 type ProductTag_StorageServices interface {
-	Save(pt ProductTag) protocol.Error
+	Save(pt ProductTag) (numbers uint64, err protocol.Error)
 
 	Count(productID [16]byte, tag string) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, tag string, versionOffset uint64) (pt ProductTag, err protocol.Error)
-	Last(productID [16]byte, tag string) (pt ProductTag, numbers uint64, err protocol.Error)
+	Get(productID [16]byte, tag string, versionOffset uint64) (pt ProductTag, numbers uint64, err protocol.Error)
 
 	ListTags(productID [16]byte, offset, limit uint64) (tags []string, numbers uint64, err protocol.Error)
 	ListProducts(tag string, offset, limit uint64) (productIDs [16]byte, numbers uint64, err protocol.Error)

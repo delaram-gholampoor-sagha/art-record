@@ -10,11 +10,10 @@ type InvoiceItemProvider interface {
 }
 
 type InvoiceItemProvider_StorageServices interface {
-	Save(iip InvoiceItemProvider) (err protocol.Error)
+	Save(iip InvoiceItemProvider) (numbers uint64, err protocol.Error)
 
 	Count(invoiceID [16]byte) (numbers uint64, err protocol.Error)
-	Get(invoiceID [16]byte, versionOffset uint64) (iip InvoiceItemProvider, err protocol.Error)
-	Last(invoiceID [16]byte) (iip InvoiceItemProvider, numbers uint64, err protocol.Error)
+	Get(invoiceID [16]byte, versionOffset uint64) (iip InvoiceItemProvider, numbers uint64, err protocol.Error)
 
-	FindByStaffID(staffID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindByStaff(staffID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
 }

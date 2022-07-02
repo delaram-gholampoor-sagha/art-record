@@ -10,11 +10,11 @@ type ProductComplement interface {
 }
 
 type ProductComplement_StorageServices interface {
-	Save(pc ProductComplement) protocol.Error
+	Save(pc ProductComplement) (numbers uint64, err protocol.Error)
 
-	Count(productID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, versionOffset uint64) (pc ProductComplement, err protocol.Error)
-	Last(productID [16]byte) (pc ProductComplement, numbers uint64, err protocol.Error)
+	Count(productID [16]byte, priority uint64) (numbers uint64, err protocol.Error)
+	Get(productID [16]byte, priority uint64, versionOffset uint64) (pc ProductComplement, numbers uint64, err protocol.Error)
 
-	FindByComplement(complementID [16]byte, offset, limit uint64) (productIDs [][16]byte, numbers uint64, err protocol.Error)
+	ListProducts(complementID [16]byte, offset, limit uint64) (productIDs [16]byte, numbers uint64, err protocol.Error)
+	ListPriorities(complementID [16]byte, productID [16]byte, offset, limit uint64) (priorities []uint64, numbers uint64, err protocol.Error)
 }

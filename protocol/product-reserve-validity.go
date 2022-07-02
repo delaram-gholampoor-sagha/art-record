@@ -9,9 +9,8 @@ type ProductReserveValidity interface {
 }
 
 type ProductReserveValidity_StorageServices interface {
-	Save(prv ProductReserveValidity) protocol.Error
+	Save(prv ProductReserveValidity) (numbers uint64, err protocol.Error)
 
 	Count(productID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, versionOffset uint64) (prv ProductReserveValidity, err protocol.Error)
-	Last(productID [16]byte) (prv ProductReserveValidity, numbers uint64, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (prv ProductReserveValidity, numbers uint64, err protocol.Error)
 }

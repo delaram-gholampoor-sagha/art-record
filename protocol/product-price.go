@@ -1,5 +1,7 @@
 package protocol
 
+
+
 // ProductPrice indicate the domain record data fields.
 // ProductPrice can be register just by producer organization whom own the related quiddity
 type ProductPrice interface {
@@ -11,11 +13,10 @@ type ProductPrice interface {
 }
 
 type ProductPrice_StorageServices interface {
-	Save(pp ProductPrice) (err protocol.Error)
+	Save(pp ProductPrice) (numbers uint64, err protocol.Error)
 
 	Count(productID [16]byte, currency uint64) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, currency uint64, versionOffset uint64) (pp ProductPrice, err protocol.Error)
-	Last(productID [16]byte, currency uint64) (pp ProductPrice, numbers uint64, err protocol.Error)
+	Get(productID [16]byte, currency uint64, versionOffset uint64) (pp ProductPrice, numbers uint64, err protocol.Error)
 
 	ListProductCurrencies(productID [16]byte, offset, limit uint64) (currencies []uint64, numbers uint64, err protocol.Error)
 }

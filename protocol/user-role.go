@@ -1,5 +1,6 @@
 package protocol
 
+
 // UserRole indicate the domain record data fields.
 type UserRole interface {
 	UserID() [16]byte        // user domain
@@ -10,11 +11,10 @@ type UserRole interface {
 }
 
 type UserRole_StorageServices interface {
-	Save(ur UserRole) protocol.Error
+	Save(ur UserRole) (numbers uint64, err protocol.Error)
 
 	Count(userID, roleID [16]byte) (numbers uint64, err protocol.Error)
-	Get(userID, roleID [16]byte, versionOffset uint64) (ur UserRole, err protocol.Error)
-	Last(userID, roleID [16]byte) (ur UserRole, numbers uint64, err protocol.Error)
+	Get(userID, roleID [16]byte, versionOffset uint64) (ur UserRole, numbers uint64, err protocol.Error)
 
 	ListRoles(userID [16]byte, offset, limit uint64) (roleIDs [][16]byte, numbers uint64, err protocol.Error)
 	ListUsers(roleID [16]byte, offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)

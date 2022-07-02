@@ -1,6 +1,5 @@
 package protocol
 
-
 // Task indicate the comment record data fields.
 type TaskParticipant interface {
 	TaskID() [16]byte           // quiddity domain. use to get and show locale title.

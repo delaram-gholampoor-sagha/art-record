@@ -1,6 +1,5 @@
 package protocol
 
-
 // UserDelegate indicate the domain record data fields.
 type UserDelegate interface {
 	UserID() [16]byte            // user domain
@@ -12,11 +11,10 @@ type UserDelegate interface {
 }
 
 type UserDelegate_StorageServices interface {
-	Save(ud UserDelegate) protocol.Error
+	Save(ud UserDelegate) (numbers uint64, err protocol.Error)
 
 	Count(userID [16]byte, delegateUserID [16]byte) (numbers uint64, err protocol.Error)
-	Get(userID [16]byte, delegateUserID [16]byte, versionOffset uint64) (ud UserDelegate, err protocol.Error)
-	Last(userID [16]byte, delegateUserID [16]byte) (ud UserDelegate, numbers uint64, err protocol.Error)
+	Get(userID [16]byte, delegateUserID [16]byte, versionOffset uint64) (ud UserDelegate, numbers uint64, err protocol.Error)
 
 	FindByDelegateUser(delegateUserID [16]byte, offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)
 	FindByRole(roleID [16]byte, offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)

@@ -4,7 +4,7 @@ type ContractSides interface {
 	ContractID() [16]byte       // contract domain
 	SideType() ContractSides_ST //
 	UserID() [16]byte           // user domain. Can be any user type e.g. staff
-	UserSignature() [16]byte    //
+	UserSignature() []byte      //
 	Time() protocol.Time        // save time
 	RequestID() [16]byte        // user-request domain
 }

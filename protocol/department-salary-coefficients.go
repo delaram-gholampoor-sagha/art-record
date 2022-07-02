@@ -1,6 +1,5 @@
 package protocol
 
-
 // due to organization payment capacity set values to show how many percent add or remove due to organization profit status
 type DepartmentSalaryCoefficients interface {
 	DepartmentID() [16]byte // department domain

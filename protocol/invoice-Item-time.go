@@ -10,7 +10,7 @@ type InvoiceItemTime interface {
 }
 
 type InvoiceItemTime_StorageServices interface {
-	Save(iit InvoiceItemTime) (err protocol.Error)
+	Save(iit InvoiceItemTime) (numbers uint64, err protocol.Error)
 
 	Count(invoiceID [16]byte) (numbers uint64, err protocol.Error)
 	Get(invoiceID [16]byte, versionOffset uint64) (iit InvoiceItemTime, err protocol.Error)

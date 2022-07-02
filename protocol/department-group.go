@@ -8,8 +8,8 @@ type DepartmentGroup interface {
 }
 
 type DepartmentGroup_StorageServices interface {
-	Save(dg DepartmentGroup) (err protocol.Error)
-	Delete(departmentID [16]byte, groupID [16]byte) (err protocol.Error)
+	Save(dg DepartmentGroup) (numbers uint64, err protocol.Error)
+	Delete(departmentID [16]byte, groupID [16]byte) (numbers uint64, err protocol.Error)
 
 	ListGroupIDs(departmentID [16]byte, offset, limit uint64) (groupIDs [][16]byte, numbers uint64, err protocol.Error)
 }

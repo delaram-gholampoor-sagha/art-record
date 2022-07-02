@@ -9,11 +9,10 @@ type UserDomain interface {
 }
 
 type UserDomain_StorageServices interface {
-	Save(ud UserDomain) (err protocol.Error)
+	Save(ud UserDomain) (numbers uint64, err protocol.Error)
 
 	Count(domain string) (numbers uint64, err protocol.Error)
-	Get(domain string, versionOffset uint64) (ud UserDomain, err protocol.Error)
-	Last(domain string) (ud UserDomain, numbers uint64, err protocol.Error)
+	Get(domain string, versionOffset uint64) (ud UserDomain, numbers uint64, err protocol.Error)
 
 	FindByUserID(userID [16]byte, offset, limit uint64) (domains []string, numbers uint64, err protocol.Error)
 }

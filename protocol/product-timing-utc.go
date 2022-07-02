@@ -9,9 +9,8 @@ type ProductTimingUTC interface {
 }
 
 type ProductTimingUTC_StorageServices interface {
-	Save(pt ProductTimingUTC) protocol.Error
+	Save(pt ProductTimingUTC) (numbers uint64, err protocol.Error)
 
 	Count(productID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, versionOffset uint64) (pt ProductTimingUTC, err protocol.Error)
-	Last(productID [16]byte) (pt ProductTimingUTC, numbers uint64, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (pt ProductTimingUTC, numbers uint64, err protocol.Error)
 }

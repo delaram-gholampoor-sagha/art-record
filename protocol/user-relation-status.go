@@ -10,15 +10,14 @@ type UserRelationStatus interface {
 }
 
 type UserRelationStatus_StorageServices interface {
-	Save(gs UserRelationStatus) protocol.Error
+	Save(gs UserRelationStatus) (numbers uint64, err protocol.Error)
 
 	Count(userID, sideID [16]byte) (numbers uint64, err protocol.Error)
-	Get(userID, sideID [16]byte, versionOffset uint64) (gs UserRelationStatus, err protocol.Error)
-	Last(userID, sideID [16]byte) (gs UserRelationStatus, numbers uint64, err protocol.Error)
+	Get(userID, sideID [16]byte, versionOffset uint64) (gs UserRelationStatus, numbers uint64, err protocol.Error)
 
 	ListSides(userID [16]byte, offset, limit uint64) (sideIDs [][16]byte, numbers uint64, err protocol.Error)
 	ListUsers(sideID [16]byte, offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)
-	
+
 	FilterByStatus(userID [16]byte, status UserRelation_Status, offset, limit uint64) (sideIDs [][16]byte, numbers uint64, err protocol.Error)
 
 	protocol.EventTarget

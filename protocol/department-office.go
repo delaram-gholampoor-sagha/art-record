@@ -8,9 +8,8 @@ type DepartmentOffice interface {
 }
 
 type DepartmentOffice_StorageServices interface {
-	Save(do DepartmentOffice) (err protocol.Error)
+	Save(do DepartmentOffice) (numbers uint64, err protocol.Error)
 
 	Count(departmentID [16]byte) (numbers uint64, err protocol.Error)
-	Get(departmentID [16]byte, versionOffset uint64) (do DepartmentOffice, err protocol.Error)
-	Last(departmentID [16]byte) (do DepartmentOffice, numbers uint64, err protocol.Error)
+	Get(departmentID [16]byte, versionOffset uint64) (do DepartmentOffice, numbers uint64, err protocol.Error)
 }

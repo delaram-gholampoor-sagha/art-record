@@ -10,7 +10,7 @@ type InvoicePOS interface {
 }
 
 type InvoicePOS_StorageServices interface {
-	Save(ip InvoicePOS) protocol.Error
+	Save(ip InvoicePOS) (numbers uint64, err protocol.Error)
 
 	Get(invoiceID [16]byte) (ip InvoicePOS, err protocol.Error)
 

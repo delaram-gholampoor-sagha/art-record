@@ -8,11 +8,10 @@ type DepartmentStatus interface {
 }
 
 type DepartmentStatus_StorageServices interface {
-	Save(ds DepartmentStatus) (err protocol.Error)
+	Save(ds DepartmentStatus) (numbers uint64, err protocol.Error)
 
 	Count(departmentID [16]byte) (numbers uint64, err protocol.Error)
-	Get(departmentID [16]byte, versionOffset uint64) (ds DepartmentStatus, err protocol.Error)
-	Last(departmentID [16]byte) (ds DepartmentStatus, numbers uint64, err protocol.Error)
+	Get(departmentID [16]byte, versionOffset uint64) (ds DepartmentStatus, numbers uint64, err protocol.Error)
 
 	// FilterByStatus(status Department_Status, offset, limit uint64) (departmentIDs [][16]byte, numbers uint64, err protocol.Error)
 	// protocol.EventTarget

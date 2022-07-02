@@ -9,11 +9,10 @@ type UserReferent interface {
 }
 
 type UserReferent_StorageServices interface {
-	Save(ur UserReferent) protocol.Error
+	Save(ur UserReferent) (numbers uint64, err protocol.Error)
 
 	Count(userID [16]byte) (numbers uint64, err protocol.Error)
-	Get(userID [16]byte, versionOffset uint64) (ur UserReferent, err protocol.Error)
-	Last(userID [16]byte) (ur UserReferent, numbers uint64, err protocol.Error)
+	Get(userID [16]byte, versionOffset uint64) (ur UserReferent, numbers uint64, err protocol.Error)
 
 	FindByReferentUserID(referentUserID [16]byte, offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)
 }

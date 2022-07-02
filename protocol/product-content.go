@@ -1,6 +1,5 @@
 package protocol
 
-
 // ProductContent indicate the domain record data fields.
 type ProductContent interface {
 	ProductID() [16]byte // product domain
@@ -10,11 +9,10 @@ type ProductContent interface {
 }
 
 type ProductContent_StorageServices interface {
-	Save(pc ProductContent) protocol.Error
+	Save(pc ProductContent) (numbers uint64, err protocol.Error)
 
 	Count(productID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, versionOffset uint64) (pc ProductContent, err protocol.Error)
-	Last(productID [16]byte) (pc ProductContent, numbers uint64, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (pc ProductContent, numbers uint64, err protocol.Error)
 
 	FindByContent(contentID [16]byte, offset, limit uint64) (productIDs [][16]byte, numbers uint64, err protocol.Error)
 }

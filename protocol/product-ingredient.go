@@ -9,11 +9,10 @@ type ProductIngredient interface {
 }
 
 type ProductIngredient_StorageServices interface {
-	Save(pi ProductIngredient) protocol.Error
+	Save(pi ProductIngredient) (numbers uint64, err protocol.Error)
 
 	Count(productID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, versionOffset uint64) (pi ProductIngredient, err protocol.Error)
-	Last(productID [16]byte) (pi ProductIngredient, numbers uint64, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (pi ProductIngredient, numbers uint64, err protocol.Error)
 
 	FindByIngredient(ingredientID [16]byte, offset, limit uint64) (productIDs [][16]byte, numbers uint64, err protocol.Error)
 }

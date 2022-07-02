@@ -1,5 +1,4 @@
 package protocol
-
 // GroupAssociatedStatus indicate the domain record data fields
 type GroupAssociated interface {
 	GroupID() [16]byte   // group domain

@@ -1,5 +1,6 @@
 package protocol
 
+// UserName indicate the domain record data fields.
 type UserName interface {
 	UserID() [16]byte        // user domain
 	Username() string        // It is not replace of user ID. It usually use to find user by their friends in more human friendly manner.
@@ -9,13 +10,12 @@ type UserName interface {
 }
 
 type UserName_StorageServices interface {
-	Save(un UserName) protocol.Error
+	Save(un UserName) (numbers uint64, err protocol.Error)
 
 	Count(userID [16]byte) (numbers uint64, err protocol.Error)
-	Get(userID [16]byte, versionOffset uint64) (un UserName, err protocol.Error)
-	Last(userID [16]byte) (un UserName, numbers uint64, err protocol.Error)
+	Get(userID [16]byte, versionOffset uint64) (un UserName, numbers uint64, err protocol.Error)
 
-	FindByUsername(username string) (userID [16]byte, err protocol.Error)
+	FindByUsername(username string, offset, limit uint64) (userID [][16]byte, numbers uint64, err protocol.Error)
 }
 
 // UserName_Status indicate UserName record status
@@ -28,6 +28,9 @@ const (
 	UserName_Status_Remove                                 //= (1 << 1)
 	UserName_Status_Blocked                                //= (1 << 2)
 	UserName_Status_Reserved                               //= (1 << 3)
+
+	UserName_Status_Active
+	UserName_Status_Inactive
 )
 
 /*
@@ -44,13 +47,6 @@ type UserName_Service_Get_Request interface {
 	VersionOffset() uint64
 }
 type UserName_Service_Get_Response interface {
-	UserName
-}
-
-type UserName_Service_GetLast_Request interface {
-	UserID() [16]byte
-}
-type UserName_Service_GetLast_Response interface {
 	UserName
 }
 

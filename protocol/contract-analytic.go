@@ -1,6 +1,10 @@
 package protocol
 
 
+import (
+	"../libgo/protocol"
+)
+
 type ContractAnalytic interface {
 	CoordinateID() [16]byte // contract domain
 

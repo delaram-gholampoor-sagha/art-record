@@ -1,5 +1,6 @@
 package protocol
 
+
 type UserStatus interface {
 	UserID() [16]byte    // Generated unique ID for the user
 	Status() User_Status //
@@ -8,14 +9,15 @@ type UserStatus interface {
 }
 
 type UserStatus_StorageServices interface {
-	Save(us UserStatus) protocol.Error
+	Save(us UserStatus) (numbers uint64, err protocol.Error)
 
 	Count(userID [16]byte) (numbers uint64, err protocol.Error)
-	Get(userID [16]byte, versionOffset uint64) (us UserStatus, err protocol.Error)
-	Last(userID [16]byte) (us UserStatus, numbers uint64, err protocol.Error)
+	Get(userID [16]byte, versionOffset uint64) (us UserStatus, numbers uint64, err protocol.Error)
 
 	GetIDs(offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)
+
 	// FindByTime(day utc.DayElapsed, offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)
+
 	// protocol.EventTarget
 }
 

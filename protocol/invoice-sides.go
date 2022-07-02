@@ -11,7 +11,7 @@ type InvoiceSides interface {
 }
 
 type InvoiceSides_StorageServices interface {
-	Save(is InvoiceSides) protocol.Error
+	Save(is InvoiceSides) (numbers uint64, err protocol.Error)
 
 	Get(invoiceID [16]byte) (is InvoiceSides, err protocol.Error)
 
@@ -19,3 +19,5 @@ type InvoiceSides_StorageServices interface {
 	FindByCustomer(customerID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
 	FindByAgent(agentID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
 }
+
+type InvoiceSides_Type uint8

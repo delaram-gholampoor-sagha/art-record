@@ -12,7 +12,7 @@ type InvoiceItemSummary interface {
 }
 
 type InvoiceItemSummary_StorageServices interface {
-	Save(iis InvoiceItemSummary) (err protocol.Error)
+	Save(iis InvoiceItemSummary) (numbers uint64, err protocol.Error)
 
 	Count(invoiceID [16]byte) (numbers uint64, err protocol.Error)
 	Get(invoiceID [16]byte, versionOffset uint64) (iis InvoiceItemSummary, err protocol.Error)

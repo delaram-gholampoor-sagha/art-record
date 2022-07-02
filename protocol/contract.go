@@ -10,11 +10,10 @@ type Contract interface {
 }
 
 type Contract_StorageServices interface {
-	Save(c Contract) protocol.Error
+	Save(c Contract) (numbers uint64, err protocol.Error)
 
 	Count(contractID [16]byte) (numbers uint64, err protocol.Error)
-	Get(contractID [16]byte, versionOffset uint64) (c Contract, err protocol.Error)
-	Last(contractID [16]byte) (c Contract, numbers uint64, err protocol.Error)
+	Get(contractID [16]byte, versionOffset uint64) (c Contract, numbers uint64, err protocol.Error)
 
 	FindByContractTemplate(contractTemplateID [16]byte, offset, limit uint64) (contractIDs [][16]byte, numbers uint64, err protocol.Error)
 	FindByData(data string, offset, limit uint64) (contractIDs [16]byte, numbers uint64, err protocol.Error)

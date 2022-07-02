@@ -9,11 +9,10 @@ type ProductInventoryChangeStatus interface {
 }
 
 type ProductInventoryChangeStatus_StorageServices interface {
-	Save(ps ProductInventoryChangeStatus) protocol.Error
+	Save(ps ProductInventoryChangeStatus) (numbers uint64, err protocol.Error)
 
 	Count(productInventoryChangeID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productInventoryChangeID [16]byte, versionOffset uint64) (ps ProductInventoryChangeStatus, err protocol.Error)
-	Last(productInventoryChangeID [16]byte) (ps ProductInventoryChangeStatus, numbers uint64, err protocol.Error)
+	Get(productInventoryChangeID [16]byte, versionOffset uint64) (ps ProductInventoryChangeStatus, numbers uint64, err protocol.Error)
 
 	FilterByStatus(status ProductInventoryChange_Status, offset, limit uint64) (productInventoryChangeIDs [][16]byte, numbers uint64, err protocol.Error)
 

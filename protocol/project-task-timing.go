@@ -1,6 +1,5 @@
 package protocol
 
-
 // ProjectTaskTiming indicate the domain record data fields.
 type ProjectTaskTiming interface {
 	TaskID() [16]byte            // project-task domain

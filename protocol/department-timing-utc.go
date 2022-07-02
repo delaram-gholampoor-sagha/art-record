@@ -1,4 +1,5 @@
 package protocol
+
 type DepartmentTimingUTC interface {
 	DepartmentID() [16]byte   // department domain
 	Weekdays() utc.Weekdays   // what days in weekday in utc time week this department active to provide services

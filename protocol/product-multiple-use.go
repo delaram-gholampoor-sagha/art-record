@@ -10,9 +10,8 @@ type ProductMultipleUse interface {
 }
 
 type ProductMultipleUse_StorageServices interface {
-	Save(pm ProductMultipleUse) protocol.Error
+	Save(pm ProductMultipleUse) (numbers uint64, err protocol.Error)
 
 	Count(productID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, versionOffset uint64) (pm ProductMultipleUse, err protocol.Error)
-	Last(productID [16]byte) (pm ProductMultipleUse, numbers uint64, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (pm ProductMultipleUse, numbers uint64, err protocol.Error)
 }

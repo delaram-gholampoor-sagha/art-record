@@ -1,5 +1,6 @@
 package protocol
 
+
 // ProductTimeValidity indicate the domain record data fields.
 // flight departure and arrival time, concert start and end time, ...
 type ProductTimeValidity interface {
@@ -11,9 +12,8 @@ type ProductTimeValidity interface {
 }
 
 type ProductTimeValidity_StorageServices interface {
-	Save(pt ProductTimeValidity) protocol.Error
+	Save(pt ProductTimeValidity) (numbers uint64, err protocol.Error)
 
 	Count(productID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, versionOffset uint64) (pt ProductTimeValidity, err protocol.Error)
-	Last(productID [16]byte) (pt ProductTimeValidity, numbers uint64, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (pt ProductTimeValidity, numbers uint64, err protocol.Error)
 }

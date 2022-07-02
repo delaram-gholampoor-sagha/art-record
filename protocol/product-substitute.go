@@ -10,11 +10,10 @@ type ProductSubstitute interface {
 }
 
 type ProductSubstitute_StorageServices interface {
-	Save(ps ProductSubstitute) protocol.Error
+	Save(ps ProductSubstitute) (numbers uint64, err protocol.Error)
 
 	Count(productID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, versionOffset uint64) (ps ProductSubstitute, err protocol.Error)
-	Last(productID [16]byte) (ps ProductSubstitute, numbers uint64, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (ps ProductSubstitute, numbers uint64, err protocol.Error)
 
 	FindBySubstitute(substituteID [16]byte, offset, limit uint64) (productIDs [][16]byte, numbers uint64, err protocol.Error)
 }

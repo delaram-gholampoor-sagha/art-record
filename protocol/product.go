@@ -1,6 +1,5 @@
 package protocol
 
-
 // Product indicate the domain record data fields.
 type Product interface {
 	ProductID() [16]byte // quiddity domain
@@ -10,11 +9,10 @@ type Product interface {
 }
 
 type Product_StorageServices interface {
-	Save(p Product) protocol.Error
+	Save(p Product) (numbers uint64, err protocol.Error)
 
 	Count(productID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, versionOffset uint64) (p Product, err protocol.Error)
-	Last(productID [16]byte) (p Product, numbers uint64, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (p Product, numbers uint64, err protocol.Error)
 
 	FilterByType(typ Product_Type, offset, limit uint64) (productIDs [][16]byte, numbers uint64, err protocol.Error)
 }
@@ -27,16 +25,16 @@ const (
 	Product_Type_Unset Product_Type = 0           // usually for good kind
 	Product_Type_Good  Product_Type = (1 << iota) // if flag not set means product is service
 	Product_Type_ReserveValidity
-	Product_Type_PreSale
-	Product_Type_NeedApprove
+	Product_Type_ReserveQuantity  // max product can reserve by one person before pay them
+	Product_Type_PreSale          // ??
+	Product_Type_NeedApprove      //
 	Product_Type_NeedPrescription // Medical good. can't add by users to invoice
 
 	Product_Type_InvoiceSell
 	Product_Type_OrderSell
-	Product_Type_RoleLimitSell
-	Product_Type_GroupLimitSell
+	Product_Type_Role  // role limit sell
+	Product_Type_Group // group limit sell
 
-	_
 	_
 	_
 	_

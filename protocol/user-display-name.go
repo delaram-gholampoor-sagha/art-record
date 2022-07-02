@@ -1,6 +1,5 @@
 package protocol
 
-
 // UserDisplayName indicate the domain record data fields.
 // It is not unique and not replace of user ID. Just use to find user by desire name.
 type UserDisplayName interface {

@@ -1,5 +1,6 @@
 package protocol
 
+
 // ProductTax indicate the domain record data fields.
 // Tax Labels
 // Setting tax labels allows you to perform the following actions:

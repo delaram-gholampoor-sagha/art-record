@@ -1,5 +1,6 @@
 package protocol
 
+
 type DepartmentBudgetActualUTC interface {
 	DepartmentID() [16]byte          // department domain
 	Week() utc.WeekElapsed           //

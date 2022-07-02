@@ -11,13 +11,12 @@ type GroupName interface {
 }
 
 type GroupName_StorageServices interface {
-	Save(gn GroupName) protocol.Error
+	Save(gn GroupName) (numbers uint64, err protocol.Error)
 
 	Count(groupID [16]byte) (numbers uint64, err protocol.Error)
-	Get(groupID [16]byte, versionOffset uint64) (gn GroupName, err protocol.Error)
-	Last(groupID [16]byte) (gn GroupName, numbers uint64, err protocol.Error)
+	Get(groupID [16]byte, versionOffset uint64) (gn GroupName, numbers uint64, err protocol.Error)
 
-	FindByGroupName(groupname string) (groupID [16]byte, err protocol.Error)
+	FindByName(name string) (groupID [16]byte, err protocol.Error)
 }
 
 // GroupName_Status indicate GroupName record status

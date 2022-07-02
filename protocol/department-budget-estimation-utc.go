@@ -1,6 +1,5 @@
 package protocol
 
-
 // OrgBudgetEstimationUTC is weekly budget domain
 type DepartmentBudgetEstimationUTC interface {
 	DepartmentID() [16]byte          // department domain
