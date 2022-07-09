@@ -5,27 +5,26 @@ import "time"
 // PersonPassword indicate the domain record data fields.
 // A person can decide to don't register password and deny authenticate by password.
 type PersonPassword interface {
-	PersonID() [16]byte            // user domain
+	PersonID() protocol.UserID     // user domain
 	PasswordHash() []byte          //
 	Status() PersonPassword_Status //
 	RequestID() [16]byte           // user-request domain
 }
 
 type PersonPassword_StorageServices interface {
-	Create(password Password) error
-	Last(userID [16]byte) (Password, error)
-	Lasts(userID [16]byte, count int) ([]Password, error)
-	Meantime(userID [16]byte, start, end time.Time) ([]Password, error)
+	Save(pp PersonPassword) (nv protocol.NumberOfVersion, err protocol.Error)
+
+	Count(personID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(personID [16]byte, vo protocol.VersionOffset) (pp PersonPassword, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 // PersonPassword_Status indicate PersonPassword record status
-type PersonPassword_Status uint8
+type PersonPassword_Status Quiddity_Status
 
-// PersonPassword_Status status
+// PersonPassword statuses
 const (
-	PersonPassword_Status_Unset PersonPassword_Status = 0
 	// authenticate person with Password + OTP
-	PersonPassword_Status_ForceUse2Factor PersonPassword_Status = (1 << iota)
+	PersonPassword_Status_ForceUse2Factor = PersonPassword_Status(Quiddity_Status_FreeFlag << iota)
 	// user must change password and otp key(if enabled) for some reason
 	PersonPassword_Status_MustChangePassword
 	// user can't use or decide to prevent authenticate via password with or without OTP.
@@ -40,17 +39,13 @@ type PersonPassword_Service_SendResetToken_Response interface {
 }
 
 type PersonPassword_Service_Register_Request interface {
-	Password() []byte
+	PasswordHash() []byte
 }
 
-type PersonPassword_Service_Get_Request interface {
-	VersionOffset() uint64
+type PersonPassword_Service_Confirm_Request interface {
+	PersonID() protocol.UserID
+	PasswordHash() []byte
 }
-type PersonPassword_Service_Get_Response interface {
-	PersonPassword
-}
-
-type PersonPassword_Service_GetLast_Request interface {
-	PersonPassword
-	Numbers() uint64
+type PersonPassword_Service_Confirm_Response interface {
+	Status() PersonPassword_Status
 }

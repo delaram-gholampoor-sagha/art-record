@@ -16,6 +16,36 @@ type InvoiceItemTime_StorageServices interface {
 	Get(invoiceID [16]byte, versionOffset uint64) (iit InvoiceItemTime, err protocol.Error)
 }
 
+type (
+	InvoiceItemTime_Service_Register_Request interface {
+		InvoiceID() [16]byte 
+		ProductID() [16]byte 
+		Type() InvoiceItemTime_Type
+	}
+	InvoiceItemTime_Service_Register_Response interface {
+		Numbers() uint64
+	
+	}
+	
+	InvoiceItemTime_Service_Count_Request interface { 
+		InvoiceID() [16]byte 
+	
+	}
+	InvoiceItemTime_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	InvoiceItemTime_Service_Get_Request interface { 
+		InvoiceID() [16]byte
+		VersionOffset() uint64
+	
+	
+	}
+	InvoiceItemTime_Service_Get_Response interface {
+		InvoiceItemTime
+	}
+	
+)
+
 type InvoiceItemTime_Type uint8
 
 const (

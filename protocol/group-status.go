@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // GroupStatus indicate the domain record data fields.
 type GroupStatus interface {
 	GroupID() [16]byte    // group-status domain
@@ -18,6 +20,35 @@ type GroupStatus_StorageServices interface {
 
 	// protocol.EventTarget
 }
+
+type (
+	GroupStatus_Service_Register_Request interface {
+		GroupID() [16]byte    
+		Status() Group_Status 
+	}
+	GroupStatus_Service_Register_Response interface {
+		Numbers() uint64
+	
+	}
+	
+	GroupStatus_Service_Count_Request interface { 
+		GroupID() [16]byte 
+	
+	}
+	GroupStatus_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	GroupStatus_Service_Get_Request interface { 
+		GroupID() [16]byte
+		VersionOffset() uint64
+	
+	
+	}
+	GroupStatus_Service_Get_Response interface {
+		GroupStatus
+		Numbers() uint64
+	}
+)
 
 type Group_Status Quiddity_Status
 

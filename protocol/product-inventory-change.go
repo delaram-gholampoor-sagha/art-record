@@ -20,3 +20,45 @@ type ProductInventoryChange_StorageServices interface {
 
 	FindByProduct(productID [16]byte, offset, limit uint64) (productIDs [][16]byte, numbers uint64, err protocol.Error)
 }
+
+type (
+	
+	ProductInventoryChange_Service_Register_Request interface {
+		ProductInventoryChangeID() [16]byte 
+		ProductID() [16]byte                
+		From() [16]byte                   
+		To() [16]byte                       
+		Amount() int64                      
+		Priority() uint64                   
+	}
+	ProductInventoryChange_Service_Register_Response interface {
+		Numbers() uint64
+	}
+
+	ProductInventoryChange_Service_Count_Request interface {
+		ProductID() [16]byte
+	}
+	ProductInventoryChange_Service_Count_Response interface {
+		Numbers()uint64
+	}
+
+	ProductInventoryChange_Service_Get_Request interface {
+		ProductID() [16]byte
+		VersionOffset() uint64
+	}
+	ProductInventoryChange_Service_Get_Response interface {
+		ProductInventoryChange
+		Numbers() uint64
+	}
+
+	ProductInventoryChange_Service_FindByProduct_Request interface {
+		ProductID() [16]byte
+		Offset() uint64
+		Limit() uint64
+
+	}
+	ProductInventoryChange_Service_FindByProduct_Response interface {
+		ProductIDs() [][16]byte
+		Numbers() uint64
+	}
+)

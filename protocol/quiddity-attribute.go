@@ -11,6 +11,15 @@ type ProductAttribute interface {
 	RequestID() [16]byte         // user-request domain
 }
 
+
+type ProductAttribute_StorageServices interface {
+	Save(qi ProductAttribute) (err protocol.Error)
+
+	Count(quiddityID [16]byte) (numbers uint64, err protocol.Error)
+	Get(quiddityID [16]byte, versionOffset uint64) (qi ProductAttribute, err protocol.Error)
+
+}
+
 type ProductAttribute_Type uint16
 
 const (

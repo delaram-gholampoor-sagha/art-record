@@ -1,6 +1,5 @@
 package protocol
 
-
 // ProductPricePayable indicate the domain record data fields.
 // ProductPricePayable store historically price with discount to show to users in price change chart.
 type ProductPricePayable interface {
@@ -18,3 +17,33 @@ type ProductPricePayable_StorageServices interface {
 	Count(productID [16]byte, currency uint64) (numbers uint64, err protocol.Error)
 	Get(productID [16]byte, currency uint64, versionOffset uint64) (q ProductPricePayable, numbers uint64, err protocol.Error)
 }
+
+type (
+	ProductPricePayable_Service_Register_Request interface {
+		ProductID() [16]byte
+		Currency() uint64 
+		Price()  protocol.AmountOfMoney
+	}
+	ProductPricePayable_Service_Register_Response interface {
+		Numbers() uint64
+	}
+	
+	ProductPricePayable_Service_Count_Request interface {
+		ProductID() [16]byte
+		Currency() uint64
+	}
+	ProductPricePayable_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	
+	ProductPricePayable_Service_Get_Request interface {
+		ProductID() [16]byte
+		Currency() uint64
+		VersionOffset() uint64
+	}
+	ProductPricePayable_Service_Get_Response interface {
+		ProductPricePayable
+		Numbers() uint64
+	}
+	
+)

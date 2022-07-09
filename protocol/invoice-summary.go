@@ -19,3 +19,38 @@ type InvoiceSummary_StorageServices interface {
 	Count(invoiceID [16]byte) (numbers uint64, err protocol.Error)
 	Get(invoiceID [16]byte, versionOffset uint64) (is InvoiceSummary, numbers uint64, err protocol.Error)
 }
+
+type (
+	InvoiceSummary_Service_Register_Request interface {
+		InvoiceID() [16]byte                    
+		Quantity() uint64                       
+		SuggestedPrice() protocol.AmountOfMoney  
+		DiscountedPrice() protocol.AmountOfMoney 
+		VoucherPrice() protocol.AmountOfMoney   
+		PayablePrice() protocol.AmountOfMoney    
+		VAT() protocol.AmountOfMoney             
+	}
+	InvoiceSummary_Service_Register_Response interface {
+		Numbers() uint64
+	
+	}
+	
+	InvoiceSummary_Service_Count_Request interface {
+		InvoiceID() [16]byte
+	
+	}
+	InvoiceSummary_Service_Count_Response interface {
+		Numbers() uint64
+	
+	}
+	
+	InvoiceSummary_Service_Get_Request interface { 
+		InvoiceID() [16]byte 
+		VersionOffset() uint64
+	}
+	InvoiceSummary_Service_Get_Response interface {
+		InvoiceSummary
+		Numbers() uint64
+	}
+	
+)

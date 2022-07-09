@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ProductStatus indicate the domain record data fields.
 type ProductStatus interface {
 	ProductID() [16]byte    // product domain
@@ -23,4 +25,47 @@ type Product_Status Quiddity_Status
 
 const (
 // Product_Status_ = Product_Status(Quiddity_Status_FreeFlag << iota)
+)
+
+
+type (
+	
+	ProductStatus_Service_Register_Request interface {
+		ProductID() [16]byte    
+		Status() Product_Status 
+	}
+
+	ProductStatus_Service_Register_Response interface {
+		Numbers() uint64
+	}
+
+	ProductStatus_Service_Count_Request interface {
+		ProductID() [16]byte    
+		
+	}
+
+	ProductStatus_Service_Count_Response interface {
+		Numbers() uint64
+		
+	}
+
+	Product_Status_Service_Get_Request interface {
+		ProductID() [16]byte
+		VersionOffset() uint64
+	}
+	Product_Status_Service_Get_Response interface {
+		Status() Product_Status
+		Numbers() uint64
+
+	}
+
+	Product_Status_Service_FilterByStatus_Request interface{
+		Status() Product_Status
+		Offset() uint64
+		Limit() uint64
+	}
+	Product_Status_Service_FilterByStatus_Response interface{
+		ProductIDs() [][16]byte
+		Numbers() uint64
+	}
 )

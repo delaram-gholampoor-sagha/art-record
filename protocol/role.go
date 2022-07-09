@@ -14,9 +14,59 @@ type Role_StorageServices interface {
 
 	Count(roleID [16]byte) (numbers uint64, err protocol.Error)
 	Get(roleID [16]byte, versionOffset uint64) (r Role, err protocol.Error)
-	Last(roleID [16]byte) (r Role, numbers uint64, err protocol.Error)
+	
 
 	GetIDs(offset, limit uint64) (roleIDs [][16]byte, numbers uint64, err protocol.Error)
 
 	FindByDepartmentID(departmentID [16]byte, offset, limit uint64) (roleIDs [][16]byte, numbers uint64, err protocol.Error)
 }
+
+
+type (
+	Role_Service_Register_Request interface{      
+  	ParentID() [16]byte     
+	  DepartmentID() [16]byte 
+	}
+
+		Role_Service_Register_Response interface{
+			RoleID() [16]byte
+      Numbers() uint64
+	}
+	
+	Role_Service_Count_Request interface{
+		RoleID() [16]byte
+	}
+	
+	Role_Service_Count_Response interface{
+		Numbers() uint64
+	}
+	Role_Service_Get_Request interface{
+		RoleID() [16]byte
+		VersionOffset() uint64
+	}
+	
+	Role_Service_Get_Response interface{
+		Role
+	}
+	
+	Role_Service_GetIDs_Request interface{
+		Offset() uint64
+		Limit() uint64
+	}
+	
+	Role_Service_GetIDs_Response interface{
+		RoleIDs() [][16]byte
+		Numbers() uint64
+	}
+	
+	Role_Service_FindByDepartmentID_Request interface{
+		DepartmentID() [16]byte
+		Offset() uint64
+		Limit() uint64
+	}
+	
+	Role_Service_FindByDepartmentID_Response interface{
+		RoleIDs() [][16]byte
+		Numbers() uint64
+	}
+)

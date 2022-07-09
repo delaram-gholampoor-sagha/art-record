@@ -17,3 +17,35 @@ type InvoiceItemSummary_StorageServices interface {
 	Count(invoiceID [16]byte) (numbers uint64, err protocol.Error)
 	Get(invoiceID [16]byte, versionOffset uint64) (iis InvoiceItemSummary, err protocol.Error)
 }
+
+type (
+	InvoiceItemSummary_Service_Register_Request interface {
+		InvoiceID() [16]byte                     
+		ProductID() [16]byte                     
+		SuggestedPrice() protocol.AmountOfMoney  
+		DiscountedPrice() protocol.AmountOfMoney 
+		PayablePrice() protocol.AmountOfMoney    
+		VAT() protocol.AmountOfMoney              
+	}
+	InvoiceItemSummary_Service_Register_Response interface {
+		Numbers() uint64
+	
+	}
+	
+	InvoiceItemSummary_Service_Count_Request interface { 
+		InvoiceID() [16]byte 
+	
+	}
+	InvoiceItemSummary_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	InvoiceItemSummary_Service_Get_Request interface { 
+		InvoiceID() [16]byte
+		VersionOffset() uint64
+	
+	
+	}
+	InvoiceItemSummary_Service_Get_Response interface {
+		InvoiceItemSummary
+	}
+)

@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // FinancialTransaction indicate the domain record data fields.
 // each FinancialTransaction is an immutable record and so use version mechanism to chain FinancialTransactions in AccountID way.
 type FinancialTransaction interface {
@@ -13,16 +15,19 @@ type FinancialTransaction interface {
 	RequestID() [16]byte                    // user-request domain
 }
 
+
 type FinancialTransaction_StorageServices interface {
 	Save(ft FinancialTransaction) (err protocol.Error)
 
 	Count(accountID [16]byte) (numbers uint64, err protocol.Error)
 	Get(accountID [16]byte, versionOffset uint64) (ft FinancialTransaction, err protocol.Error)
-	Last(accountID [16]byte) (ft FinancialTransaction, numbers uint64, err protocol.Error)
+
 
 	// TODO::: is it worth to uncomment below service?
 	// FindByAccountSideID(accountSideID [16]byte, offset, limit uint64) (versionOffsets []uint64, numbers uint64, err protocol.Error)
 }
+
+
 
 // FinancialTransaction_RT indicate FinancialTransaction record reference type
 type FinancialTransaction_RT uint8
@@ -60,18 +65,37 @@ const (
 	FinancialTransaction_RT_Compensation
 )
 
-type FinancialTransaction_Service_Transfer_Request interface{}
 
-type FinancialTransaction_Service_GetLast_Request interface {
-	RequestID() [16]byte           // user-request domain
-	AccountID() [16]byte           //
-	SenderAccountID() [16]byte     //
-	Reference() [16]byte           // Any ID that user can assign to track for any purpose
-	Amount() protocol.Amount       // Some number base on currency is Decimal part e.g. 8099 >> 80.99$
-	Balance() protocol.Amount      // Some number base on currency is Decimal part e.g. 8099 >> 80.99$
-	Type() FinancialTransaction_RT //
-}
-
-type FinancialTransaction_Service_GetByTime_Request interface{}
-
-type FinancialTransaction_Service_Find_Request interface{}
+type (
+	FinancialTransaction_Service_Register_Request interface {
+		AccountSideID() [16]byte                
+		Reference() [16]byte                    
+		ReferenceType() FinancialTransaction_RT 
+		Amount() protocol.AmountOfMoney        
+		Balance() protocol.AmountOfMoney        
+	
+	}
+	
+	FinancialTransaction_Service_Register_Response interface {
+		AccountID() [16]byte 
+		Numbers() uint64
+	}
+	FinancialTransaction_Service_Count_Request interface {
+		AccountID() [16]byte
+	
+	}
+	FinancialTransaction_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	
+	
+	FinancialTransaction_Service_Get_Request interface {
+		AccountID() [16]byte
+		VersionOffset() uint64
+	}
+	
+	FinancialTransaction_Service_Get_Response interface {
+		FinancialTransaction
+	}
+	
+)

@@ -17,3 +17,40 @@ type GroupRole_StorageServices interface {
 
 	FindByGroupID(groupID [16]byte, offset, limit uint64) (groupRoleIDs [][16]byte, numbers uint64, err protocol.Error)
 }
+
+
+type (
+	GroupRole_Service_Register_Request interface {
+		GroupRoleID() [16]byte               
+		GroupID() [16]byte                     
+		AccessControl() protocol.AccessControl 	             
+	}
+	GroupRole_Service_Register_Response interface {
+		Numbers() uint64
+	}
+	
+	GroupRole_Service_Count_Request interface { 
+		GroupRoleID() [16]byte
+	}
+	GroupRole_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	GroupRole_Service_Get_Request interface { 
+		GroupRoleID() [16]byte
+		VersionOffset() uint64
+	}
+	GroupRole_Service_Get_Response interface {
+		GroupRole
+		Numbers() uint64
+	}
+	GroupRole_Service_FindByGroupID_Request interface { 
+		GroupID() [16]byte
+		Offset() uint64
+		Limit() uint64
+	}
+
+	GroupRole_Service_FindByGroupID_Response interface {
+		GroupRoleIDs() [][16]byte
+		Numbers() uint64
+	}
+)

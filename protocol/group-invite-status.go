@@ -9,6 +9,16 @@ type GroupInviteStatus interface {
 	RequestID() [16]byte        // user-request domain
 }
 
+
+type GroupInviteStatus_StorageServices interface {
+	Save(gn GroupInviteStatus) (numbers uint64, err protocol.Error)
+
+	Count(groupID [16]byte) (numbers uint64, err protocol.Error)
+	Get(groupID [16]byte, versionOffset uint64) (gn GroupInviteStatus, numbers uint64, err protocol.Error)
+
+	
+}
+
 type GroupInvite_Status uint8
 
 const (
@@ -18,3 +28,31 @@ const (
 )
 
 // TODO::: user send last time of active state record plus its ID and optional invited user id as invite code.
+
+type (
+	
+	GroupInviteStatus_Service_Register_Request interface {
+		GroupID() [16]byte          
+		UserID() [16]byte          
+		Status() GroupInvite_Status 
+	}
+	GroupInviteStatus_Service_Register_Response interface {
+		Numbers() uint64
+	}
+
+	GroupInviteStatus_Service_Count_Request interface { 
+		GroupID() [16]byte
+	}
+	GroupInviteStatus_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	GroupInviteStatus_Service_Get_Request interface { 
+		GroupID() [16]byte
+		VersionOffset() uint64
+	}
+	GroupInviteStatus_Service_Get_Response interface {
+		GroupInviteStatus
+		Numbers() uint64
+	}
+
+)

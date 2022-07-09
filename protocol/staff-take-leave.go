@@ -14,7 +14,7 @@ type StaffTakeLeave_StorageServices interface {
 
 	Count(staffID [16]byte) (numbers uint64, err protocol.Error)
 	Get(staffID [16]byte, versionOffset uint64) (st StaffTakeLeave, err protocol.Error)
-	Last(staffID [16]byte) (st StaffTakeLeave, numbers uint64, err protocol.Error)
+
 }
 
 type StaffTakeLeave_Type uint8
@@ -66,4 +66,44 @@ const (
 	StaffTakeLeave_Type_JuryDuty
 	StaffTakeLeave_Type_Protest
 	StaffTakeLeave_Type_Volunteer
+)
+
+
+type (
+	StaffTakeLeave_Service_Register_Request interface{
+		StaffID() [16]byte         
+   	Day() utc.DayElapsed       
+   	DayHours() earth.DayHours 
+	  Type() StaffTakeLeave_Type 
+	}
+
+	StaffTakeLeave_Service_Register_Response interface{
+	  Numbers() uint64
+	}
+	
+	StaffTakeLeave_Service_Count_Request interface{
+		StaffID() [16]byte
+	}
+	
+	StaffTakeLeave_Service_Count_Response interface{
+		Numbers() uint64
+	}
+	StaffTakeLeave_Service_Get_Request interface{
+		StaffID() [16]byte
+		VersionOffset() uint64
+	}
+	
+	StaffTakeLeave_Service_Get_Response interface{
+		StaffTakeLeave
+		Numbers() uint64
+	}
+	
+	StaffTakeLeave_Service_Last_Request interface{
+		StaffID() [16]byte
+	}
+	
+	StaffTakeLeave_Service_Last_Response interface{
+		StaffTakeLeave
+		Numbers() uint64
+	}
 )

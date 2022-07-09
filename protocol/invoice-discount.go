@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // InvoiceDiscount indicate the domain record data fields.
 type InvoiceDiscount interface {
 	InvoiceID() [16]byte                // invoice domain
@@ -17,3 +19,43 @@ type InvoiceDiscount_StorageServices interface {
 
 	FindByDiscountID(discountID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
 }
+
+type (
+	InvoiceDiscount_Service_Register_Request interface {
+		InvoiceID() [16]byte               
+		DiscountID() [16]byte               
+		Discounted() protocol.AmountOfMoney 
+	}
+	InvoiceDiscount_Service_Register_Response interface {
+		Numbers() uint64
+	
+	}
+	
+	InvoiceDiscount_Service_Count_Request interface { 
+		InvoiceID() [16]byte 
+	
+	}
+	InvoiceDiscount_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	InvoiceDiscount_Service_Get_Request interface { 
+		InvoiceID() [16]byte
+		VersionOffset() uint64
+	
+	
+	}
+	InvoiceDiscount_Service_Get_Response interface {
+		InvoiceDiscount
+		Numbers() uint64
+	}
+	InvoiceDiscount_Service_FindByDiscountID_Request interface { 
+		DiscountID() [16]byte
+		Offset() [16]byte
+		Limit() uint64
+	
+	}
+	InvoiceDiscount_Service_FindByDiscountID_Response interface {
+		InvoiceIDs() [][16]byte
+		Numbers() uint64
+	}
+)

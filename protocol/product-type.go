@@ -58,3 +58,41 @@ const (
 	Product_Type_Service_Transport_Sea  // the transportation of passenger
 	Product_Type_Service_Transport_Rail // the transportation of passenger
 )
+
+
+type ProductType_StorageServices interface {
+	Save(pt ProductType) (numbers uint64, err protocol.Error)
+
+	Count(productID [16]byte) (numbers uint64, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (pt ProductType, numbers uint64, err protocol.Error)
+}
+
+type (
+	ProductType_Service_Register_Request interface {
+		ProductID() [16]byte 
+	  Kind() Product_Kind  
+	  Type() Product_Type  
+	}
+
+	ProductType_Service_Register_Response interface {
+		Numbers() uint64
+	}
+
+	ProductType_Service_Count_Request interface {
+		ProductID() [16]byte
+	}
+
+	ProductType_Service_Count_Response interface {
+		Numbers() uint64
+	}
+
+	ProductType_Service_Get_Request interface {
+		ProductID() [16]byte
+		VersionOffset() uint64
+	}
+
+	ProductType_Service_Get_Response interface {
+		ProductType
+		Numbers() uint64
+	}
+)

@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // 3 type of content exist: 1:about persons, 2:about events, 3:about sciences
 type Content interface {
 	ContentID() [16]byte // quiddity domain
@@ -14,7 +16,7 @@ type Content_StorageServices interface {
 
 	Count(contentID [16]byte) (numbers uint64, err protocol.Error)
 	Get(contentID [16]byte, versionOffset uint64) (c Content, err protocol.Error)
-	Last(contentID [16]byte) (c Content, numbers uint64, err protocol.Error)
+	
 
 	GetIDs(offset, limit uint64) (contentIDs [][16]byte, numbers uint64, err protocol.Error)
 	// GetIDsByDateTime(time protocol.Time, offset, limit uint64) (contentIDs [][16]byte, numbers uint64, err protocol.Error)
@@ -47,3 +49,59 @@ const (
 	Content_Type_Game
 	Content_Type_SportGame
 )
+
+type (
+	Content_Service_Register_Request interface {
+  	UserID() [16]byte    
+		Type() Content_Type  
+	}
+
+		Content_Service_Register_Response interface {
+       ContentID() [16]byte 
+			 Numbers() uint64
+	}
+	
+	Content_Service_Count_Request interface {
+		ContentID() [16]byte
+	}
+	
+	Content_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	
+	
+	Content_Service_Get_Request interface {
+		ContentID() [16]byte
+		VersionOffset() uint64
+	}
+	
+	Content_Service_Get_Response interface {
+		Content
+	}
+	
+	
+	Content_Service_GetIDs_Request interface {
+		Offset() uint64
+		Limit() uint64
+	}
+	
+	Content_Service_GetIDs_Response interface {
+		ContentIDs() [][16]byte
+		Numbers() uint64
+	}
+	
+	
+	Content_Service_FindByUserID_Request interface {
+		UserID() [16]byte
+		Offset()  uint64
+		Limit() uint64
+	}
+	
+	Content_Service_FindByUserID_Response interface {
+		ContentIDs() [][16]byte
+		Numbers() uint64
+	}
+	
+	
+)
+

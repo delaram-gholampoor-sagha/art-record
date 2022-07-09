@@ -26,3 +26,42 @@ type User_Status Quiddity_Status
 const (
 // User_Status_ = User_Status(Quiddity_Status_FreeFlag << iota)
 )
+
+type (
+	UserStatus_Service_Register_Request interface{ 
+	  Status() User_Status
+	}
+	
+	UserStatus_Service_Register_Response interface{
+		Numbers() uint64
+		UserID() [16]byte   
+	}
+	
+	UserStatus_Service_Count_Request interface{
+		UserID() [16]byte
+	}
+	
+	UserStatus_Service_Count_Response interface{
+		Numbers() uint64
+	}
+	UserStatus_Service_Get_Request interface{
+		UserID() [16]byte
+		VersionOffset() uint64
+	}
+	
+	UserStatus_Service_Get_Response interface{
+		UserStatus
+		Numbers() uint64
+	}
+	
+	
+	UserStatus_Service_GetIDs_Request interface{
+		Offset() uint64
+		Limit() uint64
+	}
+	
+	UserStatus_Service_GetIDs_Response interface{
+		UserIDs() [][16]byte
+		Numbers() uint64
+	}
+)

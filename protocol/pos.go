@@ -1,5 +1,9 @@
 package protocol
 
+import (
+	"../libgo/protocol"
+)
+
 // POS indicate the domain record data fields.
 // POS or point-of-sale
 type POS interface {
@@ -10,12 +14,38 @@ type POS interface {
 }
 
 type POS_StorageServices interface {
-	Save(pos POS) protocol.Error
+	Save(pos POS) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(posID [16]byte) (numbers uint64, err protocol.Error)
-	Get(posID [16]byte, versionOffset uint64) (pos POS, err protocol.Error)
-	Last(posID [16]byte) (pos POS, numbers uint64, err protocol.Error)
+	Count(posID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(posID [16]byte, vo protocol.VersionOffset) (pos POS, nv protocol.NumberOfVersion, err protocol.Error)
 }
+
+type (
+	POS_Service_Register_Request interface {
+		PossID() [16]byte
+		Type() POS_Type
+	}
+	POS_Service_Register_Response interface {
+		Nv()  protocol.NumberOfVersion
+	}
+	
+	POS_Service_Count_Request interface {
+		PosID() [16]byte
+	}
+	POS_Service_Count_Response interface {
+		Nv()  protocol.NumberOfVersion
+	}
+	
+	POS_Service_Get_Request interface {
+		PosID() [16]byte
+		Vo() protocol.VersionOffset
+	}
+	POS_Service_Get_Response interface {
+		POS
+		Nv()  protocol.NumberOfVersion
+	
+	}
+)
 
 type POS_Type uint64
 

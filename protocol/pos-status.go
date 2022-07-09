@@ -1,5 +1,9 @@
 package protocol
 
+import (
+	"../libgo/protocol"
+)
+
 // PosStatus indicate the domain record data fields.
 type PosStatus interface {
 	PosID() [16]byte     // pos domain
@@ -9,16 +13,52 @@ type PosStatus interface {
 }
 
 type PosStatus_StorageServices interface {
-	Save(ps PosStatus) protocol.Error
+	Save(ps PosStatus) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(posID [16]byte) (numbers uint64, err protocol.Error)
-	Get(posID [16]byte, versionOffset uint64) (ps PosStatus, err protocol.Error)
-	Last(posID [16]byte) (ps PosStatus, numbers uint64, err protocol.Error)
+	Count(posID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(posID [16]byte, vo protocol.VersionOffset) (ps PosStatus, nv protocol.NumberOfVersion, err protocol.Error)
 
-	FilterByStatus(status Pos_Status, offset, limit uint64) (posIDs [][16]byte, numbers uint64, err protocol.Error)
+	FilterByStatus(status Pos_Status, offset, limit uint64) (posIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 
 	protocol.EventTarget
 }
+type (
+	PosStatus_Service_Register_Request interface {
+		PosID() [16]byte
+		Status() Pos_Status
+	
+	}
+	PosStatus_Service_Register_Response interface {
+		Nv() protocol.NumberOfVersion
+	}
+	
+	PosStatus_Service_Count_Request interface {
+		PosID() [16]byte
+	
+	}
+	PosStatus_Service_Count_Response interface {
+		Nv() protocol.NumberOfVersion
+	
+	}
+	PosStatus_Service_Get_Request interface {
+		PosID() [16]byte    
+		Vo() protocol.VersionOffset
+	}
+	PosStatus_Service_Get_Response interface {
+		PosStatus
+		Nv() protocol.NumberOfVersion
+	
+	}
+	PosStatus_Service_FilterByStatus_Request interface{
+		Status() Pos_Status
+		Offset() uint64
+		Limit() uint64
+	}
+	PosStatus_Service_FilterByStatus_Response interface{
+		PosIDs() [][16]byte
+		Nv() protocol.NumberOfVersion
+	}
+)
 
 type Pos_Status Quiddity_Status
 

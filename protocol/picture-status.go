@@ -12,11 +12,45 @@ type PictureStatus_StorageServices interface {
 
 	Count(objectID [16]byte) (numbers uint64, err protocol.Error)
 	Get(objectID [16]byte, versionOffset uint64) (ps PictureStatus, err protocol.Error)
-	Last(objectID [16]byte) (ps PictureStatus, numbers uint64, err protocol.Error)
+
 
 	// FilterByStatus(status Picture_Status, offset, limit uint64) (objectIDs [][16]byte, numbers uint64, err protocol.Error)
 	// protocol.EventTarget
 }
+
+type (
+	PictureStatus_Service_Register_Request interface {
+		ObjectID() [16]byte     
+		Status() Picture_Status 
+	
+	}
+	PictureStatus_Service_Register_Response interface {
+			Numbers() uint64
+	}
+	
+	PictureStatus_Service_Count_Request interface {
+		ObjectID() [16]byte
+		
+	
+	}
+	PictureStatus_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	
+	PictureStatus_Service_Get_Request interface {
+		ObjectID() [16]byte    
+		VersionOffset() uint64
+	}
+	PictureStatus_Service_Get_Response interface {
+		PictureStatus
+		Numbers() uint64
+	}
+	
+
+)
+
+
+
 
 type Picture_Status Quiddity_Status
 

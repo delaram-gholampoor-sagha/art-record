@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // VoucherUser indicate the domain record data fields.
 // Use to restrict the voucher usage by specific users.
 type VoucherUser interface {
@@ -17,3 +19,45 @@ type VoucherUser_StorageServices interface {
 
 	FindByUser(userID [16]byte, offset, limit uint64) (voucherIDs [][16]byte, numbers uint64, err protocol.Error)
 }
+
+
+type (
+	VoucherUser_Service_Register_Request interface{
+		VoucherID() [16]byte 
+		UserID() [16]byte    
+	}
+
+	VoucherUser_Service_Register_Response interface{
+		Numbers() uint64
+	}
+
+	VoucherUser_Service_Count_Request interface{
+		VoucherID() [16]byte
+	}
+
+	VoucherUser_Service_Count_Response interface{
+		Numbers() uint64
+	}
+	VoucherUser_Service_Get_Request interface{
+		VoucherID() [16]byte
+		VersionOffset() uint64
+	}
+
+	VoucherUser_Service_Get_Response interface{
+		VoucherUser
+		Numbers() uint64
+	}
+
+
+	VoucherUser_Service_FindByUser_Request interface{
+		UserID() [16]byte
+		Offset() uint64
+		Limit() uint64
+	}
+
+	VoucherUser_Service_FindByUser_Response interface{
+		VoucherIDs() [][16]byte
+		Numbers() uint64
+	}
+)
+

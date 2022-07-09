@@ -13,5 +13,25 @@ type CommentForward_StorageServices interface {
 
 	Get(commentID [16]byte) (cf CommentForward, err protocol.Error)
 
-	FindByForwardedID(forwardedID [16]byte, offset, limit uint64) (commentIDs [][16]byte, numbers uint64, err protocol.Error)
 }
+
+
+type (
+	CommentForward_Service_Register_Request interface {
+		CommentID() [16]byte   
+	  ForwardedID() [16]byte 
+	}
+
+	CommentForward_Service_Register_Response interface {
+		Numbers() uint64
+	}
+	
+	CommentForward_Service_Get_Request interface {
+		CommentID() [16]byte
+	}
+	
+	CommentForward_Service_Get_Response interface {
+		 CommentForward
+	}
+	
+)

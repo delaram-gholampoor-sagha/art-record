@@ -1,5 +1,9 @@
 package protocol
 
+import (
+	"../libgo/protocol"
+)
+
 type CategoryStatus interface {
 	CategoryID() [16]byte    // category domain
 	Status() Category_Status //
@@ -8,15 +12,53 @@ type CategoryStatus interface {
 }
 
 type CategoryStatus_StorageServices interface {
-	Save(gs CategoryStatus) protocol.Error
+	Save(gs CategoryStatus) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(categoryID [16]byte) (numbers uint64, err protocol.Error)
-	Get(categoryID [16]byte, versionOffset uint64) (gs CategoryStatus, err protocol.Error)
-	Last(categoryID [16]byte) (gs CategoryStatus, numbers uint64, err protocol.Error)
+	Count(categoryID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(categoryID [16]byte, vo protocol.VersionOffset) (gs CategoryStatus, nv protocol.NumberOfVersion, err protocol.Error)
 
 	FilterByStatus(status Category_Status, offset, limit uint64) (categoryIDs [][16]byte, err protocol.Error)
+
 	// protocol.EventTarget
 }
+
+type (
+	CategoryStatus_Service_Register_Request interface {
+		CategoryID() [16]byte  
+		Status() Category_Status
+			
+	}
+	CategoryStatus_Service_Register_Response interface {
+		Nv() protocol.NumberOfVersion
+	}
+			
+	CategoryStatus_Service_Count_Request interface {
+		CategoryID() [16]byte
+			
+	}
+	CategoryStatus_Service_Count_Response interface {
+		Nv() protocol.NumberOfVersion
+			
+	}
+	CategoryStatus_Service_Get_Request interface {
+		CategoryID() [16]byte 
+		Vo() protocol.VersionOffset
+	}
+	CategoryStatus_Service_Get_Response interface {
+		CategoryStatus
+		Nv() protocol.NumberOfVersion
+			
+	}
+	CategoryStatus_Service_FilterByStatus_Request interface {
+		Status() CategoryStatus
+		Offset() uint64
+		Limit() uint64
+	}
+	CategoryStatus_Service_FilterByStatus_Response interface {
+		CategoryIDs() [][16]byte
+	
+	}
+)
 
 type Category_Status Quiddity_Status
 

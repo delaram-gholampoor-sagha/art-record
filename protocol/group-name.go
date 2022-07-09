@@ -19,6 +19,8 @@ type GroupName_StorageServices interface {
 	FindByName(name string) (groupID [16]byte, err protocol.Error)
 }
 
+
+
 // GroupName_Status indicate GroupName record status
 type GroupName_Status uint8
 
@@ -29,4 +31,37 @@ const (
 	GroupName_Status_Remove
 	GroupName_Status_Blocked
 	GroupName_Status_Reserved
+)
+
+type (
+	
+	GroupName_Service_Register_Request interface {
+		GroupID() [16]byte                 
+		Name() string
+		Status() GroupName_Status  
+	}
+	GroupName_Service_Register_Response interface {
+		Numbers() uint64
+	}
+
+	GroupName_Service_Count_Request interface { 
+		GroupID() [16]byte
+	}
+	GroupName_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	GroupName_Service_Get_Request interface { 
+		GroupID() [16]byte
+		VersionOffset() uint64
+	}
+	GroupName_Service_Get_Response interface {
+		GroupName
+		Numbers() uint64
+	}
+	GroupName_Service_FindByName_Request interface { 
+		Name() string
+	}
+	GroupName_Service_FindByName_Response interface {
+		GroupID() [16]byte
+	}
 )

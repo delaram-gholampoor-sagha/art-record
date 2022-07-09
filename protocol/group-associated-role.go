@@ -7,3 +7,43 @@ type GroupAssociatedRole interface {
 	Time() protocol.Time   // save time
 	RequestID() [16]byte   // user-request domain
 }
+
+
+type GroupAssociatedRole_StorageServices interface {
+	Save(gn GroupAssociatedRole) (numbers uint64, err protocol.Error)
+
+	Count(groupID [16]byte) (numbers uint64, err protocol.Error)
+	Get(groupID [16]byte, versionOffset uint64) (gn GroupAssociatedRole, numbers uint64, err protocol.Error)
+}
+
+
+
+// TODO::: user send last time of active state record plus its ID and optional invited user id as invite code.
+
+type (
+	
+	GroupAssociatedRole_Service_Register_Request interface {
+		GroupID() [16]byte     
+  	UserID() [16]byte      
+  	GroupRoleID() [16]byte  
+	}
+	GroupAssociatedRole_Service_Register_Response interface {
+		Numbers() uint64
+	}
+
+	GroupAssociatedRole_Service_Count_Request interface { 
+		GroupID() [16]byte
+	}
+	GroupAssociatedRole_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	GroupAssociatedRole_Service_Get_Request interface { 
+		GroupID() [16]byte
+		VersionOffset() uint64
+	}
+	GroupAssociatedRole_Service_Get_Response interface {
+		GroupAssociatedRole
+		Numbers() uint64
+	}
+
+)

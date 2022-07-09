@@ -15,5 +15,49 @@ type RoleStaff_StorageServices interface {
 
 	Count(roleID [16]byte) (numbers uint64, err protocol.Error)
 	Get(roleID [16]byte, versionOffset uint64) (rs RoleStaff, err protocol.Error)
-	Last(roleID [16]byte) (rs RoleStaff, numbers uint64, err protocol.Error)
+	
 }
+
+
+ 
+type (
+
+	RoleStaff_Service_Register_Request interface{
+		RoleID() [16]byte
+		Minimum() int        
+		Expected() int       
+		Maximum() int        
+  }
+
+
+	RoleStaff_Service_Register_Response interface{
+		Numbers() uint64      
+	}
+	
+	
+	RoleStaff_Service_Count_Request interface{
+		RoleID() [16]byte
+	}
+	
+	RoleStaff_Service_Count_Response interface{
+		Numbers() uint64
+	}
+	RoleStaff_Service_Get_Request interface{
+		RoleID() [16]byte
+		VersionOffset() uint64
+	}
+	
+	RoleStaff_Service_Get_Response interface{
+		RoleStaff
+		Numbers() uint64
+	}
+	
+	RoleStaff_Service_Last_Request interface{
+		RoleID() [16]byte
+	}
+	
+	RoleStaff_Service_Last_Response interface{
+		RoleStaff
+		Numbers() uint64
+	}
+)

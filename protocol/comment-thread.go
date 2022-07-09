@@ -14,3 +14,24 @@ type CommentThread_StorageServices interface {
 
 	Get(commentID [16]byte) (ct CommentThread, err protocol.Error)
 }
+
+
+type (
+	CommentThread_Service_Register_Request interface {
+			CommentID() [16]byte             
+    	ArchiveAfter() protocol.Duration 
+	}
+
+		CommentThread_Service_Register_Response interface {
+      Numbers() uint64
+	}
+	
+	
+	CommentThread_Service_Get_Request interface {
+		CommentID() uint64
+	}
+	
+	CommentThread_Service_Get_Response interface {
+		CommentThread
+	}
+)

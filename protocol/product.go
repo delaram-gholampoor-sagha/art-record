@@ -32,7 +32,7 @@ const (
 
 	Product_Type_InvoiceSell
 	Product_Type_OrderSell
-	Product_Type_Role  // role limit sell
+	Product_Type_Product  // Product limit sell
 	Product_Type_Group // group limit sell
 
 	_
@@ -73,4 +73,43 @@ const (
 	Product_Type_Provider_Staff              // the provider of the product
 	Product_Type_Provider_Role               // the provider of the product
 	Product_Type_Share                       // ticket for panic room, ...
+)
+
+
+type (
+	Product_Service_Register_Request interface{
+		Type() Product_Type
+	}
+	Product_Service_Register_Response interface{
+		ProductID() [16]byte
+		Numbers() uint64
+	}
+
+	Product_Service_Count_Request interface{
+		ProductID() [16]byte
+	}
+
+	Product_Service_Count_Response interface{
+		Numbers() uint64
+	}
+	Product_Service_Get_Request interface{
+		ProductID() [16]byte
+		VersionOffset() uint64
+	}
+
+	Product_Service_Get_Response interface{
+		Product
+		Numbers() uint64
+	}
+
+	Product_Service_FilterByType_Request interface{
+		Product_Type() uint64
+		Offset() uint64
+		Limit() uint64
+	}
+
+	Product_Service_FilterByType_Response interface{
+		ProductIDs() [][16]byte
+		Numbers() uint64
+	}
 )

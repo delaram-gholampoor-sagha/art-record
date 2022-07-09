@@ -1,5 +1,9 @@
 package protocol
 
+import (
+	"../libgo/protocol"
+)
+
 // PosServiceArea indicate the domain record data fields.
 // Save shortcut to regular products to easily add to invoice
 type PosProduct interface {
@@ -10,10 +14,46 @@ type PosProduct interface {
 }
 
 type PosProduct_StorageServices interface {
-	Save(pp PosProduct) protocol.Error
+	Save(pp PosProduct) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(posID [16]byte) (numbers uint64, err protocol.Error)
-	Get(posID [16]byte, versionOffset uint64) (pp PosProduct, err protocol.Error)
+	Count(posID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(posID [16]byte, vo protocol.VersionOffset) (pp PosProduct, err protocol.Error)
 
-	Delete(posID [16]byte, versionOffset uint64) (numbers uint64, err protocol.Error)
+	Delete(posID [16]byte, vo protocol.VersionOffset) (nv protocol.NumberOfVersion, err protocol.Error)
 }
+
+type (
+	PosProduct_Service_Register_Request interface {
+		PosID() [16]byte
+		ProductID() [16]byte
+	}
+	PosProduct_Service_Register_Response interface {
+		Nv() protocol.NumberOfVersion
+	}
+	
+	PosProduct_Service_Count_Request interface {
+		PosID() [16]byte
+	
+	}
+	PosProduct_Service_Count_Response interface {
+		Nv() protocol.NumberOfVersion
+	}
+	
+	PosProduct_Service_Get_Request interface {
+		PosID() [16]byte    
+		Vo() protocol.VersionOffset
+	}
+	PosProduct_Service_Get_Response interface {
+		PosProduct
+		
+	
+	}
+	PosProduct_Service_Delete_Request interface {
+		PosID() [16]byte    
+		Vo() protocol.VersionOffset
+	}
+	PosProduct_Service_Delete_Response interface {
+		Nv() protocol.NumberOfVersion
+	}
+
+)

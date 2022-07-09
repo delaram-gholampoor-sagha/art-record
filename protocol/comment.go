@@ -18,7 +18,7 @@ type Comment_StorageServices interface {
 
 	Count(groupID [16]byte) (numbers uint64, err protocol.Error)
 	Get(groupID [16]byte, versionOffset uint64) (c Comment, err protocol.Error)
-	Last(groupID [16]byte) (c Comment, numbers uint64, err protocol.Error)
+
 
 	FindByReplyTo(groupID [16]byte, commentID [16]byte, offset, limit uint64) (versionOffsets []uint64, numbers uint64, err protocol.Error)
 	FindByUserID(groupID [16]byte, userID [16]byte, offset, limit uint64) (versionOffsets []uint64, numbers uint64, err protocol.Error)
@@ -59,4 +59,78 @@ const (
 	Comment_Settings_Unset        Comment_Settings = 0
 	Comment_Settings_PreviewLinks Comment_Settings = (1 << iota) // Render web links as small widget or not
 	Comment_Settings_Forwardable                                 // Allow to forward it
+)
+
+
+type (
+	
+	Comment_Service_Register_Request interface {
+		GroupID() [16]byte         
+		ReplyTo() [16]byte         
+		UserID() [16]byte           
+		Type() Comment_Type
+		Settings() Comment_Settings 
+	}
+
+	Comment_Service_Register_Response interface {
+		CommentID() [16]byte
+		Numbers() uint64
+	}
+
+	Comment_Service_Count_Request interface {
+		GroupID() [16]byte
+	}
+
+	Comment_Service_Count_Response interface {
+		Numbers() uint64
+	}
+
+	Comment_Service_Get_Request interface {
+		GroupID() [16]byte
+		versionOffset() uint64
+	}
+
+	Comment_Service_Get_Response interface {
+		Comment
+	}
+
+
+	Comment_Service_FindByReplyTo_Request interface {
+		GroupID() [16]byte
+		CommentID() [16]byte
+		Offset() uint64
+		Limit() uint64
+	}
+
+	Comment_Service_FindByReplyTo_Response interface {
+		VersionOffsets() []uint64
+		Numbers() uint64
+	}
+
+	Comment_Service_FindByUserID_Request interface {
+		GroupID() [16]byte
+		UserID() [16]byte
+		Offset() uint64
+		Limit() uint64
+	}
+
+	Comment_Service_FindByUserID_Response interface {
+		VersionOffsets() []uint64
+		Numbers() uint64
+	}
+
+
+	Comment_Service_ListUserGroups_Request interface {
+		UserID() [16]byte
+		Offset() uint64
+		Limit() uint64
+	}
+
+	Comment_Service_ListUserGroups_Response interface {
+		Ids() [][16]byte
+		Numbers() uint64
+	}
+
+
+
 )

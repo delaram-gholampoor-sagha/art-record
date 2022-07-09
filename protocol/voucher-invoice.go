@@ -17,3 +17,34 @@ type VoucherInvoice_StorageServices interface {
 	Count(voucherID [16]byte) (numbers uint64, err protocol.Error)
 	Get(voucherID [16]byte, versionOffset uint64) (vi VoucherInvoice, numbers uint64, err protocol.Error)
 }
+
+type (
+	VoucherInvoice_Service_Register_Request interface{
+		VoucherID() [16]byte 
+  	Each() uint8        
+	  MinPrice() int64     
+	  MinAmount() uint64   
+	}
+	
+	VoucherInvoice_Service_Register_Response interface{
+		Numbers() uint64
+	}
+	
+	VoucherInvoice_Service_Count_Request interface{
+		VoucherID() [16]byte
+	}
+	
+	VoucherInvoice_Service_Count_Response interface{
+		Numbers() uint64
+	}
+	VoucherInvoice_Service_Get_Request interface{
+		VoucherID() [16]byte
+		VersionOffset() uint64
+	}
+	
+	VoucherInvoice_Service_Get_Response interface{
+		VoucherInvoice
+		Numbers() uint64
+	}
+	
+)

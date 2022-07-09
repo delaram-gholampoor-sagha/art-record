@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // VoucherCategory indicate the domain record data fields.
 // Use to restrict the voucher on specific category.
 type VoucherCategory interface {
@@ -16,3 +18,34 @@ type VoucherCategory_StorageServices interface {
 	Count(voucherID [16]byte) (numbers uint64, err protocol.Error)
 	Get(voucherID [16]byte, versionOffset uint64) (vc VoucherCategory, numbers uint64, err protocol.Error)
 }
+
+
+type (
+	VoucherCategory_Service_Register_Request interface{
+	   VoucherID() [16]byte  
+	   Each() uint8          
+	   CategoryID() [16]byte 
+	}
+	
+	VoucherCategory_Service_Register_Response interface{
+		Numbers() uint64
+	}
+	
+	VoucherCategory_Service_Count_Request interface{
+		VoucherID() [16]byte
+	}
+	
+	VoucherCategory_Service_Count_Response interface{
+		Numbers() uint64
+	}
+	VoucherCategory_Service_Get_Request interface{
+		VoucherID() [16]byte
+		VersionOffset() uint64
+	}
+	
+	VoucherCategory_Service_Get_Response interface{
+		VoucherCategory
+		Numbers() uint64
+	}
+	
+)

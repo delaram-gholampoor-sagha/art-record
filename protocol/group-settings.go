@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // GroupRole indicate the domain record data fields.
 type GroupSettings interface {
 	GroupID() [16]byte                     // group domain
@@ -17,6 +19,37 @@ type GroupSettings_StorageServices interface {
 	Get(groupID [16]byte, versionOffset uint64) (gs GroupSettings, numbers uint64, err protocol.Error)
 }
 
+type (
+	GroupSettings_Service_Register_Request interface {
+		GroupID() [16]byte                     
+		ArchiveThreadAfter() protocol.Duration 
+		BlockedWords() []string                
+		Join() GroupSettings                   
+	}
+	GroupSettings_Service_Register_Response interface {
+		Numbers() uint64
+	
+	}
+	
+	GroupSettings_Service_Count_Request interface { 
+		GroupID() [16]byte 
+	
+	}
+	GroupSettings_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	GroupSettings_Service_Get_Request interface { 
+		GroupID() [16]byte
+		VersionOffset() uint64
+	
+	
+	}
+	GroupSettings_Service_Get_Response interface {
+		GroupSettings
+		Numbers() uint64
+	}
+	
+)
 type GroupSettings_Join uint8
 
 const (

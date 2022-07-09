@@ -19,6 +19,8 @@ type GroupPolicy_StorageServices interface {
 	FindByUserID(ownerUserID [16]byte, offset, limit uint64) (ids [][16]byte, numbers uint64, err protocol.Error)
 }
 
+
+
 type GroupPolicy_Policy uint16
 
 const (
@@ -35,4 +37,40 @@ const (
 	GroupPolicy_Policy_4stFriendshipCycle
 	GroupPolicy_Policy_5stFriendshipCycle
 	GroupPolicy_Policy_6stFriendshipCycle
+)
+
+type(
+	GroupPolicy_Service_Register_Request interface {
+		GroupID() [16]byte                 
+		GetPolicy() GroupPolicy_Policy     
+		SetPolicy() GroupPolicy_Policy    
+		ForwardPolicy() GroupPolicy_Policy            
+	}
+	GroupPolicy_Service_Register_Response interface {
+		Numbers() uint64
+	}
+	
+	GroupPolicy_Service_Count_Request interface { 
+		GroupID() [16]byte
+	}
+	GroupPolicy_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	GroupPolicy_Service_Get_Request interface { 
+		GroupID() [16]byte
+		VersionOffset() uint64
+	}
+	GroupPolicy_Service_Get_Response interface {
+		GroupPolicy
+		Numbers() uint64
+	}
+	GroupPolicy_Service_FindByUserID_Request interface { 
+		OwnerUserID() [16]byte
+		Offset() uint64
+		Limit() uint64
+	}
+	GroupPolicy_Service_FindByUserID_Response interface {
+		IDs() [][16]byte
+		Numbers() uint64
+	}
 )

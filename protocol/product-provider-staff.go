@@ -1,6 +1,5 @@
 package protocol
 
-
 // ProductProvider indicate the domain record data fields.
 type ProductProviderStaff interface {
 	ProductID() [16]byte // product domain
@@ -19,3 +18,46 @@ type ProductProviderStaff_StorageServices interface {
 }
 
 // related UserIDs by StaffID use to get Coordinate(domain)
+
+type (
+	
+	ProductProviderStaff_Service_Register_Request interface {
+		ProductID() [16]byte
+		StaffID() [16]byte
+	}
+	ProductProviderStaff_Service_Register_Response interface {
+		Numbers() uint64
+	}
+
+
+	ProductProviderStaff_Service_Count_Request interface {
+		ProductID() [16]byte
+	}
+	ProductProviderStaff_Service_Count_Response interface {
+		Numbers() uint64
+
+	}
+
+
+	ProductProviderStaff_Service_Get_Request interface {
+		ProductID() [16]byte
+		VersionOffset() uint64	
+	}
+	ProductProviderStaff_Service_Get_Response interface {
+		ProductProviderStaff
+		Numbers() uint64
+
+	}
+
+
+	ProductProviderStaff_Service_FindByStaff_Request interface {
+		StaffID() [16]byte
+		Offset() uint64
+		Limit() uint64
+	}
+	ProductProviderStaff_Service_FindByStaff_Response interface {
+		ProductIDs() [][16]byte
+		Numbers() uint64
+	}
+)
+

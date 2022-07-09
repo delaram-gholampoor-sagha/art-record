@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ProductProviderRole indicate the domain record data fields.
 // ProductProviderRole or product operator is to supply a particular service.
 type ProductProviderRole interface {
@@ -19,3 +21,41 @@ type ProductProviderRole_StorageServices interface {
 }
 
 // related UserIDs by RoleID use to get Coordinate(domain)
+
+type (
+	ProductProviderRole_Service_Register_Request interface {
+		ProductID() [16]byte
+		RoleID() [16]byte
+	}
+	ProductProviderRole_Service_Register_Response interface {
+		Numbers() uint64
+	}
+	
+	ProductProviderRole_Service_Count_Request interface {
+		ProductID() [16]byte
+	}
+	ProductProviderRole_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	
+	ProductProviderRole_Service_Get_Request interface {
+		ProductID() [16]byte
+		VersionOffset() uint64
+	}
+	ProductProviderRole_Service_Get_Response interface {
+		ProductProviderRole
+		Numbers() uint64
+		
+	}
+	
+	ProductProviderRole_Service_FindByRole_Request interface {
+		RoleID() [16]byte
+		Offset() uint64
+		Limit() uint64
+	}
+	ProductProviderRole_Service_FindByRole_Response interface {
+		ProductionIds() [][16]byte
+		Numbers() uint64
+	}
+	
+)

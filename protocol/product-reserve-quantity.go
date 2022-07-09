@@ -1,5 +1,6 @@
 package protocol
 
+import "../libgo/protocol"
 
 // ProductReserveQuantity indicate the domain record data fields.
 type ProductReserveQuantity interface {
@@ -16,3 +17,33 @@ type ProductReserveQuantity_StorageServices interface {
 	Count(productID [16]byte) (numbers uint64, err protocol.Error)
 	Get(productID [16]byte, versionOffset uint64) (pr ProductReserveQuantity, numbers uint64, err protocol.Error)
 }
+
+type (
+	ProductReserveQuantity_Service_Register_Request interface {
+		ProductID() [16]byte
+		Quantity() uint64
+		Percent() uint64
+	}
+	ProductReserveQuantity_Service_Register_Response interface {
+		Numbers() uint64
+	}
+	
+	ProductReserveQuantity_Service_Count_Request interface {
+		ProductID() [16]byte
+	}
+	ProductReserveQuantity_Service_Count_Response interface {
+		Numbers() uint64
+	
+	}
+	
+	ProductReserveQuantity_Service_Get_Request interface {
+		ProductID() [16]byte
+		VersionOffset() uint64
+	
+	}
+	ProductReserveQuantity_Service_Get_Response interface {
+		ProductReserveQuantity
+		Numbers() uint64
+	}
+	
+)

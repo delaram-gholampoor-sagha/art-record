@@ -16,3 +16,30 @@ type InvoiceItemReserveTime_StorageServices interface {
 	Count(invoiceID [16]byte) (numbers uint64, err protocol.Error)
 	Get(invoiceID [16]byte, versionOffset uint64) (itr InvoiceItemReserveTime, numbers uint64, err protocol.Error)
 }
+
+type (
+	InvoiceItemReserveTime_Service_Register_Request interface {
+		InvoiceID() [16]byte 
+		ProductID() [16]byte 
+		Start() protocol.Time 
+		End() protocol.Time   
+	}
+	InvoiceItemReserveTime_Service_Register_Response interface {
+		Numbers() uint64
+	}
+	
+	InvoiceItemReserveTime_Service_Count_Request interface { 
+		InvoiceID() [16]byte 
+	}
+	InvoiceItemReserveTime_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	InvoiceItemReserveTime_Service_Get_Request interface { 
+		InvoiceID() [16]byte
+		VersionOffset() uint64
+	}
+	InvoiceItemReserveTime_Service_Get_Response interface {
+		InvoiceItemReserveTime
+		Numbers() uint64
+	}
+)

@@ -21,3 +21,58 @@ type InvoiceSides_StorageServices interface {
 }
 
 type InvoiceSides_Type uint8
+
+type (
+	InvoiceSides_Service_Register_Request interface {
+		InvoiceID() [16]byte 
+		SellerID() [16]byte   
+		CustomerID() [16]byte 
+		AgentID() [16]byte      
+	}
+	InvoiceSides_Service_Register_Response interface {
+		Numbers() uint64
+	
+	}
+	
+	InvoiceSides_Service_Get_Request interface { 
+		InvoiceID() [16]byte 
+	
+	}
+	InvoiceSides_Service_Get_Response interface {
+		InvoiceSides
+		Numbers() uint64
+	}
+	
+	InvoiceSides_Service_FindBySeller_Request interface { 
+		SellerID() [16]byte
+		Offset() uint64 
+		Limit() uint64
+	}
+	InvoiceSides_Service_FindBySeller_Response interface {
+		InvoiceIDs() [][16]byte 
+		Numbers() uint64
+	
+	}
+	
+	InvoiceSides_Service_FindByCustomer_Request interface { 
+		CustomerID() uint64
+		Offset() uint64 
+		Limit() uint64
+	}
+	InvoiceSides_Service_FindByCustomer_Response interface {
+		InvoiceIDs() [][16]byte 
+		Numbers() uint64
+	}
+	//	FindByAgent(agentID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
+	
+	InvoiceSides_Service_FindByAgent_Request interface { 
+		AgentID() [16]byte
+		Offset() uint64 
+		Limit() uint64
+	}
+	InvoiceSides_Service_FindByAgent_Response interface {
+		InvoiceIDs() [][16]byte 
+		Numbers() uint64
+	}
+)
+

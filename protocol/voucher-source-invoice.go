@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // VoucherSourceInvoice indicate the domain record data fields.
 type VoucherSourceInvoice interface {
 	VoucherID() [16]byte                    // voucher domain
@@ -25,4 +27,45 @@ const (
 	VoucherSourceInvoice_Type_PastCompleted
 	VoucherSourceInvoice_Type_HurryToBuying
 	VoucherSourceInvoice_Type_BackToBuy
+)
+
+type(
+	VoucherSourceInvoice_Service_Register_Request interface{
+		VoucherID() [16]byte                    
+	  InvoiceID() [16]byte                    
+	  InvoiceType() VoucherSourceInvoice_Type 
+	}
+	
+	VoucherSourceInvoice_Service_Register_Response interface{
+		Numbers() uint64
+	}
+	
+	VoucherSourceInvoice_Service_Count_Request interface{
+		VoucherID() [16]byte
+	}
+	
+	VoucherSourceInvoice_Service_Count_Response interface{
+		Numbers() uint64
+	}
+	VoucherSourceInvoice_Service_Get_Request interface{
+		VoucherID() [16]byte
+		VersionOffset() uint64
+	}
+	
+	VoucherSourceInvoice_Service_Get_Response interface{
+		VoucherSourceInvoice
+		Numbers() uint64
+	}
+	
+	
+	VoucherSourceInvoice_Service_FindByInvoice_Request interface{
+		InvoiceID() [16]byte
+		Offset() uint64
+		Limit() uint64
+	}
+	
+	VoucherSourceInvoice_Service_FindByInvoice_Response interface{
+		VoucherIDs() [][16]byte
+		Numbers() uint64
+	}
 )

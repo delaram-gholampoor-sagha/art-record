@@ -12,7 +12,7 @@ type ContentAccess_StorageServices interface {
 
 	Count(contentID [16]byte) (numbers uint64, err protocol.Error)
 	Get(contentID [16]byte, versionOffset uint64) (ca ContentAccess, err protocol.Error)
-	Last(contentID [16]byte) (ca ContentAccess, numbers uint64, err protocol.Error)
+	
 }
 
 type Content_Access uint8
@@ -23,4 +23,34 @@ const (
 	Content_Access_Public
 	Content_Access_RegisteredUser
 	Content_Access_PremiumUser // usually charge for monthly access.  /// other plan?? basic, ... /// role based??
+)
+
+
+type (
+	ContentAccess_Service_Register_Request interface {
+		ContentID() [16]byte    
+  	Access() Content_Access 
+	}
+
+	ContentAccess_Service_Register_Response interface {
+     Numbers() uint64
+	}
+	
+	ContentAccess_Service_Count_Request interface {
+		ContentID() [16]byte
+	}
+	
+	ContentAccess_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	
+	ContentAccess_Service_Get_Request interface {
+		ContentID() [16]byte
+		VersionOffset() uint64
+	}
+	
+	ContentAccess_Service_Get_Response interface {
+		ContentAccess
+	}
+	
 )

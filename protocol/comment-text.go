@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // CommentText indicate the domain record data fields.
 type CommentText interface {
 	CommentID() [16]byte // comment domain
@@ -13,7 +15,50 @@ type CommentText_StorageServices interface {
 
 	Count(commentID [16]byte) (numbers uint64, err protocol.Error)
 	Get(commentID [16]byte, versionOffset uint64) (c CommentText, err protocol.Error)
-	Last(commentID [16]byte) (c CommentText, numbers uint64, err protocol.Error)
+	
 
 	FindByText(text string, offset, limit uint64) (commentIDs [16]byte, numbers uint64, err protocol.Error)
 }
+
+type (
+		
+	CommentText_Service_Register_Request interface {
+		CommentID() [16]byte 
+	  Text() string        
+	}
+
+	CommentText_Service_Register_Response interface {
+	   Numbers() uint64        
+	}
+
+
+	CommentText_Service_Count_Request interface {
+		CommentID() [16]byte
+	}
+
+	CommentText_Service_Count_Response interface {
+		Numbers() uint64
+	}
+
+	CommentText_Service_Get_Request interface {
+		CommentID() [16]byte
+		VersionOffset() uint64
+	}
+
+	CommentText_Service_Get_Response interface {
+		CommentText
+	}
+
+	CommentText_Service_FindByText_Request interface {
+		Text() string
+		Offset() uint64
+		Limit() uint64
+	}
+
+	CommentText_Service_FindByText_Response interface {
+		CommentIDs() [16]byte 
+		Numbers() uint64
+	}
+
+
+)

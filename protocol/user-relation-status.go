@@ -29,3 +29,67 @@ const (
 	UserRelation_Status_Blocked = UserRelation_Status(Quiddity_Status_FreeFlag << iota)
 	UserRelation_Status_Muted
 )
+
+type (
+	UserRelationStatus_Service_Register_Request interface{
+		UserID() [16]byte            
+	  SideID() [16]byte            
+  	Status() UserRelation_Status 
+	}
+
+	UserRelationStatus_Service_Register_Response interface{
+		Numbers() uint64
+	}
+
+	UserRelationStatus_Service_Count_Request interface{
+		UserID() [16]byte
+	}
+
+	UserRelationStatus_Service_Count_Response interface{
+		Numbers() uint64
+	}
+	UserRelationStatus_Service_Get_Request interface{
+		UserID() [16]byte
+		VersionOffset() uint64
+	}
+
+	UserRelationStatus_Service_Get_Response interface{
+		UserRelationStatus
+		Numbers() uint64
+	}
+
+
+	UserRelationStatus_Service_ListSides_Request interface{
+		UserID() [16]byte
+		Offset() uint64
+		Limit() uint64
+	}
+
+	UserRelationStatus_Service_ListSides_Response interface{
+		SideIDs() [][16]byte
+		Numbers() uint64
+	}
+
+	UserRelationStatus_Service_ListUsers_Request interface{
+		SideID() [16]byte
+		Offset() uint64
+		Limit() uint64
+	}
+
+	UserRelationStatus_Service_ListUsers_Response interface{
+		UserIDs() [][16]byte
+		Numbers() uint64
+	}
+
+	UserRelationStatus_Service_FilterByStatus_Request interface{
+		UserID() [16]byte
+		UserRelationStatus
+		Offset() uint64
+		Limit() uint64
+	}
+
+	UserRelationStatus_Service_FilterByStatus_Response interface{
+		SideIDs() [][16]byte
+		Numbers() uint64
+	}
+)

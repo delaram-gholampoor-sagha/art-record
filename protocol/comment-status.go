@@ -13,7 +13,7 @@ type CommentStatus_StorageServices interface {
 
 	Count(commentID [16]byte) (numbers uint64, err protocol.Error)
 	Get(commentID [16]byte, versionOffset uint64) (cs CommentStatus, err protocol.Error)
-	Last(commentID [16]byte) (cs CommentStatus, numbers uint64, err protocol.Error)
+	
 
 	// FilterByStatus(status Comment_Status, offset, limit uint64) (commentIDs [][16]byte, numbers uint64, err protocol.Error)
 	protocol.EventTarget
@@ -23,4 +23,33 @@ type Comment_Status Quiddity_Status
 
 const (
 // Comment_Status_ = Comment_Status(Quiddity_Status_FreeFlag << iota)
+)
+
+
+type (
+	CommentStatus_Service_Register_Request interface {
+		CommentID() [16]byte    
+  	Status() Comment_Status 
+	}
+
+		CommentStatus_Service_Register_Response interface {
+	  Numbers() uint64
+	}
+
+	CommentStatus_Service_Count_Request interface {
+	CommentID() [16]byte
+	}
+
+	CommentStatus_Service_Count_Response interface {
+		Numbers() uint64
+	}
+
+	CommentStatus_Service_Get_Request interface {
+	CommentID() [16]byte
+	VersionOffset() uint64
+	}
+
+	CommentStatus_Service_Get_Response interface {
+		CommentStatus
+	}
 )

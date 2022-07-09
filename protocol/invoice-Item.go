@@ -1,5 +1,6 @@
 package protocol
 
+import "../libgo/protocol"
 
 // InvoiceItem indicate the domain record data fields.
 // each InvoiceItem is immutable record and so use version mechanism to chain InvoiceItem in InvoiceID group.
@@ -21,3 +22,45 @@ type InvoiceItem_StorageServices interface {
 
 	FindByProductID(productID uint64, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
 }
+
+
+type (
+	InvoiceItem_Service_Register_Request interface {
+		InvoiceID() [16]byte 
+		ProductID() [16]byte 
+		Quantity() uint64    
+	}
+	InvoiceItem_Service_Register_Response interface {
+		Numbers() uint64
+	
+	}
+	
+	InvoiceItem_Service_Count_Request interface { 
+		InvoiceID() [16]byte 
+	
+	}
+	InvoiceItem_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	InvoiceItem_Service_Get_Request interface { 
+		InvoiceID() [16]byte
+		VersionOffset() uint64
+	
+	
+	}
+	InvoiceItem_Service_Get_Response interface {
+		InvoiceItem
+	}
+	
+	InvoiceItem_Service_FindByProductID_Request interface { 
+		ProductID() uint64
+		Offset() uint64
+		Limit() uint64
+	}
+	InvoiceItem_Service_FindByProductID_Response interface {
+		InvoiceIDs() [][16]byte
+		Numbers() uint64
+	
+	}
+	
+)

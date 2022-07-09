@@ -12,7 +12,7 @@ type StaffHireStatus_StorageServices interface {
 
 	Count(userID [16]byte) (numbers uint64, err protocol.Error)
 	Get(userID [16]byte, versionOffset uint64) (shs StaffHireStatus, err protocol.Error)
-	Last(userID [16]byte) (shs StaffHireStatus, numbers uint64, err protocol.Error)
+	
 
 	// FilterByStatus(status StaffHire_Status, offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)
 	// protocol.EventTarget
@@ -46,4 +46,41 @@ const (
 	StaffHire_Status_Negotiation
 	StaffHire_Status_Reserved
 	StaffHire_Status_ContractProposal
+)
+
+type (
+	StaffHireStatus_Service_Register_Request interface{
+		UserID() [16]byte         
+	  Status() StaffHire_Status 
+	}
+
+		StaffHireStatus_Service_Register_Response interface{
+	    Numbers() uint64
+	}
+	
+	
+	StaffHireStatus_Service_Count_Request interface{
+		StaffID() [16]byte
+	}
+	
+	StaffHireStatus_Service_Count_Response interface{
+		Numbers() uint64
+	}
+	StaffHireStatus_Service_Get_Request interface{
+		StaffID() [16]byte
+		VersionOffset() uint64
+	}
+	
+	StaffHireStatus_Service_Get_Response interface{
+		StaffHireStatus
+	}
+	
+	StaffHireStatus_Service_Last_Request interface{
+		StaffID() [16]byte
+	}
+	
+	StaffHireStatus_Service_Last_Response interface{
+		StaffHireStatus
+		Numbers() uint64
+	}
 )

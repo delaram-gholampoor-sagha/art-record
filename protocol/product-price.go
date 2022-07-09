@@ -1,6 +1,6 @@
 package protocol
 
-
+import "../libgo/protocol"
 
 // ProductPrice indicate the domain record data fields.
 // ProductPrice can be register just by producer organization whom own the related quiddity
@@ -20,3 +20,42 @@ type ProductPrice_StorageServices interface {
 
 	ListProductCurrencies(productID [16]byte, offset, limit uint64) (currencies []uint64, numbers uint64, err protocol.Error)
 }
+
+type (
+	ProductPrice_Service_Register_Request interface {
+		ProductID() [16]byte
+		Currency() [16]byte
+	}
+	ProductPrice_Service_Register_Response interface {
+		Numbers() uint64
+	}
+	
+	ProductPrice_Service_Count_Request interface {
+		ProductID() [16]byte
+		Currency() uint64
+	}
+	ProductPrice_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	
+	ProductPrice_Service_Get_Request interface {
+		ProductID() [16]byte
+		Currency() uint64
+		VersionOffset() uint64
+	}
+	ProductPrice_Service_Get_Response interface {
+		ProductPrice
+		Numbers() uint64
+	}
+	
+	ProductPrice_Service_ListProductCurrencies_Request interface {
+		ProductID() [16]byte
+		Offset()
+		Limit() uint64
+	}
+	ProductPrice_Service_ListProductCurrencies_Response interface {
+		Currencies() []uint64
+		Numbers() uint64
+	}
+	
+)

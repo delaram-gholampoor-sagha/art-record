@@ -21,3 +21,45 @@ const (
 	UserPublicKey_Status_Blocked
 	UserPublicKey_Status_Revoked
 )
+
+
+type UserPublicKey_StorageServices interface {
+	Save(up UserPublicKey) (numbers uint64, err protocol.Error)
+
+	Count(userID [16]byte) (numbers uint64, err protocol.Error)
+	Get(userID [16]byte, versionOffset uint64) (up UserPublicKey, numbers uint64, err protocol.Error)
+}
+
+
+type (
+	UserPublicKey_Service_Register_Request interface{
+		UserID() [16]byte             
+		PublicKey() []byte            
+		Issuer() [16]byte             
+		Status() UserPublicKey_Status 
+	}
+	
+	UserPublicKey_Service_Register_Response interface{
+		Numbers() uint64
+	}
+	
+	UserPublicKey_Service_Count_Request interface{
+		UserID() [16]byte
+	}
+	
+	UserPublicKey_Service_Count_Response interface{
+		Numbers() uint64
+	}
+	UserPublicKey_Service_Get_Request interface{
+		UserID() [16]byte
+		VersionOffset() uint64
+	}
+	
+	UserPublicKey_Service_Get_Response interface{
+		UserPublicKey
+		Numbers() uint64
+	}
+	
+	
+	
+)

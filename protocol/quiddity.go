@@ -15,9 +15,21 @@ type Quiddity_StorageServices interface {
 	// FindByDomainID(domainID [16]byte, offset, limit uint64) (quiddityIDs [][16]byte, numbers uint64, err protocol.Error)
 }
 
-type Quiddity_Service_Get_Request interface {
-	QuiddityID() [16]byte
-}
-type Quiddity_Service_Get_Response interface {
-	Quiddity
-}
+type (
+	Quiddity_Service_Register_Request interface {
+		DomainID() [16]byte
+	}
+	
+	Quiddity_Service_Register_Response interface {
+		QuiddityID() [16]byte
+		Numbers() uint64
+	}
+	
+	Quiddity_Service_Get_Request interface {
+		QuiddityID() [16]byte
+	}
+	Quiddity_Service_Get_Response interface {
+		Quiddity
+	}
+	
+)

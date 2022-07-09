@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ProductContent indicate the domain record data fields.
 type ProductContent interface {
 	ProductID() [16]byte // product domain
@@ -16,3 +18,39 @@ type ProductContent_StorageServices interface {
 
 	FindByContent(contentID [16]byte, offset, limit uint64) (productIDs [][16]byte, numbers uint64, err protocol.Error)
 }
+
+type (
+	ProductContent_Service_Register_Request interface {
+		ProductID() [16]byte 
+		ContentID() [16]byte  
+	}
+	ProductContent_Service_Register_Response interface {
+		Numbers() uint64
+	}
+	
+	ProductContent_Service_Count_Request interface {
+		ProductID() [16]byte
+	}
+	ProductContent_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	
+	ProductContent_Service_Get_Request interface {
+		ProductID() [16]byte
+		VersionOffset() uint64
+	}
+	ProductContent_Service_Get_Response interface {
+		ProductContent
+		Numbers() uint64
+	}
+	
+	ProductContent_Service_FindByContent_Request interface {
+		ContentID() [16]byte
+		Offset() uint64
+		Limit() uint64}
+	ProductContent_Service_FindByContent_Response interface {
+		ProductIDs() [][16]byte
+		Numbers() uint64
+	}
+	
+)

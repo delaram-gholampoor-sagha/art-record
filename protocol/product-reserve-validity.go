@@ -14,3 +14,34 @@ type ProductReserveValidity_StorageServices interface {
 	Count(productID [16]byte) (numbers uint64, err protocol.Error)
 	Get(productID [16]byte, versionOffset uint64) (prv ProductReserveValidity, numbers uint64, err protocol.Error)
 }
+
+type (
+	ProductReserveValidity_Service_Register_Request interface {
+		ProductID() [16]byte
+		Duration() protocol.Duration
+	}
+	ProductReserveValidity_Service_Register_Response interface {
+		Numbers() uint64
+	}
+	
+	
+	ProductReserveValidity_Service_Count_Request interface {
+		ProductID() [16]byte
+	
+	}
+	ProductReserveValidity_Service_Count_Response interface {
+		Numbers() uint64
+	
+	}
+	
+	ProductReserveValidity_Service_Get_Request interface {
+		ProductID() [16]byte
+		VersionOffset() uint64
+	}
+	ProductReserveValidity_Service_Get_Response interface {
+		ProductReserveValidity
+		Numbers() uint64
+	}
+	
+	
+)

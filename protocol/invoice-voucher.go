@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // InvoiceVoucher indicate the domain record data fields.
 // This domain will let users redeem their vouchers and track vouchers rules.
 type InvoiceVoucher interface {
@@ -20,3 +22,43 @@ type InvoiceVoucher_StorageServices interface {
 
 	// protocol.EventTarget
 }
+
+type (
+	InvoiceVoucher_Service_Register_Request interface {
+		InvoiceID() [16]byte               
+		VoucherID() [16]byte               
+		Discounted() protocol.AmountOfMoney 
+	}
+	InvoiceVoucher_Service_Register_Response interface {
+		Numbers() uint64
+	
+	}
+	
+	InvoiceVoucher_Service_Count_Request interface {
+		InvoiceID() [16]byte
+		
+	
+	}
+	InvoiceVoucher_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	
+	InvoiceVoucher_Service_Get_Request interface {
+		InvoiceID() [16]byte    
+		VersionOffset() uint64
+	}
+	InvoiceVoucher_Service_Get_Response interface {
+		InvoiceVoucher
+		Numbers() uint64
+	}
+	InvoiceVoucher_Service_FindByVoucherID_Request interface {
+		VoucherID() [16]byte
+		Offset() uint64
+		Limit() uint64	  
+		
+	}
+	InvoiceVoucher_Service_FindByVoucherID_Response interface {
+		InvoiceIDs() [][16]byte  
+		Numbers() uint64
+	}
+)

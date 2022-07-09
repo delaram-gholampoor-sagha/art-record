@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ProductSubstitute indicate the domain record data fields.
 type ProductSubstitute interface {
 	ProductID() [16]byte    // product domain
@@ -17,3 +19,42 @@ type ProductSubstitute_StorageServices interface {
 
 	FindBySubstitute(substituteID [16]byte, offset, limit uint64) (productIDs [][16]byte, numbers uint64, err protocol.Error)
 }
+type (
+	
+	ProductSubstitute_Service_Register_Request interface{
+		ProductID() [16]byte    
+		Priority() uint64      
+		SubstituteID() [16]byte 
+	}
+	ProductSubstitute_Service_Register_Response interface{
+		Numbers() uint64
+	}
+
+	ProductSubstitute_Service_Count_Request interface{
+		ProductID() [16]byte
+	}
+
+	ProductSubstitute_Service_Count_Response interface{
+		Numbers() uint64
+	}
+	ProductSubstitute_Service_Get_Request interface{
+		ProductID() [16]byte
+		VersionOffset() uint64
+	}
+
+	ProductSubstitute_Service_Get_Response interface{
+		ProductSubstitute
+		Numbers() uint64
+	}
+
+	ProductSubstitute_Service_FilterByType_Request interface{
+		SubstituteID() uint64
+		Offset() uint64
+		Limit() uint64
+	}
+
+	ProductSubstitute_Service_FilterByType_Response interface{
+		ProductIDs() [][16]byte
+		Numbers() uint64
+	}
+)

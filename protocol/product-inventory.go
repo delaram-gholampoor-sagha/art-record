@@ -26,6 +26,62 @@ type ProductInventory_StorageService interface {
 	ListBuildingLocationIDs(productID [16]byte, offset, limit uint64) (buildingLocationIDs [][16]byte, numbers uint64, err protocol.Error)
 }
 
+
+
+type (
+
+	ProductInventory_Service_Register_Request interface {
+		ProductID() [16]byte               
+		BuildingLocationID() [16]byte       
+		ReferenceID() [16]byte              
+		ReferenceType() ProductInventory_RT 
+		Amount() int64                      
+		Stock() int64                       
+
+
+	}
+
+	ProductInventory_Service_Register_Response interface {
+		Numbers() uint64
+	}
+	ProductInventory_Service_Lock_Request interface {
+		ProductID()[16]byte
+		BuildingLocationID() [16]byte
+	}
+	ProductInventory_Service_Lock_Response interface {
+		ProductInventory
+	}
+	
+	ProductInventory_Service_Unlock_Request interface {
+		ProductInventory
+	}
+	ProductInventory_Service_Unlock_Response interface {
+		Numbers() uint64
+	
+	}
+	
+	ProductInventory_Service_Count_Request interface {
+		ProductID() [16]byte
+		BuildingLocationID() [16]byte
+	
+	}
+	ProductInventory_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	
+	ProductInventory_Service_Get_Request interface {
+		ProductID() [16]byte
+		BuildingLocationID() [16]byte    
+		VersionOffset() uint64
+	}
+	ProductInventory_Service_Get_Response interface {
+		ProductInventory
+		Numbers() uint64
+	}
+)
+
+
+
 type ProductInventory_RT uint8
 
 const (

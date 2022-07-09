@@ -1,6 +1,5 @@
 package protocol
 
-
 // VoucherStatus indicate the domain record data fields.
 type VoucherStatus interface {
 	VoucherID() [16]byte    //
@@ -29,4 +28,43 @@ const (
 
 	Voucher_Status_Expired
 	Voucher_Status_Revoked
+)
+
+
+type (
+	VoucherStatus_Service_Register_Request interface {
+		VoucherID() [16]byte    
+  	Status() Voucher_Status 
+	}
+	
+	VoucherStatus_Service_Register_Response interface {
+		Numbers() uint64
+	}
+	VoucherStatus_Service_Count_Request interface {
+		VoucherID() [16]byte
+	}
+	
+	VoucherStatus_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	VoucherStatus_Service_Get_Request interface {
+		VoucherID() [16]byte 
+		VersionOffset() uint64
+	}
+	
+	VoucherStatus_Service_Get_Response interface {
+		Numbers() uint64
+	}
+	
+	
+	VoucherStatus_Service_FilterByStatus_Request interface {
+		Voucher_Status() Quiddity_Status
+		offset() uint64
+		limit() uint64
+	}
+	
+	VoucherStatus_Service_FilterByStatus_Response interface {
+		VoucherIDs() [][16]byte
+		Numbers() uint64
+	}
 )

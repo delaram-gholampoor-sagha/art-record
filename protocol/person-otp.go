@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // PersonOTP indicate the domain record data fields.
 type PersonOTP interface {
 	PersonID() [16]byte   // user domain
@@ -14,5 +16,36 @@ type PersonOTP_StorageServices interface {
 
 	Count(personID [16]byte) (numbers uint64, err protocol.Error)
 	Get(personID [16]byte, versionOffset uint64) (po PersonOTP, err protocol.Error)
-	Last(personID [16]byte) (po PersonOTP, numbers uint64, err protocol.Error)
+
 }
+
+type (
+	PersonOTP_Service_Register_Request interface {
+		PersonID() [16]byte   
+		OTPPattern() []byte   
+		OTPAdditional() int32	
+	}
+	PersonOTP_Service_Register_Response interface {
+		 Numbers() uint64
+	}
+	
+	PersonOTP_Service_Count_Request interface {
+		PersonID() [16]byte
+		
+	
+	}
+	PersonOTP_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	
+	PersonOTP_Service_Get_Request interface {
+		PersonID() [16]byte    
+		VersionOffset() uint64
+	}
+	PersonOTP_Service_Get_Response interface {
+		PersonOTP
+		Numbers() uint64
+	}
+	
+	
+)

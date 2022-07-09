@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 type StaffHire interface {
 	UserID() [16]byte    // user domain
 	RoleID() [16]byte    // role status
@@ -18,3 +20,50 @@ type StaffHire_StorageServices interface {
 
 	// protocol.EventTarget
 }
+
+type (
+	StaffHire_Service_Register_Request interface {
+		UserID() [16]byte    
+  	RoleID() [16]byte    
+	}
+
+		StaffHire_Service_Register_Response interface {
+	  	Numbers() uint64
+	}
+
+	StaffHire_Service_Count_Request interface {
+		StaffID() [16]byte
+	}
+
+	StaffHire_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	StaffHire_Service_Get_Request interface {
+		StaffID() [16]byte
+		VersionOffset() uint64
+	}
+
+	StaffHire_Service_Get_Response interface {
+		StaffHire
+	}
+
+	StaffHire_Service_Last_Request interface {
+		StaffID() [16]byte
+	}
+
+	StaffHire_Service_Last_Response interface {
+		StaffHire
+		Numbers() uint64
+	}
+
+	StaffHire_Service_FindByRoleID_Request interface {
+		RoleID() [16]byte
+		Offset() uint64
+		Limit() uint64
+	}
+
+	StaffHire_Service_FindByRoleID_Response interface {
+		StaffIDs() [][16]byte
+		Numbers() uint64
+	}
+)

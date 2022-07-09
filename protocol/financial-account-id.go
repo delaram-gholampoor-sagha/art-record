@@ -9,6 +9,7 @@ type FinancialAccountID interface {
 	RequestID() [16]byte // user-request domain
 }
 
+
 type FinancialAccountID_StorageServices interface {
 	Save(fai FinancialAccountID) (numbers uint64, err protocol.Error)
 
@@ -18,16 +19,33 @@ type FinancialAccountID_StorageServices interface {
 	FindByID(id string) (accountIDs [][16]byte, err protocol.Error)
 }
 
-type FinancialAccountID_Service_Register_Request interface {
-	AccountID() [16]byte
-	ID() string
-}
+type (
+	
+	FinancialAccountID_Service_Register_Request interface {
+		AccountID() [16]byte
+		ID() string
+	}
 
-type FinancialAccountID_Service_Get_Request interface {
-	AccountID() [16]byte
-	VersionOffset() uint64
-}
-type FinancialAccountID_Service_Get_Response interface {
-	FinancialAccountID
-	Numbers() uint64
-}
+	FinancialAccountID_Service_Register_Response interface {
+		Numbers() uint64
+	}
+
+
+	FinancialAccountID_Service_Get_Request interface {
+		AccountID() [16]byte
+		VersionOffset() uint64
+	}
+	FinancialAccountID_Service_Get_Response interface {
+		FinancialAccountID
+		Numbers() uint64
+	}
+
+
+	FinancialAccountID_Service_FindByID_Request interface {
+		ID() string
+	}
+	FinancialAccountID_Service_FindByID_Response interface {
+		AccountIDs() [][16]byte
+	}
+
+)

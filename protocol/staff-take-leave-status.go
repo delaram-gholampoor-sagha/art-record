@@ -13,7 +13,7 @@ type StaffTakeLeaveStatus_StorageServices interface {
 
 	Count(staffID [16]byte) (numbers uint64, err protocol.Error)
 	Get(staffID [16]byte, versionOffset uint64) (ss StaffTakeLeaveStatus, err protocol.Error)
-	Last(staffID [16]byte) (ss StaffTakeLeaveStatus, numbers uint64, err protocol.Error)
+	
 
 	// FilterByStatus(status StaffTakeLeave_Status, offset, limit uint64) (staffIDs [][16]byte, numbers uint64, err protocol.Error)
 	// protocol.EventTarget
@@ -27,4 +27,36 @@ const (
 	StaffTakeLeave_Status_AlternateApprove
 	StaffTakeLeave_Status_NeedManagerApprove
 	StaffTakeLeave_Status_ManagerApprove
+)
+
+
+
+type (
+	StaffTakeLeaveStatus_Service_Register_Request interface{
+		StaffID() [16]byte             
+	  Day() utc.DayElapsed          
+	  Status() StaffTakeLeave_Status 
+	}
+
+		StaffTakeLeaveStatus_Service_Register_Response interface{
+	   Numbers() uint64
+	}
+	
+	
+	StaffTakeLeaveStatus_Service_Count_Request interface{
+		StaffID() [16]byte
+	}
+	
+	StaffTakeLeaveStatus_Service_Count_Response interface{
+		Numbers() uint64
+	}
+	StaffTakeLeaveStatus_Service_Get_Request interface{
+		StaffID() [16]byte
+		VersionOffset() uint64
+	}
+	
+	StaffTakeLeaveStatus_Service_Get_Response interface{
+		StaffTakeLeaveStatus
+	}
+	
 )

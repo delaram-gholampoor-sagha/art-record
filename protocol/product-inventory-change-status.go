@@ -21,6 +21,44 @@ type ProductInventoryChangeStatus_StorageServices interface {
 
 type ProductInventoryChange_Status Quiddity_Status
 
+type (
+	ProductInventoryChangeStatus_Service_Register_Request interface {
+		ProductInventoryChangeID() [16]byte    
+		Status() ProductInventoryChange_Status
+	}
+	ProductInventoryChangeStatus_Service_Register_Response interface {
+		Numbers() uint64
+	}
+	//	Count(productID [16]byte, currency uint64) (numbers uint64, err protocol.Error)
+	
+	ProductInventoryChangeStatus_Service_Count_Request interface {
+		ProductInventoryChangeID() [16]byte
+	}
+	ProductInventoryChangeStatus_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	
+	ProductInventoryChangeStatus_Service_Get_Request interface {
+		productInventoryChangeID() [16]byte
+		VersionOffset() uint64
+	}
+	ProductInventoryChangeStatus_Service_Get_Response interface {
+		ProductInventoryChangeStatus
+		Numbers() uint64
+	}
+	ProductInventoryChangeStatus_Service_FilterByStatus_Request interface {
+		Status() ProductInventoryChange_Status
+		Offset()
+		Limit() uint64
+	}
+	
+	ProductInventoryChangeStatus_Service_FilterByStatus_Response interface {
+		ProductInventoryChangeIDs() [][16]byte
+		Numbers() uint64
+	}
+)
+
+
 // DC abbreviation for distribution-center or Warehouse
 const (
 	ProductInventoryChange_Status_OutcomeDCRequested = ProductInventoryChange_Status(Quiddity_Status_FreeFlag << iota)

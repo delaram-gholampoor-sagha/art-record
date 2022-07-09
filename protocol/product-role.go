@@ -1,7 +1,5 @@
 package protocol
 
-
-
 // ProductRole indicate the domain record data fields.
 // ProductRole limit sell to specific roles.
 type ProductRole interface {
@@ -19,3 +17,46 @@ type ProductRole_StorageServices interface {
 
 	FindByRole(roleID [16]byte, offset, limit uint64) (productIDs [][16]byte, numbers uint64, err protocol.Error)
 }
+
+type (
+	ProductRole_Service_Register_Request interface{
+		ProductID() [16]byte
+		RoleID() [16]byte
+	
+	}
+	ProductRole_Service_Register_Response interface{
+		Numbers() uint64
+	}
+	
+	ProductRole_Service_Count_Request interface{
+		ProductID() [16]byte
+	}
+	ProductRole_Service_Count_Response interface{
+		Numbers() uint64
+	
+	}
+	
+	ProductRole_Service_Get_Request interface{
+		ProductID() [16]byte
+		VersionOffset() uint64
+	}
+	ProductRole_Service_Get_Response interface{
+		ProductRole
+		Numbers() uint64
+	}
+	
+	ProductRole_Service_FindByRole_Request interface{
+		RoleID() [16]byte
+		Offset() uint64 
+		Limit() uint64
+	}
+	ProductRole_Service_FindByRole_Response interface{
+		ProductIDs() [][16]byte
+		Numbers() uint64
+	}
+	
+)
+
+
+
+

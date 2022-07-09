@@ -14,5 +14,45 @@ type StaffTimingUTC_StorageServices interface {
 
 	Count(staffID [16]byte) (numbers uint64, err protocol.Error)
 	Get(staffID [16]byte, versionOffset uint64) (st StaffTimingUTC, err protocol.Error)
-	Last(staffID [16]byte) (st StaffTimingUTC, numbers uint64, err protocol.Error)
+	
 }
+
+
+type (
+	StaffTimingUTC_Service_Register_Request interface{
+			StaffID() [16]byte        
+			ShiftID() [16]byte        
+			Day() utc.DayElapsed      
+			DayHours() earth.DayHours 
+	}
+
+	StaffTimingUTC_Service_Register_Response interface{
+	  Numbers() uint64
+	}
+	
+	StaffTimingUTC_Service_Count_Request interface{
+		StaffID() [16]byte
+	}
+	
+	StaffTimingUTC_Service_Count_Response interface{
+		Numbers() uint64
+	}
+	StaffTimingUTC_Service_Get_Request interface{
+		StaffID() [16]byte
+		VersionOffset() uint64
+	}
+	
+	StaffTimingUTC_Service_Get_Response interface{
+		StaffTimingUTC
+		Numbers() uint64
+	}
+	
+	StaffTimingUTC_Service_Last_Request interface{
+		StaffID() [16]byte
+	}
+	
+	StaffTimingUTC_Service_Last_Response interface{
+		StaffTimingUTC
+		Numbers() uint64
+	}
+)

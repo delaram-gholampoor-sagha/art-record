@@ -19,6 +19,44 @@ type InvoiceStatus_StorageServices interface {
 	protocol.EventTarget
 }
 
+type (
+	InvoiceStatus_Service_Register_Request interface {
+		InvoiceID() [16]byte    
+		Status() Invoice_Status    
+	}
+	InvoiceStatus_Service_Register_Response interface {
+		Numbers() uint64
+	
+	}
+	
+	InvoiceStatus_Service_Count_Request interface {
+		InvoiceID() [16]byte
+	
+	}
+	InvoiceStatus_Service_Count_Response interface {
+		Numbers() uint64
+	
+	}
+	
+	InvoiceStatus_Service_Get_Request interface { 
+		InvoiceID() [16]byte 
+		VersionOffset() uint64
+	}
+	InvoiceStatus_Service_Get_Response interface {
+		InvoiceStatus
+		Numbers() uint64
+	}
+	InvoiceStatus_Service_FindByStatus_Request interface { 
+		Status() Invoice_Status
+		Offset() uint64
+		Limit() uint64
+	}
+	InvoiceStatus_Service_FindByStatus_Response interface {
+		InvoiceIDs() [][16]byte 
+		Numbers() uint64
+	}
+)
+
 type Invoice_Status Quiddity_Status
 
 const (

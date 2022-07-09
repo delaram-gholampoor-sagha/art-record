@@ -14,7 +14,50 @@ type QuiddityTitle_StorageServices interface {
 
 	Count(quiddityID [16]byte, language protocol.Language) (numbers uint64, err protocol.Error)
 	Get(quiddityID [16]byte, language protocol.Language, versionOffset uint64) (qt QuiddityTitle, err protocol.Error)
-	Last(quiddityID [16]byte, language protocol.Language) (qt QuiddityTitle, numbers uint64, err protocol.Error)
+	
 
 	ListQuiddityLanguages(quiddityID [16]byte, offset, limit uint64) (languages []protocol.Language, numbers uint64, err protocol.Error)
 }
+
+
+type (
+	QuiddityTitle_Service_Register_Request interface {
+		QuiddityID() [16]byte
+		Languages() protocol.Language
+		Title()string
+	}
+	
+	QuiddityTitle_Service_Register_Response interface {
+		Numbers() uint64
+	}
+	QuiddityTitle_Service_Count_Request interface {
+		QuiddityID() [16]byte
+		Language() protocol.Language
+	}
+	
+	QuiddityTitle_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	
+	QuiddityTitle_Service_Get_Request interface {
+		QuiddityID() [16]byte
+		Language() protocol.Language
+		VersionOffset() uint64 
+	}
+	
+	QuiddityTitle_Service_Get_Response interface {
+		QuiddityTitle
+	}
+	
+	
+	QuiddityTitle_Service_ListQuiddityLanguages_Request interface {
+		QuiddityID() [16]byte 
+		Offset() uint64
+		Limit() uint64
+	}
+	
+	QuiddityTitle_Service_ListQuiddityLanguages_Response interface {
+		Languages() []protocol.Language 
+		Numbers() uint64
+	}
+)

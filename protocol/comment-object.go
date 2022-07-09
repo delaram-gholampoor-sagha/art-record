@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // CommentObject indicate the domain record data fields.
 // Object can be any such as image, video, voice, ...
 type CommentObject interface {
@@ -14,7 +16,46 @@ type CommentObject_StorageServices interface {
 
 	Count(commentID [16]byte) (numbers uint64, err protocol.Error)
 	Get(commentID [16]byte, versionOffset uint64) (co CommentObject, err protocol.Error)
-	Last(commentID [16]byte) (co CommentObject, numbers uint64, err protocol.Error)
+
 
 	FindByObjectID(objectID [16]byte, offset, limit uint64) (commentIDs [][16]byte, numbers uint64, err protocol.Error)
 }
+
+
+type (
+	CommentObject_Service_Register_Request interface {
+		CommentID() [16]byte 
+	  ObjectID() [16]byte  
+	}
+
+	CommentObject_Service_Register_Response interface {
+	  Numbers() uint64
+	}
+	
+	CommentObject_Service_Count_Request interface {
+		CommentID() [16]byte
+	}
+	
+	CommentObject_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	
+	CommentObject_Service_Get_Request interface {
+		CommentID() [16]byte
+		VersionOffset() uint64
+	}
+	 CommentObject_Service_Get_Response interface {
+		CommentObject
+	}
+	
+	CommentObject_Service_FindByObjectID_Request interface {
+		ObjectID() [16]byte
+		Offset() uint64
+		Limit() uint64
+	}
+	
+	CommentObject_Service_FindByObjectID_Response interface {
+		CommentIDs() [][16]byte
+		Numbers() uint64
+	}
+)

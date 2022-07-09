@@ -15,5 +15,43 @@ type RoleLocation_StorageServices interface {
 
 	Count(roleID [16]byte) (numbers uint64, err protocol.Error)
 	Get(roleID [16]byte, versionOffset uint64) (rl RoleLocation, err protocol.Error)
-	Last(roleID [16]byte) (rl RoleLocation, numbers uint64, err protocol.Error)
+
 }
+
+type (
+	RoleLocation_Service_Register_Request interface{
+		RoleID() [16]byte             
+  	BuildingLocationID() [16]byte 
+	}
+
+
+		RoleLocation_Service_Register_Response interface{
+     Numbers() uint64
+	}
+	
+	RoleLocation_Service_Count_Request interface{
+		RoleID() [16]byte
+	}
+	
+	RoleLocation_Service_Count_Response interface{
+		Numbers() uint64
+	}
+	RoleLocation_Service_Get_Request interface{
+		RoleID() [16]byte
+		VersionOffset() uint64
+	}
+	
+	RoleLocation_Service_Get_Response interface{
+		RoleLocation
+		Numbers() uint64
+	}
+	
+	RoleLocation_Service_Last_Request interface{
+		RoleID() [16]byte
+	}
+	
+	RoleLocation_Service_Last_Response interface{
+		RoleLocation
+		Numbers() uint64
+	}
+)

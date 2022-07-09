@@ -18,3 +18,33 @@ type CommentPin_StorageServices interface {
 }
 
 // Unpin service : Hidden status to unpin a comment
+type (
+	CommentPin_Service_Register_Request interface {
+		CommentID() [16]byte 
+		GroupID() [16]byte  
+		PinedID() [16]byte   
+	}
+
+	CommentPin_Service_Register_Response interface {
+		 Numbers() uint64  
+	}
+	
+	CommentPin_Service_Get_Request interface {
+		CommentID() [16]byte
+	}
+	
+	CommentPin_Service_Get_Response interface {
+		CommentPin
+	}
+	
+	CommentPin_Service_FindByGroupID_Request interface {
+		GroupID() [16]byte
+		Offset()  uint64
+		Limit() uint64
+	}
+	
+	CommentPin_Service_FindByGroupID_Response interface {
+		CommentIDs() [][16]byte
+		Numbers() uint64
+	}
+)

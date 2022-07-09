@@ -14,3 +14,43 @@ type ProductTax interface {
 	Time() protocol.Time // save time
 	RequestID() [16]byte // user-request domain
 }
+
+
+type ProductTax_StorageServices interface {
+	Save(pt ProductTax) (numbers uint64, err protocol.Error)
+
+	Count(productID [16]byte) (numbers uint64, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (pt ProductTax, numbers uint64, err protocol.Error)
+}
+
+
+type (
+	ProductTax_Service_Register_Request interface {
+		ProductID() [16]byte  
+	  Start() protocol.Time 
+	  End() protocol.Time   
+	}
+	
+	ProductTax_Service_Register_Response interface {
+		Numbers() uint64
+	}
+	
+	ProductTax_Service_Count_Request interface {
+		ProductID() [16]byte
+	}
+	
+	ProductTax_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	
+	ProductTax_Service_Get_Request interface {
+		ProductID() [16]byte
+		VersionOffset() uint64
+	}
+	
+	ProductTax_Service_Get_Response interface {
+		ProductTax
+		Numbers() uint64
+	}
+	
+)

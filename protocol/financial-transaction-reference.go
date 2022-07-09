@@ -17,5 +17,40 @@ type FinancialTransactionReference_StorageServices interface {
 
 	Count(referenceID [16]byte) (numbers uint64, err protocol.Error)
 	Get(referenceID [16]byte, versionOffset uint64) (ftr FinancialTransactionReference, err protocol.Error)
-	Last(referenceID [16]byte) (ftr FinancialTransactionReference, numbers uint64, err protocol.Error)
+
 }
+
+
+type (
+	FinancialTransactionReference_Service_Register_Request interface {
+		SenderAccountID() [16]byte     
+		SenderAccountOffset() uint64   
+		ReceiverAccountID() [16]byte   
+		ReceiverAccountOffset() uint64 
+	}
+	
+	
+	FinancialTransactionReference_Service_Register_Response interface {
+	   ReferenceID() [16]byte
+	}
+	
+	
+	FinancialTransactionReference_Service_Count_Request interface {
+		ReferenceID() [16]byte
+	
+	}
+	FinancialTransactionReference_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	
+	
+	FinancialTransactionReference_Service_Get_Request interface {
+		ReferenceID() [16]byte
+		VersionOffset() uint64
+	}
+	
+	FinancialTransactionReference_Service_Get_Response interface {
+		FinancialTransactionReference
+	}
+	
+)

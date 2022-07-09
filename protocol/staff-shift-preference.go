@@ -9,3 +9,44 @@ type StaffShift interface {
 	Time() protocol.Time // save time
 	RequestID() [16]byte // user-request domain
 }
+
+
+
+type StaffShift_StorageServices interface {
+	Save(ss StaffShift) protocol.Error
+
+	Count(staffID [16]byte) (numbers uint64, err protocol.Error)
+	Get(staffID [16]byte, versionOffset uint64) (ss StaffShift, err protocol.Error)
+	
+}
+
+
+type (
+	
+	StaffShift_Service_Register_Request interface{
+	 StaffID() [16]byte   // staff domain
+	 Day() utc.DayElapsed //
+	 ShiftID() [16]byte   // org-shift domain
+	}
+
+	StaffShift_Service_Register_Response interface{
+   	Numbers() uint64
+	}
+
+	StaffShift_Service_Count_Request interface{
+		StaffID() [16]byte
+	}
+
+	StaffShift_Service_Count_Response interface{
+		Numbers() uint64
+	}
+	StaffShift_Service_Get_Request interface{
+		StaffID() [16]byte
+		VersionOffset() uint64
+	}
+
+	StaffShift_Service_Get_Response interface{
+		StaffShift
+	}
+
+)

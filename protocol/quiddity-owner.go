@@ -13,17 +13,46 @@ type QuiddityOwner_StorageServices interface {
 
 	Count(quiddityID [16]byte) (numbers uint64, err protocol.Error)
 	Get(quiddityID [16]byte, versionOffset uint64) (qo QuiddityOwner, err protocol.Error)
-	Last(quiddityID [16]byte) (qo QuiddityOwner, numbers uint64, err protocol.Error)
+
 
 	FindByOwnerID(userID [16]byte, offset, limit uint64) (quiddityIDs [][16]byte, numbers uint64, err protocol.Error)
 }
 
-type QuiddityOwner_Service_FindByUserID_Request interface {
-	UserID() [32]byte
-	Offset() uint64
-	Limit() uint64
-}
-type QuiddityOwner_Service_FindByUserID_Response interface {
-	QuiddityIDs() [][32]byte
-	Numbers() uint64
-}
+
+type (
+	QuiddityOwner_Service_Register_Request interface {
+		QuiddityID() [16]byte
+		UserID() [16]byte
+	}
+	
+	QuiddityOwner_Service_Register_Response interface {
+		Numbers() [16]byte
+	}
+	
+	
+	QuiddityOwner_Service_Count_Request interface {
+		QuiddityID() [16]byte
+	}
+	QuiddityOwner_Service_Count_Response interface {
+		Numbers() uint64
+	}
+	
+	
+	QuiddityOwner_Service_Get_Request interface {
+		QuiddityID() [16]byte
+		VersionOffset() uint64
+	}
+	QuiddityOwner_Service_Get_Response interface {
+		QuiddityOwner
+	}
+	
+	QuiddityOwner_Service_FindByUserID_Request interface {
+		UserID() [32]byte
+		Offset() uint64
+		Limit() uint64
+	}
+	QuiddityOwner_Service_FindByUserID_Response interface {
+		QuiddityIDs() [][32]byte
+		Numbers() uint64
+	}
+)
