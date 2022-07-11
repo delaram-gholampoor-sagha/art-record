@@ -25,7 +25,7 @@ type (
 	}
 	
 	VoucherAnalyticUtcMinute_Service_Register_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	VoucherAnalyticUtcMinute_Service_Count_Request interface{
@@ -33,7 +33,7 @@ type (
 	}
 	
 	VoucherAnalyticUtcMinute_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	VoucherAnalyticUtcMinute_Service_Get_Request interface{
 		VoucherID() [16]byte
@@ -42,6 +42,6 @@ type (
 	
 	VoucherAnalyticUtcMinute_Service_Get_Response interface{
 		VoucherAnalyticUtcMinute
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ProductInventoryChange indicate the domain record data fields.
 type ProductInventoryChange interface {
 	ProductInventoryChangeID() [16]byte //
@@ -32,7 +34,7 @@ type (
 		Priority() uint64                   
 	}
 	ProductInventoryChange_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	ProductInventoryChange_Service_Count_Request interface {
@@ -48,7 +50,7 @@ type (
 	}
 	ProductInventoryChange_Service_Get_Response interface {
 		ProductInventoryChange
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	ProductInventoryChange_Service_FindByProduct_Request interface {
@@ -59,6 +61,6 @@ type (
 	}
 	ProductInventoryChange_Service_FindByProduct_Response interface {
 		ProductIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

@@ -1,5 +1,6 @@
 package protocol
 
+import "../libgo/protocol"
 
 // InvoiceVoucherAnalyticUtcDay indicate the domain record data fields.
 type InvoiceVoucherAnalyticUtcDay interface {
@@ -15,8 +16,6 @@ type InvoiceVoucherAnalyticUtcDay_StorageServices interface {
 
 	Count(invoiceID [16]byte) (numbers uint64, err protocol.Error)
 	Get(invoiceID [16]byte, versionOffset uint64) (iv InvoiceVoucherAnalyticUtcDay, numbers uint64, err protocol.Error)
-
-
 }
 
 
@@ -27,7 +26,7 @@ type (
 		Discounted() protocol.AmountOfMoney 
 	}
 	InvoiceVoucherAnalyticUtcDay_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -37,7 +36,7 @@ type (
 	
 	}
 	InvoiceVoucherAnalyticUtcDay_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	InvoiceVoucherAnalyticUtcDay_Service_Get_Request interface {
@@ -46,7 +45,7 @@ type (
 	}
 	InvoiceVoucherAnalyticUtcDay_Service_Get_Response interface {
 		InvoiceVoucherAnalyticUtcDay
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 )

@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 type StaffStatus interface {
 	StaffID() [16]byte    // user domain
 	Status() Staff_Status //
@@ -12,7 +14,6 @@ type StaffStatus_StorageServices interface {
 
 	Count(staffID [16]byte) (numbers uint64, err protocol.Error)
 	Get(staffID [16]byte, versionOffset uint64) (ss StaffStatus, err protocol.Error)
-	
 
 	FilterByStatus(status Staff_Status, offset, limit uint64) (staffIDs [][16]byte, numbers uint64, err protocol.Error)
 	// protocol.EventTarget
@@ -29,41 +30,39 @@ const (
 )
 
 type (
-	
-	StaffStatus_Service_Register_Request interface{
-		StaffID() [16]byte    
-	  Status() Staff_Status 
+	StaffStatus_Service_Register_Request interface {
+		StaffID() [16]byte
+		Status() Staff_Status
 	}
 
-	StaffStatus_Service_Register_Response interface{
-   	Numbers() uint64
+	StaffStatus_Service_Register_Response interface {
+		Nv() protocol.NumberOfVersion
 	}
 
-	StaffStatus_Service_Count_Request interface{
+	StaffStatus_Service_Count_Request interface {
 		StaffID() [16]byte
 	}
 
-	StaffStatus_Service_Count_Response interface{
-		Numbers() uint64
+	StaffStatus_Service_Count_Response interface {
+		Nv() protocol.NumberOfVersion
 	}
-	StaffStatus_Service_Get_Request interface{
+	StaffStatus_Service_Get_Request interface {
 		StaffID() [16]byte
 		VersionOffset() uint64
 	}
 
-	StaffStatus_Service_Get_Response interface{
+	StaffStatus_Service_Get_Response interface {
 		StaffStatus
 	}
 
-
-	StaffStatus_Service_FilterByStatus_Request interface{
+	StaffStatus_Service_FilterByStatus_Request interface {
 		StaffStatus
 		Offset() uint64
 		Limit() uint64
 	}
 
-	StaffStatus_Service_FilterByStatus_Response interface{
+	StaffStatus_Service_FilterByStatus_Response interface {
 		StaffIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

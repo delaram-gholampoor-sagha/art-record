@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 type ProductType interface {
 	ProductID() [16]byte // product-status domain
 	Kind() Product_Kind  //
@@ -75,7 +77,7 @@ type (
 	}
 
 	ProductType_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	ProductType_Service_Count_Request interface {
@@ -83,7 +85,7 @@ type (
 	}
 
 	ProductType_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	ProductType_Service_Get_Request interface {
@@ -93,6 +95,6 @@ type (
 
 	ProductType_Service_Get_Response interface {
 		ProductType
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

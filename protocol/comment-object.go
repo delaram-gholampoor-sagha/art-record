@@ -29,7 +29,7 @@ type (
 	}
 
 	CommentObject_Service_Register_Response interface {
-	  Numbers() uint64
+	  Nv() protocol.NumberOfVersion
 	}
 	
 	CommentObject_Service_Count_Request interface {
@@ -37,7 +37,7 @@ type (
 	}
 	
 	CommentObject_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	CommentObject_Service_Get_Request interface {
@@ -56,6 +56,6 @@ type (
 	
 	CommentObject_Service_FindByObjectID_Response interface {
 		CommentIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

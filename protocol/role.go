@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // Role indicate the domain record data fields.
 type Role interface {
 	RoleID() [16]byte       // group domain
@@ -30,7 +32,7 @@ type (
 
 		Role_Service_Register_Response interface{
 			RoleID() [16]byte
-      Numbers() uint64
+      Nv() protocol.NumberOfVersion
 	}
 	
 	Role_Service_Count_Request interface{
@@ -38,7 +40,7 @@ type (
 	}
 	
 	Role_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	Role_Service_Get_Request interface{
 		RoleID() [16]byte
@@ -56,7 +58,7 @@ type (
 	
 	Role_Service_GetIDs_Response interface{
 		RoleIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	Role_Service_FindByDepartmentID_Request interface{
@@ -67,6 +69,6 @@ type (
 	
 	Role_Service_FindByDepartmentID_Response interface{
 		RoleIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 type StaffTimingUTC interface {
 	StaffID() [16]byte        // staff domain
 	ShiftID() [16]byte        // org-shift domain
@@ -27,7 +29,7 @@ type (
 	}
 
 	StaffTimingUTC_Service_Register_Response interface{
-	  Numbers() uint64
+	  Nv() protocol.NumberOfVersion
 	}
 	
 	StaffTimingUTC_Service_Count_Request interface{
@@ -35,7 +37,7 @@ type (
 	}
 	
 	StaffTimingUTC_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	StaffTimingUTC_Service_Get_Request interface{
 		StaffID() [16]byte
@@ -44,7 +46,7 @@ type (
 	
 	StaffTimingUTC_Service_Get_Response interface{
 		StaffTimingUTC
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	StaffTimingUTC_Service_Last_Request interface{
@@ -53,6 +55,6 @@ type (
 	
 	StaffTimingUTC_Service_Last_Response interface{
 		StaffTimingUTC
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

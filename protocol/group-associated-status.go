@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // GroupAssociatedStatus indicate the domain record data fields
 type GroupAssociatedStatus interface {
 	GroupID() [16]byte              // group domain
@@ -39,14 +41,14 @@ type (
 	  Status() GroupAssociated_Status  
 	}
 	GroupAssociatedStatus_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	GroupAssociatedStatus_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupAssociatedStatus_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	GroupAssociatedStatus_Service_Get_Request interface { 
 		GroupID() [16]byte
@@ -54,7 +56,7 @@ type (
 	}
 	GroupAssociatedStatus_Service_Get_Response interface {
 		GroupAssociatedStatus
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 )

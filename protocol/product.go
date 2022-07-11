@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // Product indicate the domain record data fields.
 type Product interface {
 	ProductID() [16]byte // quiddity domain
@@ -82,7 +84,7 @@ type (
 	}
 	Product_Service_Register_Response interface{
 		ProductID() [16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	Product_Service_Count_Request interface{
@@ -90,7 +92,7 @@ type (
 	}
 
 	Product_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	Product_Service_Get_Request interface{
 		ProductID() [16]byte
@@ -99,7 +101,7 @@ type (
 
 	Product_Service_Get_Response interface{
 		Product
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	Product_Service_FilterByType_Request interface{
@@ -110,6 +112,6 @@ type (
 
 	Product_Service_FilterByType_Response interface{
 		ProductIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

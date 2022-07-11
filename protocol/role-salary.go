@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // RoleSalary is fixed negotiated salary that don't follow org||department||role salary rules.
 type RoleSalary interface {
 	RoleID() [16]byte                     // role domain
@@ -26,7 +28,7 @@ type (
   }
 
 	RoleSalary_Service_Register_Response interface{
-		Numbers() uint64      
+		Nv() protocol.NumberOfVersion      
 	}
 	
 	
@@ -35,7 +37,7 @@ type (
 	}
 	
 	RoleSalary_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	RoleSalary_Service_Get_Request interface{
 		RoleID() [16]byte
@@ -44,7 +46,7 @@ type (
 	
 	RoleSalary_Service_Get_Response interface{
 		RoleSalary
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	RoleSalary_Service_Last_Request interface{
@@ -53,6 +55,6 @@ type (
 	
 	RoleSalary_Service_Last_Response interface{
 		RoleSalary
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

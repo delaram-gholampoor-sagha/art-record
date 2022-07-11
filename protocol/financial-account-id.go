@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // FinancialAccountID indicate the domain record data fields.
 // It is about settlement reference internal ID like bank account ID.
 type FinancialAccountID interface {
@@ -27,7 +29,7 @@ type (
 	}
 
 	FinancialAccountID_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 
@@ -37,7 +39,7 @@ type (
 	}
 	FinancialAccountID_Service_Get_Response interface {
 		FinancialAccountID
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 

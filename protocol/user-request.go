@@ -44,7 +44,7 @@ type (
 	}
 	
 	UserRequest_Service_Register_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	UserRequest_Service_Count_Request interface{
@@ -52,7 +52,7 @@ type (
 	}
 	
 	UserRequest_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	UserRequest_Service_Get_Request interface{
 		UserID() [16]byte
@@ -61,7 +61,7 @@ type (
 	
 	UserRequest_Service_Get_Response interface{
 		UserRequest
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	
@@ -73,7 +73,7 @@ type (
 	
 	UserRequest_Service_FindByDomain_Response interface{
 		RequestIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	UserRequest_Service_FindByUser_Request interface{
@@ -84,6 +84,6 @@ type (
 	
 	UserRequest_Service_FindByUser_Response interface{
 		RequestIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

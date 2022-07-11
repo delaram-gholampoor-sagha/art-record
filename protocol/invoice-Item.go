@@ -31,7 +31,7 @@ type (
 		Quantity() uint64    
 	}
 	InvoiceItem_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -40,7 +40,7 @@ type (
 	
 	}
 	InvoiceItem_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	InvoiceItem_Service_Get_Request interface { 
 		InvoiceID() [16]byte
@@ -59,7 +59,7 @@ type (
 	}
 	InvoiceItem_Service_FindByProductID_Response interface {
 		InvoiceIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	

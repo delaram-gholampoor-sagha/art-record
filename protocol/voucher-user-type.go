@@ -1,6 +1,5 @@
 package protocol
 
-
 // VoucherUserType indicate the domain record data fields.
 // Use to restrict the voucher usage by specific user type.
 type VoucherUserType interface {
@@ -27,7 +26,7 @@ type (
 	}
 
 	VoucherUserType_Service_Register_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	VoucherUserType_Service_Count_Request interface{
@@ -35,7 +34,7 @@ type (
 	}
 
 	VoucherUserType_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	VoucherUserType_Service_Get_Request interface{
@@ -45,7 +44,7 @@ type (
 
 	VoucherUserType_Service_Get_Response interface{
 		VoucherUserType
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	VoucherUserType_Service_FilterByUserType_Request interface{
@@ -56,7 +55,7 @@ type (
 
 	VoucherUserType_Service_FilterByUserType_Response interface{
 		VoucherIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )
 

@@ -27,7 +27,7 @@ type (
 		Discounted() protocol.AmountOfMoney 
 	}
 	InvoiceDiscount_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -36,7 +36,7 @@ type (
 	
 	}
 	InvoiceDiscount_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	InvoiceDiscount_Service_Get_Request interface { 
 		InvoiceID() [16]byte
@@ -46,7 +46,7 @@ type (
 	}
 	InvoiceDiscount_Service_Get_Response interface {
 		InvoiceDiscount
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	InvoiceDiscount_Service_FindByDiscountID_Request interface { 
 		DiscountID() [16]byte
@@ -56,6 +56,6 @@ type (
 	}
 	InvoiceDiscount_Service_FindByDiscountID_Response interface {
 		InvoiceIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

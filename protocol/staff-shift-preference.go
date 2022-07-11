@@ -1,5 +1,6 @@
 package protocol
 
+import "../libgo/protocol"
 
 // StaffShift indicate the domain record data fields.
 type StaffShift interface {
@@ -30,7 +31,7 @@ type (
 	}
 
 	StaffShift_Service_Register_Response interface{
-   	Numbers() uint64
+   	Nv() protocol.NumberOfVersion
 	}
 
 	StaffShift_Service_Count_Request interface{
@@ -38,7 +39,7 @@ type (
 	}
 
 	StaffShift_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	StaffShift_Service_Get_Request interface{
 		StaffID() [16]byte

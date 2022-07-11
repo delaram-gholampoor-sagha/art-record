@@ -25,14 +25,14 @@ type (
 		IngredientID() [16]byte 
 	}
 	ProductIngredient_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductIngredient_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
 	ProductIngredient_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductIngredient_Service_Get_Request interface {
@@ -41,7 +41,7 @@ type (
 	}
 	ProductIngredient_Service_Get_Response interface {
 		ProductIngredient
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductIngredient_Service_FindByIngredient_Request interface {
@@ -50,6 +50,6 @@ type (
 		Limit() uint64}
 	ProductIngredient_Service_FindByIngredient_Response interface {
 		ProductIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

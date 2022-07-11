@@ -1,5 +1,6 @@
 package protocol
 
+import "../libgo/protocol"
 
 // StaffTakeLeaveAlternate or staff replace
 type StaffTakeLeaveAlternate interface {
@@ -31,7 +32,7 @@ type (
 	}
 
 		StaffTakeLeaveAlternate_Service_Register_Response interface{
-	   Numbers() uint64
+	   Nv() protocol.NumberOfVersion
 	}
 	
 	
@@ -40,7 +41,7 @@ type (
 	}
 	
 	StaffTakeLeaveAlternate_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	StaffTakeLeaveAlternate_Service_Get_Request interface{
 		StaffID() [16]byte

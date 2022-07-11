@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ProductProvider indicate the domain record data fields.
 type ProductProviderStaff interface {
 	ProductID() [16]byte // product domain
@@ -26,7 +28,7 @@ type (
 		StaffID() [16]byte
 	}
 	ProductProviderStaff_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 
@@ -34,7 +36,7 @@ type (
 		ProductID() [16]byte
 	}
 	ProductProviderStaff_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 
 	}
 
@@ -45,7 +47,7 @@ type (
 	}
 	ProductProviderStaff_Service_Get_Response interface {
 		ProductProviderStaff
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 
 	}
 
@@ -57,7 +59,7 @@ type (
 	}
 	ProductProviderStaff_Service_FindByStaff_Response interface {
 		ProductIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )
 

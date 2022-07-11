@@ -1,4 +1,7 @@
 package protocol
+
+import "../libgo/protocol"
+
 // GroupAssociatedRole indicate the domain record data fields.
 type GroupAssociatedRole interface {
 	GroupID() [16]byte     // group domain
@@ -28,14 +31,14 @@ type (
   	GroupRoleID() [16]byte  
 	}
 	GroupAssociatedRole_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	GroupAssociatedRole_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupAssociatedRole_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	GroupAssociatedRole_Service_Get_Request interface { 
 		GroupID() [16]byte
@@ -43,7 +46,7 @@ type (
 	}
 	GroupAssociatedRole_Service_Get_Response interface {
 		GroupAssociatedRole
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 )

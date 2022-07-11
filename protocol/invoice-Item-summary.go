@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // InvoiceItemSummary indicate the domain record data fields.
 type InvoiceItemSummary interface {
 	InvoiceID() [16]byte                     // invoice domain
@@ -28,7 +30,7 @@ type (
 		VAT() protocol.AmountOfMoney              
 	}
 	InvoiceItemSummary_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -37,7 +39,7 @@ type (
 	
 	}
 	InvoiceItemSummary_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	InvoiceItemSummary_Service_Get_Request interface { 
 		InvoiceID() [16]byte

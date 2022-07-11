@@ -26,7 +26,7 @@ type (
 	}
 	
 	VoucherCampaign_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	VoucherCampaign_Service_Count_Request interface {
@@ -34,7 +34,7 @@ type (
 	}
 	
 	VoucherCampaign_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	VoucherCampaign_Service_Get_Request interface {
@@ -44,7 +44,7 @@ type (
 	
 	VoucherCampaign_Service_Get_Response interface {
 		VoucherCampaign
-		  Numbers() uint64
+		  Nv() protocol.NumberOfVersion
 	}
 	
 	VoucherCampaign_Service_FindByCampaign_Request interface {
@@ -55,6 +55,6 @@ type (
 	
 	VoucherCampaign_Service_FindByCampaign_Response interface {
 		VoucherIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

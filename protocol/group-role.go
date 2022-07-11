@@ -26,14 +26,14 @@ type (
 		AccessControl() protocol.AccessControl 	             
 	}
 	GroupRole_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	GroupRole_Service_Count_Request interface { 
 		GroupRoleID() [16]byte
 	}
 	GroupRole_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	GroupRole_Service_Get_Request interface { 
 		GroupRoleID() [16]byte
@@ -41,7 +41,7 @@ type (
 	}
 	GroupRole_Service_Get_Response interface {
 		GroupRole
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	GroupRole_Service_FindByGroupID_Request interface { 
 		GroupID() [16]byte
@@ -51,6 +51,6 @@ type (
 
 	GroupRole_Service_FindByGroupID_Response interface {
 		GroupRoleIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

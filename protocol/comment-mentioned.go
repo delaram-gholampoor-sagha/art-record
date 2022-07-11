@@ -25,7 +25,7 @@ type (
 	}
 
 	CommentMentioned_Service_Register_Response interface {
-  	Numbers() uint64
+  	Nv() protocol.NumberOfVersion
 	}
 	
 	CommentMentioned_Service_Count_Request interface {
@@ -33,7 +33,7 @@ type (
 	}
 	
 	CommentMentioned_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	CommentMentioned_Service_Get_Request interface {

@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 type UserDomain interface {
 	Domain() string            // unique name in the computer world
 	UserID() [16]byte          // user domain
@@ -40,44 +42,41 @@ const UserDomain_Service_Unblock = "urn:giti:user-domain.sabz.city:service:unblo
 */
 
 type (
-	UserDomain_Service_Register_Request interface{
-		Domain() string            
-	  UserID() [16]byte          
-  	Status() UserDomain_Status 
+	UserDomain_Service_Register_Request interface {
+		Domain() string
+		UserID() [16]byte
+		Status() UserDomain_Status
 	}
-	
-	UserDomain_Service_Register_Response interface{
-		Numbers() uint64
+
+	UserDomain_Service_Register_Response interface {
+		Nv() protocol.NumberOfVersion
 	}
-	
-	UserDomain_Service_Count_Request interface{
+
+	UserDomain_Service_Count_Request interface {
 		Domain() string
 	}
-	
-	UserDomain_Service_Count_Response interface{
-		Numbers() uint64
+
+	UserDomain_Service_Count_Response interface {
+		Nv() protocol.NumberOfVersion
 	}
-	UserDomain_Service_Get_Request interface{
+	UserDomain_Service_Get_Request interface {
 		Domain() string
 		VersionOffset() uint64
 	}
-	
-	UserDomain_Service_Get_Response interface{
+
+	UserDomain_Service_Get_Response interface {
 		UserDomain
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
-	
-	
-	UserDomain_Service_FindByUserID_Request interface{
+
+	UserDomain_Service_FindByUserID_Request interface {
 		UserID() uint64
 		Offset() uint64
 		Limit() uint64
 	}
-	
-	UserDomain_Service_FindByUserID_Response interface{
+
+	UserDomain_Service_FindByUserID_Response interface {
 		Domains() []string
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
-	
-	
 )

@@ -27,7 +27,7 @@ type (
 		Currency() [16]byte
 	}
 	ProductPrice_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductPrice_Service_Count_Request interface {
@@ -35,7 +35,7 @@ type (
 		Currency() uint64
 	}
 	ProductPrice_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductPrice_Service_Get_Request interface {
@@ -45,7 +45,7 @@ type (
 	}
 	ProductPrice_Service_Get_Response interface {
 		ProductPrice
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductPrice_Service_ListProductCurrencies_Request interface {
@@ -55,7 +55,7 @@ type (
 	}
 	ProductPrice_Service_ListProductCurrencies_Response interface {
 		Currencies() []uint64
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 )

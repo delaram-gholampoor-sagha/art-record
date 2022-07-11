@@ -1,5 +1,6 @@
 package protocol
 
+import "../libgo/protocol"
 
 // RoleStatus indicate the domain record data fields.
 type RoleStatus interface {
@@ -33,7 +34,7 @@ type (
 	}
 
 		RoleStatus_Service_Register_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	RoleStatus_Service_Count_Request interface{
@@ -41,7 +42,7 @@ type (
 	}
 	
 	RoleStatus_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	RoleStatus_Service_Get_Request interface{
 		RoleID() [16]byte
@@ -62,6 +63,6 @@ type (
 	
 	RoleStatus_Service_FilterByStatus_Response interface{
 		RoleIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

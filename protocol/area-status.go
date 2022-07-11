@@ -1,6 +1,6 @@
 package protocol
 
-
+import "../libgo/protocol"
 
 type AreaStatus interface {
 	AreaID() [16]byte    // quiddity domain
@@ -19,13 +19,11 @@ type AreaStatus_StorageServices interface {
 	// protocol.EventTarget
 }
 
-
 type Area_Status Quiddity_Status
 
 const (
 	Area_Status_NeighborsConflict = Area_Status(Quiddity_Status_FreeFlag << iota)
 )
-
 
 type (
 	AreaStatus_Service_Register_Request interface {
@@ -33,14 +31,14 @@ type (
 		Status() Area_Status
 	}
 	AreaStatus_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	AreaStatus_Service_Count_Request interface {
 		AreaID() [16]byte
 	}
 	AreaStatus_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	AreaStatus_Service_Get_Request interface {
 		AreaID() [16]byte
@@ -48,7 +46,7 @@ type (
 	}
 	AreaStatus_Service_Get_Response interface {
 		Status() AreaStatus
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	AreaStatus_Service_FilterByStatus_Request interface {
@@ -60,4 +58,3 @@ type (
 		areaIDs() [][16]byte
 	}
 )
-

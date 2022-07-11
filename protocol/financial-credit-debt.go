@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // https://en.wikipedia.org/wiki/Credit_card_debt
 type FinancialCreditDebtDebt interface {
 	UserID() [16]byte                // user domain
@@ -39,7 +41,7 @@ type (
 	
 	}
 	FinancialCreditDebt_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	

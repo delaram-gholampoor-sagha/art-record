@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // Comment indicate the comment domain record data fields.
 // each comment is immutable record and so use version mechanism to chain comments in a group.
 type Comment interface {
@@ -74,7 +76,7 @@ type (
 
 	Comment_Service_Register_Response interface {
 		CommentID() [16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	Comment_Service_Count_Request interface {
@@ -82,7 +84,7 @@ type (
 	}
 
 	Comment_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	Comment_Service_Get_Request interface {
@@ -104,7 +106,7 @@ type (
 
 	Comment_Service_FindByReplyTo_Response interface {
 		VersionOffsets() []uint64
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	Comment_Service_FindByUserID_Request interface {
@@ -116,7 +118,7 @@ type (
 
 	Comment_Service_FindByUserID_Response interface {
 		VersionOffsets() []uint64
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 
@@ -128,7 +130,7 @@ type (
 
 	Comment_Service_ListUserGroups_Response interface {
 		Ids() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 

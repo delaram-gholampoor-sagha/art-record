@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ProductNumber indicate the domain record data fields.
 type ProductNumber interface {
 	ProductID() [16]byte         // product domain
@@ -26,7 +28,7 @@ type (
 		MaximumInvoiceByBuy() uint64 
 	}
 	ProductNumber_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductNumber_Service_Count_Request interface {
@@ -35,7 +37,7 @@ type (
 	
 	}
 	ProductNumber_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductNumber_Service_Get_Request interface {
@@ -44,6 +46,6 @@ type (
 	}
 	ProductNumber_Service_Get_Response interface {
 		ProductNumber
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

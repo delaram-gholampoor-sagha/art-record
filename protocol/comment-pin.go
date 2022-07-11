@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // CommentPin indicate the domain record data fields.
 type CommentPin interface {
 	CommentID() [16]byte // comment domain
@@ -26,7 +28,7 @@ type (
 	}
 
 	CommentPin_Service_Register_Response interface {
-		 Numbers() uint64  
+		 Nv() protocol.NumberOfVersion  
 	}
 	
 	CommentPin_Service_Get_Request interface {
@@ -45,6 +47,6 @@ type (
 	
 	CommentPin_Service_FindByGroupID_Response interface {
 		CommentIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

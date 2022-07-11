@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // InvoiceStatus indicate the domain record data fields.
 type InvoiceStatus interface {
 	InvoiceID() [16]byte    // invoice-status domain
@@ -25,7 +27,7 @@ type (
 		Status() Invoice_Status    
 	}
 	InvoiceStatus_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -34,7 +36,7 @@ type (
 	
 	}
 	InvoiceStatus_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -44,7 +46,7 @@ type (
 	}
 	InvoiceStatus_Service_Get_Response interface {
 		InvoiceStatus
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	InvoiceStatus_Service_FindByStatus_Request interface { 
 		Status() Invoice_Status
@@ -53,7 +55,7 @@ type (
 	}
 	InvoiceStatus_Service_FindByStatus_Response interface {
 		InvoiceIDs() [][16]byte 
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )
 

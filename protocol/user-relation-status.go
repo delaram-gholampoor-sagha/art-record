@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // UserRelationStatus indicate the domain record data fields.
 type UserRelationStatus interface {
 	UserID() [16]byte            // user domain
@@ -38,7 +40,7 @@ type (
 	}
 
 	UserRelationStatus_Service_Register_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	UserRelationStatus_Service_Count_Request interface{
@@ -46,7 +48,7 @@ type (
 	}
 
 	UserRelationStatus_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	UserRelationStatus_Service_Get_Request interface{
 		UserID() [16]byte
@@ -55,7 +57,7 @@ type (
 
 	UserRelationStatus_Service_Get_Response interface{
 		UserRelationStatus
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 
@@ -67,7 +69,7 @@ type (
 
 	UserRelationStatus_Service_ListSides_Response interface{
 		SideIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	UserRelationStatus_Service_ListUsers_Request interface{
@@ -78,7 +80,7 @@ type (
 
 	UserRelationStatus_Service_ListUsers_Response interface{
 		UserIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	UserRelationStatus_Service_FilterByStatus_Request interface{
@@ -90,6 +92,6 @@ type (
 
 	UserRelationStatus_Service_FilterByStatus_Response interface{
 		SideIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

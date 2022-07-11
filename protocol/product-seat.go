@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ProductSeat indicate the domain record data fields.
 type ProductSeat interface {
 	ProductID() [16]byte    // product domain
@@ -24,7 +26,7 @@ type (
 		MapID() [16]byte 
 	}
 	ProductSeat_Services_Register_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 
 	}
 
@@ -32,7 +34,7 @@ type (
 		ProductID() [16]byte
 	}
 	ProductSeat_Service_Count_Response interface{
-		Numbers() uint64	
+		Nv() protocol.NumberOfVersion	
 	}
 
 	ProductSeat_Service_Get_Request interface{
@@ -41,7 +43,7 @@ type (
 	}
 	ProductSeat_Service_Get_Response interface{
 		ProductSeat
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )
 

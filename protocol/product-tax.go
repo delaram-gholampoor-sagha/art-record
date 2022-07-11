@@ -1,5 +1,6 @@
 package protocol
 
+import "../libgo/protocol"
 
 // ProductTax indicate the domain record data fields.
 // Tax Labels
@@ -32,7 +33,7 @@ type (
 	}
 	
 	ProductTax_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductTax_Service_Count_Request interface {
@@ -40,7 +41,7 @@ type (
 	}
 	
 	ProductTax_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductTax_Service_Get_Request interface {
@@ -50,7 +51,7 @@ type (
 	
 	ProductTax_Service_Get_Response interface {
 		ProductTax
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 )

@@ -1,5 +1,6 @@
 package protocol
 
+import "../libgo/protocol"
 
 // ProductProvider or product operator is to supply a particular service.
 type ProductProvider interface {
@@ -25,14 +26,14 @@ type (
 		Percent() uint64
 	}
 	ProductProvider_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductProvider_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
 	ProductProvider_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -43,7 +44,7 @@ type (
 	}
 	ProductProvider_Service_Get_Response interface {
 		ProductProvider
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 )

@@ -25,14 +25,14 @@ type (
 		ObjectID() [16]byte  
 	}
 	Picture_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	Picture_Service_Count_Request interface {
 		RelatedID() [16]byte    
 	} 
 	
 	Picture_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 		
 	}
@@ -52,7 +52,7 @@ type (
 	}
 	Picture_Service_Last_Response interface {
 		Picture
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	

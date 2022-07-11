@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ProductInventory indicate the domain record data fields.
 // ProductInventory or good stock
 type ProductInventory interface {
@@ -42,7 +44,7 @@ type (
 	}
 
 	ProductInventory_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	ProductInventory_Service_Lock_Request interface {
 		ProductID()[16]byte
@@ -56,7 +58,7 @@ type (
 		ProductInventory
 	}
 	ProductInventory_Service_Unlock_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -66,7 +68,7 @@ type (
 	
 	}
 	ProductInventory_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductInventory_Service_Get_Request interface {
@@ -76,7 +78,7 @@ type (
 	}
 	ProductInventory_Service_Get_Response interface {
 		ProductInventory
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )
 

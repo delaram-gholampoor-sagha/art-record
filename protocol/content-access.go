@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 type ContentAccess interface {
 	ContentID() [16]byte    // content domain
 	Access() Content_Access //
@@ -33,7 +35,7 @@ type (
 	}
 
 	ContentAccess_Service_Register_Response interface {
-     Numbers() uint64
+     Nv() protocol.NumberOfVersion
 	}
 	
 	ContentAccess_Service_Count_Request interface {
@@ -41,7 +43,7 @@ type (
 	}
 	
 	ContentAccess_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ContentAccess_Service_Get_Request interface {

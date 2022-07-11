@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // InvoicePOS indicate the domain record data fields.
 type InvoicePOS interface {
 	InvoiceID() [16]byte // invoice domain
@@ -25,7 +27,7 @@ type (
 		StaffID() [16]byte   
 	}
 	InvoicePOS_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -44,7 +46,7 @@ type (
 	}
 	InvoicePOS_Service_FindByPos_Response interface {
 		InvoiceIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	InvoicePOS_Service_FindByStaff_Request interface { 
 		StaffID() [16]byte
@@ -54,6 +56,6 @@ type (
 	
 	InvoicePOS_Service_FindByStaff_Response interface {
 		InvoiceIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

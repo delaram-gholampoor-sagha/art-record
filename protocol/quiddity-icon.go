@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // QuiddityIcon indicate the domain record data fields.
 // Icon or emoji use in many domains e.g. category, departments, ...
 type QuiddityIcon interface {
@@ -31,7 +33,7 @@ type (
 		QuiddityID() [16]byte
 	}
 	QuiddityIcon_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	

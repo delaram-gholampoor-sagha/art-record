@@ -1,5 +1,6 @@
 package protocol
 
+import "../libgo/protocol"
 
 // VoucherInvoice indicate the domain record data fields.
 type VoucherInvoice interface {
@@ -27,7 +28,7 @@ type (
 	}
 	
 	VoucherInvoice_Service_Register_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	VoucherInvoice_Service_Count_Request interface{
@@ -35,7 +36,7 @@ type (
 	}
 	
 	VoucherInvoice_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	VoucherInvoice_Service_Get_Request interface{
 		VoucherID() [16]byte
@@ -44,7 +45,7 @@ type (
 	
 	VoucherInvoice_Service_Get_Response interface{
 		VoucherInvoice
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 )

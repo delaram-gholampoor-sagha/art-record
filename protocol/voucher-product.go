@@ -29,7 +29,7 @@ type(
 	}
 	
 	VoucherProduct_Service_Register_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	VoucherProduct_Service_Count_Request interface{
@@ -37,7 +37,7 @@ type(
 	}
 	
 	VoucherProduct_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	VoucherProduct_Service_Get_Request interface{
 		VoucherID() [16]byte
@@ -46,7 +46,7 @@ type(
 	
 	VoucherProduct_Service_Get_Response interface{
 		VoucherProduct
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	
@@ -58,6 +58,6 @@ type(
 	
 	VoucherProduct_Service_FindByProduct_Response interface{
 		VoucherIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

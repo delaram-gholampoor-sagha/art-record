@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ProductReserveValidity indicate the domain record data fields.
 type ProductReserveValidity interface {
 	ProductID() [16]byte         // product domain
@@ -21,7 +23,7 @@ type (
 		Duration() protocol.Duration
 	}
 	ProductReserveValidity_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	
@@ -30,7 +32,7 @@ type (
 	
 	}
 	ProductReserveValidity_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -40,7 +42,7 @@ type (
 	}
 	ProductReserveValidity_Service_Get_Response interface {
 		ProductReserveValidity
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	

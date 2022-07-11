@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 type PictureStatus interface {
 	ObjectID() [16]byte     // object domain
 	Status() Picture_Status //
@@ -25,7 +27,7 @@ type (
 	
 	}
 	PictureStatus_Service_Register_Response interface {
-			Numbers() uint64
+			Nv() protocol.NumberOfVersion
 	}
 	
 	PictureStatus_Service_Count_Request interface {
@@ -34,7 +36,7 @@ type (
 	
 	}
 	PictureStatus_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	PictureStatus_Service_Get_Request interface {
@@ -43,7 +45,7 @@ type (
 	}
 	PictureStatus_Service_Get_Response interface {
 		PictureStatus
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 

@@ -27,7 +27,7 @@ type (
 		SubstituteID() [16]byte 
 	}
 	ProductSubstitute_Service_Register_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	ProductSubstitute_Service_Count_Request interface{
@@ -35,7 +35,7 @@ type (
 	}
 
 	ProductSubstitute_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	ProductSubstitute_Service_Get_Request interface{
 		ProductID() [16]byte
@@ -44,7 +44,7 @@ type (
 
 	ProductSubstitute_Service_Get_Response interface{
 		ProductSubstitute
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	ProductSubstitute_Service_FilterByType_Request interface{
@@ -55,6 +55,6 @@ type (
 
 	ProductSubstitute_Service_FilterByType_Response interface{
 		ProductIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

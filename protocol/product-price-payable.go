@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ProductPricePayable indicate the domain record data fields.
 // ProductPricePayable store historically price with discount to show to users in price change chart.
 type ProductPricePayable interface {
@@ -25,7 +27,7 @@ type (
 		Price()  protocol.AmountOfMoney
 	}
 	ProductPricePayable_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductPricePayable_Service_Count_Request interface {
@@ -33,7 +35,7 @@ type (
 		Currency() uint64
 	}
 	ProductPricePayable_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductPricePayable_Service_Get_Request interface {
@@ -43,7 +45,7 @@ type (
 	}
 	ProductPricePayable_Service_Get_Response interface {
 		ProductPricePayable
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 )

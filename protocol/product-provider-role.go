@@ -28,14 +28,14 @@ type (
 		RoleID() [16]byte
 	}
 	ProductProviderRole_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductProviderRole_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
 	ProductProviderRole_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductProviderRole_Service_Get_Request interface {
@@ -44,7 +44,7 @@ type (
 	}
 	ProductProviderRole_Service_Get_Response interface {
 		ProductProviderRole
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 		
 	}
 	
@@ -55,7 +55,7 @@ type (
 	}
 	ProductProviderRole_Service_FindByRole_Response interface {
 		ProductionIds() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 )

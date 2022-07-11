@@ -32,7 +32,7 @@ type (
 	}
 
 	ContentStatus_Service_Register_Response interface {
-	 Numbers() uint64
+	 Nv() protocol.NumberOfVersion
 	}
 	
 	
@@ -42,7 +42,7 @@ type (
 	}
 	
 	ContentStatus_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ContentStatus_Service_Get_Request interface {

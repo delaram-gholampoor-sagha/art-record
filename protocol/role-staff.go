@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // RoleStaff indicate the domain record data fields.
 type RoleStaff interface {
 	RoleID() [16]byte    // role domain
@@ -31,7 +33,7 @@ type (
 
 
 	RoleStaff_Service_Register_Response interface{
-		Numbers() uint64      
+		Nv() protocol.NumberOfVersion      
 	}
 	
 	
@@ -40,7 +42,7 @@ type (
 	}
 	
 	RoleStaff_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	RoleStaff_Service_Get_Request interface{
 		RoleID() [16]byte
@@ -49,7 +51,7 @@ type (
 	
 	RoleStaff_Service_Get_Response interface{
 		RoleStaff
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	RoleStaff_Service_Last_Request interface{
@@ -58,6 +60,6 @@ type (
 	
 	RoleStaff_Service_Last_Response interface{
 		RoleStaff
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

@@ -25,14 +25,14 @@ type (
 		OwnerUserID() [16]byte    
 	}
 	GroupOwner_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	GroupOwner_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupOwner_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	GroupOwner_Service_Get_Request interface { 
 		GroupID() [16]byte
@@ -40,7 +40,7 @@ type (
 	}
 	GroupOwner_Service_Get_Response interface {
 		GroupOwner
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	GroupOwner_Service_FindByUserID_Request interface { 
 		OwnerUserID() [16]byte
@@ -49,6 +49,6 @@ type (
 	}
 	GroupOwner_Service_FindByUserID_Response interface {
 		IDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

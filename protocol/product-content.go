@@ -25,14 +25,14 @@ type (
 		ContentID() [16]byte  
 	}
 	ProductContent_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductContent_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
 	ProductContent_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductContent_Service_Get_Request interface {
@@ -41,7 +41,7 @@ type (
 	}
 	ProductContent_Service_Get_Response interface {
 		ProductContent
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductContent_Service_FindByContent_Request interface {
@@ -50,7 +50,7 @@ type (
 		Limit() uint64}
 	ProductContent_Service_FindByContent_Response interface {
 		ProductIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 )

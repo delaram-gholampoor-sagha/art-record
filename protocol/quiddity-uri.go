@@ -31,14 +31,14 @@ type (
 	}
 
 	QuiddityURI_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	QuiddityURI_Service_Count_Request interface {
 		URI() []byte	
 	}
 
 	QuiddityURI_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	QuiddityURI_Service_Get_Request interface {
@@ -57,6 +57,6 @@ type (
 	}	
 
 	QuiddityURI_Service_FindQuiddityID_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

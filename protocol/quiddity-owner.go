@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // QuiddityOwner indicate the domain record data fields.
 type QuiddityOwner interface {
 	QuiddityID() [16]byte // Unique content ID
@@ -34,7 +36,7 @@ type (
 		QuiddityID() [16]byte
 	}
 	QuiddityOwner_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	
@@ -53,6 +55,6 @@ type (
 	}
 	QuiddityOwner_Service_FindByUserID_Response interface {
 		QuiddityIDs() [][32]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

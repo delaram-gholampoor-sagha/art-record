@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // FinancialTransactionOrder indicate the domain record data fields.
 type FinancialTransactionOrder interface {
 	ID() [16]byte          // FinancialTransactionOrderID
@@ -41,7 +43,7 @@ type (
 	
 	}
 	FinancialTransactionOrder_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	

@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // VoucherUsage indicate the domain record data fields.
 type VoucherUsage interface {
 	VoucherID() [16]byte    // product domain
@@ -24,16 +26,16 @@ type (
 	}
 
 	VoucherUsage_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	VoucherUsage_Service_Count_Request interface {
 		voucherID() [16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	VoucherUsage_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	VoucherUsage_Service_Get_Request interface {
@@ -44,6 +46,6 @@ type (
 
 	VoucherUsage_Service_Get_Response interface {
 			VoucherUsage
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

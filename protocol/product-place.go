@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ProductPlace indicate the domain record data fields.
 // ProductPlace indicate service provides in specific place e.g. stations(bus, train, airport, ...), ...
 type ProductPlace interface {
@@ -24,7 +26,7 @@ type (
 		BuildingLocationID() [16]byte
 	}
 	ProductPlace_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductPlace_Service_Count_Request interface {
@@ -40,7 +42,7 @@ type (
 	}
 	ProductPlace_Service_Get_Response interface {
 		ProductPlace
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductPlace_Service_FindByBuildingLocation_Request interface {
@@ -51,7 +53,7 @@ type (
 	}
 	ProductPlace_Service_FindByBuildingLocation_Response interface {
 		ProductIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 )

@@ -1,6 +1,5 @@
 package protocol
 
-
 // RoleAccess indicate the domain record data fields.
 type RoleAccess interface {
 	RoleID() [16]byte                      // role domain
@@ -31,7 +30,7 @@ type (
 	}
 
 	RoleAccess_Service_Register_Response interface{
-	  Numbers() uint64 
+	  Nv() protocol.NumberOfVersion 
 	}
 	
 	RoleAccess_Service_Count_Request interface{
@@ -39,7 +38,7 @@ type (
 	}
 	
 	RoleAccess_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	RoleAccess_Service_Get_Request interface{
 		RoleID() [16]byte
@@ -48,7 +47,7 @@ type (
 	
 	RoleAccess_Service_Get_Response interface{
 		RoleAccess
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	RoleAccess_Service_Last_Request interface{
@@ -57,6 +56,6 @@ type (
 	
 	RoleAccess_Service_Last_Response interface{
 		RoleAccess
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

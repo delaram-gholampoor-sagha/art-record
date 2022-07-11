@@ -36,7 +36,7 @@ type (
 	}
 
 	ProductStatus_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	ProductStatus_Service_Count_Request interface {
@@ -45,7 +45,7 @@ type (
 	}
 
 	ProductStatus_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 		
 	}
 
@@ -55,7 +55,7 @@ type (
 	}
 	Product_Status_Service_Get_Response interface {
 		Status() Product_Status
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 
 	}
 
@@ -66,6 +66,6 @@ type (
 	}
 	Product_Status_Service_FilterByStatus_Response interface{
 		ProductIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

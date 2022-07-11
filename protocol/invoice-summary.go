@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // InvoiceSummary indicate the domain record data fields.
 // InvoiceSummary is summary data that calculated to reduce fetch and calculate on each client device.
 type InvoiceSummary interface {
@@ -31,7 +33,7 @@ type (
 		VAT() protocol.AmountOfMoney             
 	}
 	InvoiceSummary_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -40,7 +42,7 @@ type (
 	
 	}
 	InvoiceSummary_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -50,7 +52,7 @@ type (
 	}
 	InvoiceSummary_Service_Get_Response interface {
 		InvoiceSummary
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 )

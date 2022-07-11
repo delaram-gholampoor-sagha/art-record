@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ProductBestBefore indicate the domain record data fields.
 // https://en.wikipedia.org/wiki/Expiration_date
 type ProductBestBefore interface {
@@ -23,7 +25,7 @@ type (
 	
 	}
 	ProductBestBefore_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductBestBefore_Service_Count_Request interface {
@@ -31,7 +33,7 @@ type (
 	
 	}
 	ProductBestBefore_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductBestBefore_Service_Get_Request interface {
@@ -40,7 +42,7 @@ type (
 	}
 	ProductBestBefore_Service_Get_Response interface {
 		ProductBestBefore
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 )

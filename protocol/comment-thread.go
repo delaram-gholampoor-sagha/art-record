@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // CommentThread indicate the domain record data fields.
 // Comment thread name can be set by help of comment-text domain
 type CommentThread interface {
@@ -23,7 +25,7 @@ type (
 	}
 
 		CommentThread_Service_Register_Response interface {
-      Numbers() uint64
+      Nv() protocol.NumberOfVersion
 	}
 	
 	

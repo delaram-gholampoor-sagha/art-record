@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // GroupPolicy indicate the domain record data fields.
 type GroupPolicy interface {
 	GroupID() [16]byte                 // group domain
@@ -47,14 +49,14 @@ type(
 		ForwardPolicy() GroupPolicy_Policy            
 	}
 	GroupPolicy_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	GroupPolicy_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupPolicy_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	GroupPolicy_Service_Get_Request interface { 
 		GroupID() [16]byte
@@ -62,7 +64,7 @@ type(
 	}
 	GroupPolicy_Service_Get_Response interface {
 		GroupPolicy
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	GroupPolicy_Service_FindByUserID_Request interface { 
 		OwnerUserID() [16]byte
@@ -71,6 +73,6 @@ type(
 	}
 	GroupPolicy_Service_FindByUserID_Response interface {
 		IDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // InvoiceItemTime indicate the domain record data fields.
 type InvoiceItemTime interface {
 	InvoiceID() [16]byte        // invoice domain
@@ -23,7 +25,7 @@ type (
 		Type() InvoiceItemTime_Type
 	}
 	InvoiceItemTime_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -32,7 +34,7 @@ type (
 	
 	}
 	InvoiceItemTime_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	InvoiceItemTime_Service_Get_Request interface { 
 		InvoiceID() [16]byte

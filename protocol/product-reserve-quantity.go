@@ -25,14 +25,14 @@ type (
 		Percent() uint64
 	}
 	ProductReserveQuantity_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductReserveQuantity_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
 	ProductReserveQuantity_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -43,7 +43,7 @@ type (
 	}
 	ProductReserveQuantity_Service_Get_Response interface {
 		ProductReserveQuantity
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 )

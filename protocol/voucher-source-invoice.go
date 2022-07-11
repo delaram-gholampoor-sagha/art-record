@@ -37,7 +37,7 @@ type(
 	}
 	
 	VoucherSourceInvoice_Service_Register_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	VoucherSourceInvoice_Service_Count_Request interface{
@@ -45,7 +45,7 @@ type(
 	}
 	
 	VoucherSourceInvoice_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	VoucherSourceInvoice_Service_Get_Request interface{
 		VoucherID() [16]byte
@@ -54,7 +54,7 @@ type(
 	
 	VoucherSourceInvoice_Service_Get_Response interface{
 		VoucherSourceInvoice
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	
@@ -66,6 +66,6 @@ type(
 	
 	VoucherSourceInvoice_Service_FindByInvoice_Response interface{
 		VoucherIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

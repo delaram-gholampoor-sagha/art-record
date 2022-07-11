@@ -36,7 +36,7 @@ type (
    
    }
    FinancialAccountMain_Service_Count_Response interface {
-	   Numbers() uint64
+	   Nv() protocol.NumberOfVersion
    }
    
    

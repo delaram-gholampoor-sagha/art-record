@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // FinancialTransactionReference indicate the domain record data fields.
 // FinancialTransactionReference store the secondary index that complicated than regular indexes.
 // Use version to save multi transactions for the same reference.
@@ -40,7 +42,7 @@ type (
 	
 	}
 	FinancialTransactionReference_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	

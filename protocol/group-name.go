@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // GroupName indicate the domain record data fields.
 // It is not the group title as display name, It is the unique group name.
 type GroupName interface {
@@ -41,14 +43,14 @@ type (
 		Status() GroupName_Status  
 	}
 	GroupName_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	GroupName_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupName_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	GroupName_Service_Get_Request interface { 
 		GroupID() [16]byte
@@ -56,7 +58,7 @@ type (
 	}
 	GroupName_Service_Get_Response interface {
 		GroupName
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	GroupName_Service_FindByName_Request interface { 
 		Name() string

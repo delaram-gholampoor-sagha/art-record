@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // UserReferent indicate the domain record data fields.
 type UserReferent interface {
 	UserID() [16]byte         // user domain
@@ -24,7 +26,7 @@ type (
 	}
 	
 	UserReferent_Service_Register_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	UserReferent_Service_Count_Request interface{
@@ -32,7 +34,7 @@ type (
 	}
 	
 	UserReferent_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	UserReferent_Service_Get_Request interface{
 		UserID() [16]byte
@@ -41,7 +43,7 @@ type (
 	
 	UserReferent_Service_Get_Response interface{
 		UserReferent
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	
@@ -53,7 +55,7 @@ type (
 	
 	UserReferent_Service_FindByReferentUserID_Response interface{
 		UserIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	

@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // VoucherAnalyticUtcDay indicate the domain record data fields.
 type VoucherAnalyticUtcDay interface {
 	Day() utc.DayElapsed                  //
@@ -24,7 +26,7 @@ type (
 	}
 	
 	VoucherAnalyticUtcDay_Service_Register_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	VoucherAnalyticUtcDay_Service_Count_Request interface{
@@ -32,7 +34,7 @@ type (
 	}
 	
 	VoucherAnalyticUtcDay_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	VoucherAnalyticUtcDay_Service_Get_Request interface{
 		VoucherID() [16]byte
@@ -41,7 +43,7 @@ type (
 	
 	VoucherAnalyticUtcDay_Service_Get_Response interface{
 		VoucherAnalyticUtcDay
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 )

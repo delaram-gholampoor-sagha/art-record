@@ -1,5 +1,6 @@
 package protocol
 
+import "../libgo/protocol"
 
 // InvoiceItemSeat indicate the domain record data fields.
 type InvoiceItemSeat interface {
@@ -26,7 +27,7 @@ type (
 		Status() InvoiceItemSeat_Status      
 	}
 	InvoiceItemSeat_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -35,7 +36,7 @@ type (
 	
 	}
 	InvoiceItemSeat_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	InvoiceItemSeat_Service_Get_Request interface { 
 		InvoiceID() [16]byte
@@ -45,7 +46,7 @@ type (
 	}
 	InvoiceItemSeat_Service_Get_Response interface {
 		InvoiceItemSeat
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )
 type InvoiceItemSeat_Status Quiddity_Status

@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ContentParticipant indicate the domain record data fields.
 type ContentParticipant interface {
 	ContentID() [16]byte           // content domain
@@ -49,7 +51,7 @@ type (
 	}
 	
 	ContentParticipant_Service_Register_Response interface {
-	  Numbers() uint64         
+	  Nv() protocol.NumberOfVersion         
 	}
 	
 	
@@ -58,7 +60,7 @@ type (
 	}
 	
 	ContentParticipant_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ContentParticipant_Service_Get_Request interface {
@@ -78,7 +80,7 @@ type (
 	
 	ContentParticipant_Service_FindByUserID_Response interface {
 		ContentIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 )

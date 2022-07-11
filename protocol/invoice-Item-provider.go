@@ -27,7 +27,7 @@ type (
 		StaffID() [16]byte   
 	}
 	InvoiceItemProvider_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -36,7 +36,7 @@ type (
 	
 	}
 	InvoiceItemProvider_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	InvoiceItemProvider_Service_Get_Request interface { 
 		InvoiceID() [16]byte
@@ -46,7 +46,7 @@ type (
 	}
 	InvoiceItemProvider_Service_Get_Response interface {
 		InvoiceItemProvider
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	//	FindByStaff(staffID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
 	InvoiceItemProvider_Service_FindByStaff_Request interface { 
@@ -57,6 +57,6 @@ type (
 	}
 	InvoiceItemProvider_Service_FindByStaff_Response interface {
 		InvoiceIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

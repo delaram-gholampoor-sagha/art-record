@@ -1,4 +1,6 @@
 package protocol
+
+import "../libgo/protocol"
 type FinancialAccountStatus interface {
 	AccountID() [16]byte             // financial-account domain
 	Status() FinancialAccount_Status //
@@ -30,7 +32,7 @@ type (
 	
 	
 	FinancialAccountStatus_Service_Register_Response interface {
-		Numbers() uint32
+		Nv() protocol.NumberOfVersion
 	}
 	
 	
@@ -39,7 +41,7 @@ type (
 	
 	}
 	FinancialAccountStatus_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	
@@ -61,7 +63,7 @@ type (
 	
 	FinancialAccountStatus_Service_FilterByStatus_Response interface {
 		AccountIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	

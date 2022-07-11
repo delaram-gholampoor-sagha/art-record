@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // InvoiceSides indicate the domain record data fields.
 type InvoiceSides interface {
 	InvoiceID() [16]byte  // invoice domain
@@ -30,7 +32,7 @@ type (
 		AgentID() [16]byte      
 	}
 	InvoiceSides_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -40,7 +42,7 @@ type (
 	}
 	InvoiceSides_Service_Get_Response interface {
 		InvoiceSides
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	InvoiceSides_Service_FindBySeller_Request interface { 
@@ -50,7 +52,7 @@ type (
 	}
 	InvoiceSides_Service_FindBySeller_Response interface {
 		InvoiceIDs() [][16]byte 
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -61,7 +63,7 @@ type (
 	}
 	InvoiceSides_Service_FindByCustomer_Response interface {
 		InvoiceIDs() [][16]byte 
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	//	FindByAgent(agentID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
 	
@@ -72,7 +74,7 @@ type (
 	}
 	InvoiceSides_Service_FindByAgent_Response interface {
 		InvoiceIDs() [][16]byte 
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )
 

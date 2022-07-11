@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ProductInventoryChangeStatus indicate the domain record data fields.
 type ProductInventoryChangeStatus interface {
 	ProductInventoryChangeID() [16]byte    // product-inventory-change domain
@@ -27,7 +29,7 @@ type (
 		Status() ProductInventoryChange_Status
 	}
 	ProductInventoryChangeStatus_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	//	Count(productID [16]byte, currency uint64) (numbers uint64, err protocol.Error)
 	
@@ -35,7 +37,7 @@ type (
 		ProductInventoryChangeID() [16]byte
 	}
 	ProductInventoryChangeStatus_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductInventoryChangeStatus_Service_Get_Request interface {
@@ -44,7 +46,7 @@ type (
 	}
 	ProductInventoryChangeStatus_Service_Get_Response interface {
 		ProductInventoryChangeStatus
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	ProductInventoryChangeStatus_Service_FilterByStatus_Request interface {
 		Status() ProductInventoryChange_Status
@@ -54,7 +56,7 @@ type (
 	
 	ProductInventoryChangeStatus_Service_FilterByStatus_Response interface {
 		ProductInventoryChangeIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )
 

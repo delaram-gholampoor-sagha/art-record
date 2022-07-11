@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // InvoiceVoucherAnalyticUtcMinute indicate the domain record data fields.
 type InvoiceVoucherAnalyticUtcMinute interface {
 	Minute() utc.MinuteElapsed              //
@@ -22,12 +24,12 @@ type (
 		RedeemedAmount() protocol.AmountOfMoney 
 	}
 	InvoiceVoucherAnalyticUtcMinute_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
 	InvoiceVoucherAnalyticUtcMinute_Service_Count_Request interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	InvoiceVoucherAnalyticUtcMinute_Service_Count_Response interface {
@@ -39,7 +41,7 @@ type (
 	}
 	InvoiceVoucherAnalyticUtcMinute_Service_Get_Response interface {
 		InvoiceVoucherAnalyticUtcMinute
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 )

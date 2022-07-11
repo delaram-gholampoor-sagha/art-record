@@ -28,7 +28,7 @@ type (
 	}
 	
 	VoucherCategory_Service_Register_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	VoucherCategory_Service_Count_Request interface{
@@ -36,7 +36,7 @@ type (
 	}
 	
 	VoucherCategory_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	VoucherCategory_Service_Get_Request interface{
 		VoucherID() [16]byte
@@ -45,7 +45,7 @@ type (
 	
 	VoucherCategory_Service_Get_Response interface{
 		VoucherCategory
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 )

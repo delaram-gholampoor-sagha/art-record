@@ -1,5 +1,6 @@
 package protocol
 
+import "../libgo/protocol"
 
 // VoucherPOS indicate the domain record data fields.
 type VoucherPOS interface {
@@ -27,7 +28,7 @@ type (
 	  }
 	   
 		VoucherPOS_Service_Register_Response interface {
-			Numbers() uint64
+			Nv() protocol.NumberOfVersion
 		}
 		
 		VoucherPOS_Service_Count_Request interface {
@@ -35,7 +36,7 @@ type (
 		}
 		
 		VoucherPOS_Service_Count_Response interface {
-			Numbers() uint64
+			Nv() protocol.NumberOfVersion
 		}
 		
 		VoucherPOS_Service_Get_Request interface {
@@ -46,7 +47,7 @@ type (
 		
 		VoucherPOS_Service_Get_Response interface {
 			VoucherPOS
-			Numbers() uint64
+			Nv() protocol.NumberOfVersion
 		}
 		
 		VoucherPOS_Service_FindByPOS_Request interface {
@@ -57,6 +58,6 @@ type (
 		
 		VoucherPOS_Service_FindByPOS_Response interface {
 			VoucherIDs() [][16]byte
-			Numbers() uint64
+			Nv() protocol.NumberOfVersion
 		}
 )

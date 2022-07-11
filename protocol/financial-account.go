@@ -43,7 +43,7 @@ type (
 	
 	}
 	FinancialAccount_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	
@@ -65,7 +65,7 @@ type (
 	
 	FinancialAccount_Service_FindByUserID_Response interface {
 		AccountIDs() [][16]byte
-		 Numbers() uint64
+		 Nv() protocol.NumberOfVersion
 	}
 	
 	FinancialAccount_Service_ListUserCurrencies_Request interface {
@@ -76,7 +76,7 @@ type (
 	
 	FinancialAccount_Service_ListUserCurrencies_Response interface {
 		Currency() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	FinancialAccount_Service_ListUserSettlementReferences_Request interface {
@@ -87,6 +87,6 @@ type (
 	
 	FinancialAccount_Service_ListUserSettlementReferences_Response interface {
 		MoneySettlementReferences() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

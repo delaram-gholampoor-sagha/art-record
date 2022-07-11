@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // UserPublicKey indicate the domain record data fields.
 type UserPublicKey interface {
 	UserID() [16]byte             // user domain
@@ -40,7 +42,7 @@ type (
 	}
 	
 	UserPublicKey_Service_Register_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	UserPublicKey_Service_Count_Request interface{
@@ -48,7 +50,7 @@ type (
 	}
 	
 	UserPublicKey_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	UserPublicKey_Service_Get_Request interface{
 		UserID() [16]byte
@@ -57,7 +59,7 @@ type (
 	
 	UserPublicKey_Service_Get_Response interface{
 		UserPublicKey
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	

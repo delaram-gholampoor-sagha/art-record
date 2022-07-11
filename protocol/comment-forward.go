@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // CommentForward indicate the domain record data fields.
 type CommentForward interface {
 	CommentID() [16]byte   // comment domain
@@ -23,7 +25,7 @@ type (
 	}
 
 	CommentForward_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	CommentForward_Service_Get_Request interface {

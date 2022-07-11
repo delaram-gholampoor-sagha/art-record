@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // GroupRelated indicate the domain record data fields.
 type GroupRelated interface {
 	GroupID() [16]byte        // group domain
@@ -25,14 +27,14 @@ type (
 	 RelatedGroupID() [16]byte              
 	}
 	GroupRelated_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	GroupRelated_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupRelated_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	GroupRelated_Service_Get_Request interface { 
 		GroupID() [16]byte
@@ -40,7 +42,7 @@ type (
 	}
 	GroupRelated_Service_Get_Response interface {
 		GroupRelated
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	GroupRelated_Service_FindByGroupID_Request interface { 
 		GroupID() [16]byte
@@ -50,6 +52,6 @@ type (
 
 	GroupRelated_Service_FindByGroupID_Response interface {
 		GroupRelatedIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

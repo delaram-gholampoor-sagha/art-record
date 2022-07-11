@@ -28,7 +28,7 @@ type (
 	}
 	
 	QuiddityTitle_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	QuiddityTitle_Service_Count_Request interface {
 		QuiddityID() [16]byte
@@ -36,7 +36,7 @@ type (
 	}
 	
 	QuiddityTitle_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	QuiddityTitle_Service_Get_Request interface {
@@ -58,6 +58,6 @@ type (
 	
 	QuiddityTitle_Service_ListQuiddityLanguages_Response interface {
 		Languages() []protocol.Language 
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

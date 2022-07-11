@@ -1,5 +1,6 @@
 package protocol
 
+import "../libgo/protocol"
 
 type UserStatus interface {
 	UserID() [16]byte    // Generated unique ID for the user
@@ -28,40 +29,39 @@ const (
 )
 
 type (
-	UserStatus_Service_Register_Request interface{ 
-	  Status() User_Status
+	UserStatus_Service_Register_Request interface {
+		Status() User_Status
 	}
-	
-	UserStatus_Service_Register_Response interface{
-		Numbers() uint64
-		UserID() [16]byte   
-	}
-	
-	UserStatus_Service_Count_Request interface{
+
+	UserStatus_Service_Register_Response interface {
+		Nv() protocol.NumberOfVersion
 		UserID() [16]byte
 	}
-	
-	UserStatus_Service_Count_Response interface{
-		Numbers() uint64
+
+	UserStatus_Service_Count_Request interface {
+		UserID() [16]byte
 	}
-	UserStatus_Service_Get_Request interface{
+
+	UserStatus_Service_Count_Response interface {
+		Nv() protocol.NumberOfVersion
+	}
+	UserStatus_Service_Get_Request interface {
 		UserID() [16]byte
 		VersionOffset() uint64
 	}
-	
-	UserStatus_Service_Get_Response interface{
+
+	UserStatus_Service_Get_Response interface {
 		UserStatus
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
-	
-	
-	UserStatus_Service_GetIDs_Request interface{
+
+	UserStatus_Service_GetIDs_Request interface {
 		Offset() uint64
 		Limit() uint64
 	}
-	
-	UserStatus_Service_GetIDs_Response interface{
+
+	UserStatus_Service_GetIDs_Response interface {
 		UserIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

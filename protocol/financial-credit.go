@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // FinancialCredit indicate the domain record data fields.
 type FinancialCredit interface {
 	UserID() [16]byte                // user domain
@@ -38,7 +40,7 @@ type (
 	
 	}
 	FinancialCredit_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	

@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ProductComplement indicate the domain record data fields.
 type ProductComplement interface {
 	ProductID() [16]byte    // product domain
@@ -25,7 +27,7 @@ type (
 		ComplementID() [16]byte 
 	}
 	ProductComplement_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	ProductComplement_Service_Count_Request interface {
@@ -33,7 +35,7 @@ type (
 		Priority() uint64
 	}
 	ProductComplement_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 	ProductComplement_Service_Get_Request interface {
@@ -43,7 +45,7 @@ type (
 	}
 	ProductComplement_Service_Get_Response interface {
 		ProductComplement
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 
@@ -54,7 +56,7 @@ type (
 	}
 	ProductComplement_Service_ListProducts_Response interface {
 		ProductIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 
 
@@ -66,6 +68,6 @@ type (
 	}
 	ProductComplement_Service_ListPriorities_Response interface {
 		Priorities() []uint64
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ProductRole indicate the domain record data fields.
 // ProductRole limit sell to specific roles.
 type ProductRole interface {
@@ -25,14 +27,14 @@ type (
 	
 	}
 	ProductRole_Service_Register_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductRole_Service_Count_Request interface{
 		ProductID() [16]byte
 	}
 	ProductRole_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	
 	}
 	
@@ -42,7 +44,7 @@ type (
 	}
 	ProductRole_Service_Get_Response interface{
 		ProductRole
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductRole_Service_FindByRole_Request interface{
@@ -52,7 +54,7 @@ type (
 	}
 	ProductRole_Service_FindByRole_Response interface{
 		ProductIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 )

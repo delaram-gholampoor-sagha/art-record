@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // CommentFollow indicate the domain record data fields.
 type CommentFollow interface {
 	CommentID() [16]byte      // comment domain
@@ -31,7 +33,7 @@ type (
 	}
 
 	CommentFollow_Service_Register_Response interface {
-	  Numbers() uint64
+	  Nv() protocol.NumberOfVersion
 	}
 	
 	CommentFollow_Service_Count_Request interface {
@@ -39,7 +41,7 @@ type (
 	}
 	
 	CommentFollow_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	CommentFollow_Service_Get_Request interface {

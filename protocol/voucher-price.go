@@ -1,6 +1,10 @@
 package protocol
 
-import "time"
+import (
+	"time"
+
+	"../libgo/protocol"
+)
 
 type VoucherPrice interface {
 	VoucherID() [16]byte // voucher domain
@@ -26,7 +30,7 @@ type (
 	}
 
 	VoucherPrice_Service_Register_Response interface{
-      Numbers() uint64      
+      Nv() protocol.NumberOfVersion      
 	}
 	
 

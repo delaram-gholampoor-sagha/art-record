@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ProductArea indicate the domain record data fields.
 // ProductArea is proper or appropriate location indicate specific area not specific location e.g. Taxi, ...
 type ProductArea interface {
@@ -25,7 +27,7 @@ type (
 	
 	}
 	ProductArea_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductArea_Service_Count_Request interface {
@@ -33,7 +35,7 @@ type (
 	
 	}
 	ProductArea_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductArea_Service_Get_Request interface {
@@ -42,7 +44,7 @@ type (
 	}
 	ProductArea_Service_Get_Response interface {
 		ProductArea
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductArea_Service_FindByArea_Request interface {
@@ -52,6 +54,6 @@ type (
 	}
 	ProductArea_Service_FindByArea_Response interface {
 		ProductIDs() [][16]byte
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

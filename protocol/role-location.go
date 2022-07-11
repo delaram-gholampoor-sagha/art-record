@@ -1,5 +1,6 @@
 package protocol
 
+import "../libgo/protocol"
 
 // RoleLocation indicate the domain record data fields.
 // Let staffs register enter and exit time by their mobiles in specific location.
@@ -26,7 +27,7 @@ type (
 
 
 		RoleLocation_Service_Register_Response interface{
-     Numbers() uint64
+     Nv() protocol.NumberOfVersion
 	}
 	
 	RoleLocation_Service_Count_Request interface{
@@ -34,7 +35,7 @@ type (
 	}
 	
 	RoleLocation_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	RoleLocation_Service_Get_Request interface{
 		RoleID() [16]byte
@@ -43,7 +44,7 @@ type (
 	
 	RoleLocation_Service_Get_Response interface{
 		RoleLocation
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	RoleLocation_Service_Last_Request interface{
@@ -52,6 +53,6 @@ type (
 	
 	RoleLocation_Service_Last_Response interface{
 		RoleLocation
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

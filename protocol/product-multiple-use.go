@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // ProductMultipleUse indicate the domain record data fields.
 type ProductMultipleUse interface {
 	ProductID() [16]byte        // product domain
@@ -24,7 +26,7 @@ type (
 		Timeout() protocol.Duration 
 	}
 	ProductMultipleUse_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	//	Count(productID [16]byte, currency uint64) (numbers uint64, err protocol.Error)
 	
@@ -33,7 +35,7 @@ type (
 	
 	}
 	ProductMultipleUse_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ProductMultipleUse_Service_Get_Request interface {
@@ -42,6 +44,6 @@ type (
 	}
 	ProductMultipleUse_Service_Get_Response interface {
 		ProductMultipleUse
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

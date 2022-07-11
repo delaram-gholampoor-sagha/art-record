@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 // VoucherValue indicate the domain record data fields.
 type VoucherValue interface {
 	VoucherID() [16]byte           // voucher domain
@@ -23,7 +25,7 @@ type (
 	}
 	
 	VoucherValue_Service_Register_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	VoucherValue_Service_Count_Request interface {
@@ -31,7 +33,7 @@ type (
 	}
 	
 	VoucherValue_Service_Count_Response interface {
-	 Numbers() uint64 
+	 Nv() protocol.NumberOfVersion 
 	}
 	
 	VoucherValue_Service_Get_Request interface {
@@ -41,6 +43,6 @@ type (
 	
 	VoucherValue_Service_Get_Response interface {
 		 VoucherValue
-		 numbers() uint64
+		 Nv() protocol.NumberOfVersion
 	}
 )

@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 type StaffTakeLeave interface {
 	StaffID() [16]byte         // staff domain
 	Day() utc.DayElapsed       //
@@ -78,7 +80,7 @@ type (
 	}
 
 	StaffTakeLeave_Service_Register_Response interface{
-	  Numbers() uint64
+	  Nv() protocol.NumberOfVersion
 	}
 	
 	StaffTakeLeave_Service_Count_Request interface{
@@ -86,7 +88,7 @@ type (
 	}
 	
 	StaffTakeLeave_Service_Count_Response interface{
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	StaffTakeLeave_Service_Get_Request interface{
 		StaffID() [16]byte
@@ -95,7 +97,7 @@ type (
 	
 	StaffTakeLeave_Service_Get_Response interface{
 		StaffTakeLeave
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	StaffTakeLeave_Service_Last_Request interface{
@@ -104,6 +106,6 @@ type (
 	
 	StaffTakeLeave_Service_Last_Response interface{
 		StaffTakeLeave
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 )

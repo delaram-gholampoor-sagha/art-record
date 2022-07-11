@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 type ContentComplement interface {
 	ContentID() [16]byte    // content domain
 	Priority() int32        // complement priority
@@ -25,7 +27,7 @@ type (
 	}
 
 	ContentComplement_Service_Register_Response interface {
-		 Numbers() uint64
+		 Nv() protocol.NumberOfVersion
 	}
 	
 	
@@ -34,7 +36,7 @@ type (
 	}
 	
 	ContentComplement_Service_Count_Response interface {
-		Numbers() uint64
+		Nv() protocol.NumberOfVersion
 	}
 	
 	ContentComplement_Service_Get_Request interface {
