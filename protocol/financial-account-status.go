@@ -11,11 +11,11 @@ type FinancialAccountStatus interface {
 type FinancialAccountStatus_StorageServices interface {
 	Save(fas FinancialAccountStatus) (err protocol.Error)
 
-	Count(accountID [16]byte) (numbers uint64, err protocol.Error)
+	Count(accountID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(accountID [16]byte, versionOffset uint64) (fas FinancialAccountStatus, err protocol.Error)
 	
 
-	FilterByStatus(status FinancialAccount_Status, offset, limit uint64) (accountIDs [][16]byte, numbers uint64, err protocol.Error)
+	FilterByStatus(status FinancialAccount_Status, offset, limit uint64) (accountIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type FinancialAccount_Status Quiddity_Status

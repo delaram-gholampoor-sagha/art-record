@@ -16,10 +16,10 @@ type InvoiceSummary interface {
 }
 
 type InvoiceSummary_StorageServices interface {
-	Save(is InvoiceSummary) (numbers uint64, err protocol.Error)
+	Save(is InvoiceSummary) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(invoiceID [16]byte) (numbers uint64, err protocol.Error)
-	Get(invoiceID [16]byte, versionOffset uint64) (is InvoiceSummary, numbers uint64, err protocol.Error)
+	Count(invoiceID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(invoiceID [16]byte, versionOffset uint64) (is InvoiceSummary, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

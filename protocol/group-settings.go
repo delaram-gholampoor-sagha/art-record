@@ -13,10 +13,10 @@ type GroupSettings interface {
 }
 
 type GroupSettings_StorageServices interface {
-	Save(gs GroupSettings) (numbers uint64, err protocol.Error)
+	Save(gs GroupSettings) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(groupID [16]byte) (numbers uint64, err protocol.Error)
-	Get(groupID [16]byte, versionOffset uint64) (gs GroupSettings, numbers uint64, err protocol.Error)
+	Count(groupID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(groupID [16]byte, versionOffset uint64) (gs GroupSettings, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

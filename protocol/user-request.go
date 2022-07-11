@@ -19,13 +19,13 @@ type UserRequest interface {
 }
 
 type UserRequest_StorageServices interface {
-	Save(q UserRequest) (numbers uint64, err protocol.Error)
+	Save(q UserRequest) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(requestID [16]byte) (numbers uint64, err protocol.Error)
-	Get(requestID [16]byte, versionOffset uint64) (ur UserRequest, numbers uint64, err protocol.Error)
+	Count(requestID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(requestID [16]byte, versionOffset uint64) (ur UserRequest, nv protocol.NumberOfVersion, err protocol.Error)
 
-	FindByDomain(domainID uint64, offset, limit uint64) (requestIDs [][16]byte, numbers uint64, err protocol.Error)
-	FindByUser(userID [16]byte, offset, limit uint64) (requestIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindByDomain(domainID uint64, offset, limit uint64) (requestIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
+	FindByUser(userID [16]byte, offset, limit uint64) (requestIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 

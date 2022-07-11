@@ -11,12 +11,12 @@ type GroupRelated interface {
 }
 
 type GroupRelated_StorageServices interface {
-	Save(gr GroupRelated) (numbers uint64, err protocol.Error)
+	Save(gr GroupRelated) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(GroupID [16]byte) (numbers uint64, err protocol.Error)
-	Get(GroupID [16]byte, versionOffset uint64) (gr GroupRelated , numbers uint64, err protocol.Error)
+	Count(GroupID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(GroupID [16]byte, versionOffset uint64) (gr GroupRelated , nv protocol.NumberOfVersion, err protocol.Error)
 
-	FindByRelatedGroupID(groupID [16]byte, offset, limit uint64) (RelatedGroupID [][16]byte, numbers uint64, err protocol.Error)
+	FindByRelatedGroupID(groupID [16]byte, offset, limit uint64) (RelatedGroupID [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 

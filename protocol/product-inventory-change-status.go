@@ -11,12 +11,12 @@ type ProductInventoryChangeStatus interface {
 }
 
 type ProductInventoryChangeStatus_StorageServices interface {
-	Save(ps ProductInventoryChangeStatus) (numbers uint64, err protocol.Error)
+	Save(ps ProductInventoryChangeStatus) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(productInventoryChangeID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productInventoryChangeID [16]byte, versionOffset uint64) (ps ProductInventoryChangeStatus, numbers uint64, err protocol.Error)
+	Count(productInventoryChangeID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(productInventoryChangeID [16]byte, versionOffset uint64) (ps ProductInventoryChangeStatus, nv protocol.NumberOfVersion, err protocol.Error)
 
-	FilterByStatus(status ProductInventoryChange_Status, offset, limit uint64) (productInventoryChangeIDs [][16]byte, numbers uint64, err protocol.Error)
+	FilterByStatus(status ProductInventoryChange_Status, offset, limit uint64) (productInventoryChangeIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 
 	protocol.EventTarget
 }
@@ -31,7 +31,7 @@ type (
 	ProductInventoryChangeStatus_Service_Register_Response interface {
 		Nv() protocol.NumberOfVersion
 	}
-	//	Count(productID [16]byte, currency uint64) (numbers uint64, err protocol.Error)
+	//	Count(productID [16]byte, currency uint64) (nv protocol.NumberOfVersion, err protocol.Error)
 	
 	ProductInventoryChangeStatus_Service_Count_Request interface {
 		ProductInventoryChangeID() [16]byte

@@ -13,12 +13,12 @@ type ProductPrice interface {
 }
 
 type ProductPrice_StorageServices interface {
-	Save(pp ProductPrice) (numbers uint64, err protocol.Error)
+	Save(pp ProductPrice) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(productID [16]byte, currency uint64) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, currency uint64, versionOffset uint64) (pp ProductPrice, numbers uint64, err protocol.Error)
+	Count(productID [16]byte, currency uint64) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(productID [16]byte, currency uint64, versionOffset uint64) (pp ProductPrice, nv protocol.NumberOfVersion, err protocol.Error)
 
-	ListProductCurrencies(productID [16]byte, offset, limit uint64) (currencies []uint64, numbers uint64, err protocol.Error)
+	ListProductCurrencies(productID [16]byte, offset, limit uint64) (currencies []uint64, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

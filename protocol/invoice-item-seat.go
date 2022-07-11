@@ -13,10 +13,10 @@ type InvoiceItemSeat interface {
 }
 
 type InvoiceItemSeat_StorageServices interface {
-	Save(iis InvoiceItemSeat) (numbers uint64, err protocol.Error)
+	Save(iis InvoiceItemSeat) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(invoiceID [16]byte) (numbers uint64, err protocol.Error)
-	Get(invoiceID [16]byte, versionOffset uint64) (iis InvoiceItemSeat, numbers uint64, err protocol.Error)
+	Count(invoiceID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(invoiceID [16]byte, versionOffset uint64) (iis InvoiceItemSeat, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

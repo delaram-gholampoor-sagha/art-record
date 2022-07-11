@@ -12,12 +12,12 @@ type ProductPlace interface {
 }
 
 type ProductPlace_StorageServices interface {
-	Save(pp ProductPlace) (numbers uint64, err protocol.Error)
+	Save(pp ProductPlace) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(productID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, versionOffset uint64) (pp ProductPlace, numbers uint64, err protocol.Error)
+	Count(productID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (pp ProductPlace, nv protocol.NumberOfVersion, err protocol.Error)
 
-	FindByBuildingLocation(buildingLocationID [16]byte, offset, limit uint64) (productIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindByBuildingLocation(buildingLocationID [16]byte, offset, limit uint64) (productIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

@@ -20,7 +20,7 @@ type CommentFollow_Type uint8
 type CommentFollow_StorageServices interface {
 	Save(co CommentFollow) protocol.Error
 
-	Count(commentID [16]byte) (numbers uint64, err protocol.Error)
+	Count(commentID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(commentID [16]byte, versionOffset uint64) (co CommentFollow, err protocol.Error)
 
 }

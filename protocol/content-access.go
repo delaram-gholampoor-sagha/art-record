@@ -12,7 +12,7 @@ type ContentAccess interface {
 type ContentAccess_StorageServices interface {
 	Save(ca ContentAccess) protocol.Error
 
-	Count(contentID [16]byte) (numbers uint64, err protocol.Error)
+	Count(contentID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(contentID [16]byte, versionOffset uint64) (ca ContentAccess, err protocol.Error)
 	
 }

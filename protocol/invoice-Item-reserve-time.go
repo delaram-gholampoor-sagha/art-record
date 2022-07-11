@@ -13,10 +13,10 @@ type InvoiceItemReserveTime interface {
 }
 
 type InvoiceItemReserveTime_StorageServices interface {
-	Save(itr InvoiceItemReserveTime) (numbers uint64, err protocol.Error)
+	Save(itr InvoiceItemReserveTime) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(invoiceID [16]byte) (numbers uint64, err protocol.Error)
-	Get(invoiceID [16]byte, versionOffset uint64) (itr InvoiceItemReserveTime, numbers uint64, err protocol.Error)
+	Count(invoiceID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(invoiceID [16]byte, versionOffset uint64) (itr InvoiceItemReserveTime, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

@@ -13,12 +13,12 @@ type InvoiceVoucher interface {
 }
 
 type InvoiceVoucher_StorageServices interface {
-	Save(iv InvoiceVoucher) (numbers uint64, err protocol.Error)
+	Save(iv InvoiceVoucher) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(invoiceID [16]byte) (numbers uint64, err protocol.Error)
-	Get(invoiceID [16]byte, versionOffset uint64) (iv InvoiceVoucher, numbers uint64, err protocol.Error)
+	Count(invoiceID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(invoiceID [16]byte, versionOffset uint64) (iv InvoiceVoucher, nv protocol.NumberOfVersion, err protocol.Error)
 
-	FindByVoucherID(voucherID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindByVoucherID(voucherID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 
 	// protocol.EventTarget
 }

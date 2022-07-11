@@ -11,12 +11,12 @@ type ProductProviderStaff interface {
 }
 
 type ProductProviderStaff_StorageServices interface {
-	Save(pp ProductProviderStaff) (numbers uint64, err protocol.Error)
+	Save(pp ProductProviderStaff) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(productID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, versionOffset uint64) (pp ProductProviderStaff, numbers uint64, err protocol.Error)
+	Count(productID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (pp ProductProviderStaff, nv protocol.NumberOfVersion, err protocol.Error)
 
-	FindByStaff(staffID [16]byte, offset, limit uint64) (productIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindByStaff(staffID [16]byte, offset, limit uint64) (productIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 // related UserIDs by StaffID use to get Coordinate(domain)

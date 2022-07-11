@@ -17,7 +17,7 @@ type FinancialTransactionReference interface {
 type FinancialTransactionReference_StorageServices interface {
 	Save(ftr FinancialTransactionReference) (err protocol.Error)
 
-	Count(referenceID [16]byte) (numbers uint64, err protocol.Error)
+	Count(referenceID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(referenceID [16]byte, versionOffset uint64) (ftr FinancialTransactionReference, err protocol.Error)
 
 }

@@ -13,10 +13,10 @@ type GroupAssociated interface {
 
 
 type GroupAssociated_StorageServices interface {
-	Save(gn GroupAssociated) (numbers uint64, err protocol.Error)
+	Save(gn GroupAssociated) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(groupID [16]byte) (numbers uint64, err protocol.Error)
-	Get(groupID [16]byte, versionOffset uint64) (gn GroupAssociated, numbers uint64, err protocol.Error)
+	Count(groupID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(groupID [16]byte, versionOffset uint64) (gn GroupAssociated, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 

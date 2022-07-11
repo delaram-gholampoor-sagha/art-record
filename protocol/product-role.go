@@ -12,12 +12,12 @@ type ProductRole interface {
 }
 
 type ProductRole_StorageServices interface {
-	Save(pr ProductRole) (numbers uint64, err protocol.Error)
+	Save(pr ProductRole) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(productID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, versionOffset uint64) (pr ProductRole, numbers uint64, err protocol.Error)
+	Count(productID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (pr ProductRole, nv protocol.NumberOfVersion, err protocol.Error)
 
-	FindByRole(roleID [16]byte, offset, limit uint64) (productIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindByRole(roleID [16]byte, offset, limit uint64) (productIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

@@ -12,12 +12,12 @@ type InvoiceDiscount interface {
 }
 
 type InvoiceDiscount_StorageServices interface {
-	Save(iv InvoiceDiscount) (numbers uint64, err protocol.Error)
+	Save(iv InvoiceDiscount) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(invoiceID [16]byte) (numbers uint64, err protocol.Error)
-	Get(invoiceID [16]byte, versionOffset uint64) (iv InvoiceDiscount, numbers uint64, err protocol.Error)
+	Count(invoiceID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(invoiceID [16]byte, versionOffset uint64) (iv InvoiceDiscount, nv protocol.NumberOfVersion, err protocol.Error)
 
-	FindByDiscountID(discountID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindByDiscountID(discountID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

@@ -12,11 +12,11 @@ type QuiddityTitle interface {
 type QuiddityTitle_StorageServices interface {
 	Save(qt QuiddityTitle) (err protocol.Error)
 
-	Count(quiddityID [16]byte, language protocol.Language) (numbers uint64, err protocol.Error)
+	Count(quiddityID [16]byte, language protocol.Language) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(quiddityID [16]byte, language protocol.Language, versionOffset uint64) (qt QuiddityTitle, err protocol.Error)
 	
 
-	ListQuiddityLanguages(quiddityID [16]byte, offset, limit uint64) (languages []protocol.Language, numbers uint64, err protocol.Error)
+	ListQuiddityLanguages(quiddityID [16]byte, offset, limit uint64) (languages []protocol.Language, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 

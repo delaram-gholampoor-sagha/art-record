@@ -11,12 +11,12 @@ type InvoiceStatus interface {
 }
 
 type InvoiceStatus_StorageServices interface {
-	Save(is InvoiceStatus) (numbers uint64, err protocol.Error)
+	Save(is InvoiceStatus) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(invoiceID [16]byte) (numbers uint64, err protocol.Error)
-	Get(invoiceID [16]byte, versionOffset uint64) (is InvoiceStatus, numbers uint64, err protocol.Error)
+	Count(invoiceID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(invoiceID [16]byte, versionOffset uint64) (is InvoiceStatus, nv protocol.NumberOfVersion, err protocol.Error)
 
-	FindByStatus(status Invoice_Status, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindByStatus(status Invoice_Status, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 
 	protocol.EventTarget
 }

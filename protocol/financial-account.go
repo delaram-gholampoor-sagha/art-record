@@ -14,14 +14,14 @@ type FinancialAccount interface {
 type FinancialAccount_StorageServices interface {
 	Save(fa FinancialAccount) (err protocol.Error)
 
-	Count(accountID [16]byte) (numbers uint64, err protocol.Error)
+	Count(accountID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(accountID [16]byte, versionOffset uint64) (fa FinancialAccount, err protocol.Error)
 	
 
-	FindByUserID(userID [16]byte, offset, limit uint64) (accountIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindByUserID(userID [16]byte, offset, limit uint64) (accountIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 
-	ListUserCurrencies(userID [16]byte, offset, limit uint64) (currency [][16]byte, numbers uint64, err protocol.Error)
-	ListUserSettlementReferences(userID [16]byte, offset, limit uint64) (moneySettlementReferences [][16]byte, numbers uint64, err protocol.Error)
+	ListUserCurrencies(userID [16]byte, offset, limit uint64) (currency [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
+	ListUserSettlementReferences(userID [16]byte, offset, limit uint64) (moneySettlementReferences [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

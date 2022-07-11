@@ -11,10 +11,10 @@ type VoucherUsage interface {
 }
 
 type VoucherUsage_StorageServices interface {
-	Save(vu VoucherUsage) (numbers uint64, err protocol.Error)
+	Save(vu VoucherUsage) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(voucherID [16]byte) (numbers uint64, err protocol.Error)
-	Get(voucherID [16]byte, versionOffset uint64) (vu VoucherUsage, numbers uint64, err protocol.Error)
+	Count(voucherID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(voucherID [16]byte, versionOffset uint64) (vu VoucherUsage, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 

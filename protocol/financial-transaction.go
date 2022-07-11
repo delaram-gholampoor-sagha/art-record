@@ -19,12 +19,12 @@ type FinancialTransaction interface {
 type FinancialTransaction_StorageServices interface {
 	Save(ft FinancialTransaction) (err protocol.Error)
 
-	Count(accountID [16]byte) (numbers uint64, err protocol.Error)
+	Count(accountID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(accountID [16]byte, versionOffset uint64) (ft FinancialTransaction, err protocol.Error)
 
 
 	// TODO::: is it worth to uncomment below service?
-	// FindByAccountSideID(accountSideID [16]byte, offset, limit uint64) (versionOffsets []uint64, numbers uint64, err protocol.Error)
+	// FindByAccountSideID(accountSideID [16]byte, offset, limit uint64) (versionOffsets []uint64, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 

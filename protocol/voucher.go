@@ -14,10 +14,10 @@ type Voucher interface {
 
 
 type Voucher_StorageServices interface {
-	Save(v Voucher) (numbers uint64, err protocol.Error)
+	Save(v Voucher) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(voucherID [16]byte) (numbers uint64, err protocol.Error)
-	Get(voucherID [16]byte, versionOffset uint64) (v Voucher, numbers uint64, err protocol.Error)
+	Count(voucherID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(voucherID [16]byte, versionOffset uint64) (v Voucher, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 

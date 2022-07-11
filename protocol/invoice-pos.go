@@ -12,12 +12,12 @@ type InvoicePOS interface {
 }
 
 type InvoicePOS_StorageServices interface {
-	Save(ip InvoicePOS) (numbers uint64, err protocol.Error)
+	Save(ip InvoicePOS) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Get(invoiceID [16]byte) (ip InvoicePOS, err protocol.Error)
 
-	FindByPos(posID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
-	FindByStaff(staffID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindByPos(posID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
+	FindByStaff(staffID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

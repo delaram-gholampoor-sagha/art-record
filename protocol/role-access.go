@@ -11,7 +11,7 @@ type RoleAccess interface {
 type RoleAccess_StorageServices interface {
 	Save(ra RoleAccess) protocol.Error
 
-	Count(roleID [16]byte) (numbers uint64, err protocol.Error)
+	Count(roleID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(roleID [16]byte, versionOffset uint64) (ra RoleAccess, err protocol.Error)
 	
 

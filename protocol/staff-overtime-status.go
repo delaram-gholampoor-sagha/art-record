@@ -13,10 +13,10 @@ type StaffOvertimeStatus interface {
 type StaffOvertimeStatus_StorageServices interface {
 	Save(gs StaffOvertimeStatus) protocol.Error
 
-	Count(staffID [16]byte) (numbers uint64, err protocol.Error)
+	Count(staffID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(staffID [16]byte, versionOffset uint64) (gs StaffOvertimeStatus, err protocol.Error)
 	
-	// FilterByStatus(status StaffOvertime_Status, offset, limit uint64) (staffIDs [][16]byte, numbers uint64, err protocol.Error)
+	// FilterByStatus(status StaffOvertime_Status, offset, limit uint64) (staffIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	// protocol.EventTarget
 }
 

@@ -13,12 +13,12 @@ type GroupPolicy interface {
 }
 
 type GroupPolicy_StorageServices interface {
-	Save(cg GroupPolicy) (numbers uint64, err protocol.Error)
+	Save(cg GroupPolicy) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(groupID [16]byte) (numbers uint64, err protocol.Error)
-	Get(groupID [16]byte, versionOffset uint64) (cg GroupPolicy, numbers uint64, err protocol.Error)
+	Count(groupID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(groupID [16]byte, versionOffset uint64) (cg GroupPolicy, nv protocol.NumberOfVersion, err protocol.Error)
 
-	FindByUserID(ownerUserID [16]byte, offset, limit uint64) (ids [][16]byte, numbers uint64, err protocol.Error)
+	FindByUserID(ownerUserID [16]byte, offset, limit uint64) (ids [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 

@@ -10,14 +10,14 @@ type UserStatus interface {
 }
 
 type UserStatus_StorageServices interface {
-	Save(us UserStatus) (numbers uint64, err protocol.Error)
+	Save(us UserStatus) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(userID [16]byte) (numbers uint64, err protocol.Error)
-	Get(userID [16]byte, versionOffset uint64) (us UserStatus, numbers uint64, err protocol.Error)
+	Count(userID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(userID [16]byte, versionOffset uint64) (us UserStatus, nv protocol.NumberOfVersion, err protocol.Error)
 
-	GetIDs(offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)
+	GetIDs(offset, limit uint64) (userIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 
-	// FindByTime(day utc.DayElapsed, offset, limit uint64) (userIDs [][16]byte, numbers uint64, err protocol.Error)
+	// FindByTime(day utc.DayElapsed, offset, limit uint64) (userIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 
 	// protocol.EventTarget
 }

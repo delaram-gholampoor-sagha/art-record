@@ -11,10 +11,10 @@ type VoucherAnalyticUtcDay interface {
 }
 
 type VoucherAnalyticUtcDay_StorageServices interface {
-	Save(va VoucherAnalyticUtcDay) (numbers uint64, err protocol.Error)
+	Save(va VoucherAnalyticUtcDay) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(voucherID [16]byte) (numbers uint64, err protocol.Error)
-	Get(voucherID [16]byte, versionOffset uint64) (va VoucherAnalyticUtcDay, numbers uint64, err protocol.Error)
+	Count(voucherID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(voucherID [16]byte, versionOffset uint64) (va VoucherAnalyticUtcDay, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 

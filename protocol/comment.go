@@ -18,14 +18,14 @@ type Comment interface {
 type Comment_StorageServices interface {
 	Save(c Comment) protocol.Error
 
-	Count(groupID [16]byte) (numbers uint64, err protocol.Error)
+	Count(groupID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(groupID [16]byte, versionOffset uint64) (c Comment, err protocol.Error)
 
 
-	FindByReplyTo(groupID [16]byte, commentID [16]byte, offset, limit uint64) (versionOffsets []uint64, numbers uint64, err protocol.Error)
-	FindByUserID(groupID [16]byte, userID [16]byte, offset, limit uint64) (versionOffsets []uint64, numbers uint64, err protocol.Error)
+	FindByReplyTo(groupID [16]byte, commentID [16]byte, offset, limit uint64) (versionOffsets []uint64, nv protocol.NumberOfVersion, err protocol.Error)
+	FindByUserID(groupID [16]byte, userID [16]byte, offset, limit uint64) (versionOffsets []uint64, nv protocol.NumberOfVersion, err protocol.Error)
 
-	ListUserGroups(userID [16]byte, offset, limit uint64) (ids [][16]byte, numbers uint64, err protocol.Error)
+	ListUserGroups(userID [16]byte, offset, limit uint64) (ids [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 
 	protocol.EventTarget
 }

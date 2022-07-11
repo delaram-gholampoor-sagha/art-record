@@ -16,11 +16,11 @@ type QuiddityModel interface {
 type QuiddityModel_StorageServices interface {
 	Save(qm QuiddityModel) (err protocol.Error)
 
-	Count(quiddityID [16]byte) (numbers uint64, err protocol.Error)
+	Count(quiddityID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(quiddityID [16]byte, versionOffset uint64) (qm QuiddityModel, err protocol.Error)
 
 
-	FindByObjectID(objectID [16]byte, offset, limit uint64) (quiddityIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindByObjectID(objectID [16]byte, offset, limit uint64) (quiddityIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

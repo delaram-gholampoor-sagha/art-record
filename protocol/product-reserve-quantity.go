@@ -12,10 +12,10 @@ type ProductReserveQuantity interface {
 }
 
 type ProductReserveQuantity_StorageServices interface {
-	Save(pr ProductReserveQuantity) (numbers uint64, err protocol.Error)
+	Save(pr ProductReserveQuantity) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(productID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, versionOffset uint64) (pr ProductReserveQuantity, numbers uint64, err protocol.Error)
+	Count(productID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (pr ProductReserveQuantity, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

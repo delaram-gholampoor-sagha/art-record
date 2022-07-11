@@ -1,4 +1,6 @@
 package protocol
+
+import "../libgo/protocol"
 type FinancialAccountCard interface {
 	AccountID() [16]byte       // financial-account domain
 	CardNumber() iso.Card      //
@@ -11,7 +13,7 @@ type FinancialAccountCard interface {
 type FinancialAccountCard_StorageServices interface {
 	Save(fai FinancialAccountCard) (err protocol.Error)
 
-	Count(accountID [16]byte) (numbers uint64, err protocol.Error)
+	Count(accountID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(accountID [16]byte, versionOffset uint64) (fai FinancialAccountCard, err protocol.Error)
 	
 

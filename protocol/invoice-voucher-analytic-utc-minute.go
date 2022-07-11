@@ -11,10 +11,10 @@ type InvoiceVoucherAnalyticUtcMinute interface {
 }
 
 type InvoiceVoucherAnalyticUtcMinute_StorageServices interface {
-	Save(iva InvoiceVoucherAnalyticUtcMinute) (numbers uint64, err protocol.Error)
+	Save(iva InvoiceVoucherAnalyticUtcMinute) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count() (numbers uint64, err protocol.Error)
-	Get(versionOffset uint64) (iva InvoiceVoucherAnalyticUtcMinute, numbers uint64, err protocol.Error)
+	Count() (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(versionOffset uint64) (iva InvoiceVoucherAnalyticUtcMinute, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

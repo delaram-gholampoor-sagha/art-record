@@ -14,7 +14,7 @@ type StaffTimingUTC interface {
 type StaffTimingUTC_StorageServices interface {
 	Save(st StaffTimingUTC) protocol.Error
 
-	Count(staffID [16]byte) (numbers uint64, err protocol.Error)
+	Count(staffID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(staffID [16]byte, versionOffset uint64) (st StaffTimingUTC, err protocol.Error)
 	
 }

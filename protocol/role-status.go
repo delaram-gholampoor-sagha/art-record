@@ -13,11 +13,11 @@ type RoleStatus interface {
 type RoleStatus_StorageServices interface {
 	Save(rs RoleStatus) protocol.Error
 
-	Count(roleID [16]byte) (numbers uint64, err protocol.Error)
+	Count(roleID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(roleID [16]byte, versionOffset uint64) (rs RoleStatus, err protocol.Error)
 
 
-	FilterByStatus(status Role_Status, offset, limit uint64) (roleIDs [][16]byte, numbers uint64, err protocol.Error)
+	FilterByStatus(status Role_Status, offset, limit uint64) (roleIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	// protocol.EventTarget
 }
 

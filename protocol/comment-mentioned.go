@@ -12,7 +12,7 @@ type CommentMentioned interface {
 type CommentMentioned_StorageServices interface {
 	Save(cm CommentMentioned) protocol.Error
 
-	Count(userID [16]byte) (numbers uint64, err protocol.Error)
+	Count(userID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(userID [16]byte, versionOffset uint64) (cm CommentMentioned, err protocol.Error)
 	
 }

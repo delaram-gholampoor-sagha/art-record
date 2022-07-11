@@ -15,12 +15,12 @@ type InvoiceItem interface {
 }
 
 type InvoiceItem_StorageServices interface {
-	Save(ii InvoiceItem) (numbers uint64, err protocol.Error)
+	Save(ii InvoiceItem) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(invoiceID [16]byte) (numbers uint64, err protocol.Error)
+	Count(invoiceID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(invoiceID [16]byte, versionOffset uint64) (ii InvoiceItem, err protocol.Error)
 
-	FindByProductID(productID uint64, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindByProductID(productID uint64, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 

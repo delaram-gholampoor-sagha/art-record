@@ -13,7 +13,7 @@ type FinancialAccountMain interface {
 type FinancialAccountMain_StorageServices interface {
 	Save(fa FinancialAccountMain) (err protocol.Error)
 
-	Count(userID, currency [16]byte) (numbers uint64, err protocol.Error)
+	Count(userID, currency [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(userID, currency [16]byte, versionOffset uint64) (fa FinancialAccountMain, err protocol.Error)
 
 }

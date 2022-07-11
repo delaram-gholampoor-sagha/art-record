@@ -15,11 +15,11 @@ type ContentParticipant interface {
 type ContentParticipant_StorageServices interface {
 	Save(cp ContentParticipant) protocol.Error
 
-	Count(contentID [16]byte) (numbers uint64, err protocol.Error)
+	Count(contentID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(contentID [16]byte, versionOffset uint64) (cp ContentParticipant, err protocol.Error)
 	
 
-	FindByUserID(userID [16]byte, offset, limit uint64) (contentIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindByUserID(userID [16]byte, offset, limit uint64) (contentIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 // ContentParticipant_Type indicate participant type or role

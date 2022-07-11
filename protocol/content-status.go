@@ -12,10 +12,10 @@ type ContentStatus interface {
 type ContentStatus_StorageServices interface {
 	Save(cs ContentStatus) protocol.Error
 
-	Count(contentID [16]byte) (numbers uint64, err protocol.Error)
+	Count(contentID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(contentID [16]byte, versionOffset uint64) (cs ContentStatus, err protocol.Error)
 	
-	// FilterByStatus(status Content_Status, offset, limit uint64) (contentIDs [][16]byte, numbers uint64, err protocol.Error)
+	// FilterByStatus(status Content_Status, offset, limit uint64) (contentIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	// protocol.EventTarget
 }
 

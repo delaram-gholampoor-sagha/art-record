@@ -10,12 +10,12 @@ type VoucherUserType interface {
 }
 
 type VoucherUserType_StorageServices interface {
-	Save(vut VoucherUserType) (numbers uint64, err protocol.Error)
+	Save(vut VoucherUserType) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(voucherID [16]byte) (numbers uint64, err protocol.Error)
-	Get(voucherID [16]byte, versionOffset uint64) (vut VoucherUserType, numbers uint64, err protocol.Error)
+	Count(voucherID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(voucherID [16]byte, versionOffset uint64) (vut VoucherUserType, nv protocol.NumberOfVersion, err protocol.Error)
 
-	FilterByUserType(userType protocol.UserType, offset, limit uint64) (voucherIDs [][16]byte, numbers uint64, err protocol.Error)
+	FilterByUserType(userType protocol.UserType, offset, limit uint64) (voucherIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 

@@ -13,13 +13,13 @@ type InvoiceSides interface {
 }
 
 type InvoiceSides_StorageServices interface {
-	Save(is InvoiceSides) (numbers uint64, err protocol.Error)
+	Save(is InvoiceSides) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Get(invoiceID [16]byte) (is InvoiceSides, err protocol.Error)
 
-	FindBySeller(sellerID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
-	FindByCustomer(customerID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
-	FindByAgent(agentID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindBySeller(sellerID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
+	FindByCustomer(customerID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
+	FindByAgent(agentID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type InvoiceSides_Type uint8
@@ -65,7 +65,7 @@ type (
 		InvoiceIDs() [][16]byte 
 		Nv() protocol.NumberOfVersion
 	}
-	//	FindByAgent(agentID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, numbers uint64, err protocol.Error)
+	//	FindByAgent(agentID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	
 	InvoiceSides_Service_FindByAgent_Request interface { 
 		AgentID() [16]byte

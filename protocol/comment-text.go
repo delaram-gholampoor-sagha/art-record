@@ -13,11 +13,11 @@ type CommentText interface {
 type CommentText_StorageServices interface {
 	Save(c CommentText) protocol.Error
 
-	Count(commentID [16]byte) (numbers uint64, err protocol.Error)
+	Count(commentID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(commentID [16]byte, versionOffset uint64) (c CommentText, err protocol.Error)
 	
 
-	FindByText(text string, offset, limit uint64) (commentIDs [16]byte, numbers uint64, err protocol.Error)
+	FindByText(text string, offset, limit uint64) (commentIDs [16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

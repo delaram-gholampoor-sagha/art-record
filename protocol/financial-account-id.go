@@ -13,10 +13,10 @@ type FinancialAccountID interface {
 
 
 type FinancialAccountID_StorageServices interface {
-	Save(fai FinancialAccountID) (numbers uint64, err protocol.Error)
+	Save(fai FinancialAccountID) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(accountID [16]byte) (numbers uint64, err protocol.Error)
-	Get(accountID [16]byte, versionOffset uint64) (fai FinancialAccountID, numbers uint64, err protocol.Error)
+	Count(accountID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(accountID [16]byte, versionOffset uint64) (fai FinancialAccountID, nv protocol.NumberOfVersion, err protocol.Error)
 
 	FindByID(id string) (accountIDs [][16]byte, err protocol.Error)
 }

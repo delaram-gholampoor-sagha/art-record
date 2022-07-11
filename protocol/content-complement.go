@@ -14,7 +14,7 @@ type ContentComplement interface {
 type ContentComplement_StorageServices interface {
 	Save(cp ContentComplement) protocol.Error
 
-	Count(contentID [16]byte) (numbers uint64, err protocol.Error)
+	Count(contentID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(contentID [16]byte, versionOffset uint64) (cp ContentComplement, err protocol.Error)
 	
 }

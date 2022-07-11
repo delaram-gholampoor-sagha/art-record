@@ -12,13 +12,13 @@ type ProductComplement interface {
 }
 
 type ProductComplement_StorageServices interface {
-	Save(pc ProductComplement) (numbers uint64, err protocol.Error)
+	Save(pc ProductComplement) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(productID [16]byte, priority uint64) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, priority uint64, versionOffset uint64) (pc ProductComplement, numbers uint64, err protocol.Error)
+	Count(productID [16]byte, priority uint64) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(productID [16]byte, priority uint64, versionOffset uint64) (pc ProductComplement, nv protocol.NumberOfVersion, err protocol.Error)
 
-	ListProducts(complementID [16]byte, offset, limit uint64) (productIDs [16]byte, numbers uint64, err protocol.Error)
-	ListPriorities(complementID [16]byte, productID [16]byte, offset, limit uint64) (priorities []uint64, numbers uint64, err protocol.Error)
+	ListProducts(complementID [16]byte, offset, limit uint64) (productIDs [16]byte, nv protocol.NumberOfVersion, err protocol.Error)
+	ListPriorities(complementID [16]byte, productID [16]byte, offset, limit uint64) (priorities []uint64, nv protocol.NumberOfVersion, err protocol.Error)
 }
 type (
 	ProductComplement_Service_Register_Request interface {

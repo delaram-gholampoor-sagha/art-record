@@ -12,7 +12,7 @@ type AreaStatus interface {
 type AreaStatus_StorageServices interface {
 	Save(as AreaStatus) protocol.Error
 
-	Count(areaID [16]byte) (numbers uint64, err protocol.Error)
+	Count(areaID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(areaID [16]byte, versionOffset uint64) (as AreaStatus, err protocol.Error)
 
 	FilterByStatus(status Area_Status, offset, limit uint64) (areaIDs [][16]byte, err protocol.Error)

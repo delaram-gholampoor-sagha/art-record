@@ -1,5 +1,7 @@
 package protocol
 
+import "../libgo/protocol"
+
 type FinancialBankAccount interface {
 	AccountID() [16]byte  // financial-account-status domain
 	IBAN() iso.IBAN       // International Bank Account Number
@@ -12,7 +14,7 @@ type FinancialBankAccount interface {
 type FinancialBankAccount_StorageServices interface {
 	Save(fba FinancialBankAccount) (err protocol.Error)
 
-	Count(accountID [16]byte) (numbers uint64, err protocol.Error)
+	Count(accountID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(accountID [16]byte, versionOffset uint64) (fba FinancialBankAccount, err protocol.Error)
 	
 

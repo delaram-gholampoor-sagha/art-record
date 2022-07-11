@@ -13,10 +13,10 @@ type VoucherInvoice interface {
 }
 
 type VoucherInvoice_StorageServices interface {
-	Save(vi VoucherInvoice) (numbers uint64, err protocol.Error)
+	Save(vi VoucherInvoice) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(voucherID [16]byte) (numbers uint64, err protocol.Error)
-	Get(voucherID [16]byte, versionOffset uint64) (vi VoucherInvoice, numbers uint64, err protocol.Error)
+	Count(voucherID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(voucherID [16]byte, versionOffset uint64) (vi VoucherInvoice, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

@@ -13,10 +13,10 @@ type VoucherCategory interface {
 }
 
 type VoucherCategory_StorageServices interface {
-	Save(vc VoucherCategory) (numbers uint64, err protocol.Error)
+	Save(vc VoucherCategory) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(voucherID [16]byte) (numbers uint64, err protocol.Error)
-	Get(voucherID [16]byte, versionOffset uint64) (vc VoucherCategory, numbers uint64, err protocol.Error)
+	Count(voucherID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(voucherID [16]byte, versionOffset uint64) (vc VoucherCategory, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 

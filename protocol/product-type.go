@@ -63,10 +63,10 @@ const (
 
 
 type ProductType_StorageServices interface {
-	Save(pt ProductType) (numbers uint64, err protocol.Error)
+	Save(pt ProductType) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(productID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID [16]byte, versionOffset uint64) (pt ProductType, numbers uint64, err protocol.Error)
+	Count(productID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(productID [16]byte, versionOffset uint64) (pt ProductType, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

@@ -15,7 +15,7 @@ type Quiddity_StorageServices interface {
 
 	Get(quiddityID [16]byte) (q Quiddity, err protocol.Error)
 
-	// FindByDomainID(domainID [16]byte, offset, limit uint64) (quiddityIDs [][16]byte, numbers uint64, err protocol.Error)
+	// FindByDomainID(domainID [16]byte, offset, limit uint64) (quiddityIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

@@ -14,11 +14,11 @@ type CommentObject interface {
 type CommentObject_StorageServices interface {
 	Save(co CommentObject) protocol.Error
 
-	Count(commentID [16]byte) (numbers uint64, err protocol.Error)
+	Count(commentID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(commentID [16]byte, versionOffset uint64) (co CommentObject, err protocol.Error)
 
 
-	FindByObjectID(objectID [16]byte, offset, limit uint64) (commentIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindByObjectID(objectID [16]byte, offset, limit uint64) (commentIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 

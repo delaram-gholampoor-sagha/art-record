@@ -14,7 +14,7 @@ type QuiddityIcon interface {
 type QuiddityIcon_StorageServices interface {
 	Save(qi QuiddityIcon) (err protocol.Error)
 
-	Count(quiddityID [16]byte) (numbers uint64, err protocol.Error)
+	Count(quiddityID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(quiddityID [16]byte, versionOffset uint64) (qi QuiddityIcon, err protocol.Error)
 
 }

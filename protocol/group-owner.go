@@ -11,12 +11,12 @@ type GroupOwner interface {
 }
 
 type GroupOwner_StorageServices interface {
-	Save(g GroupOwner) (numbers uint64, err protocol.Error)
+	Save(g GroupOwner) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(groupID [16]byte) (numbers uint64, err protocol.Error)
-	Get(groupID [16]byte, versionOffset uint64) (g GroupOwner, numbers uint64, err protocol.Error)
+	Count(groupID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(groupID [16]byte, versionOffset uint64) (g GroupOwner, nv protocol.NumberOfVersion, err protocol.Error)
 
-	FindByUserID(ownerUserID [16]byte, offset, limit uint64) (ids [][16]byte, numbers uint64, err protocol.Error)
+	FindByUserID(ownerUserID [16]byte, offset, limit uint64) (ids [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

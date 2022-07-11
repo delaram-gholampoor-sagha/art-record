@@ -14,9 +14,9 @@ type Picture_StorageServices interface {
 
 	// TODO::: how to change the order of pictures for a RelatedID
 
-	Count(relatedID [16]byte) (numbers uint64, err protocol.Error)
+	Count(relatedID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(relatedID [16]byte, versionOffset uint64) (p Picture, err protocol.Error)
-	Last(relatedID [16]byte) (p Picture, numbers uint64, err protocol.Error)
+	Last(relatedID [16]byte) (p Picture, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

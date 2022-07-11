@@ -16,16 +16,16 @@ type ProductInventory interface {
 }
 
 type ProductInventory_StorageService interface {
-	Save(p ProductInventory) (numbers uint64, err protocol.Error)
+	Save(p ProductInventory) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Lock(productID, buildingLocationID [16]byte) (p ProductInventory, err protocol.Error)
-	Unlock(p ProductInventory) (numbers uint64, err protocol.Error)
+	Unlock(p ProductInventory) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(productID, buildingLocationID [16]byte) (numbers uint64, err protocol.Error)
-	Get(productID, buildingLocationID [16]byte, versionOffset uint64) (p ProductInventory, numbers uint64, err protocol.Error)
+	Count(productID, buildingLocationID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(productID, buildingLocationID [16]byte, versionOffset uint64) (p ProductInventory, nv protocol.NumberOfVersion, err protocol.Error)
 
-	ListProductIDs(buildingLocationID [16]byte, offset, limit uint64) (productIDs [][16]byte, numbers uint64, err protocol.Error)
-	ListBuildingLocationIDs(productID [16]byte, offset, limit uint64) (buildingLocationIDs [][16]byte, numbers uint64, err protocol.Error)
+	ListProductIDs(buildingLocationID [16]byte, offset, limit uint64) (productIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
+	ListBuildingLocationIDs(productID [16]byte, offset, limit uint64) (buildingLocationIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 

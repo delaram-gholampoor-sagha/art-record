@@ -12,11 +12,11 @@ type PictureStatus interface {
 type PictureStatus_StorageServices interface {
 	Save(ps PictureStatus) (err protocol.Error)
 
-	Count(objectID [16]byte) (numbers uint64, err protocol.Error)
+	Count(objectID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(objectID [16]byte, versionOffset uint64) (ps PictureStatus, err protocol.Error)
 
 
-	// FilterByStatus(status Picture_Status, offset, limit uint64) (objectIDs [][16]byte, numbers uint64, err protocol.Error)
+	// FilterByStatus(status Picture_Status, offset, limit uint64) (objectIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	// protocol.EventTarget
 }
 

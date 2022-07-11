@@ -12,10 +12,10 @@ type StaffStatus interface {
 type StaffStatus_StorageServices interface {
 	Save(ss StaffStatus) protocol.Error
 
-	Count(staffID [16]byte) (numbers uint64, err protocol.Error)
+	Count(staffID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(staffID [16]byte, versionOffset uint64) (ss StaffStatus, err protocol.Error)
 
-	FilterByStatus(status Staff_Status, offset, limit uint64) (staffIDs [][16]byte, numbers uint64, err protocol.Error)
+	FilterByStatus(status Staff_Status, offset, limit uint64) (staffIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	// protocol.EventTarget
 }
 

@@ -10,12 +10,12 @@ type GroupRole interface {
 }
 
 type GroupRole_StorageServices interface {
-	Save(gr GroupRole) (numbers uint64, err protocol.Error)
+	Save(gr GroupRole) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(groupRoleID [16]byte) (numbers uint64, err protocol.Error)
-	Get(groupRoleID [16]byte, versionOffset uint64) (gr GroupRole, numbers uint64, err protocol.Error)
+	Count(groupRoleID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(groupRoleID [16]byte, versionOffset uint64) (gr GroupRole, nv protocol.NumberOfVersion, err protocol.Error)
 
-	FindByGroupID(groupID [16]byte, offset, limit uint64) (groupRoleIDs [][16]byte, numbers uint64, err protocol.Error)
+	FindByGroupID(groupID [16]byte, offset, limit uint64) (groupRoleIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 

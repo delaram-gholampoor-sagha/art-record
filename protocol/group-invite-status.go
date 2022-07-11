@@ -13,10 +13,10 @@ type GroupInviteStatus interface {
 
 
 type GroupInviteStatus_StorageServices interface {
-	Save(gn GroupInviteStatus) (numbers uint64, err protocol.Error)
+	Save(gn GroupInviteStatus) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Count(groupID [16]byte) (numbers uint64, err protocol.Error)
-	Get(groupID [16]byte, versionOffset uint64) (gn GroupInviteStatus, numbers uint64, err protocol.Error)
+	Count(groupID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
+	Get(groupID [16]byte, versionOffset uint64) (gn GroupInviteStatus, nv protocol.NumberOfVersion, err protocol.Error)
 
 	
 }

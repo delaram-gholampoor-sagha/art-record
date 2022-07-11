@@ -13,11 +13,11 @@ type CommentStatus interface {
 type CommentStatus_StorageServices interface {
 	Save(cs CommentStatus) protocol.Error
 
-	Count(commentID [16]byte) (numbers uint64, err protocol.Error)
+	Count(commentID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(commentID [16]byte, versionOffset uint64) (cs CommentStatus, err protocol.Error)
 	
 
-	// FilterByStatus(status Comment_Status, offset, limit uint64) (commentIDs [][16]byte, numbers uint64, err protocol.Error)
+	// FilterByStatus(status Comment_Status, offset, limit uint64) (commentIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	protocol.EventTarget
 }
 

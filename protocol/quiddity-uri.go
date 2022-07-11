@@ -16,11 +16,11 @@ type QuiddityURI interface {
 type QuiddityURI_StorageServices interface {
 	Save(q QuiddityURI) (err protocol.Error)
 
-	Count(uri []byte) (numbers uint64, err protocol.Error)
+	Count(uri []byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(uri []byte, versionOffset uint64) (q QuiddityURI, err protocol.Error)
 
 
-	FindByQuiddityID(quiddityID [16]byte, offset, limit uint64) (uris [][]byte, numbers uint64, err protocol.Error)
+	FindByQuiddityID(quiddityID [16]byte, offset, limit uint64) (uris [][]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (

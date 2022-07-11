@@ -14,7 +14,7 @@ type PersonOTP interface {
 type PersonOTP_StorageServices interface {
 	Save(po PersonOTP) (err protocol.Error)
 
-	Count(personID [16]byte) (numbers uint64, err protocol.Error)
+	Count(personID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(personID [16]byte, versionOffset uint64) (po PersonOTP, err protocol.Error)
 
 }

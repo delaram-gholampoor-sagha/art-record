@@ -13,11 +13,11 @@ type StaffTakeLeaveStatus interface {
 type StaffTakeLeaveStatus_StorageServices interface {
 	Save(ss StaffTakeLeaveStatus) protocol.Error
 
-	Count(staffID [16]byte) (numbers uint64, err protocol.Error)
+	Count(staffID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(staffID [16]byte, versionOffset uint64) (ss StaffTakeLeaveStatus, err protocol.Error)
 	
 
-	// FilterByStatus(status StaffTakeLeave_Status, offset, limit uint64) (staffIDs [][16]byte, numbers uint64, err protocol.Error)
+	// FilterByStatus(status StaffTakeLeave_Status, offset, limit uint64) (staffIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	// protocol.EventTarget
 }
 
