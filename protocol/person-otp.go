@@ -28,16 +28,20 @@ type (
 	PersonOTP_Service_Register_Response interface {
 		 NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	PersonOTP_Service_Count_Request interface {
 		PersonID() [16]byte
-		
-	
 	}
 	PersonOTP_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	PersonOTP_Service_Get_Request interface {
 		PersonID() [16]byte    
 		VersionOffset() uint64
@@ -46,6 +50,5 @@ type (
 		PersonOTP
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
 	
 )

@@ -1,7 +1,5 @@
 package protocol
 
-import "time"
-
 // PersonPassword indicate the domain record data fields.
 // A person can decide to don't register password and deny authenticate by password.
 type PersonPassword interface {
@@ -31,21 +29,30 @@ const (
 	PersonPassword_Status_DenyPasswordAuthentication
 )
 
-type PersonPassword_Service_SendResetToken_Request interface {
-	How() uint8 // sms, email, ...
-}
-type PersonPassword_Service_SendResetToken_Response interface {
-	Token() []byte // include Token&ExpireIn with signature by domain key.
-}
+type (
+	 PersonPassword_Service_SendResetToken_Request interface {
+  	How() uint8 // sms, email, ...
+ }
+  PersonPassword_Service_SendResetToken_Response interface {
+	  Token() []byte // include Token&ExpireIn with signature by domain key.
+ }
 
-type PersonPassword_Service_Register_Request interface {
+)
+
+type (
+	PersonPassword_Service_Register_Request interface {
 	PasswordHash() []byte
 }
 
-type PersonPassword_Service_Confirm_Request interface {
-	PersonID() protocol.UserID
-	PasswordHash() []byte
-}
-type PersonPassword_Service_Confirm_Response interface {
-	Status() PersonPassword_Status
-}
+)
+
+type (
+	 PersonPassword_Service_Confirm_Request interface {
+	   PersonID() protocol.UserID
+	  PasswordHash() []byte
+  }
+ PersonPassword_Service_Confirm_Response interface {
+	  Status() PersonPassword_Status
+  }
+)
+
