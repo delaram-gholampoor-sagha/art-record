@@ -29,17 +29,24 @@ type (
 	}
 	
 	FinancialAccountCard_Service_Register_Response interface {
-		Numbers() uint32
+		Nv() protocol.NumberOfVersion
 	}
-	
-	FinancialAccountCard_Service_GetLast_Request interface {
+
+)
+
+type (
+		FinancialAccountCard_Service_GetLast_Request interface {
 		AccountID() [16]byte
 	}
 	FinancialAccountCard_Service_GetLast_Response interface {
 		FinancialAccountCard
 	}
 	
-	
+)
+
+
+
+type (
 	FinancialAccountCard_Service_Get_Request interface {
 		AccountID() [16]byte
 		VersionOffset() uint64
@@ -48,15 +55,22 @@ type (
 		FinancialAccountCard
 	}
 	
-	
+)
+
+
+type (
 	FinancialAccountCard_Service_Count_Request interface {
 		AccountID() [16]byte
 	
 	}
 	FinancialAccountCard_Service_Count_Response interface {
-		Numbers() uint32
+		Nv() protocol.NumberOfVersion
 	}
-	
+)
+
+
+
+type (	
 	FinancialAccountCard_Service_FindByCardNumber_Request interface {
 		CardNumber() iso.Card
 	

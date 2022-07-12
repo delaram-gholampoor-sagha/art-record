@@ -23,7 +23,7 @@ type FinancialTransactionOrder_StorageServices interface {
 }
 
 type (
-	FinancialTransactionOrder_Service_Register_Request interface {
+		FinancialTransactionOrder_Service_Register_Request interface {
 		UserID() [16]byte      
 		ReferenceID() [16]byte 
 		PlatformID() [4]byte   
@@ -34,11 +34,14 @@ type (
   
 	FinancialTransactionOrder_Service_Register_Response interface {
 		ID() [16]byte 
-		Numbers() uint32
+		Nv() protocol.NumberOfVersion
 	}
-		
-	
-	FinancialTransactionOrder_Service_Count_Request interface {
+
+)
+
+
+type (
+		FinancialTransactionOrder_Service_Count_Request interface {
 		ReferenceID() [16]byte
 	
 	}
@@ -46,7 +49,11 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
-	
+)
+
+
+
+type (
 	FinancialTransactionOrder_Service_Get_Request interface {
 		ReferenceID() [16]byte
 		VersionOffset() uint64

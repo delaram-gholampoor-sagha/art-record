@@ -21,18 +21,20 @@ type FinancialScore_StorageServices interface {
 }
 
 type (
-	FinancialScore_Service_Register_Request interface {
+		FinancialScore_Service_Register_Request interface {
 		UserID() [16]byte    
 		Score() int64       
 	}
 	
 	
 	FinancialScore_Service_Register_Response interface {
-		Numbers() uint32
+		Nv() protocol.NumberOfVersion
 	}
-	
-	
-	FinancialScore_Service_Count_Request interface {
+
+)
+
+type (
+		FinancialScore_Service_Count_Request interface {
 		ReferenceID() [16]byte
 	
 	}
@@ -40,7 +42,9 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
-	
+)
+
+type (
 	FinancialScore_Service_Get_Request interface {
 		ReferenceID() [16]byte
 		VersionOffset() uint64

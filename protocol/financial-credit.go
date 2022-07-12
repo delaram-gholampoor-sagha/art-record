@@ -22,7 +22,7 @@ type FinancialCredit_StorageServices interface {
 }
 
 type (
-	FinancialCredit_Service_Register_Request interface {
+		FinancialCredit_Service_Register_Request interface {
 		UserID() [16]byte                
 		Currency() [16]byte  
 		Amount() protocol.AmountOfMoney  
@@ -31,10 +31,12 @@ type (
   
   
 	FinancialCredit_Service_Register_Response interface {
-		Numbers() uint32
+		Nv() protocol.NumberOfVersion
 	}
-  
-  
+
+)
+
+type (
 	FinancialCredit_Service_Count_Request interface {
 		ReferenceID() [16]byte
 	
@@ -42,8 +44,9 @@ type (
 	FinancialCredit_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	
+)
+
+type (
 	FinancialCredit_Service_Get_Request interface {
 		ReferenceID() [16]byte
 		VersionOffset() uint64

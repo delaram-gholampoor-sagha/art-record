@@ -27,18 +27,23 @@ type (
   
   
 	FinancialCurrency_Service_Register_Response interface {
-		Numbers() uint32
+		Nv() protocol.NumberOfVersion
 	}
-	
-  
+
+)
+
+type (
 	FinancialCurrency_Service_Count_Request interface {
 		ReferenceID() [16]byte
-	
 	}
 	FinancialCurrency_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-  
+	
+)
+
+
+type (
   
 	FinancialCurrency_Service_Get_Request interface {
 		ReferenceID() [16]byte

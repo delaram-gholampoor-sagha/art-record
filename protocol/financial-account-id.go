@@ -22,8 +22,7 @@ type FinancialAccountID_StorageServices interface {
 }
 
 type (
-	
-	FinancialAccountID_Service_Register_Request interface {
+		FinancialAccountID_Service_Register_Request interface {
 		AccountID() [16]byte
 		ID() string
 	}
@@ -32,7 +31,9 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
+)
 
+type (
 	FinancialAccountID_Service_Get_Request interface {
 		AccountID() [16]byte
 		VersionOffset() uint64
@@ -42,7 +43,9 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
+)
 
+type (
 	FinancialAccountID_Service_FindByID_Request interface {
 		ID() string
 	}

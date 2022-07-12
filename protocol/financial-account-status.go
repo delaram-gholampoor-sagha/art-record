@@ -25,7 +25,7 @@ const (
 )
 
 type (
-	FinancialAccountStatus_Service_Register_Request interface {               
+		FinancialAccountStatus_Service_Register_Request interface {               
 	  AccountID() [16]byte            
 		Status() FinancialAccount_Status    
 	}
@@ -34,9 +34,11 @@ type (
 	FinancialAccountStatus_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	
-	FinancialAccountStatus_Service_Count_Request interface {
+
+)
+
+type (
+		FinancialAccountStatus_Service_Count_Request interface {
 		AccountID() [16]byte
 	
 	}
@@ -44,8 +46,11 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
-	
-	FinancialAccountStatus_Service_Get_Request interface {
+)
+
+
+type (
+		FinancialAccountStatus_Service_Get_Request interface {
 		AccountID() [16]byte
 		VersionOffset() uint64
 	}
@@ -54,7 +59,10 @@ type (
 		FinancialAccountStatus
 	}
 	
-	
+)
+
+
+type (
 	FinancialAccountStatus_Service_FilterByStatus_Request interface {
 		FinancialAccount_Status()
 		Offset() uint64 

@@ -23,7 +23,7 @@ type FinancialBankAccount_StorageServices interface {
 }
 
 type (
-	FinancialBankAccount_Service_Register_Request interface {
+		FinancialBankAccount_Service_Register_Request interface {
 		AccountID() [16]byte
 		IBAN() iso.IBAN       // International Bank Account Number
 		CardNumber() iso.Card // fixed size card number without any dash or space e.g. 1234123412341234
@@ -31,18 +31,21 @@ type (
 	}
 	
 	FinancialBankAccount_Service_Register_Response interface {
-		Numbers() uint32
+		Nv() protocol.NumberOfVersion
 	}
-	
-	
-	FinancialBankAccount_Service_GetLast_Request interface {
+
+)
+type (
+		FinancialBankAccount_Service_GetLast_Request interface {
 		AccountID() [16]byte
 	}
 	FinancialBankAccount_Service_GetLast_Response interface {
 		FinancialBankAccount
 	}
 	
-	
+)
+
+type (
 	FinancialBankAccount_Service_Get_Request interface {
 		AccountID() [16]byte
 		VersionOffset() uint64
@@ -51,16 +54,21 @@ type (
 		FinancialBankAccount
 	}
 	
-	
+)
+
+type (
 	FinancialBankAccount_Service_Count_Request interface {
 		AccountID() [16]byte
 	
 	}
 	FinancialBankAccount_Service_Count_Response interface {
-		Numbers() uint32
+		Nv() protocol.NumberOfVersion
 	}
 	
-	FinancialBankAccount_Service_FindByIBAN_Request interface {
+)
+
+type (
+		FinancialBankAccount_Service_FindByIBAN_Request interface {
 		Iban() iso.IBAN
 	
 	}
@@ -68,6 +76,9 @@ type (
 		AccountID() [16]byte
 	}
 	
+)
+
+type (
 	FinancialBankAccount_Service_FindByCardNumber_Request interface {
 		CardNumber() iso.Card
 	

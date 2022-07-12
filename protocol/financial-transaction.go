@@ -67,7 +67,7 @@ const (
 
 
 type (
-	FinancialTransaction_Service_Register_Request interface {
+		FinancialTransaction_Service_Register_Request interface {
 		AccountSideID() [16]byte                
 		Reference() [16]byte                    
 		ReferenceType() FinancialTransaction_RT 
@@ -80,7 +80,11 @@ type (
 		AccountID() [16]byte 
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	FinancialTransaction_Service_Count_Request interface {
+
+)
+
+type (
+		FinancialTransaction_Service_Count_Request interface {
 		AccountID() [16]byte
 	
 	}
@@ -88,7 +92,12 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
-	
+)
+
+
+
+type (
+
 	FinancialTransaction_Service_Get_Request interface {
 		AccountID() [16]byte
 		VersionOffset() uint64

@@ -3,7 +3,7 @@ package protocol
 import "../libgo/protocol"
 
 // https://en.wikipedia.org/wiki/Credit_card_debt
-type FinancialCreditDebtDebt interface {
+type FinancialCreditDebt interface {
 	UserID() [16]byte                // user domain
 	Currency() [16]byte              // financial-currency
 	Amount() protocol.AmountOfMoney  //
@@ -23,7 +23,7 @@ type FinancialCreditDebt_StorageServices interface {
 }
 
 type (
-	FinancialCreditDebt_Service_Register_Request interface {
+		FinancialCreditDebt_Service_Register_Request interface {
 		UserID() [16]byte                
 		Currency() [16]byte  
 		Amount() protocol.AmountOfMoney  
@@ -32,19 +32,23 @@ type (
 	
 	
 	FinancialCreditDebt_Service_Register_Response interface {
-		Numbers() uint32
+		Nv() protocol.NumberOfVersion
 	}
-	
-	
-	FinancialCreditDebt_Service_Count_Request interface {
+
+)
+
+type (
+		FinancialCreditDebt_Service_Count_Request interface {
 		ReferenceID() [16]byte
 	
 	}
 	FinancialCreditDebt_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	
+
+)
+
+type (
 	FinancialCreditDebt_Service_Get_Request interface {
 		ReferenceID() [16]byte
 		VersionOffset() uint64

@@ -19,27 +19,32 @@ type FinancialAccountMain_StorageServices interface {
 }
 
 
-
 type (
-	FinancialAccountMain_Service_Register_Request interface {               
+		FinancialAccountMain_Service_Register_Request interface {               
 		  UserID() [16]byte    
 	   	Currency() [16]byte  
 	   	AccountID() [16]byte 
    }
    
    FinancialAccountMain_Service_Register_Response interface {
-	   Numbers() uint32
+	   Nv() protocol.NumberOfVersion
    }
 
-   FinancialAccountMain_Service_Count_Request interface {
+)
+
+type (
+	   FinancialAccountMain_Service_Count_Request interface {
 	   AccountID() [16]byte
    
    }
    FinancialAccountMain_Service_Count_Response interface {
 	   NumberOfVersion() protocol.NumberOfVersion
    }
-   
-   
+	
+)
+
+
+type (
    FinancialAccountMain_Service_Get_Request interface {
 	   AccountID() [16]byte
 	   VersionOffset() uint64

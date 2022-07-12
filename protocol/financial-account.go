@@ -25,7 +25,7 @@ type FinancialAccount_StorageServices interface {
 }
 
 type (
-	FinancialAccount_Service_Register_Request interface {          
+		FinancialAccount_Service_Register_Request interface {          
 		Currency() [16]byte                 
 		UserID() [16]byte                   
 		MoneySettlementReference() [16]byte      
@@ -34,11 +34,13 @@ type (
 	
 	FinancialAccount_Service_Register_Response interface {
 		AccountID() [16]byte
-		 Numbers() uint32
+		 Nv() protocol.NumberOfVersion
 	}
-	
-	
-	FinancialAccount_Service_Count_Request interface {
+
+)
+
+type (
+		FinancialAccount_Service_Count_Request interface {
 		ReferenceID() [16]byte
 	
 	}
@@ -46,8 +48,12 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
-	
-	FinancialAccount_Service_Get_Request interface {
+)
+
+
+
+type (
+		FinancialAccount_Service_Get_Request interface {
 		ReferenceID() [16]byte
 		VersionOffset() uint64
 	}
@@ -56,8 +62,12 @@ type (
 		FinancialAccount
 	}
 	
-	
-	FinancialAccount_Service_FindByUserID_Request interface {
+)
+
+
+
+type (
+		FinancialAccount_Service_FindByUserID_Request interface {
 		UserID() [16]byte
 		Offset() uint64 
 		Limit() uint64
@@ -68,6 +78,10 @@ type (
 		 NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+type (
+
 	FinancialAccount_Service_ListUserCurrencies_Request interface {
 		UserID() [16]byte
 		Offset() uint64 
@@ -78,6 +92,10 @@ type (
 		Currency() [][16]byte
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+)
+
+
+type (
 	
 	FinancialAccount_Service_ListUserSettlementReferences_Request interface {
 		UserID() [16]byte

@@ -24,7 +24,7 @@ type FinancialTransactionReference_StorageServices interface {
 
 
 type (
-	FinancialTransactionReference_Service_Register_Request interface {
+		FinancialTransactionReference_Service_Register_Request interface {
 		SenderAccountID() [16]byte     
 		SenderAccountOffset() uint64   
 		ReceiverAccountID() [16]byte   
@@ -35,9 +35,11 @@ type (
 	FinancialTransactionReference_Service_Register_Response interface {
 	   ReferenceID() [16]byte
 	}
-	
-	
-	FinancialTransactionReference_Service_Count_Request interface {
+
+)
+
+type (
+		FinancialTransactionReference_Service_Count_Request interface {
 		ReferenceID() [16]byte
 	
 	}
@@ -45,7 +47,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
-	
+)
+
+
+type (
 	FinancialTransactionReference_Service_Get_Request interface {
 		ReferenceID() [16]byte
 		VersionOffset() uint64
