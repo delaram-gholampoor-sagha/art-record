@@ -28,7 +28,7 @@ type (
 		Usage() string
 	}
 	BuildingLocationUsage_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 		
 	BuildingLocationUsage_Service_Count_Request interface {
@@ -38,7 +38,7 @@ type (
 			
 	}
 	BuildingLocationUsage_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
 	BuildingLocationUsage_Service_Get_Request interface {
@@ -48,7 +48,7 @@ type (
 	}
 	BuildingLocationUsage_Service_Get_Response interface {
 		BuildingLocationUsage
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
 
@@ -58,7 +58,7 @@ type (
 	}
 	BuildingLocationUsage_Service_GetIDs_Response interface {
 		BuildingLocationIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
 

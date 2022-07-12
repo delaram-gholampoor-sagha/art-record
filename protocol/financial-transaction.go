@@ -78,14 +78,14 @@ type (
 	
 	FinancialTransaction_Service_Register_Response interface {
 		AccountID() [16]byte 
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	FinancialTransaction_Service_Count_Request interface {
 		AccountID() [16]byte
 	
 	}
 	FinancialTransaction_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	

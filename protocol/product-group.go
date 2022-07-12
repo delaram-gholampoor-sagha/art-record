@@ -25,14 +25,14 @@ type (
 		GroupID() [16]byte  
 	}
 	ProductGroup_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductGroup_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
 	ProductGroup_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductGroup_Service_Get_Request interface {
@@ -41,7 +41,7 @@ type (
 	}
 	ProductGroup_Service_Get_Response interface {
 		ProductGroup
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductGroup_Service_FindByGroup_Request interface {
@@ -50,6 +50,6 @@ type (
 		Limit() uint64}
 	ProductGroup_Service_FindByGroup_Response interface {
 		ProductIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

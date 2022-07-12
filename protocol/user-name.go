@@ -46,7 +46,7 @@ type (
 		UserID() protocol.UserID
 	}
 	UserName_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )
 
@@ -69,7 +69,7 @@ type (
 	}
 	UserName_Service_FindByUsername_Response interface {
 		UserIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )
 

@@ -36,7 +36,7 @@ type (
 	}
 
 	StaffStatus_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	StaffStatus_Service_Count_Request interface {
@@ -44,7 +44,7 @@ type (
 	}
 
 	StaffStatus_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	StaffStatus_Service_Get_Request interface {
 		StaffID() [16]byte
@@ -63,6 +63,6 @@ type (
 
 	StaffStatus_Service_FilterByStatus_Response interface {
 		StaffIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

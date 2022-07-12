@@ -40,7 +40,7 @@ type (
 			
 	}
 	BuildingLocationStatus_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
 	BuildingLocationStatus_Service_Get_Request interface {
@@ -49,7 +49,7 @@ type (
 	}
 	BuildingLocationStatus_Service_Get_Response interface {
 		BuildingLocationStatus
-		Nv() protocol.NumberOfVersion		
+		NumberOfVersion() protocol.NumberOfVersion		
 	}
 
 	BuildingLocationStatus_Service_FilterByStatus_Request interface {

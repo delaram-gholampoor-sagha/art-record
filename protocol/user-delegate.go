@@ -1,6 +1,5 @@
 package protocol
 
-
 // UserDelegate indicate the domain record data fields.
 type UserDelegate interface {
 	GivenUserID() protocol.UserID  // user domain
@@ -43,7 +42,7 @@ type (
 	}
 	
 	UserDelegate_Service_Register_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	UserDelegate_Service_Count_Request interface{
@@ -55,7 +54,7 @@ type (
 	
 
 	UserDelegate_Service_Count_Response interface{
-   	Nv() protocol.NumberOfVersion
+   	NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	UserDelegate_Service_Get_Request interface{
@@ -67,7 +66,7 @@ type (
 
 	UserDelegate_Service_Get_Response interface{
 		Ud() UserDelegate
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	UserDelegate_Service_ListRoles_Request interface{
@@ -79,7 +78,7 @@ type (
 	
 	UserDelegate_Service_ListRoles_Response interface{
 	  RoleIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 
@@ -91,7 +90,7 @@ type (
 	
 	UserDelegate_Service_ListOrgs_Response interface{
 	  OrgIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 
@@ -104,7 +103,7 @@ type (
 	
 	UserDelegate_Service_ListGottenDelegate_Response interface{
 	  GivenUserIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	UserDelegate_Service_ListUsers_Request interface{
@@ -115,7 +114,7 @@ type (
 	
 	UserDelegate_Service_ListUsers_Response interface{
 	  GottenUserIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 )

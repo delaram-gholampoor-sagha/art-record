@@ -24,7 +24,7 @@ type (
 		AreaID() [16]byte
 	}
 	Building_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	Building_Service_Count_Request interface {
@@ -32,7 +32,7 @@ type (
 		AreaID() [16]byte
 	}
 	Building_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	Building_Service_Get_Request interface {
 		BuildingID() [16]byte
@@ -41,7 +41,7 @@ type (
 	}
 	Building_Service_Get_Response interface {
 		Building
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	Building_Service_GetIDs_Request interface {
 		Offset() uint64
@@ -49,6 +49,6 @@ type (
 	}
 	Building_Service_GetIDs_Response interface {
 		BuildingIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

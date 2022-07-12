@@ -25,7 +25,7 @@ type (
 	}
 
 	ProductTimingUTC_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	ProductTimingUTC_Service_Count_Request interface {
@@ -33,7 +33,7 @@ type (
 	}
 
 	ProductTimingUTC_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	ProductTimingUTC_Service_Get_Request interface {
@@ -43,6 +43,6 @@ type (
 
 	ProductTimingUTC_Service_Get_Response interface {
 		ProductTimingUTC
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

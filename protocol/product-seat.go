@@ -26,7 +26,7 @@ type (
 		MapID() [16]byte 
 	}
 	ProductSeat_Services_Register_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 
 	}
 
@@ -34,7 +34,7 @@ type (
 		ProductID() [16]byte
 	}
 	ProductSeat_Service_Count_Response interface{
-		Nv() protocol.NumberOfVersion	
+		NumberOfVersion() protocol.NumberOfVersion	
 	}
 
 	ProductSeat_Service_Get_Request interface{
@@ -43,7 +43,7 @@ type (
 	}
 	ProductSeat_Service_Get_Response interface{
 		ProductSeat
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )
 

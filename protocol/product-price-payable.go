@@ -27,7 +27,7 @@ type (
 		Price()  protocol.AmountOfMoney
 	}
 	ProductPricePayable_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductPricePayable_Service_Count_Request interface {
@@ -35,7 +35,7 @@ type (
 		Currency() uint64
 	}
 	ProductPricePayable_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductPricePayable_Service_Get_Request interface {
@@ -45,7 +45,7 @@ type (
 	}
 	ProductPricePayable_Service_Get_Response interface {
 		ProductPricePayable
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 )

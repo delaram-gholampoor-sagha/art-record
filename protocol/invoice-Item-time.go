@@ -25,7 +25,7 @@ type (
 		Type() InvoiceItemTime_Type
 	}
 	InvoiceItemTime_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	
@@ -34,7 +34,7 @@ type (
 	
 	}
 	InvoiceItemTime_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	InvoiceItemTime_Service_Get_Request interface { 
 		InvoiceID() [16]byte

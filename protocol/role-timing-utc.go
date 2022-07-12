@@ -25,7 +25,7 @@ type (
 	}
 
 	RoleTimingUTC_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	RoleTimingUTC_Service_Count_Request interface {
@@ -33,7 +33,7 @@ type (
 	}
 
 	RoleTimingUTC_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	RoleTimingUTC_Service_Get_Request interface {
 		RoleID() [16]byte
@@ -42,6 +42,6 @@ type (
 
 	RoleTimingUTC_Service_Get_Response interface {
 		RoleTimingUTC
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

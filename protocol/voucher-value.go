@@ -25,7 +25,7 @@ type (
 	}
 	
 	VoucherValue_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	VoucherValue_Service_Count_Request interface {
@@ -33,7 +33,7 @@ type (
 	}
 	
 	VoucherValue_Service_Count_Response interface {
-	 Nv() protocol.NumberOfVersion 
+	 NumberOfVersion() protocol.NumberOfVersion 
 	}
 	
 	VoucherValue_Service_Get_Request interface {
@@ -43,6 +43,6 @@ type (
 	
 	VoucherValue_Service_Get_Response interface {
 		 VoucherValue
-		 Nv() protocol.NumberOfVersion
+		 NumberOfVersion() protocol.NumberOfVersion
 	}
 )

@@ -27,7 +27,7 @@ type (
 		Status() InvoiceItemSeat_Status      
 	}
 	InvoiceItemSeat_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	
@@ -36,7 +36,7 @@ type (
 	
 	}
 	InvoiceItemSeat_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	InvoiceItemSeat_Service_Get_Request interface { 
 		InvoiceID() [16]byte
@@ -46,7 +46,7 @@ type (
 	}
 	InvoiceItemSeat_Service_Get_Response interface {
 		InvoiceItemSeat
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )
 type InvoiceItemSeat_Status Quiddity_Status

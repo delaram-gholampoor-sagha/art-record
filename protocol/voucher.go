@@ -49,7 +49,7 @@ type (
 
 	Voucher_Service_Register_Response interface {
 		VoucherID() [16]byte 
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	Voucher_Service_Count_Request interface {
@@ -57,7 +57,7 @@ type (
 	}
 
 	Voucher_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	Voucher_Service_Get_Request interface {
@@ -67,7 +67,7 @@ type (
 
 	Voucher_Service_Get_Response interface {
 		Voucher
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	// Admins services

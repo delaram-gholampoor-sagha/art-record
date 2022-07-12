@@ -1,6 +1,5 @@
 package protocol
 
-
 import (
 	"../libgo/protocol"
 )
@@ -28,7 +27,7 @@ type (
 	
 	}
 	PosLocation_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	PosLocation_Service_Count_Request interface {
@@ -36,7 +35,7 @@ type (
 	
 	}
 	PosLocation_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	PosLocation_Service_Get_Request interface {
@@ -45,7 +44,7 @@ type (
 	}
 	PosLocation_Service_Get_Response interface {
 		PosLocation
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 )

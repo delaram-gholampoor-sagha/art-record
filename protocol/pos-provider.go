@@ -1,6 +1,5 @@
 package protocol
 
-
 import (
 	"../libgo/protocol"
 )
@@ -27,7 +26,7 @@ type (
 		RoleID() [16]byte
 	}
 	PosProvider_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	PosProvider_Service_Count_Request interface {
@@ -35,7 +34,7 @@ type (
 	
 	}
 	PosProvider_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	PosProvider_Service_Get_Request interface {
@@ -44,7 +43,7 @@ type (
 	}
 	PosProvider_Service_Get_Response interface {
 		PosProvider
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 )

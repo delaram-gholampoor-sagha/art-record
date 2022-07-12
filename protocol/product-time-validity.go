@@ -27,7 +27,7 @@ type (
 	}
 	
 	ProductTimeValidity_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductTimeValidity_Service_Count_Request interface {
@@ -35,7 +35,7 @@ type (
 	}
 	
 	ProductTimeValidity_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductTimeValidity_Service_Get_Request interface {
@@ -45,7 +45,7 @@ type (
 	
 	ProductTimeValidity_Service_Get_Response interface {
 		ProductTimeValidity
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 )

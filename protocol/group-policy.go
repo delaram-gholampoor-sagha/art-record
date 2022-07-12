@@ -49,14 +49,14 @@ type(
 		ForwardPolicy() GroupPolicy_Policy            
 	}
 	GroupPolicy_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	GroupPolicy_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupPolicy_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	GroupPolicy_Service_Get_Request interface { 
 		GroupID() [16]byte
@@ -64,7 +64,7 @@ type(
 	}
 	GroupPolicy_Service_Get_Response interface {
 		GroupPolicy
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	GroupPolicy_Service_FindByUserID_Request interface { 
 		OwnerUserID() [16]byte
@@ -73,6 +73,6 @@ type(
 	}
 	GroupPolicy_Service_FindByUserID_Response interface {
 		IDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

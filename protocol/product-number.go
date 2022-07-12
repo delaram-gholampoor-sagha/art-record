@@ -28,7 +28,7 @@ type (
 		MaximumInvoiceByBuy() uint64 
 	}
 	ProductNumber_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductNumber_Service_Count_Request interface {
@@ -37,7 +37,7 @@ type (
 	
 	}
 	ProductNumber_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductNumber_Service_Get_Request interface {
@@ -46,6 +46,6 @@ type (
 	}
 	ProductNumber_Service_Get_Response interface {
 		ProductNumber
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

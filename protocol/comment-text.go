@@ -28,7 +28,7 @@ type (
 	}
 
 	CommentText_Service_Register_Response interface {
-	   Nv() protocol.NumberOfVersion        
+	   NumberOfVersion() protocol.NumberOfVersion        
 	}
 
 
@@ -37,7 +37,7 @@ type (
 	}
 
 	CommentText_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	CommentText_Service_Get_Request interface {
@@ -57,7 +57,7 @@ type (
 
 	CommentText_Service_FindByText_Response interface {
 		CommentIDs() [16]byte 
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 

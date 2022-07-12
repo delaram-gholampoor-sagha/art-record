@@ -43,7 +43,7 @@ type (
 	
 	}
 	FinancialTransactionOrder_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	

@@ -25,7 +25,7 @@ type (
 	
 	Quiddity_Service_Register_Response interface {
 		QuiddityID() [16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	Quiddity_Service_Get_Request interface {

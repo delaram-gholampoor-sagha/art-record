@@ -27,7 +27,7 @@ type (
 
 
 		RoleLocation_Service_Register_Response interface{
-     Nv() protocol.NumberOfVersion
+     NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	RoleLocation_Service_Count_Request interface{
@@ -35,7 +35,7 @@ type (
 	}
 	
 	RoleLocation_Service_Count_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	RoleLocation_Service_Get_Request interface{
 		RoleID() [16]byte
@@ -44,7 +44,7 @@ type (
 	
 	RoleLocation_Service_Get_Response interface{
 		RoleLocation
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	RoleLocation_Service_Last_Request interface{
@@ -53,6 +53,6 @@ type (
 	
 	RoleLocation_Service_Last_Response interface{
 		RoleLocation
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

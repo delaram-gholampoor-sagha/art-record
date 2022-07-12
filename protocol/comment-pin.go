@@ -28,7 +28,7 @@ type (
 	}
 
 	CommentPin_Service_Register_Response interface {
-		 Nv() protocol.NumberOfVersion  
+		 NumberOfVersion() protocol.NumberOfVersion  
 	}
 	
 	CommentPin_Service_Get_Request interface {
@@ -47,6 +47,6 @@ type (
 	
 	CommentPin_Service_FindByGroupID_Response interface {
 		CommentIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

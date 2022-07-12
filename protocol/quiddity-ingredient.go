@@ -25,14 +25,14 @@ type (
 		IngredientID() [16]byte 
 	}
 	ProductIngredient_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductIngredient_Service_Count_Request interface {
 		QuiddityID() [16]byte
 	}
 	ProductIngredient_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductIngredient_Service_Get_Request interface {
@@ -41,7 +41,7 @@ type (
 	}
 	ProductIngredient_Service_Get_Response interface {
     QuiddityIngredient
- 		Nv() protocol.NumberOfVersion
+ 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductIngredient_Service_FindByIngredient_Request interface {
@@ -52,6 +52,6 @@ type (
 
 	ProductIngredient_Service_FindByIngredient_Response interface {
 		QuiddityIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

@@ -31,14 +31,14 @@ type (
   	GroupRoleID() [16]byte  
 	}
 	GroupAssociatedRole_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	GroupAssociatedRole_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupAssociatedRole_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	GroupAssociatedRole_Service_Get_Request interface { 
 		GroupID() [16]byte
@@ -46,7 +46,7 @@ type (
 	}
 	GroupAssociatedRole_Service_Get_Response interface {
 		GroupAssociatedRole
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 )

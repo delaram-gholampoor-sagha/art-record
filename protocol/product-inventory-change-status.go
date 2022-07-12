@@ -29,7 +29,7 @@ type (
 		Status() ProductInventoryChange_Status
 	}
 	ProductInventoryChangeStatus_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	//	Count(productID [16]byte, currency uint64) (nv protocol.NumberOfVersion, err protocol.Error)
 	
@@ -37,7 +37,7 @@ type (
 		ProductInventoryChangeID() [16]byte
 	}
 	ProductInventoryChangeStatus_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductInventoryChangeStatus_Service_Get_Request interface {
@@ -46,7 +46,7 @@ type (
 	}
 	ProductInventoryChangeStatus_Service_Get_Response interface {
 		ProductInventoryChangeStatus
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	ProductInventoryChangeStatus_Service_FilterByStatus_Request interface {
 		Status() ProductInventoryChange_Status
@@ -56,7 +56,7 @@ type (
 	
 	ProductInventoryChangeStatus_Service_FilterByStatus_Response interface {
 		ProductInventoryChangeIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )
 

@@ -58,7 +58,7 @@ type (
 
 		Content_Service_Register_Response interface {
        ContentID() [16]byte 
-			 Nv() protocol.NumberOfVersion
+			 NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	Content_Service_Count_Request interface {
@@ -66,7 +66,7 @@ type (
 	}
 	
 	Content_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	
@@ -87,7 +87,7 @@ type (
 	
 	Content_Service_GetIDs_Response interface {
 		ContentIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	
@@ -99,7 +99,7 @@ type (
 	
 	Content_Service_FindByUserID_Response interface {
 		ContentIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	

@@ -80,7 +80,7 @@ type (
 	}
 
 	StaffTakeLeave_Service_Register_Response interface{
-	  Nv() protocol.NumberOfVersion
+	  NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	StaffTakeLeave_Service_Count_Request interface{
@@ -88,7 +88,7 @@ type (
 	}
 	
 	StaffTakeLeave_Service_Count_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	StaffTakeLeave_Service_Get_Request interface{
 		StaffID() [16]byte
@@ -97,7 +97,7 @@ type (
 	
 	StaffTakeLeave_Service_Get_Response interface{
 		StaffTakeLeave
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	StaffTakeLeave_Service_Last_Request interface{
@@ -106,6 +106,6 @@ type (
 	
 	StaffTakeLeave_Service_Last_Response interface{
 		StaffTakeLeave
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

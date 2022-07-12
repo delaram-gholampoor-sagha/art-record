@@ -26,7 +26,7 @@ type (
 		BuildingLocationID() [16]byte
 	}
 	ProductPlace_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductPlace_Service_Count_Request interface {
@@ -42,7 +42,7 @@ type (
 	}
 	ProductPlace_Service_Get_Response interface {
 		ProductPlace
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductPlace_Service_FindByBuildingLocation_Request interface {
@@ -53,7 +53,7 @@ type (
 	}
 	ProductPlace_Service_FindByBuildingLocation_Response interface {
 		ProductIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 )

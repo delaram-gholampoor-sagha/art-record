@@ -34,7 +34,7 @@ type (
 		Priority() uint64                   
 	}
 	ProductInventoryChange_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	ProductInventoryChange_Service_Count_Request interface {
@@ -50,7 +50,7 @@ type (
 	}
 	ProductInventoryChange_Service_Get_Response interface {
 		ProductInventoryChange
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	ProductInventoryChange_Service_FindByProduct_Request interface {
@@ -61,6 +61,6 @@ type (
 	}
 	ProductInventoryChange_Service_FindByProduct_Response interface {
 		ProductIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

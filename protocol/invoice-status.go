@@ -27,7 +27,7 @@ type (
 		Status() Invoice_Status    
 	}
 	InvoiceStatus_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	
@@ -36,7 +36,7 @@ type (
 	
 	}
 	InvoiceStatus_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	
@@ -46,7 +46,7 @@ type (
 	}
 	InvoiceStatus_Service_Get_Response interface {
 		InvoiceStatus
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	InvoiceStatus_Service_FindByStatus_Request interface { 
 		Status() Invoice_Status
@@ -55,7 +55,7 @@ type (
 	}
 	InvoiceStatus_Service_FindByStatus_Response interface {
 		InvoiceIDs() [][16]byte 
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )
 

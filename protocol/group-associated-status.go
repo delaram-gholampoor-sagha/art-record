@@ -41,14 +41,14 @@ type (
 	  Status() GroupAssociated_Status  
 	}
 	GroupAssociatedStatus_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	GroupAssociatedStatus_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupAssociatedStatus_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	GroupAssociatedStatus_Service_Get_Request interface { 
 		GroupID() [16]byte
@@ -56,7 +56,7 @@ type (
 	}
 	GroupAssociatedStatus_Service_Get_Response interface {
 		GroupAssociatedStatus
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 )

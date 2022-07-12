@@ -76,7 +76,7 @@ type (
 
 	Comment_Service_Register_Response interface {
 		CommentID() [16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	Comment_Service_Count_Request interface {
@@ -84,7 +84,7 @@ type (
 	}
 
 	Comment_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	Comment_Service_Get_Request interface {
@@ -106,7 +106,7 @@ type (
 
 	Comment_Service_FindByReplyTo_Response interface {
 		VersionOffsets() []uint64
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	Comment_Service_FindByUserID_Request interface {
@@ -118,7 +118,7 @@ type (
 
 	Comment_Service_FindByUserID_Response interface {
 		VersionOffsets() []uint64
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 
@@ -130,7 +130,7 @@ type (
 
 	Comment_Service_ListUserGroups_Response interface {
 		Ids() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 

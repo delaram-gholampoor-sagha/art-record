@@ -29,7 +29,7 @@ type (
 	
 	}
 	PosStatus_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	PosStatus_Service_Count_Request interface {
@@ -37,7 +37,7 @@ type (
 	
 	}
 	PosStatus_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	PosStatus_Service_Get_Request interface {
@@ -46,7 +46,7 @@ type (
 	}
 	PosStatus_Service_Get_Response interface {
 		PosStatus
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	PosStatus_Service_FilterByStatus_Request interface{
@@ -56,7 +56,7 @@ type (
 	}
 	PosStatus_Service_FilterByStatus_Response interface{
 		PosIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )
 

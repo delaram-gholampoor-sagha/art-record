@@ -28,7 +28,7 @@ type (
 	}
 
 		StaffHire_Service_Register_Response interface {
-	  	Nv() protocol.NumberOfVersion
+	  	NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	StaffHire_Service_Count_Request interface {
@@ -36,7 +36,7 @@ type (
 	}
 
 	StaffHire_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	StaffHire_Service_Get_Request interface {
 		StaffID() [16]byte
@@ -53,7 +53,7 @@ type (
 
 	StaffHire_Service_Last_Response interface {
 		StaffHire
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	StaffHire_Service_FindByRoleID_Request interface {
@@ -64,6 +64,6 @@ type (
 
 	StaffHire_Service_FindByRoleID_Response interface {
 		StaffIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

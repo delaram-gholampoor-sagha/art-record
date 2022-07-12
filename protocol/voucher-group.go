@@ -26,7 +26,7 @@ type (
 	}
 	
 	VoucherGroup_Service_Register_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	VoucherGroup_Service_Count_Request interface{
@@ -34,7 +34,7 @@ type (
 	}
 	
 	VoucherGroup_Service_Count_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	VoucherGroup_Service_Get_Request interface{
 		VoucherID() [16]byte
@@ -43,7 +43,7 @@ type (
 	
 	VoucherGroup_Service_Get_Response interface{
 		VoucherGroup
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	
@@ -55,6 +55,6 @@ type (
 	
 	VoucherGroup_Service_FindByGroup_Response interface{
 		VoucherIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

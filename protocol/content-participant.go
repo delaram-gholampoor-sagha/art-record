@@ -51,7 +51,7 @@ type (
 	}
 	
 	ContentParticipant_Service_Register_Response interface {
-	  Nv() protocol.NumberOfVersion         
+	  NumberOfVersion() protocol.NumberOfVersion         
 	}
 	
 	
@@ -60,7 +60,7 @@ type (
 	}
 	
 	ContentParticipant_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ContentParticipant_Service_Get_Request interface {
@@ -80,7 +80,7 @@ type (
 	
 	ContentParticipant_Service_FindByUserID_Response interface {
 		ContentIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 )

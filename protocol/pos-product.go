@@ -28,7 +28,7 @@ type (
 		ProductID() [16]byte
 	}
 	PosProduct_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	PosProduct_Service_Count_Request interface {
@@ -36,7 +36,7 @@ type (
 	
 	}
 	PosProduct_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	PosProduct_Service_Get_Request interface {
@@ -53,7 +53,7 @@ type (
 		Vo() protocol.VersionOffset
 	}
 	PosProduct_Service_Delete_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 )

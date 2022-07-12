@@ -30,7 +30,7 @@ type (
 		VAT() protocol.AmountOfMoney              
 	}
 	InvoiceItemSummary_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	
@@ -39,7 +39,7 @@ type (
 	
 	}
 	InvoiceItemSummary_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	InvoiceItemSummary_Service_Get_Request interface { 
 		InvoiceID() [16]byte

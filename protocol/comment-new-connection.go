@@ -33,7 +33,7 @@ type (
 	}
 
 	CommentFollow_Service_Register_Response interface {
-	  Nv() protocol.NumberOfVersion
+	  NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	CommentFollow_Service_Count_Request interface {
@@ -41,7 +41,7 @@ type (
 	}
 	
 	CommentFollow_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	CommentFollow_Service_Get_Request interface {

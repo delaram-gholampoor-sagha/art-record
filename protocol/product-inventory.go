@@ -44,7 +44,7 @@ type (
 	}
 
 	ProductInventory_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	ProductInventory_Service_Lock_Request interface {
 		ProductID()[16]byte
@@ -58,7 +58,7 @@ type (
 		ProductInventory
 	}
 	ProductInventory_Service_Unlock_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	
@@ -68,7 +68,7 @@ type (
 	
 	}
 	ProductInventory_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductInventory_Service_Get_Request interface {
@@ -78,7 +78,7 @@ type (
 	}
 	ProductInventory_Service_Get_Response interface {
 		ProductInventory
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )
 

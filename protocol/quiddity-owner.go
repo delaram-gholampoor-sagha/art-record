@@ -36,7 +36,7 @@ type (
 		QuiddityID() [16]byte
 	}
 	QuiddityOwner_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	
@@ -55,6 +55,6 @@ type (
 	}
 	QuiddityOwner_Service_FindByUserID_Response interface {
 		QuiddityIDs() [][32]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

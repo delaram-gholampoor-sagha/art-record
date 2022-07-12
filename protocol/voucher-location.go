@@ -25,7 +25,7 @@ type (
 	}
 
 	VoucherLocation_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	VoucherLocation_Service_Count_Request interface {
@@ -33,7 +33,7 @@ type (
 	}
 
 	VoucherLocation_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	VoucherLocation_Service_Get_Request interface {
 		VoucherID() [16]byte
@@ -42,7 +42,7 @@ type (
 
 	VoucherLocation_Service_Get_Response interface {
 		VoucherLocation
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	VoucherLocation_Service_FindByBuildingLocation_Request interface {
@@ -53,6 +53,6 @@ type (
 
 	VoucherLocation_Service_FindByBuildingLocation_Response interface {
 		VoucherIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

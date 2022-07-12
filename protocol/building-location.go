@@ -27,7 +27,7 @@ type (
 		BuildingID() uint64 	
 	}
 	BuildingLocation_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 		
 	BuildingLocation_Service_Count_Request interface {
@@ -37,7 +37,7 @@ type (
 			
 	}
 	BuildingLocation_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
 	BuildingLocation_Service_Get_Request interface {
@@ -47,7 +47,7 @@ type (
 	}
 	BuildingLocation_Service_Get_Response interface {
 		BuildingLocation
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
 
@@ -57,7 +57,7 @@ type (
 	}
 	BuildingLocation_Service_GetIDs_Response interface {
 		BuildingLocationIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
 

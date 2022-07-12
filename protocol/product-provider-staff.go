@@ -28,7 +28,7 @@ type (
 		StaffID() [16]byte
 	}
 	ProductProviderStaff_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 
@@ -36,7 +36,7 @@ type (
 		ProductID() [16]byte
 	}
 	ProductProviderStaff_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 
 	}
 
@@ -47,7 +47,7 @@ type (
 	}
 	ProductProviderStaff_Service_Get_Response interface {
 		ProductProviderStaff
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 
 	}
 
@@ -59,7 +59,7 @@ type (
 	}
 	ProductProviderStaff_Service_FindByStaff_Response interface {
 		ProductIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )
 

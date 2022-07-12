@@ -28,7 +28,7 @@ type (
 	}
 
 	VoucherUser_Service_Register_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	VoucherUser_Service_Count_Request interface{
@@ -36,7 +36,7 @@ type (
 	}
 
 	VoucherUser_Service_Count_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	VoucherUser_Service_Get_Request interface{
 		VoucherID() [16]byte
@@ -45,7 +45,7 @@ type (
 
 	VoucherUser_Service_Get_Response interface{
 		VoucherUser
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 
@@ -57,7 +57,7 @@ type (
 
 	VoucherUser_Service_FindByUser_Response interface{
 		VoucherIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )
 

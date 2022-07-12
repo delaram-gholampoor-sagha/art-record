@@ -43,14 +43,14 @@ type (
 		Status() GroupName_Status  
 	}
 	GroupName_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	GroupName_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupName_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	GroupName_Service_Get_Request interface { 
 		GroupID() [16]byte
@@ -58,7 +58,7 @@ type (
 	}
 	GroupName_Service_Get_Response interface {
 		GroupName
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	GroupName_Service_FindByName_Request interface { 
 		Name() string

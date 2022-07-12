@@ -27,7 +27,7 @@ type (
 	}
 
 	ContentComplement_Service_Register_Response interface {
-		 Nv() protocol.NumberOfVersion
+		 NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	
@@ -36,7 +36,7 @@ type (
 	}
 	
 	ContentComplement_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ContentComplement_Service_Get_Request interface {

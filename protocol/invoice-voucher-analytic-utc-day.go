@@ -26,7 +26,7 @@ type (
 		Discounted() protocol.AmountOfMoney 
 	}
 	InvoiceVoucherAnalyticUtcDay_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	
@@ -36,7 +36,7 @@ type (
 	
 	}
 	InvoiceVoucherAnalyticUtcDay_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	InvoiceVoucherAnalyticUtcDay_Service_Get_Request interface {
@@ -45,7 +45,7 @@ type (
 	}
 	InvoiceVoucherAnalyticUtcDay_Service_Get_Response interface {
 		InvoiceVoucherAnalyticUtcDay
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 )

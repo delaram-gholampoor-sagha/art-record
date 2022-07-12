@@ -29,7 +29,7 @@ type (
 	}
 	
 	ProductTimingInterval_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductTimingInterval_Service_Count_Request interface {
@@ -37,7 +37,7 @@ type (
 	}
 	
 	ProductTimingInterval_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductTimingInterval_Service_Get_Request interface {
@@ -47,7 +47,7 @@ type (
 	
 	ProductTimingInterval_Service_Get_Response interface {
 		ProductTimingInterval
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 )

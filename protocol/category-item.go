@@ -36,7 +36,7 @@ type (
 	}
 
 	CategoryItem_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 			
 	CategoryItem_Service_Count_Request interface {
@@ -45,7 +45,7 @@ type (
 	}
 
 	CategoryItem_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
 
@@ -57,7 +57,7 @@ type (
 
 	CategoryItem_Service_Get_Response interface {
 		CategoryItem
-		Nv() protocol.NumberOfVersion	
+		NumberOfVersion() protocol.NumberOfVersion	
 	}
 
 	CategoryItem_Service_ListCategories_Request interface {
@@ -68,7 +68,7 @@ type (
 
 	CategoryItem_Service_ListCategories_Response interface {
 		CategoryID() [16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	CategoryItem_Service_ListPriorities_Request interface {
@@ -80,7 +80,7 @@ type (
 
 	CategoryItem_Service_ListPriorities_Response interface {
 		Priority() uint64 
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )
 

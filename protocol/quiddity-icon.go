@@ -33,7 +33,7 @@ type (
 		QuiddityID() [16]byte
 	}
 	QuiddityIcon_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	

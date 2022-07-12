@@ -34,7 +34,7 @@ type (
 	}
 
 		RoleStatus_Service_Register_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	RoleStatus_Service_Count_Request interface{
@@ -42,7 +42,7 @@ type (
 	}
 	
 	RoleStatus_Service_Count_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	RoleStatus_Service_Get_Request interface{
 		RoleID() [16]byte
@@ -63,6 +63,6 @@ type (
 	
 	RoleStatus_Service_FilterByStatus_Response interface{
 		RoleIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

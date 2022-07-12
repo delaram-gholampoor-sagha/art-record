@@ -26,7 +26,7 @@ type (
 	}
 	
 	VoucherAnalyticUtcDay_Service_Register_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	VoucherAnalyticUtcDay_Service_Count_Request interface{
@@ -34,7 +34,7 @@ type (
 	}
 	
 	VoucherAnalyticUtcDay_Service_Count_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	VoucherAnalyticUtcDay_Service_Get_Request interface{
 		VoucherID() [16]byte
@@ -43,7 +43,7 @@ type (
 	
 	VoucherAnalyticUtcDay_Service_Get_Response interface{
 		VoucherAnalyticUtcDay
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 )

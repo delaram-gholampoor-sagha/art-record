@@ -39,14 +39,14 @@ type (
 		Status() GroupInvite_Status 
 	}
 	GroupInviteStatus_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	GroupInviteStatus_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupInviteStatus_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	GroupInviteStatus_Service_Get_Request interface { 
 		GroupID() [16]byte
@@ -54,7 +54,7 @@ type (
 	}
 	GroupInviteStatus_Service_Get_Response interface {
 		GroupInviteStatus
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 )

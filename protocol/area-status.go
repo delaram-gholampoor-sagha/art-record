@@ -31,14 +31,14 @@ type (
 		Status() Area_Status
 	}
 	AreaStatus_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	AreaStatus_Service_Count_Request interface {
 		AreaID() [16]byte
 	}
 	AreaStatus_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	AreaStatus_Service_Get_Request interface {
 		AreaID() [16]byte
@@ -46,7 +46,7 @@ type (
 	}
 	AreaStatus_Service_Get_Response interface {
 		Status() AreaStatus
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	AreaStatus_Service_FilterByStatus_Request interface {

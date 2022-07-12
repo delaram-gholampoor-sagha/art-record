@@ -27,7 +27,7 @@ type (
 		StaffID() [16]byte   
 	}
 	InvoicePOS_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	
@@ -46,7 +46,7 @@ type (
 	}
 	InvoicePOS_Service_FindByPos_Response interface {
 		InvoiceIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	InvoicePOS_Service_FindByStaff_Request interface { 
 		StaffID() [16]byte
@@ -56,6 +56,6 @@ type (
 	
 	InvoicePOS_Service_FindByStaff_Response interface {
 		InvoiceIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

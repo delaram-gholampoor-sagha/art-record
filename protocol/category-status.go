@@ -29,7 +29,7 @@ type (
 			
 	}
 	CategoryStatus_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 			
 	CategoryStatus_Service_Count_Request interface {
@@ -37,7 +37,7 @@ type (
 			
 	}
 	CategoryStatus_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
 	CategoryStatus_Service_Get_Request interface {
@@ -46,7 +46,7 @@ type (
 	}
 	CategoryStatus_Service_Get_Response interface {
 		CategoryStatus
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
 	CategoryStatus_Service_FilterByStatus_Request interface {

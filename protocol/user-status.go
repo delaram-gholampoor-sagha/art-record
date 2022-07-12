@@ -34,7 +34,7 @@ type (
 	}
 
 	UserStatus_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 		UserID() [16]byte
 	}
 
@@ -43,7 +43,7 @@ type (
 	}
 
 	UserStatus_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	UserStatus_Service_Get_Request interface {
 		UserID() [16]byte
@@ -52,7 +52,7 @@ type (
 
 	UserStatus_Service_Get_Response interface {
 		UserStatus
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	UserStatus_Service_GetIDs_Request interface {
@@ -62,6 +62,6 @@ type (
 
 	UserStatus_Service_GetIDs_Response interface {
 		UserIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

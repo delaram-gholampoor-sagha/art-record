@@ -42,7 +42,7 @@ type (
 	}
 	
 	UserPublicKey_Service_Register_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	UserPublicKey_Service_Count_Request interface{
@@ -50,7 +50,7 @@ type (
 	}
 	
 	UserPublicKey_Service_Count_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	UserPublicKey_Service_Get_Request interface{
 		UserID() [16]byte
@@ -59,7 +59,7 @@ type (
 	
 	UserPublicKey_Service_Get_Response interface{
 		UserPublicKey
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	

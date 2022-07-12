@@ -30,7 +30,7 @@ type (
 			
 	}
 	CategoryComplement_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 			
 	CategoryComplement_Service_Count_Request interface {
@@ -40,7 +40,7 @@ type (
 			
 	}
 	CategoryComplement_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
 	CategoryComplement_Service_Get_Request interface {
@@ -50,7 +50,7 @@ type (
 	}
 	CategoryComplement_Service_Get_Response interface {
 		CategoryComplement
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
 	
@@ -61,7 +61,7 @@ type (
 	}
 	CategoryComplement_Service_ListCategories_Response interface {
 		CategoryIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
 	
@@ -73,7 +73,7 @@ type (
 	}
 	CategoryComplement_Service_ListPriorities_Response interface {
 		priorities() uint64 
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
 )

@@ -30,7 +30,7 @@ type (
 	}
 
 	RoleAccess_Service_Register_Response interface{
-	  Nv() protocol.NumberOfVersion 
+	  NumberOfVersion() protocol.NumberOfVersion 
 	}
 	
 	RoleAccess_Service_Count_Request interface{
@@ -38,7 +38,7 @@ type (
 	}
 	
 	RoleAccess_Service_Count_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	RoleAccess_Service_Get_Request interface{
 		RoleID() [16]byte
@@ -47,7 +47,7 @@ type (
 	
 	RoleAccess_Service_Get_Response interface{
 		RoleAccess
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	RoleAccess_Service_Last_Request interface{
@@ -56,6 +56,6 @@ type (
 	
 	RoleAccess_Service_Last_Response interface{
 		RoleAccess
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

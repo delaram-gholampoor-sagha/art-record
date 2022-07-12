@@ -30,7 +30,7 @@ type (
 		Discounted() protocol.AmountOfMoney 
 	}
 	InvoiceVoucher_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	
@@ -40,7 +40,7 @@ type (
 	
 	}
 	InvoiceVoucher_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	InvoiceVoucher_Service_Get_Request interface {
@@ -49,7 +49,7 @@ type (
 	}
 	InvoiceVoucher_Service_Get_Response interface {
 		InvoiceVoucher
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	InvoiceVoucher_Service_FindByVoucherID_Request interface {
 		VoucherID() [16]byte
@@ -59,6 +59,6 @@ type (
 	}
 	InvoiceVoucher_Service_FindByVoucherID_Response interface {
 		InvoiceIDs() [][16]byte  
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

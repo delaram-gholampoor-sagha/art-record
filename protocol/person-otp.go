@@ -26,7 +26,7 @@ type (
 		OTPAdditional() int32	
 	}
 	PersonOTP_Service_Register_Response interface {
-		 Nv() protocol.NumberOfVersion
+		 NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	PersonOTP_Service_Count_Request interface {
@@ -35,7 +35,7 @@ type (
 	
 	}
 	PersonOTP_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	PersonOTP_Service_Get_Request interface {
@@ -44,7 +44,7 @@ type (
 	}
 	PersonOTP_Service_Get_Response interface {
 		PersonOTP
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	

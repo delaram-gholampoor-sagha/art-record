@@ -32,7 +32,7 @@ type (
 	
 	
 	FinancialAccountStatus_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	
@@ -41,7 +41,7 @@ type (
 	
 	}
 	FinancialAccountStatus_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	
@@ -63,7 +63,7 @@ type (
 	
 	FinancialAccountStatus_Service_FilterByStatus_Response interface {
 		AccountIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	

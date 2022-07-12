@@ -29,7 +29,7 @@ type (
 	}
 
 	StaffTimingUTC_Service_Register_Response interface{
-	  Nv() protocol.NumberOfVersion
+	  NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	StaffTimingUTC_Service_Count_Request interface{
@@ -37,7 +37,7 @@ type (
 	}
 	
 	StaffTimingUTC_Service_Count_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	StaffTimingUTC_Service_Get_Request interface{
 		StaffID() [16]byte
@@ -46,7 +46,7 @@ type (
 	
 	StaffTimingUTC_Service_Get_Response interface{
 		StaffTimingUTC
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	StaffTimingUTC_Service_Last_Request interface{
@@ -55,6 +55,6 @@ type (
 	
 	StaffTimingUTC_Service_Last_Response interface{
 		StaffTimingUTC
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

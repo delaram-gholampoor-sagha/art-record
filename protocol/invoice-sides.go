@@ -32,7 +32,7 @@ type (
 		AgentID() [16]byte      
 	}
 	InvoiceSides_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	
@@ -42,7 +42,7 @@ type (
 	}
 	InvoiceSides_Service_Get_Response interface {
 		InvoiceSides
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	InvoiceSides_Service_FindBySeller_Request interface { 
@@ -52,7 +52,7 @@ type (
 	}
 	InvoiceSides_Service_FindBySeller_Response interface {
 		InvoiceIDs() [][16]byte 
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	
@@ -63,7 +63,7 @@ type (
 	}
 	InvoiceSides_Service_FindByCustomer_Response interface {
 		InvoiceIDs() [][16]byte 
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	//	FindByAgent(agentID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	
@@ -74,7 +74,7 @@ type (
 	}
 	InvoiceSides_Service_FindByAgent_Response interface {
 		InvoiceIDs() [][16]byte 
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )
 

@@ -27,14 +27,14 @@ type (
 	
 	}
 	ProductRole_Service_Register_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductRole_Service_Count_Request interface{
 		ProductID() [16]byte
 	}
 	ProductRole_Service_Count_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	
@@ -44,7 +44,7 @@ type (
 	}
 	ProductRole_Service_Get_Response interface{
 		ProductRole
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductRole_Service_FindByRole_Request interface{
@@ -54,7 +54,7 @@ type (
 	}
 	ProductRole_Service_FindByRole_Response interface{
 		ProductIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 )

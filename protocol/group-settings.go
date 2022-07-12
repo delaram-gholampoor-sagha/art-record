@@ -27,7 +27,7 @@ type (
 		Join() GroupSettings                   
 	}
 	GroupSettings_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	
@@ -36,7 +36,7 @@ type (
 	
 	}
 	GroupSettings_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	GroupSettings_Service_Get_Request interface { 
 		GroupID() [16]byte
@@ -46,7 +46,7 @@ type (
 	}
 	GroupSettings_Service_Get_Response interface {
 		GroupSettings
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 )

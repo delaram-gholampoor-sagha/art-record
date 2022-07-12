@@ -28,7 +28,7 @@ type (
 	}
 	
 	VoucherInvoice_Service_Register_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	VoucherInvoice_Service_Count_Request interface{
@@ -36,7 +36,7 @@ type (
 	}
 	
 	VoucherInvoice_Service_Count_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	VoucherInvoice_Service_Get_Request interface{
 		VoucherID() [16]byte
@@ -45,7 +45,7 @@ type (
 	
 	VoucherInvoice_Service_Get_Response interface{
 		VoucherInvoice
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 )

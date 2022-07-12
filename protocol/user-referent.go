@@ -26,7 +26,7 @@ type (
 	}
 	
 	UserReferent_Service_Register_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	UserReferent_Service_Count_Request interface{
@@ -34,7 +34,7 @@ type (
 	}
 	
 	UserReferent_Service_Count_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	UserReferent_Service_Get_Request interface{
 		UserID() [16]byte
@@ -43,7 +43,7 @@ type (
 	
 	UserReferent_Service_Get_Response interface{
 		UserReferent
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	
@@ -55,7 +55,7 @@ type (
 	
 	UserReferent_Service_FindByReferentUserID_Response interface{
 		UserIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	

@@ -29,7 +29,7 @@ type (
 	}
 
 	FinancialAccountID_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 
@@ -39,7 +39,7 @@ type (
 	}
 	FinancialAccountID_Service_Get_Response interface {
 		FinancialAccountID
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 

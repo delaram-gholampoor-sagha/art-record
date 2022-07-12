@@ -49,7 +49,7 @@ type (
 	}
 
 	UserDomain_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	UserDomain_Service_Count_Request interface {
@@ -57,7 +57,7 @@ type (
 	}
 
 	UserDomain_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	UserDomain_Service_Get_Request interface {
 		Domain() string
@@ -66,7 +66,7 @@ type (
 
 	UserDomain_Service_Get_Response interface {
 		UserDomain
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	UserDomain_Service_FindByUserID_Request interface {
@@ -77,6 +77,6 @@ type (
 
 	UserDomain_Service_FindByUserID_Response interface {
 		Domains() []string
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

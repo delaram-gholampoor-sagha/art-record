@@ -1,4 +1,5 @@
 package protocol
+
 import (
 	"../libgo/protocol"
 )
@@ -27,7 +28,7 @@ type (
 			ParentID() [16]byte
 		}
 		Category_Service_Register_Response interface {
-				Nv() protocol.NumberOfVersion
+				NumberOfVersion() protocol.NumberOfVersion
 		}
 			
 		Category_Service_Count_Request interface {
@@ -35,7 +36,7 @@ type (
 
 		}
 		Category_Service_Count_Response interface {
-				Nv() protocol.NumberOfVersion
+				NumberOfVersion() protocol.NumberOfVersion
 
 		}
 		Category_Service_Get_Request interface {
@@ -44,7 +45,7 @@ type (
 		}
 		Category_Service_Get_Response interface {
 				Gs() CategoryStatus
-				Nv() protocol.NumberOfVersion
+				NumberOfVersion() protocol.NumberOfVersion
 
 		}
 		Category_Service_GetIDs_Request interface {
@@ -53,6 +54,6 @@ type (
 		}
 		Category_Service_GetIDs_Response interface {
 			CategoryIDs() [][16]byte
-			Nv() protocol.NumberOfVersion
+			NumberOfVersion() protocol.NumberOfVersion
 		}
 )

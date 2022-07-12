@@ -31,7 +31,7 @@ type (
 	}
 
 	StaffShift_Service_Register_Response interface{
-   	Nv() protocol.NumberOfVersion
+   	NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	StaffShift_Service_Count_Request interface{
@@ -39,7 +39,7 @@ type (
 	}
 
 	StaffShift_Service_Count_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	StaffShift_Service_Get_Request interface{
 		StaffID() [16]byte

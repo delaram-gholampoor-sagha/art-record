@@ -27,7 +27,7 @@ type (
 		Status() Group_Status 
 	}
 	GroupStatus_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	
@@ -36,7 +36,7 @@ type (
 	
 	}
 	GroupStatus_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	GroupStatus_Service_Get_Request interface { 
 		GroupID() [16]byte
@@ -46,7 +46,7 @@ type (
 	}
 	GroupStatus_Service_Get_Response interface {
 		GroupStatus
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )
 

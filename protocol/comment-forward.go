@@ -25,7 +25,7 @@ type (
 	}
 
 	CommentForward_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	CommentForward_Service_Get_Request interface {

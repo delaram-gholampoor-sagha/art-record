@@ -24,12 +24,12 @@ type (
 		RedeemedAmount() protocol.AmountOfMoney 
 	}
 	InvoiceVoucherAnalyticUtcMinute_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	
 	InvoiceVoucherAnalyticUtcMinute_Service_Count_Request interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	InvoiceVoucherAnalyticUtcMinute_Service_Count_Response interface {
@@ -41,7 +41,7 @@ type (
 	}
 	InvoiceVoucherAnalyticUtcMinute_Service_Get_Response interface {
 		InvoiceVoucherAnalyticUtcMinute
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 )

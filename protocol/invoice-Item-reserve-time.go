@@ -27,14 +27,14 @@ type (
 		End() protocol.Time   
 	}
 	InvoiceItemReserveTime_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	InvoiceItemReserveTime_Service_Count_Request interface { 
 		InvoiceID() [16]byte 
 	}
 	InvoiceItemReserveTime_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	InvoiceItemReserveTime_Service_Get_Request interface { 
 		InvoiceID() [16]byte
@@ -42,6 +42,6 @@ type (
 	}
 	InvoiceItemReserveTime_Service_Get_Response interface {
 		InvoiceItemReserveTime
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

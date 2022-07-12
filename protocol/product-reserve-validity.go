@@ -23,7 +23,7 @@ type (
 		Duration() protocol.Duration
 	}
 	ProductReserveValidity_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	
@@ -32,7 +32,7 @@ type (
 	
 	}
 	ProductReserveValidity_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	
@@ -42,7 +42,7 @@ type (
 	}
 	ProductReserveValidity_Service_Get_Response interface {
 		ProductReserveValidity
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	

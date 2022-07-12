@@ -30,14 +30,14 @@ type (
 		JoinBy() [16]byte    
 	}
 	GroupAssociated_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	GroupAssociated_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupAssociated_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	GroupAssociated_Service_Get_Request interface { 
 		GroupID() [16]byte
@@ -45,7 +45,7 @@ type (
 	}
 	GroupAssociated_Service_Get_Response interface {
 		GroupAssociated
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 )

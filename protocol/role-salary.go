@@ -28,7 +28,7 @@ type (
   }
 
 	RoleSalary_Service_Register_Response interface{
-		Nv() protocol.NumberOfVersion      
+		NumberOfVersion() protocol.NumberOfVersion      
 	}
 	
 	
@@ -37,7 +37,7 @@ type (
 	}
 	
 	RoleSalary_Service_Count_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	RoleSalary_Service_Get_Request interface{
 		RoleID() [16]byte
@@ -46,7 +46,7 @@ type (
 	
 	RoleSalary_Service_Get_Response interface{
 		RoleSalary
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	RoleSalary_Service_Last_Request interface{
@@ -55,6 +55,6 @@ type (
 	
 	RoleSalary_Service_Last_Response interface{
 		RoleSalary
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

@@ -28,7 +28,7 @@ type (
 		AccountID() [16]byte
 	}
 	PosFinancialAccount_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	PosFinancialAccount_Service_Count_Request interface {
@@ -36,7 +36,7 @@ type (
 	
 	}
 	PosFinancialAccount_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	PosFinancialAccount_Service_Get_Request interface {
@@ -45,7 +45,7 @@ type (
 	}
 	PosFinancialAccount_Service_Get_Response interface {
 		PosFinancialAccount
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 )

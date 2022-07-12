@@ -84,7 +84,7 @@ type (
 	}
 	Product_Service_Register_Response interface{
 		ProductID() [16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	Product_Service_Count_Request interface{
@@ -92,7 +92,7 @@ type (
 	}
 
 	Product_Service_Count_Response interface{
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	Product_Service_Get_Request interface{
 		ProductID() [16]byte
@@ -101,7 +101,7 @@ type (
 
 	Product_Service_Get_Response interface{
 		Product
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 
 	Product_Service_FilterByType_Request interface{
@@ -112,6 +112,6 @@ type (
 
 	Product_Service_FilterByType_Response interface{
 		ProductIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

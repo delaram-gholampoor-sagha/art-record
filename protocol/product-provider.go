@@ -26,14 +26,14 @@ type (
 		Percent() uint64
 	}
 	ProductProvider_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductProvider_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
 	ProductProvider_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	
@@ -44,7 +44,7 @@ type (
 	}
 	ProductProvider_Service_Get_Response interface {
 		ProductProvider
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 )

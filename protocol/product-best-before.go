@@ -25,7 +25,7 @@ type (
 	
 	}
 	ProductBestBefore_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductBestBefore_Service_Count_Request interface {
@@ -33,7 +33,7 @@ type (
 	
 	}
 	ProductBestBefore_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductBestBefore_Service_Get_Request interface {
@@ -42,7 +42,7 @@ type (
 	}
 	ProductBestBefore_Service_Get_Response interface {
 		ProductBestBefore
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 )

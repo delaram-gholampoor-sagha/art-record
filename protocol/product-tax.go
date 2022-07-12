@@ -33,7 +33,7 @@ type (
 	}
 	
 	ProductTax_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductTax_Service_Count_Request interface {
@@ -41,7 +41,7 @@ type (
 	}
 	
 	ProductTax_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	ProductTax_Service_Get_Request interface {
@@ -51,7 +51,7 @@ type (
 	
 	ProductTax_Service_Get_Response interface {
 		ProductTax
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 )

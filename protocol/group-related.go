@@ -27,14 +27,14 @@ type (
 	 RelatedGroupID() [16]byte              
 	}
 	GroupRelated_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	GroupRelated_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupRelated_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	GroupRelated_Service_Get_Request interface { 
 		GroupID() [16]byte
@@ -42,7 +42,7 @@ type (
 	}
 	GroupRelated_Service_Get_Response interface {
 		GroupRelated
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	GroupRelated_Service_FindByGroupID_Request interface { 
 		GroupID() [16]byte
@@ -52,6 +52,6 @@ type (
 
 	GroupRelated_Service_FindByGroupID_Response interface {
 		GroupRelatedIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 )

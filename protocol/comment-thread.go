@@ -25,7 +25,7 @@ type (
 	}
 
 		CommentThread_Service_Register_Response interface {
-      Nv() protocol.NumberOfVersion
+      NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	

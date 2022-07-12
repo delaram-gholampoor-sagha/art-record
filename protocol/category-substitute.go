@@ -30,7 +30,7 @@ type (
 		SubstituteID() [16]byte 
 	}
 	CategorySubstitute_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 			
 	CategorySubstitute_Service_Count_Request interface {
@@ -39,7 +39,7 @@ type (
 			
 	}
 	CategorySubstitute_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
 	CategorySubstitute_Service_Get_Request interface {
@@ -49,7 +49,7 @@ type (
 	}
 	CategorySubstitute_Service_Get_Response interface {
 		CategorySubstitute
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	CategorySubstitute_Service_ListSubstitutes_Request interface {
 		SubstituteID() [16]byte
@@ -58,7 +58,7 @@ type (
 	}
 	CategorySubstitute_Service_ListSubstitutes_Response interface {
 		SubstituteIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
 	CategorySubstitute_Service_ListCategories_Request interface {
@@ -69,7 +69,7 @@ type (
 	}
 	CategorySubstitute_Service_ListCategories_Response interface {
 		CategoryIDs() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 		
 	}
 	CategorySubstitute_Service_ListPriorities_Request interface {
@@ -80,7 +80,7 @@ type (
 	}
 	CategorySubstitute_Service_ListPriorities_Response interface {
 		Priorities() [][16]byte
-		Nv() protocol.NumberOfVersion
+		NumberOfVersion() protocol.NumberOfVersion
 		
 	}
 )
