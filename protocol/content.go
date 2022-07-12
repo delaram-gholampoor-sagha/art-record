@@ -60,8 +60,11 @@ type (
        ContentID() [16]byte 
 			 NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	Content_Service_Count_Request interface {
+
+)
+
+type (
+		Content_Service_Count_Request interface {
 		ContentID() [16]byte
 	}
 	
@@ -70,6 +73,11 @@ type (
 	}
 	
 	
+)
+
+
+
+type (
 	Content_Service_Get_Request interface {
 		ContentID() [16]byte
 		VersionOffset() uint64
@@ -79,8 +87,12 @@ type (
 		Content
 	}
 	
-	
-	Content_Service_GetIDs_Request interface {
+)
+
+
+
+type (
+		Content_Service_GetIDs_Request interface {
 		Offset() uint64
 		Limit() uint64
 	}
@@ -90,7 +102,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
-	
+)
+
+
+type (	
 	Content_Service_FindByUserID_Request interface {
 		UserID() [16]byte
 		Offset()  uint64

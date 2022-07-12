@@ -29,7 +29,7 @@ const (
 
 
 type (
-	ContentAccess_Service_Register_Request interface {
+		ContentAccess_Service_Register_Request interface {
 		ContentID() [16]byte    
   	Access() Content_Access 
 	}
@@ -37,8 +37,11 @@ type (
 	ContentAccess_Service_Register_Response interface {
      NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	ContentAccess_Service_Count_Request interface {
+
+)
+
+type (
+		ContentAccess_Service_Count_Request interface {
 		ContentID() [16]byte
 	}
 	
@@ -46,6 +49,11 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+
+type (
 	ContentAccess_Service_Get_Request interface {
 		ContentID() [16]byte
 		VersionOffset() uint64

@@ -19,23 +19,38 @@ type ContentSubstitute_StorageServices interface {
 	
 }
 
-
 type (
-	ContentSubstitute_Service_Register_Request interface {
+		ContentSubstitute_Service_Register_Request interface {
 		ContentID() [16]byte    
 	  Priority() int32        
 	  SubstituteID() [16]byte 
 	}
+
+		ContentSubstitute_Service_Register_Response interface {
+	     NumberOfVersion() protocol.NumberOfVersion
+	}
 	
 	
+	
+
+)
+
+type (
+
 	ContentSubstitute_Service_Count_Request interface {
 		ContentID() [16]byte
 	}
-	
-	ContentSubstitute_Service_Count_Response interface {
+
+		ContentSubstitute_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+
+
+type (
 	ContentSubstitute_Service_Get_Request interface {
 		ContentID() [16]byte
 		VersionOffset() uint64

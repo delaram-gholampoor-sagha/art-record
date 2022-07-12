@@ -20,7 +20,7 @@ type ContentComplement_StorageServices interface {
 }
 
 type (
-	ContentComplement_Service_Register_Request interface {
+		ContentComplement_Service_Register_Request interface {
 		ContentID() [16]byte    
    	Priority() int32        
 	  ComplementID() [16]byte 
@@ -29,9 +29,11 @@ type (
 	ContentComplement_Service_Register_Response interface {
 		 NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	
-	ContentComplement_Service_Count_Request interface {
+
+)
+
+type (
+		ContentComplement_Service_Count_Request interface {
 		ContentID() [16]byte
 	}
 	
@@ -39,6 +41,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+type (	
 	ContentComplement_Service_Get_Request interface {
 		ContentID() [16]byte
 		VersionOffset() uint64

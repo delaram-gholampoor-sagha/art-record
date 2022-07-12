@@ -34,9 +34,10 @@ type (
 	ContentStatus_Service_Register_Response interface {
 	 NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	
-	
+
+)
+
+type (
 	ContentStatus_Service_Count_Request interface {
 	ContentID() [16]byte
 	}
@@ -45,6 +46,11 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+
+type (
 	ContentStatus_Service_Get_Request interface {
 	 ContentID() [16]byte
 	 VersionOffset() uint64

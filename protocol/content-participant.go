@@ -43,8 +43,9 @@ const (
 )
 
 
+
 type (
-	ContentParticipant_Service_Register_Request interface {
+		ContentParticipant_Service_Register_Request interface {
 		ContentID() [16]byte           
   	Type() ContentParticipant_Type 
   	UserID() [16]byte              
@@ -53,9 +54,11 @@ type (
 	ContentParticipant_Service_Register_Response interface {
 	  NumberOfVersion() protocol.NumberOfVersion         
 	}
-	
-	
-	ContentParticipant_Service_Count_Request interface {
+
+)
+
+type (
+		ContentParticipant_Service_Count_Request interface {
 		ContentID() [16]byte
 	}
 	
@@ -63,6 +66,11 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+
+type (
 	ContentParticipant_Service_Get_Request interface {
 		ContentID() [16]byte
 		VersionOffset() uint64
@@ -72,6 +80,11 @@ type (
 		ContentParticipant
 	}
 	
+)
+
+
+type (
+
 	ContentParticipant_Service_FindByUserID_Request interface {
 		UserID() [16]byte 
 		Offset() uint64
