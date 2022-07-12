@@ -24,7 +24,7 @@ type RoleAccess_StorageServices interface {
 
 
 type (
-	RoleAccess_Service_Register_Request interface{
+		RoleAccess_Service_Register_Request interface{
 		RoleID() [16]byte                      
 	  AccessControl() protocol.AccessControl 
 	}
@@ -32,15 +32,24 @@ type (
 	RoleAccess_Service_Register_Response interface{
 	  NumberOfVersion() protocol.NumberOfVersion 
 	}
-	
-	RoleAccess_Service_Count_Request interface{
+
+)
+
+type (
+		RoleAccess_Service_Count_Request interface{
 		RoleID() [16]byte
 	}
 	
 	RoleAccess_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	RoleAccess_Service_Get_Request interface{
+	
+)
+
+
+
+type (
+		RoleAccess_Service_Get_Request interface{
 		RoleID() [16]byte
 		VersionOffset() uint64
 	}
@@ -50,6 +59,11 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+
+type (
 	RoleAccess_Service_Last_Request interface{
 		RoleID() [16]byte
 	}

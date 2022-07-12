@@ -34,7 +34,10 @@ type (
 			RoleID() [16]byte
       NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	Role_Service_Count_Request interface{
 		RoleID() [16]byte
 	}
@@ -42,7 +45,12 @@ type (
 	Role_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	Role_Service_Get_Request interface{
+	
+)
+
+
+type (
+		Role_Service_Get_Request interface{
 		RoleID() [16]byte
 		VersionOffset() uint64
 	}
@@ -51,7 +59,11 @@ type (
 		Role
 	}
 	
-	Role_Service_GetIDs_Request interface{
+)
+
+
+type (
+		Role_Service_GetIDs_Request interface{
 		Offset() uint64
 		Limit() uint64
 	}
@@ -61,6 +73,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+type (
 	Role_Service_FindByDepartmentID_Request interface{
 		DepartmentID() [16]byte
 		Offset() uint64

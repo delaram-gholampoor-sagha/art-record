@@ -20,8 +20,8 @@ type RoleSalary_StorageServices interface {
 	
 }
 
-type (
 
+type (
 	RoleSalary_Service_Register_Request interface{
 		RoleID() [16]byte                    
 	  WeeklySalary() protocol.AmountOfMoney 
@@ -31,15 +31,23 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion      
 	}
 	
-	
-	RoleSalary_Service_Count_Request interface{
+
+)
+
+type (
+		RoleSalary_Service_Count_Request interface{
 		RoleID() [16]byte
 	}
 	
 	RoleSalary_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	RoleSalary_Service_Get_Request interface{
+	
+)
+
+
+type (
+		RoleSalary_Service_Get_Request interface{
 		RoleID() [16]byte
 		VersionOffset() uint64
 	}
@@ -49,6 +57,9 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+type (
 	RoleSalary_Service_Last_Request interface{
 		RoleID() [16]byte
 	}

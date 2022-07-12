@@ -20,7 +20,7 @@ type RoleLocation_StorageServices interface {
 }
 
 type (
-	RoleLocation_Service_Register_Request interface{
+		RoleLocation_Service_Register_Request interface{
 		RoleID() [16]byte             
   	BuildingLocationID() [16]byte 
 	}
@@ -29,7 +29,10 @@ type (
 		RoleLocation_Service_Register_Response interface{
      NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	RoleLocation_Service_Count_Request interface{
 		RoleID() [16]byte
 	}
@@ -37,6 +40,11 @@ type (
 	RoleLocation_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+type (
 	RoleLocation_Service_Get_Request interface{
 		RoleID() [16]byte
 		VersionOffset() uint64
@@ -47,6 +55,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+type (
 	RoleLocation_Service_Last_Request interface{
 		RoleID() [16]byte
 	}

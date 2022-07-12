@@ -21,9 +21,8 @@ type RoleStaff_StorageServices interface {
 }
 
 
- 
-type (
 
+type (
 	RoleStaff_Service_Register_Request interface{
 		RoleID() [16]byte
 		Minimum() int        
@@ -35,8 +34,10 @@ type (
 	RoleStaff_Service_Register_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion      
 	}
-	
-	
+
+)
+
+type (
 	RoleStaff_Service_Count_Request interface{
 		RoleID() [16]byte
 	}
@@ -44,6 +45,11 @@ type (
 	RoleStaff_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+type (
 	RoleStaff_Service_Get_Request interface{
 		RoleID() [16]byte
 		VersionOffset() uint64
@@ -53,6 +59,12 @@ type (
 		RoleStaff
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+ 
+type (
 	
 	RoleStaff_Service_Last_Request interface{
 		RoleID() [16]byte

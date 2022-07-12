@@ -17,6 +17,8 @@ type RoleTimingUTC_StorageServices interface {
 	Get(roleID [16]byte, versionOffset uint64) (rt RoleTimingUTC, err protocol.Error)
 }
 
+
+
 type (
 	RoleTimingUTC_Service_Register_Request interface {
 		RoleID() [16]byte
@@ -28,13 +30,22 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
-	RoleTimingUTC_Service_Count_Request interface {
+)
+
+type (
+		RoleTimingUTC_Service_Count_Request interface {
 		RoleID() [16]byte
 	}
 
 	RoleTimingUTC_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+
+type (
 	RoleTimingUTC_Service_Get_Request interface {
 		RoleID() [16]byte
 		VersionOffset() uint64

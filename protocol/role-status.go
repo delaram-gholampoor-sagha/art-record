@@ -28,7 +28,7 @@ const (
 )
 
 type (
-	RoleStatus_Service_Register_Request interface{
+		RoleStatus_Service_Register_Request interface{
 		RoleID() [16]byte    
   	Status()	RoleStatus
 	}
@@ -36,7 +36,10 @@ type (
 		RoleStatus_Service_Register_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	RoleStatus_Service_Count_Request interface{
 		RoleID() [16]byte
 	}
@@ -44,6 +47,11 @@ type (
 	RoleStatus_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+type (
 	RoleStatus_Service_Get_Request interface{
 		RoleID() [16]byte
 		VersionOffset() uint64
@@ -53,8 +61,10 @@ type (
 	  Status()	RoleStatus
 	}
 	
+)
 
-	
+
+type (
 	RoleStatus_Service_FilterByStatus_Request interface{
 		Status() RoleStatus
 		Offset() uint64
