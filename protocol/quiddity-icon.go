@@ -26,9 +26,12 @@ type (
 	}
 	
 	QuiddityIcon_Service_Register_Response interface {
-		Numbers() [16]byte
+		Nv() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	QuiddityIcon_Service_Count_Request interface {
 		QuiddityID() [16]byte
 	}
@@ -36,7 +39,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
-	
+)
+
+
+type (
 	QuiddityIcon_Service_Get_Request interface {
 		QuiddityID() [16]byte
 		VersionOffset() uint64

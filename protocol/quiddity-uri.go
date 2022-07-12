@@ -23,8 +23,8 @@ type QuiddityURI_StorageServices interface {
 	FindByQuiddityID(quiddityID [16]byte, offset, limit uint64) (uris [][]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
+
 type (
-	
 	QuiddityURI_Service_Register_Request interface {
 		URI() []byte
 		QuiddityID() [16]byte
@@ -33,14 +33,22 @@ type (
 	QuiddityURI_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	QuiddityURI_Service_Count_Request interface {
+
+)
+
+type (
+		QuiddityURI_Service_Count_Request interface {
 		URI() []byte	
 	}
 
 	QuiddityURI_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
 
+
+type (
 	QuiddityURI_Service_Get_Request interface {
 		URI() []byte
 		VersionOffset() uint64 
@@ -49,8 +57,11 @@ type (
 	QuiddityURI_Service_Get_Response interface {
 		QuiddityURI
 	}
+	
+)
 
 
+type (
 	QuiddityURI_Service_FindQuiddityID_Request interface {
 		URI() []byte
 		QuiddityID() [16]byte

@@ -30,8 +30,10 @@ type (
 	QuiddityOwner_Service_Register_Response interface {
 		Numbers() [16]byte
 	}
-	
-	
+
+)
+
+type (
 	QuiddityOwner_Service_Count_Request interface {
 		QuiddityID() [16]byte
 	}
@@ -39,7 +41,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
-	
+)
+
+
+type (
 	QuiddityOwner_Service_Get_Request interface {
 		QuiddityID() [16]byte
 		VersionOffset() uint64
@@ -48,6 +53,11 @@ type (
 		QuiddityOwner
 	}
 	
+)
+
+
+
+type (	
 	QuiddityOwner_Service_FindByUserID_Request interface {
 		UserID() [32]byte
 		Offset() uint64

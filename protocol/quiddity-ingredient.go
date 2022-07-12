@@ -19,6 +19,8 @@ type ProductIngredient_StorageServices interface {
 	FindByIngredient(ingredientID [16]byte, offset, limit uint64) (QuiddityIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
+
+
 type (
 	ProductIngredient_Service_Register_Request interface {
 		QuiddityID() [16]byte    
@@ -27,15 +29,22 @@ type (
 	ProductIngredient_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	ProductIngredient_Service_Count_Request interface {
+
+)
+
+type (
+		ProductIngredient_Service_Count_Request interface {
 		QuiddityID() [16]byte
 	}
 	ProductIngredient_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
-	ProductIngredient_Service_Get_Request interface {
+)
+
+
+type (
+		ProductIngredient_Service_Get_Request interface {
 		QuiddityID() [16]byte
 		VersionOffset() uint64
 	}
@@ -44,6 +53,10 @@ type (
  		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+type (
 	ProductIngredient_Service_FindByIngredient_Request interface {
 		IngredientID() [16]byte
 		Offset() uint64

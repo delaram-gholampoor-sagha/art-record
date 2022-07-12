@@ -23,6 +23,7 @@ type QuiddityModel_StorageServices interface {
 	FindByObjectID(objectID [16]byte, offset, limit uint64) (quiddityIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
+
 type (
 	QuiddityModel_Service_Register_Request interface {
 		QuiddityID() [16]byte
@@ -30,9 +31,12 @@ type (
 	}
 	
 	QuiddityModel_Service_Register_Response interface {
-		Numbers() [16]byte
+		Nv() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	QuiddityModel_Service_Count_Request interface {
 		QuiddityID() [16]byte
 	}
@@ -40,7 +44,9 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
-	
+)
+
+type (
 	QuiddityModel_Service_Get_Request interface {
 		QuiddityID() [16]byte
 		VersionOffset() uint64
@@ -49,6 +55,9 @@ type (
 		QuiddityModel
 	}
 	
+)
+
+type (	
 	QuiddityModel_Service_FindByUserID_Request interface {
 		UserID() [32]byte
 		Offset() uint64
