@@ -25,8 +25,10 @@ type (
 	ProductReserveValidity_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	
+
+)
+
+type (
 	ProductReserveValidity_Service_Count_Request interface {
 		ProductID() [16]byte
 	
@@ -36,6 +38,11 @@ type (
 	
 	}
 	
+)
+
+
+
+type (
 	ProductReserveValidity_Service_Get_Request interface {
 		ProductID() [16]byte
 		VersionOffset() uint64

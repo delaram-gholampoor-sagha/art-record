@@ -35,7 +35,10 @@ type (
 	ProductTax_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	ProductTax_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
@@ -43,7 +46,10 @@ type (
 	ProductTax_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	ProductTax_Service_Get_Request interface {
 		ProductID() [16]byte
 		VersionOffset() uint64

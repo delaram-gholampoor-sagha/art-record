@@ -22,7 +22,6 @@ type ProductProviderStaff_StorageServices interface {
 // related UserIDs by StaffID use to get Coordinate(domain)
 
 type (
-	
 	ProductProviderStaff_Service_Register_Request interface {
 		ProductID() [16]byte
 		StaffID() [16]byte
@@ -31,8 +30,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
+)
 
-	ProductProviderStaff_Service_Count_Request interface {
+type (
+		ProductProviderStaff_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
 	ProductProviderStaff_Service_Count_Response interface {
@@ -40,8 +41,11 @@ type (
 
 	}
 
+)
 
-	ProductProviderStaff_Service_Get_Request interface {
+
+type (
+		ProductProviderStaff_Service_Get_Request interface {
 		ProductID() [16]byte
 		VersionOffset() uint64	
 	}
@@ -50,7 +54,11 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 
 	}
+	
+)
 
+
+type (
 
 	ProductProviderStaff_Service_FindByStaff_Request interface {
 		StaffID() [16]byte

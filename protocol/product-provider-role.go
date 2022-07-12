@@ -22,6 +22,7 @@ type ProductProviderRole_StorageServices interface {
 
 // related UserIDs by RoleID use to get Coordinate(domain)
 
+
 type (
 	ProductProviderRole_Service_Register_Request interface {
 		ProductID() [16]byte
@@ -30,14 +31,23 @@ type (
 	ProductProviderRole_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	ProductProviderRole_Service_Count_Request interface {
+
+)
+
+type (
+
+		ProductProviderRole_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
 	ProductProviderRole_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+
+type (
 	ProductProviderRole_Service_Get_Request interface {
 		ProductID() [16]byte
 		VersionOffset() uint64
@@ -48,6 +58,11 @@ type (
 		
 	}
 	
+)
+
+
+
+type (
 	ProductProviderRole_Service_FindByRole_Request interface {
 		RoleID() [16]byte
 		Offset() uint64

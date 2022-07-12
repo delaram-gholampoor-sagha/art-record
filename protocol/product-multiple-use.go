@@ -20,7 +20,7 @@ type ProductMultipleUse_StorageServices interface {
 
 
 type (
-	ProductMultipleUse_Service_Register_Request interface {
+		ProductMultipleUse_Service_Register_Request interface {
 		ProductID() [16]byte        
 		Maximum() uint64           
 		Timeout() protocol.Duration 
@@ -28,9 +28,14 @@ type (
 	ProductMultipleUse_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	//	Count(productID [16]byte, currency uint64) (nv protocol.NumberOfVersion, err protocol.Error)
-	
-	ProductMultipleUse_Service_Count_Request interface {
+
+)
+
+
+
+type (
+
+		ProductMultipleUse_Service_Count_Request interface {
 		ProductID() [16]byte
 	
 	}
@@ -38,6 +43,11 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+type (
+
 	ProductMultipleUse_Service_Get_Request interface {
 		ProductID() [16]byte
 		VersionOffset() uint64

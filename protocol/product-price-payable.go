@@ -21,7 +21,8 @@ type ProductPricePayable_StorageServices interface {
 }
 
 type (
-	ProductPricePayable_Service_Register_Request interface {
+
+		ProductPricePayable_Service_Register_Request interface {
 		ProductID() [16]byte
 		Currency() uint64 
 		Price()  protocol.AmountOfMoney
@@ -29,8 +30,11 @@ type (
 	ProductPricePayable_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	ProductPricePayable_Service_Count_Request interface {
+
+)
+
+type (
+		ProductPricePayable_Service_Count_Request interface {
 		ProductID() [16]byte
 		Currency() uint64
 	}
@@ -38,6 +42,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+type (
 	ProductPricePayable_Service_Get_Request interface {
 		ProductID() [16]byte
 		Currency() uint64

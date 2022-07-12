@@ -23,8 +23,8 @@ type ProductInventoryChange_StorageServices interface {
 	FindByProduct(productID [16]byte, offset, limit uint64) (productIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
+
 type (
-	
 	ProductInventoryChange_Service_Register_Request interface {
 		ProductInventoryChangeID() [16]byte 
 		ProductID() [16]byte                
@@ -37,13 +37,18 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
+)
+
+type (
 	ProductInventoryChange_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
 	ProductInventoryChange_Service_Count_Response interface {
 		Numbers()uint64
 	}
+)
 
+type (
 	ProductInventoryChange_Service_Get_Request interface {
 		ProductID() [16]byte
 		VersionOffset() uint64
@@ -53,6 +58,9 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
+)
+
+type (
 	ProductInventoryChange_Service_FindByProduct_Request interface {
 		ProductID() [16]byte
 		Offset() uint64

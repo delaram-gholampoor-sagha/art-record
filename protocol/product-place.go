@@ -20,15 +20,19 @@ type ProductPlace_StorageServices interface {
 	FindByBuildingLocation(buildingLocationID [16]byte, offset, limit uint64) (productIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
+
 type (
-	ProductPlace_Service_Register_Request interface {
+		ProductPlace_Service_Register_Request interface {
 		ProductID() [16]byte
 		BuildingLocationID() [16]byte
 	}
 	ProductPlace_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	ProductPlace_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
@@ -36,7 +40,11 @@ type (
 		Numbers()uint64
 	}
 	
-	ProductPlace_Service_Get_Request interface {
+)
+
+
+type (
+		ProductPlace_Service_Get_Request interface {
 		ProductID() [16]byte
 		VersionOffset() uint64
 	}
@@ -44,6 +52,12 @@ type (
 		ProductPlace
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+
+type (
 	
 	ProductPlace_Service_FindByBuildingLocation_Request interface {
 		BuildingLocationID() [16]byte

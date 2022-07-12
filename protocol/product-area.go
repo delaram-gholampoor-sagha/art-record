@@ -21,7 +21,7 @@ type ProductArea_StorageServices interface {
 }
 
 type (
-	ProductArea_Service_Register_Request interface {
+		ProductArea_Service_Register_Request interface {
 		ProductID() [16]byte 
 		AreaID() [16]byte    
 	
@@ -29,8 +29,11 @@ type (
 	ProductArea_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	ProductArea_Service_Count_Request interface {
+
+)
+
+type (
+		ProductArea_Service_Count_Request interface {
 		ProductID() [16]byte
 	
 	}
@@ -38,7 +41,11 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
-	ProductArea_Service_Get_Request interface {
+)
+
+
+type (
+		ProductArea_Service_Get_Request interface {
 		ProductID() [16]byte    
 		VersionOffset() uint64
 	}
@@ -47,6 +54,11 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+
+type (
 	ProductArea_Service_FindByArea_Request interface {
 		AreaID() [16]byte
 		Offset() uint64

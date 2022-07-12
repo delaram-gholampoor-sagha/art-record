@@ -18,6 +18,16 @@ type ProductSeat_StorageServices interface {
 	Count(productID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(productID [16]byte, versionOffset uint64) (ps ProductSeat, nv protocol.NumberOfVersion, err protocol.Error)
 }
+
+type ProductSeat_Type uint8
+
+const (
+	ProductSeat_Type_Unset           ProductSeat_Type = 0
+	ProductSeat_Type_ChooseSeatByOrg ProductSeat_Type = (1 << iota)
+	ProductSeat_Type_ChooseSeatByAttendanceTime
+)
+
+
 type (
 	ProductSeat_Services_Register_Request interface{
 		ProductID() [16]byte
@@ -30,13 +40,21 @@ type (
 
 	}
 
-	ProductSeat_Service_Count_Request interface{
+)
+
+type (
+		ProductSeat_Service_Count_Request interface{
 		ProductID() [16]byte
 	}
 	ProductSeat_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion	
 	}
 
+)
+
+
+
+type (
 	ProductSeat_Service_Get_Request interface{
 		ProductID() [16]byte
 		VersionOffset() uint64
@@ -47,10 +65,3 @@ type (
 	}
 )
 
-type ProductSeat_Type uint8
-
-const (
-	ProductSeat_Type_Unset           ProductSeat_Type = 0
-	ProductSeat_Type_ChooseSeatByOrg ProductSeat_Type = (1 << iota)
-	ProductSeat_Type_ChooseSeatByAttendanceTime
-)

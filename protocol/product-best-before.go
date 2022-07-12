@@ -19,7 +19,7 @@ type ProductBestBefore_StorageServices interface {
 }
 
 type (
-	ProductBestBefore_Service_Register_Request interface {
+		ProductBestBefore_Service_Register_Request interface {
 		ProductID() [16]byte 
 		Duration() protocol.Duration     
 	
@@ -27,8 +27,11 @@ type (
 	ProductBestBefore_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	ProductBestBefore_Service_Count_Request interface {
+
+)
+
+type (
+		ProductBestBefore_Service_Count_Request interface {
 		ProductID() [16]byte
 	
 	}
@@ -36,6 +39,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+type (	
 	ProductBestBefore_Service_Get_Request interface {
 		ProductID() [16]byte    
 		VersionOffset() uint64

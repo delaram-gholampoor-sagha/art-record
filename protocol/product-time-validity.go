@@ -19,7 +19,9 @@ type ProductTimeValidity_StorageServices interface {
 	Get(productID [16]byte, versionOffset uint64) (pt ProductTimeValidity, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
-type (
+
+
+type(
 	ProductTimeValidity_Service_Register_Request interface {
 		ProductID() [16]byte  
 	  Start() protocol.Time 
@@ -29,7 +31,10 @@ type (
 	ProductTimeValidity_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type(
 	ProductTimeValidity_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
@@ -37,7 +42,12 @@ type (
 	ProductTimeValidity_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+
+
+type (
 	ProductTimeValidity_Service_Get_Request interface {
 		ProductID() [16]byte
 		VersionOffset() uint64

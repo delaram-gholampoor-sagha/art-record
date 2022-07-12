@@ -19,8 +19,9 @@ type ProductProvider_StorageServices interface {
 	Get(productID [16]byte, versionOffset uint64) (pr ProductProvider, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
+
 type (
-	ProductProvider_Service_Register_Request interface {
+		ProductProvider_Service_Register_Request interface {
 		ProductID() [16]byte 
   	RoleID() [16]byte    
 		Percent() uint64
@@ -28,7 +29,10 @@ type (
 	ProductProvider_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	ProductProvider_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
@@ -37,6 +41,10 @@ type (
 	
 	}
 	
+)
+
+
+type (
 	ProductProvider_Service_Get_Request interface {
 		ProductID() [16]byte
 		VersionOffset() uint64

@@ -87,6 +87,9 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
+)
+
+type (
 	Product_Service_Count_Request interface{
 		ProductID() [16]byte
 	}
@@ -94,7 +97,13 @@ type (
 	Product_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	Product_Service_Get_Request interface{
+	
+)
+
+
+
+type (
+		Product_Service_Get_Request interface{
 		ProductID() [16]byte
 		VersionOffset() uint64
 	}
@@ -103,7 +112,11 @@ type (
 		Product
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
 
+
+type (
 	Product_Service_FilterByType_Request interface{
 		Product_Type() uint64
 		Offset() uint64

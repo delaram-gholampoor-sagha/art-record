@@ -29,7 +29,6 @@ const (
 
 
 type (
-	
 	ProductStatus_Service_Register_Request interface {
 		ProductID() [16]byte    
 		Status() Product_Status 
@@ -39,6 +38,9 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
+)
+
+type (
 	ProductStatus_Service_Count_Request interface {
 		ProductID() [16]byte    
 		
@@ -48,7 +50,11 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 		
 	}
+	
+)
 
+
+type (
 	Product_Status_Service_Get_Request interface {
 		ProductID() [16]byte
 		VersionOffset() uint64
@@ -58,7 +64,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 
 	}
+	
+)
 
+type (
 	Product_Status_Service_FilterByStatus_Request interface{
 		Status() Product_Status
 		Offset() uint64

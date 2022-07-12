@@ -23,24 +23,40 @@ type ProductInventoryChangeStatus_StorageServices interface {
 
 type ProductInventoryChange_Status Quiddity_Status
 
+// DC abbreviation for distribution-center or Warehouse
+const (
+	ProductInventoryChange_Status_OutcomeDCRequested = ProductInventoryChange_Status(Quiddity_Status_FreeFlag << iota)
+	ProductInventoryChange_Status_IncomeDCRequested
+	ProductInventoryChange_Status_OutcomeDCApproved
+	ProductInventoryChange_Status_IncomeDCApproved
+	ProductInventoryChange_Status_Void
+)
+
+
 type (
-	ProductInventoryChangeStatus_Service_Register_Request interface {
+		ProductInventoryChangeStatus_Service_Register_Request interface {
 		ProductInventoryChangeID() [16]byte    
 		Status() ProductInventoryChange_Status
 	}
 	ProductInventoryChangeStatus_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	//	Count(productID [16]byte, currency uint64) (nv protocol.NumberOfVersion, err protocol.Error)
-	
-	ProductInventoryChangeStatus_Service_Count_Request interface {
+
+)
+
+type (
+		ProductInventoryChangeStatus_Service_Count_Request interface {
 		ProductInventoryChangeID() [16]byte
 	}
 	ProductInventoryChangeStatus_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
-	ProductInventoryChangeStatus_Service_Get_Request interface {
+)
+
+
+type (
+		ProductInventoryChangeStatus_Service_Get_Request interface {
 		productInventoryChangeID() [16]byte
 		VersionOffset() uint64
 	}
@@ -48,6 +64,10 @@ type (
 		ProductInventoryChangeStatus
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+type (
 	ProductInventoryChangeStatus_Service_FilterByStatus_Request interface {
 		Status() ProductInventoryChange_Status
 		Offset()
@@ -61,11 +81,3 @@ type (
 )
 
 
-// DC abbreviation for distribution-center or Warehouse
-const (
-	ProductInventoryChange_Status_OutcomeDCRequested = ProductInventoryChange_Status(Quiddity_Status_FreeFlag << iota)
-	ProductInventoryChange_Status_IncomeDCRequested
-	ProductInventoryChange_Status_OutcomeDCApproved
-	ProductInventoryChange_Status_IncomeDCApproved
-	ProductInventoryChange_Status_Void
-)

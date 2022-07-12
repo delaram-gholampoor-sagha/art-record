@@ -19,8 +19,9 @@ type ProductSubstitute_StorageServices interface {
 
 	FindBySubstitute(substituteID [16]byte, offset, limit uint64) (productIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
+
+
 type (
-	
 	ProductSubstitute_Service_Register_Request interface{
 		ProductID() [16]byte    
 		Priority() uint64      
@@ -30,14 +31,22 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
-	ProductSubstitute_Service_Count_Request interface{
+)
+
+type (
+		ProductSubstitute_Service_Count_Request interface{
 		ProductID() [16]byte
 	}
 
 	ProductSubstitute_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	ProductSubstitute_Service_Get_Request interface{
+	
+)
+
+
+type (
+		ProductSubstitute_Service_Get_Request interface{
 		ProductID() [16]byte
 		VersionOffset() uint64
 	}
@@ -46,6 +55,11 @@ type (
 		ProductSubstitute
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+type (
 
 	ProductSubstitute_Service_FilterByType_Request interface{
 		SubstituteID() uint64

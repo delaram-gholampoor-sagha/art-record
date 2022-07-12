@@ -21,6 +21,7 @@ type ProductPrice_StorageServices interface {
 	ListProductCurrencies(productID [16]byte, offset, limit uint64) (currencies []uint64, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
+
 type (
 	ProductPrice_Service_Register_Request interface {
 		ProductID() [16]byte
@@ -29,7 +30,10 @@ type (
 	ProductPrice_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	ProductPrice_Service_Count_Request interface {
 		ProductID() [16]byte
 		Currency() uint64
@@ -37,7 +41,10 @@ type (
 	ProductPrice_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	ProductPrice_Service_Get_Request interface {
 		ProductID() [16]byte
 		Currency() uint64
@@ -48,6 +55,9 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+type (
 	ProductPrice_Service_ListProductCurrencies_Request interface {
 		ProductID() [16]byte
 		Offset()

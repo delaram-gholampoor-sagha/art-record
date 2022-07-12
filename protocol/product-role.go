@@ -21,7 +21,7 @@ type ProductRole_StorageServices interface {
 }
 
 type (
-	ProductRole_Service_Register_Request interface{
+		ProductRole_Service_Register_Request interface{
 		ProductID() [16]byte
 		RoleID() [16]byte
 	
@@ -29,16 +29,23 @@ type (
 	ProductRole_Service_Register_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	ProductRole_Service_Count_Request interface{
+
+)
+
+type (
+		ProductRole_Service_Count_Request interface{
 		ProductID() [16]byte
 	}
 	ProductRole_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
-	
-	ProductRole_Service_Get_Request interface{
+
+)
+
+
+type (
+		ProductRole_Service_Get_Request interface{
 		ProductID() [16]byte
 		VersionOffset() uint64
 	}
@@ -46,7 +53,13 @@ type (
 		ProductRole
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+
+
+
+type (
 	ProductRole_Service_FindByRole_Request interface{
 		RoleID() [16]byte
 		Offset() uint64 

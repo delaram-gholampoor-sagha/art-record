@@ -20,6 +20,7 @@ type ProductTimingInterval_StorageServices interface {
 	Get(productID [16]byte, versionOffset uint64) (pt ProductTimingInterval, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
+
 type (
 	ProductTimingInterval_Service_Register_Request interface {
 			ProductID() [16]byte         
@@ -31,7 +32,11 @@ type (
 	ProductTimingInterval_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+
+type (
 	ProductTimingInterval_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
@@ -39,7 +44,11 @@ type (
 	ProductTimingInterval_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+
+type (
 	ProductTimingInterval_Service_Get_Request interface {
 		ProductID() [16]byte
 		VersionOffset() uint64

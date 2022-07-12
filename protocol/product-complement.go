@@ -20,7 +20,10 @@ type ProductComplement_StorageServices interface {
 	ListProducts(complementID [16]byte, offset, limit uint64) (productIDs [16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	ListPriorities(complementID [16]byte, productID [16]byte, offset, limit uint64) (priorities []uint64, nv protocol.NumberOfVersion, err protocol.Error)
 }
+
+
 type (
+
 	ProductComplement_Service_Register_Request interface {
 		ProductID() [16]byte 
 		Priority() uint64       
@@ -30,7 +33,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
-	ProductComplement_Service_Count_Request interface {
+)
+
+type (
+		ProductComplement_Service_Count_Request interface {
 		ProductID() [16]byte
 		Priority() uint64
 	}
@@ -38,7 +44,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
-	ProductComplement_Service_Get_Request interface {
+)
+
+type (
+		ProductComplement_Service_Get_Request interface {
 		ProductID() [16]byte
 		Priority() uint64       
 		VersionOffset() uint64
@@ -47,8 +56,11 @@ type (
 		ProductComplement
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
 
 
+type (
 	ProductComplement_Service_ListProducts_Request interface {
 		ComplementID() [16]byte
 		Offset() uint64
@@ -58,8 +70,12 @@ type (
 		ProductIDs() [][16]byte
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
 
 
+
+type (
 	ProductComplement_Service_ListPriorities_Request interface {
 		ComplementID() [16]byte
 		ProductID() [16]byte

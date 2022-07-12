@@ -27,15 +27,23 @@ type (
 	ProductGroup_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	ProductGroup_Service_Count_Request interface {
+
+)
+
+type (
+		ProductGroup_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
 	ProductGroup_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
-	ProductGroup_Service_Get_Request interface {
+)
+
+
+
+type (
+		ProductGroup_Service_Get_Request interface {
 		ProductID() [16]byte
 		VersionOffset() uint64
 	}
@@ -43,6 +51,10 @@ type (
 		ProductGroup
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+type (
 	
 	ProductGroup_Service_FindByGroup_Request interface {
 		GroupID() [16]byte
