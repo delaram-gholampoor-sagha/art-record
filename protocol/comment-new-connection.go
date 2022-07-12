@@ -27,7 +27,7 @@ type CommentFollow_StorageServices interface {
 
 
 type (
-	CommentFollow_Service_Register_Request interface {
+		CommentFollow_Service_Register_Request interface {
 		CommentID() [16]byte 
 	  ObjectID() [16]byte  
 	}
@@ -35,7 +35,10 @@ type (
 	CommentFollow_Service_Register_Response interface {
 	  NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	CommentFollow_Service_Count_Request interface {
 		CommentID() [16]byte
 	}
@@ -44,6 +47,9 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+type (
 	CommentFollow_Service_Get_Request interface {
 		CommentID() [16]byte
 		VersionOffset() uint64

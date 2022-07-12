@@ -19,7 +19,7 @@ type CommentThread_StorageServices interface {
 
 
 type (
-	CommentThread_Service_Register_Request interface {
+		CommentThread_Service_Register_Request interface {
 			CommentID() [16]byte             
     	ArchiveAfter() protocol.Duration 
 	}
@@ -27,10 +27,12 @@ type (
 		CommentThread_Service_Register_Response interface {
       NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	
+
+)
+
+type (
 	CommentThread_Service_Get_Request interface {
-		CommentID() uint64
+		CommentID() [16]byte 
 	}
 	
 	CommentThread_Service_Get_Response interface {

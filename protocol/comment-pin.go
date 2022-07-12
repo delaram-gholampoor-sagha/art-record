@@ -18,27 +18,22 @@ type CommentPin_StorageServices interface {
 
 	FindByGroupID(groupID [16]byte, offset, limit uint64) (commentIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
-
 // Unpin service : Hidden status to unpin a comment
-type (
-	CommentPin_Service_Register_Request interface {
-		CommentID() [16]byte 
-		GroupID() [16]byte  
-		PinedID() [16]byte   
-	}
 
-	CommentPin_Service_Register_Response interface {
-		 NumberOfVersion() protocol.NumberOfVersion  
-	}
-	
-	CommentPin_Service_Get_Request interface {
+type (
+		CommentPin_Service_Get_Request interface {
 		CommentID() [16]byte
 	}
 	
 	CommentPin_Service_Get_Response interface {
 		CommentPin
 	}
-	
+
+)
+
+
+
+type (
 	CommentPin_Service_FindByGroupID_Request interface {
 		GroupID() [16]byte
 		Offset()  uint64

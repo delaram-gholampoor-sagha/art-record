@@ -29,7 +29,7 @@ const (
 
 
 type (
-	CommentStatus_Service_Register_Request interface {
+		CommentStatus_Service_Register_Request interface {
 		CommentID() [16]byte    
   	Status() Comment_Status 
 	}
@@ -38,6 +38,10 @@ type (
 	  NumberOfVersion() protocol.NumberOfVersion
 	}
 
+
+)
+
+type (
 	CommentStatus_Service_Count_Request interface {
 	CommentID() [16]byte
 	}
@@ -45,7 +49,12 @@ type (
 	CommentStatus_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
 
+
+
+type (
 	CommentStatus_Service_Get_Request interface {
 	CommentID() [16]byte
 	VersionOffset() uint64

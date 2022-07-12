@@ -31,7 +31,11 @@ type (
 	CommentObject_Service_Register_Response interface {
 	  NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+
+type (
 	CommentObject_Service_Count_Request interface {
 		CommentID() [16]byte
 	}
@@ -40,6 +44,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+type (
 	CommentObject_Service_Get_Request interface {
 		CommentID() [16]byte
 		VersionOffset() uint64
@@ -48,6 +56,10 @@ type (
 		CommentObject
 	}
 	
+)
+
+
+type (
 	CommentObject_Service_FindByObjectID_Request interface {
 		ObjectID() [16]byte
 		Offset() uint64

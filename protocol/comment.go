@@ -65,7 +65,6 @@ const (
 
 
 type (
-	
 	Comment_Service_Register_Request interface {
 		GroupID() [16]byte         
 		ReplyTo() [16]byte         
@@ -79,6 +78,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
+)
+
+type (
+
 	Comment_Service_Count_Request interface {
 		GroupID() [16]byte
 	}
@@ -86,8 +89,13 @@ type (
 	Comment_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
 
-	Comment_Service_Get_Request interface {
+
+
+type (
+		Comment_Service_Get_Request interface {
 		GroupID() [16]byte
 		versionOffset() uint64
 	}
@@ -96,8 +104,14 @@ type (
 		Comment
 	}
 
+	
+)
 
-	Comment_Service_FindByReplyTo_Request interface {
+
+
+type (
+
+		Comment_Service_FindByReplyTo_Request interface {
 		GroupID() [16]byte
 		CommentID() [16]byte
 		Offset() uint64
@@ -108,8 +122,13 @@ type (
 		VersionOffsets() []uint64
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
 
-	Comment_Service_FindByUserID_Request interface {
+
+
+type (
+		Comment_Service_FindByUserID_Request interface {
 		GroupID() [16]byte
 		UserID() [16]byte
 		Offset() uint64
@@ -120,8 +139,11 @@ type (
 		VersionOffsets() []uint64
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
 
 
+type (
 	Comment_Service_ListUserGroups_Request interface {
 		UserID() [16]byte
 		Offset() uint64
@@ -132,7 +154,4 @@ type (
 		Ids() [][16]byte
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-
-
-
 )

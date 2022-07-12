@@ -20,9 +20,9 @@ type CommentText_StorageServices interface {
 	FindByText(text string, offset, limit uint64) (commentIDs [16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
+
 type (
-		
-	CommentText_Service_Register_Request interface {
+		CommentText_Service_Register_Request interface {
 		CommentID() [16]byte 
 	  Text() string        
 	}
@@ -31,16 +31,23 @@ type (
 	   NumberOfVersion() protocol.NumberOfVersion        
 	}
 
+)
 
-	CommentText_Service_Count_Request interface {
+type (
+		CommentText_Service_Count_Request interface {
 		CommentID() [16]byte
 	}
 
 	CommentText_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
 
-	CommentText_Service_Get_Request interface {
+
+
+type (
+		CommentText_Service_Get_Request interface {
 		CommentID() [16]byte
 		VersionOffset() uint64
 	}
@@ -48,7 +55,12 @@ type (
 	CommentText_Service_Get_Response interface {
 		CommentText
 	}
+	
+)
 
+
+
+type (
 	CommentText_Service_FindByText_Request interface {
 		Text() string
 		Offset() uint64

@@ -17,7 +17,6 @@ type CommentMentioned_StorageServices interface {
 	
 }
 
-
 type (
 	CommentMentioned_Service_Register_Request interface {
 		UserID() [16]byte    
@@ -27,15 +26,22 @@ type (
 	CommentMentioned_Service_Register_Response interface {
   	NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	CommentMentioned_Service_Count_Request interface {
+
+)
+
+
+type (
+		CommentMentioned_Service_Count_Request interface {
 		UserID() [16]byte
 	}
 	
 	CommentMentioned_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	CommentMentioned_Service_Get_Request interface {
 		UserID() [16]byte 
 		VersionOffset() uint64

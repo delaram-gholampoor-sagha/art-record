@@ -17,9 +17,8 @@ type CommentForward_StorageServices interface {
 
 }
 
-
 type (
-	CommentForward_Service_Register_Request interface {
+		CommentForward_Service_Register_Request interface {
 		CommentID() [16]byte   
 	  ForwardedID() [16]byte 
 	}
@@ -27,7 +26,10 @@ type (
 	CommentForward_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	CommentForward_Service_Get_Request interface {
 		CommentID() [16]byte
 	}
