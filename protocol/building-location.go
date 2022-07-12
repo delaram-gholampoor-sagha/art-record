@@ -20,17 +20,19 @@ type BuildingLocation_StorageServices interface {
 	GetIDs(offset, limit uint64) (BuildingLocationIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
-
 type (
-	BuildingLocation_Service_Register_Request interface {
+		BuildingLocation_Service_Register_Request interface {
 		BuildingLocationID() [16]byte  
 		BuildingID() uint64 	
 	}
 	BuildingLocation_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-		
-	BuildingLocation_Service_Count_Request interface {
+
+)
+
+type (
+		BuildingLocation_Service_Count_Request interface {
 		BuildingLocationID() [16]byte  
 		BuildingID() uint64 
 
@@ -40,6 +42,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
+
+)
+
+type (
 	BuildingLocation_Service_Get_Request interface {
 		BuildingLocationID() [16]byte  
 		BuildingID() uint64
@@ -50,7 +56,12 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
+	
+)
 
+
+
+type (
 	BuildingLocation_Service_GetIDs_Request interface {
 		Offset() uint64
 		Limit() uint64

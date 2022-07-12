@@ -20,9 +20,9 @@ type BuildingLocationUsage_StorageServices interface {
 }
 
 
-type (
 
-	BuildingLocationUsage_Service_Register_Request interface {
+type (
+		BuildingLocationUsage_Service_Register_Request interface {
 		BuildingLocationID() [16]byte  
 		BuildingID() uint64 
 		Usage() string
@@ -30,8 +30,11 @@ type (
 	BuildingLocationUsage_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-		
-	BuildingLocationUsage_Service_Count_Request interface {
+
+)
+
+type (
+		BuildingLocationUsage_Service_Count_Request interface {
 		BuildingLocationID() [16]byte  
 		BuildingID() uint64 
 
@@ -41,7 +44,13 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
-	BuildingLocationUsage_Service_Get_Request interface {
+	
+)
+
+
+
+type (
+		BuildingLocationUsage_Service_Get_Request interface {
 		BuildingLocationID() [16]byte  
 		BuildingID() uint64
 		Vo() protocol.VersionOffset
@@ -51,7 +60,11 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
+	
+)
 
+
+type (
 	BuildingLocationUsage_Service_GetIDs_Request interface {
 		Offset() uint64
 		Limit() uint64

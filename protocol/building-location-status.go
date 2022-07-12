@@ -25,7 +25,7 @@ const (
 )
 
 type (
-	BuildingLocationStatus_Service_Register_Request interface {
+		BuildingLocationStatus_Service_Register_Request interface {
 		BuildingLocationID() [16]byte  
 		Status() BuildingLocation_Status	
 	}
@@ -33,8 +33,11 @@ type (
 	BuildingLocationStatus_Service_Register_Response interface {
 		Numbers()uint64
 	}
-			
-	BuildingLocationStatus_Service_Count_Request interface {
+
+)
+
+type (
+		BuildingLocationStatus_Service_Count_Request interface {
 		BuildingLocationID() [16]byte  
 		
 			
@@ -43,7 +46,12 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
-	BuildingLocationStatus_Service_Get_Request interface {
+	
+)
+
+
+type (
+		BuildingLocationStatus_Service_Get_Request interface {
 		BuildingLocationID() [16]byte  
 		VersionOffset() uint64
 	}
@@ -51,6 +59,12 @@ type (
 		BuildingLocationStatus
 		NumberOfVersion() protocol.NumberOfVersion		
 	}
+	
+)
+
+
+
+type (
 
 	BuildingLocationStatus_Service_FilterByStatus_Request interface {
 		Status() BuildingLocation_Status

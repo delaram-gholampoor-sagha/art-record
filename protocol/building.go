@@ -19,7 +19,7 @@ type Building_StorageServices interface {
 }
 
 type (
-	Building_Service_Register_Request interface {
+		Building_Service_Register_Request interface {
 		BuildingID() [16]byte
 		AreaID() [16]byte
 	}
@@ -27,6 +27,9 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
+)
+
+type (
 	Building_Service_Count_Request interface {
 		BuildingID() [16]byte
 		AreaID() [16]byte
@@ -34,7 +37,11 @@ type (
 	Building_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	Building_Service_Get_Request interface {
+
+)
+
+type (
+		Building_Service_Get_Request interface {
 		BuildingID() [16]byte
 		AreaID() [16]byte
 		Vo() protocol.VersionOffset
@@ -43,6 +50,9 @@ type (
 		Building
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+)
+
+type (
 	Building_Service_GetIDs_Request interface {
 		Offset() uint64
 		Limit() uint64
