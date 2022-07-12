@@ -33,6 +33,7 @@ type UserPublicKey_StorageServices interface {
 }
 
 
+
 type (
 	UserPublicKey_Service_Register_Request interface{
 		UserID() [16]byte             
@@ -44,14 +45,22 @@ type (
 	UserPublicKey_Service_Register_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	UserPublicKey_Service_Count_Request interface{
+
+)
+
+type (
+
+		UserPublicKey_Service_Count_Request interface{
 		UserID() [16]byte
 	}
 	
 	UserPublicKey_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+)
+
+type (
 	UserPublicKey_Service_Get_Request interface{
 		UserID() [16]byte
 		VersionOffset() uint64
@@ -61,7 +70,6 @@ type (
 		UserPublicKey
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	
-	
+
 )
+

@@ -29,6 +29,7 @@ const (
 )
 
 type (
+
 	UserStatus_Service_Register_Request interface {
 		Status() User_Status
 	}
@@ -38,6 +39,10 @@ type (
 		UserID() [16]byte
 	}
 
+)
+
+type (
+
 	UserStatus_Service_Count_Request interface {
 		UserID() [16]byte
 	}
@@ -45,6 +50,12 @@ type (
 	UserStatus_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+
+)
+
+type (
+
 	UserStatus_Service_Get_Request interface {
 		UserID() [16]byte
 		VersionOffset() uint64
@@ -54,7 +65,10 @@ type (
 		UserStatus
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+)
 
+
+type (
 	UserStatus_Service_GetIDs_Request interface {
 		Offset() uint64
 		Limit() uint64

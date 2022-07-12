@@ -28,14 +28,22 @@ type (
 	UserReferent_Service_Register_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	UserReferent_Service_Count_Request interface{
+
+)
+
+
+type (
+		UserReferent_Service_Count_Request interface{
 		UserID() [16]byte
 	}
 	
 	UserReferent_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+)
+
+
+type (
 	UserReferent_Service_Get_Request interface{
 		UserID() [16]byte
 		VersionOffset() uint64
@@ -45,8 +53,9 @@ type (
 		UserReferent
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	
+)
+
+type (	
 	UserReferent_Service_FindByReferentUserID_Request interface{
 		ReferentUserID() uint64
 		Offset() uint64

@@ -32,8 +32,10 @@ const (
 
 // Service: delegate user can delegate its role to other. blocked this service by default.
 
+
 type (
-	UserDelegate_Service_Register_Request interface{
+
+		UserDelegate_Service_Register_Request interface{
 		GivenUserID() protocol.UserID  
    	GottenUserID() protocol.UserID 
   	OrgID() protocol.UserID        
@@ -44,8 +46,10 @@ type (
 	UserDelegate_Service_Register_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	UserDelegate_Service_Count_Request interface{
+)
+
+type (
+		UserDelegate_Service_Count_Request interface{
 		GivenUserID()  [16]byte
 	  GottenUserID() [16]byte
 		RoleID() [16]byte
@@ -57,7 +61,11 @@ type (
    	NumberOfVersion() protocol.NumberOfVersion
 	}
 
-	UserDelegate_Service_Get_Request interface{
+)
+
+type (
+
+		UserDelegate_Service_Get_Request interface{
 		GivenUserID()  [16]byte
 	  GottenUserID() [16]byte
 		RoleID() [16]byte
@@ -68,8 +76,11 @@ type (
 		Ud() UserDelegate
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+)
 
-	UserDelegate_Service_ListRoles_Request interface{
+
+type (
+		UserDelegate_Service_ListRoles_Request interface{
 		GivenUserID() [16]byte
 		GottenUserID() [16]byte
 		Offset() uint64
@@ -80,7 +91,9 @@ type (
 	  RoleIDs() [][16]byte
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+)
 
+type (
 
 	UserDelegate_Service_ListOrgs_Request interface{
 		GivenUserID() [16]byte
@@ -93,8 +106,11 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
+)
 
 
+
+type (
 	UserDelegate_Service_ListGottenDelegate_Request interface{
 		GottenUserID() [16]byte
     Offset() uint64
@@ -105,7 +121,9 @@ type (
 	  GivenUserIDs() [][16]byte
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+)
 
+type (
 	UserDelegate_Service_ListUsers_Request interface{
 		RoleID() [16]byte
     Offset() uint64

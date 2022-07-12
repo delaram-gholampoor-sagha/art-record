@@ -32,6 +32,7 @@ const (
 	UserRelation_Status_Muted
 )
 
+
 type (
 	UserRelationStatus_Service_Register_Request interface{
 		UserID() [16]byte            
@@ -43,6 +44,11 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
+)
+
+
+type (
+
 	UserRelationStatus_Service_Count_Request interface{
 		UserID() [16]byte
 	}
@@ -50,6 +56,12 @@ type (
 	UserRelationStatus_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+
+)
+
+type (
+
 	UserRelationStatus_Service_Get_Request interface{
 		UserID() [16]byte
 		VersionOffset() uint64
@@ -60,6 +72,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
+
+)
+
+type (
 
 	UserRelationStatus_Service_ListSides_Request interface{
 		UserID() [16]byte
@@ -72,6 +88,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
+
+)
+
+type (
 	UserRelationStatus_Service_ListUsers_Request interface{
 		SideID() [16]byte
 		Offset() uint64
@@ -82,6 +102,9 @@ type (
 		UserIDs() [][16]byte
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+)
+
+type (
 
 	UserRelationStatus_Service_FilterByStatus_Request interface{
 		UserID() [16]byte

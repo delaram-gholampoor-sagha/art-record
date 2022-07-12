@@ -47,13 +47,13 @@ type (
 		UserID() protocol.UserID
 	}
 	UserNumber_Service_Get_Response interface {
-		Phone
+		Phone() string
 	}
 )
 
 type (
 	IsPhoneVerifiedRequest interface {
-		Phone
+		Phone() string
 	}
 	IsPhoneVerifiedResponse interface {
 		Verified() bool
@@ -62,13 +62,13 @@ type (
 
 type (
 	SendPhoneVerificationRequest interface {
-		Phone
+		Phone() string
 	}
 )
 
 type (
 	IsPhoneExistRequest interface {
-		Phone
+		Phone() string
 	}
 	IsPhoneExistResponse interface {
 		Exist() bool

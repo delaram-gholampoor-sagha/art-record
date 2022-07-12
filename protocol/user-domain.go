@@ -42,6 +42,7 @@ const UserDomain_Service_Unblock = "urn:giti:user-domain.sabz.city:service:unblo
 */
 
 type (
+
 	UserDomain_Service_Register_Request interface {
 		Domain() string
 		UserID() [16]byte
@@ -51,14 +52,21 @@ type (
 	UserDomain_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+)
 
-	UserDomain_Service_Count_Request interface {
+type (
+		UserDomain_Service_Count_Request interface {
 		Domain() string
 	}
 
 	UserDomain_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+)
+
+
+type (
+
 	UserDomain_Service_Get_Request interface {
 		Domain() string
 		VersionOffset() uint64
@@ -69,6 +77,9 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
+)
+
+type (
 	UserDomain_Service_FindByUserID_Request interface {
 		UserID() uint64
 		Offset() uint64

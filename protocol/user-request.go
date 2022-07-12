@@ -30,7 +30,8 @@ type UserRequest_StorageServices interface {
 
 
 type (
-	UserRequest_Service_Register_Request interface{
+
+		UserRequest_Service_Register_Request interface{
 		RequestID() [16]byte        
 		DomainID() uint64           
 		PastRequestID() [16]byte    
@@ -46,7 +47,13 @@ type (
 	UserRequest_Service_Register_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+
+)
+
+
+type (
+
 	UserRequest_Service_Count_Request interface{
 		UserID() [16]byte
 	}
@@ -54,6 +61,12 @@ type (
 	UserRequest_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+)
+
+type (
+
+
 	UserRequest_Service_Get_Request interface{
 		UserID() [16]byte
 		VersionOffset() uint64
@@ -63,9 +76,12 @@ type (
 		UserRequest
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	
-	UserRequest_Service_FindByDomain_Request interface{
+
+)
+
+
+type (
+		UserRequest_Service_FindByDomain_Request interface{
 		DomainID() uint64
 		Offset() uint64
 		Limit() uint64
@@ -75,6 +91,10 @@ type (
 		RequestIDs() [][16]byte
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+)
+
+
+type (
 	
 	UserRequest_Service_FindByUser_Request interface{
 		UserID() [16]byte
