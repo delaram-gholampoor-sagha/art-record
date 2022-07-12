@@ -28,3 +28,4 @@ const (
 
 	ProductAttribute_Type_MetricUnit // Number, Gram, Liter, Second
 )
+
