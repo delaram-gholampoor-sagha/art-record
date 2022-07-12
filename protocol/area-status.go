@@ -25,8 +25,9 @@ const (
 	Area_Status_NeighborsConflict = Area_Status(Quiddity_Status_FreeFlag << iota)
 )
 
+
 type (
-	AreaStatus_Service_Register_Request interface {
+		AreaStatus_Service_Register_Request interface {
 		AreaID() [16]byte
 		Status() Area_Status
 	}
@@ -34,12 +35,22 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
-	AreaStatus_Service_Count_Request interface {
+)
+
+
+type (
+		AreaStatus_Service_Count_Request interface {
 		AreaID() [16]byte
 	}
 	AreaStatus_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+
+type (
 	AreaStatus_Service_Get_Request interface {
 		AreaID() [16]byte
 		VersionOffset() uint64
@@ -48,6 +59,11 @@ type (
 		Status() AreaStatus
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+type (
 
 	AreaStatus_Service_FilterByStatus_Request interface {
 		Status() AreaStatus
