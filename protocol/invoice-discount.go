@@ -20,8 +20,9 @@ type InvoiceDiscount_StorageServices interface {
 	FindByDiscountID(discountID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
+
 type (
-	InvoiceDiscount_Service_Register_Request interface {
+		InvoiceDiscount_Service_Register_Request interface {
 		InvoiceID() [16]byte               
 		DiscountID() [16]byte               
 		Discounted() protocol.AmountOfMoney 
@@ -30,14 +31,22 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
-	
-	InvoiceDiscount_Service_Count_Request interface { 
+
+)
+
+type (
+		InvoiceDiscount_Service_Count_Request interface { 
 		InvoiceID() [16]byte 
 	
 	}
 	InvoiceDiscount_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+type (
 	InvoiceDiscount_Service_Get_Request interface { 
 		InvoiceID() [16]byte
 		VersionOffset() uint64
@@ -48,6 +57,11 @@ type (
 		InvoiceDiscount
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+type (
 	InvoiceDiscount_Service_FindByDiscountID_Request interface { 
 		DiscountID() [16]byte
 		Offset() [16]byte

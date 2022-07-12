@@ -36,7 +36,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
-	
+
+)
+
+type (
 	InvoiceSummary_Service_Count_Request interface {
 		InvoiceID() [16]byte
 	
@@ -46,6 +49,11 @@ type (
 	
 	}
 	
+)
+
+
+
+type (
 	InvoiceSummary_Service_Get_Request interface { 
 		InvoiceID() [16]byte 
 		VersionOffset() uint64

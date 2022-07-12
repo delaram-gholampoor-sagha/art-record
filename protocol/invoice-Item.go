@@ -23,9 +23,8 @@ type InvoiceItem_StorageServices interface {
 	FindByProductID(productID uint64, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
-
 type (
-	InvoiceItem_Service_Register_Request interface {
+		InvoiceItem_Service_Register_Request interface {
 		InvoiceID() [16]byte 
 		ProductID() [16]byte 
 		Quantity() uint64    
@@ -34,24 +33,36 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
-	
-	InvoiceItem_Service_Count_Request interface { 
+
+)
+
+type (
+		InvoiceItem_Service_Count_Request interface { 
 		InvoiceID() [16]byte 
 	
 	}
 	InvoiceItem_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	InvoiceItem_Service_Get_Request interface { 
+	
+)
+
+
+
+type (
+		InvoiceItem_Service_Get_Request interface { 
 		InvoiceID() [16]byte
 		VersionOffset() uint64
-	
-	
 	}
 	InvoiceItem_Service_Get_Response interface {
 		InvoiceItem
 	}
 	
+)
+
+
+
+type (
 	InvoiceItem_Service_FindByProductID_Request interface { 
 		ProductID() uint64
 		Offset() uint64

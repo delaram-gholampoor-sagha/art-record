@@ -18,7 +18,7 @@ type InvoiceVoucherAnalyticUtcMinute_StorageServices interface {
 }
 
 type (
-	InvoiceVoucherAnalyticUtcMinute_Service_Register_Request interface {
+		InvoiceVoucherAnalyticUtcMinute_Service_Register_Request interface {
 		Minute() utc.MinuteElapsed              
 		Redeemed() uint64                       
 		RedeemedAmount() protocol.AmountOfMoney 
@@ -27,14 +27,22 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
-	
-	InvoiceVoucherAnalyticUtcMinute_Service_Count_Request interface {
+
+)
+
+type (
+		InvoiceVoucherAnalyticUtcMinute_Service_Count_Request interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
 	InvoiceVoucherAnalyticUtcMinute_Service_Count_Response interface {
 		
 	}
+	
+)
+
+
+type (
 	
 	InvoiceVoucherAnalyticUtcMinute_Service_Get_Request interface {  
 		VersionOffset() uint64

@@ -18,6 +18,19 @@ type InvoiceItemTime_StorageServices interface {
 	Get(invoiceID [16]byte, versionOffset uint64) (iit InvoiceItemTime, err protocol.Error)
 }
 
+type InvoiceItemTime_Type uint8
+
+const (
+	InvoiceItemTime_Type_Unset InvoiceItemTime_Type = iota
+	InvoiceItemTime_Type_Enter
+	InvoiceItemTime_Type_Exit
+	InvoiceItemTime_Type_ManualEnter
+	InvoiceItemTime_Type_ManualExit
+	InvoiceItemTime_Type_Start
+	InvoiceItemTime_Type_End
+)
+
+
 type (
 	InvoiceItemTime_Service_Register_Request interface {
 		InvoiceID() [16]byte 
@@ -28,14 +41,22 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
-	
-	InvoiceItemTime_Service_Count_Request interface { 
+
+)
+
+type (
+		InvoiceItemTime_Service_Count_Request interface { 
 		InvoiceID() [16]byte 
 	
 	}
 	InvoiceItemTime_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+type (
 	InvoiceItemTime_Service_Get_Request interface { 
 		InvoiceID() [16]byte
 		VersionOffset() uint64
@@ -48,14 +69,3 @@ type (
 	
 )
 
-type InvoiceItemTime_Type uint8
-
-const (
-	InvoiceItemTime_Type_Unset InvoiceItemTime_Type = iota
-	InvoiceItemTime_Type_Enter
-	InvoiceItemTime_Type_Exit
-	InvoiceItemTime_Type_ManualEnter
-	InvoiceItemTime_Type_ManualExit
-	InvoiceItemTime_Type_Start
-	InvoiceItemTime_Type_End
-)

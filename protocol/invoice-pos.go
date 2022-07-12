@@ -30,7 +30,11 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
-	
+
+)
+
+type (
+
 	InvoicePOS_Service_Get_Request interface { 
 		InvoiceID() [16]byte 
 	
@@ -39,7 +43,12 @@ type (
 		InvoicePOS
 	}
 	
-	InvoicePOS_Service_FindByPos_Request interface { 
+)
+
+
+
+type (
+		InvoicePOS_Service_FindByPos_Request interface { 
 		PosID() [16]byte
 		Offset() uint64
 		Limit() uint64
@@ -48,6 +57,10 @@ type (
 		InvoiceIDs() [][16]byte
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+type (
 	InvoicePOS_Service_FindByStaff_Request interface { 
 		StaffID() [16]byte
 		Offset() uint64

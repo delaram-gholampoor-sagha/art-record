@@ -19,8 +19,15 @@ type InvoiceItemSeat_StorageServices interface {
 	Get(invoiceID [16]byte, versionOffset uint64) (iis InvoiceItemSeat, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
+type InvoiceItemSeat_Status Quiddity_Status
+
+const (
+	InvoiceItemSeat_Status_Voided = InvoiceItemSeat_Status(Quiddity_Status_FreeFlag << iota)
+)
+
+
 type (
-	InvoiceItemSeat_Service_Register_Request interface {
+		InvoiceItemSeat_Service_Register_Request interface {
 		InvoiceID() [16]byte           
 		ProductID() [16]byte           
 		SeatID() uint64                
@@ -30,7 +37,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
-	
+
+)
+
+type (
 	InvoiceItemSeat_Service_Count_Request interface { 
 		InvoiceID() [16]byte 
 	
@@ -38,6 +48,10 @@ type (
 	InvoiceItemSeat_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+)
+
+type (
 	InvoiceItemSeat_Service_Get_Request interface { 
 		InvoiceID() [16]byte
 		VersionOffset() uint64
@@ -49,10 +63,5 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 )
-type InvoiceItemSeat_Status Quiddity_Status
 
-const (
-	InvoiceItemSeat_Status_Voided = InvoiceItemSeat_Status(Quiddity_Status_FreeFlag << iota)
-)
 
-// service: reserve seat

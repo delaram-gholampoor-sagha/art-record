@@ -29,7 +29,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
-	
+
+)
+
+type (
 	InvoiceVoucherAnalyticUtcDay_Service_Count_Request interface {
 		InvoiceID() [16]byte
 		
@@ -38,7 +41,11 @@ type (
 	InvoiceVoucherAnalyticUtcDay_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+
+type (
 	InvoiceVoucherAnalyticUtcDay_Service_Get_Request interface {
 		InvoiceID() [16]byte    
 		VersionOffset() uint64

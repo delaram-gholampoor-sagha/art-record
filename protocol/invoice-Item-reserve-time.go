@@ -19,6 +19,8 @@ type InvoiceItemReserveTime_StorageServices interface {
 	Get(invoiceID [16]byte, versionOffset uint64) (itr InvoiceItemReserveTime, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
+
+
 type (
 	InvoiceItemReserveTime_Service_Register_Request interface {
 		InvoiceID() [16]byte 
@@ -29,13 +31,22 @@ type (
 	InvoiceItemReserveTime_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	InvoiceItemReserveTime_Service_Count_Request interface { 
 		InvoiceID() [16]byte 
 	}
 	InvoiceItemReserveTime_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+)
+
+
+
+type (
 	InvoiceItemReserveTime_Service_Get_Request interface { 
 		InvoiceID() [16]byte
 		VersionOffset() uint64

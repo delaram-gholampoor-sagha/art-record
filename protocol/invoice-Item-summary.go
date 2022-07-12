@@ -20,8 +20,9 @@ type InvoiceItemSummary_StorageServices interface {
 	Get(invoiceID [16]byte, versionOffset uint64) (iis InvoiceItemSummary, err protocol.Error)
 }
 
+
 type (
-	InvoiceItemSummary_Service_Register_Request interface {
+		InvoiceItemSummary_Service_Register_Request interface {
 		InvoiceID() [16]byte                     
 		ProductID() [16]byte                     
 		SuggestedPrice() protocol.AmountOfMoney  
@@ -33,14 +34,23 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
-	
-	InvoiceItemSummary_Service_Count_Request interface { 
+
+)
+
+type (
+		InvoiceItemSummary_Service_Count_Request interface { 
 		InvoiceID() [16]byte 
 	
 	}
 	InvoiceItemSummary_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+type (
+
 	InvoiceItemSummary_Service_Get_Request interface { 
 		InvoiceID() [16]byte
 		VersionOffset() uint64
