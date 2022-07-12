@@ -21,12 +21,21 @@ type VoucherValue_StorageServices interface {
 
 type (
 	VoucherValue_Service_Register_Request interface {
-		VoucherValue
+		VoucherID() [16]byte           
+		Each() uint8                   
+		Percentage() math.PerMyriad    
+		Price() protocol.AmountOfMoney 
 	}
 	
 	VoucherValue_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+)
+
+
+type (
+
 	
 	VoucherValue_Service_Count_Request interface {
 		VoucherID() [16]byte
@@ -36,6 +45,9 @@ type (
 	 NumberOfVersion() protocol.NumberOfVersion 
 	}
 	
+)
+
+type (
 	VoucherValue_Service_Get_Request interface {
 		voucherID() [16]byte
 		versionOffset() uint64
@@ -45,4 +57,5 @@ type (
 		 VoucherValue
 		 NumberOfVersion() protocol.NumberOfVersion
 	}
+
 )

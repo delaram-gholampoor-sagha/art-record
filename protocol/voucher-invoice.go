@@ -19,7 +19,9 @@ type VoucherInvoice_StorageServices interface {
 	Get(voucherID [16]byte, versionOffset uint64) (vi VoucherInvoice, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
+
 type (
+
 	VoucherInvoice_Service_Register_Request interface{
 		VoucherID() [16]byte 
   	Each() uint8        
@@ -30,7 +32,11 @@ type (
 	VoucherInvoice_Service_Register_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+)
+
+
+type (
+
 	VoucherInvoice_Service_Count_Request interface{
 		VoucherID() [16]byte
 	}
@@ -38,6 +44,11 @@ type (
 	VoucherInvoice_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+)
+
+
+type (
 	VoucherInvoice_Service_Get_Request interface{
 		VoucherID() [16]byte
 		VersionOffset() uint64

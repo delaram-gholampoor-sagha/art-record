@@ -17,6 +17,7 @@ type VoucherAnalyticUtcMinute_StorageServices interface {
 	Get(voucherID [16]byte, versionOffset uint64) (va VoucherAnalyticUtcMinute, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
+
 type (
 	VoucherAnalyticUtcMinute_Service_Register_Request interface{
 		Minute() utc.MinuteElapsed           
@@ -27,14 +28,24 @@ type (
 	VoucherAnalyticUtcMinute_Service_Register_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	VoucherAnalyticUtcMinute_Service_Count_Request interface{
+
+)
+
+type (
+
+		VoucherAnalyticUtcMinute_Service_Count_Request interface{
 		VoucherID() [16]byte
 	}
 	
 	VoucherAnalyticUtcMinute_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+)
+
+
+
+type (
 	VoucherAnalyticUtcMinute_Service_Get_Request interface{
 		VoucherID() [16]byte
 		VersionOffset() uint64

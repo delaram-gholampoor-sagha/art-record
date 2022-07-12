@@ -21,8 +21,9 @@ type VoucherProduct_StorageServices interface {
 }
 
 
-type(
-	VoucherProduct_Service_Register_Request interface{
+type (
+
+		VoucherProduct_Service_Register_Request interface{
 		VoucherID() [16]byte 
  	  Each() uint8         
 	  ProductID() [16]byte 
@@ -32,14 +33,24 @@ type(
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
-	VoucherProduct_Service_Count_Request interface{
+)
+
+
+type (
+
+		VoucherProduct_Service_Count_Request interface{
 		VoucherID() [16]byte
 	}
 	
 	VoucherProduct_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	VoucherProduct_Service_Get_Request interface{
+
+)
+
+type (
+
+		VoucherProduct_Service_Get_Request interface{
 		VoucherID() [16]byte
 		VersionOffset() uint64
 	}
@@ -49,7 +60,10 @@ type(
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
-	
+)
+
+type(
+
 	VoucherProduct_Service_FindByProduct_Request interface{
 		ProductID() [16]byte
 		Offset() uint64

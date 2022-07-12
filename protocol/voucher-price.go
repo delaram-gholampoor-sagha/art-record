@@ -22,6 +22,7 @@ type VoucherPrice_StorageServices interface {
 	
 }
 
+
 type (
 	VoucherPrice_Service_Register_Request interface{
 		VoucherID() [16]byte 
@@ -33,7 +34,9 @@ type (
       NumberOfVersion() protocol.NumberOfVersion      
 	}
 	
+)
 
+type (
 	VoucherPrice_Service_Count_Request interface{
 		ID() [16]byte
 	}
@@ -41,6 +44,10 @@ type (
 	VoucherPrice_Service_Count_Response interface{
 		Length() uint64
 	}
+
+)
+
+type (
 	VoucherPrice_Service_Get_Request interface{
 		ID() [16]byte
 		VersionOffset() uint64

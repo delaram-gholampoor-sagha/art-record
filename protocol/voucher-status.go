@@ -34,7 +34,7 @@ const (
 
 
 type (
-	VoucherStatus_Service_Register_Request interface {
+		VoucherStatus_Service_Register_Request interface {
 		VoucherID() [16]byte    
   	Status() Voucher_Status 
 	}
@@ -42,14 +42,23 @@ type (
 	VoucherStatus_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	VoucherStatus_Service_Count_Request interface {
+
+)
+
+type (
+
+		VoucherStatus_Service_Count_Request interface {
 		VoucherID() [16]byte
 	}
 	
 	VoucherStatus_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	VoucherStatus_Service_Get_Request interface {
+)
+
+
+type (
+		VoucherStatus_Service_Get_Request interface {
 		VoucherID() [16]byte 
 		VersionOffset() uint64
 	}
@@ -58,6 +67,9 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+type (
 	
 	VoucherStatus_Service_FilterByStatus_Request interface {
 		Voucher_Status() Quiddity_Status

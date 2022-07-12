@@ -22,6 +22,8 @@ type VoucherPOS_StorageServices interface {
 
 
 type (
+
+
 		VoucherPOS_Service_Register_Request interface {
 			VoucherID() [16]byte 
     	PosID() [16]byte    
@@ -30,7 +32,9 @@ type (
 		VoucherPOS_Service_Register_Response interface {
 			NumberOfVersion() protocol.NumberOfVersion
 		}
-		
+)
+
+type (
 		VoucherPOS_Service_Count_Request interface {
 			VoucherID() [16]byte
 		}
@@ -38,8 +42,12 @@ type (
 		VoucherPOS_Service_Count_Response interface {
 			NumberOfVersion() protocol.NumberOfVersion
 		}
-		
-		VoucherPOS_Service_Get_Request interface {
+
+)
+
+
+type (
+			VoucherPOS_Service_Get_Request interface {
 			VoucherID() [16]byte
 			VersionOffset() uint64
 		
@@ -49,7 +57,10 @@ type (
 			VoucherPOS
 			NumberOfVersion() protocol.NumberOfVersion
 		}
-		
+
+)
+
+type (
 		VoucherPOS_Service_FindByPOS_Request interface {
 			PosID() [16]byte
 			OffSet() uint64

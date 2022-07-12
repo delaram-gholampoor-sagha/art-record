@@ -19,8 +19,7 @@ type VoucherUsage_StorageServices interface {
 
 
 type (
-	
-	VoucherUsage_Service_Register_Request interface {
+		VoucherUsage_Service_Register_Request interface {
 			VoucherID() [16]byte    
 	    MaximumInvoice() uint64 
 	}
@@ -29,6 +28,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
+)
+
+
+type (
 	VoucherUsage_Service_Count_Request interface {
 		voucherID() [16]byte
 		NumberOfVersion() protocol.NumberOfVersion
@@ -37,6 +40,10 @@ type (
 	VoucherUsage_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+)
+
+
+type (
 
 	VoucherUsage_Service_Get_Request interface {
 		voucherID() [16]byte

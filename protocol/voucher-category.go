@@ -20,7 +20,9 @@ type VoucherCategory_StorageServices interface {
 }
 
 
+
 type (
+
 	VoucherCategory_Service_Register_Request interface{
 	   VoucherID() [16]byte  
 	   Each() uint8          
@@ -30,7 +32,10 @@ type (
 	VoucherCategory_Service_Register_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	VoucherCategory_Service_Count_Request interface{
 		VoucherID() [16]byte
 	}
@@ -38,6 +43,10 @@ type (
 	VoucherCategory_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+)
+
+type (
 	VoucherCategory_Service_Get_Request interface{
 		VoucherID() [16]byte
 		VersionOffset() uint64

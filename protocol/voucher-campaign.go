@@ -19,7 +19,10 @@ type VoucherCampaign_StorageServices interface {
 	FindByCampaign(campaignID [16]byte, offset, limit uint64) (voucherIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
+
+
 type (
+
 	VoucherCampaign_Service_Register_Request interface {
 		VoucherID() [16]byte  
   	CampaignID() [16]byte 
@@ -28,7 +31,10 @@ type (
 	VoucherCampaign_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+)
+
+type (
+
 	VoucherCampaign_Service_Count_Request interface {
 		VoucherID() [16]byte
 	}
@@ -36,7 +42,10 @@ type (
 	VoucherCampaign_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	VoucherCampaign_Service_Get_Request interface {
 		VoucherID() [16]byte
 		VersionOffset() uint64
@@ -46,7 +55,10 @@ type (
 		VoucherCampaign
 		  NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	VoucherCampaign_Service_FindByCampaign_Request interface {
 		CampaignID() [16]byte
 		Offset() uint64

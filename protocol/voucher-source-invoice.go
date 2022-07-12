@@ -29,8 +29,10 @@ const (
 	VoucherSourceInvoice_Type_BackToBuy
 )
 
-type(
-	VoucherSourceInvoice_Service_Register_Request interface{
+
+type (
+
+		VoucherSourceInvoice_Service_Register_Request interface{
 		VoucherID() [16]byte                    
 	  InvoiceID() [16]byte                    
 	  InvoiceType() VoucherSourceInvoice_Type 
@@ -39,7 +41,10 @@ type(
 	VoucherSourceInvoice_Service_Register_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+)
+
+
+type (
 	VoucherSourceInvoice_Service_Count_Request interface{
 		VoucherID() [16]byte
 	}
@@ -47,6 +52,11 @@ type(
 	VoucherSourceInvoice_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+)
+
+type (
+	
 	VoucherSourceInvoice_Service_Get_Request interface{
 		VoucherID() [16]byte
 		VersionOffset() uint64
@@ -56,8 +66,9 @@ type(
 		VoucherSourceInvoice
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	
+)
+
+type(
 	VoucherSourceInvoice_Service_FindByInvoice_Request interface{
 		InvoiceID() [16]byte
 		Offset() uint64

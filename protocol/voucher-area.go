@@ -21,6 +21,7 @@ type VoucherArea_StorageServices interface {
 	FindByArea(AreaID [16]byte, offset, limit uint64) (voucherIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
+
 type (
 	VoucherArea_Service_Register_Request interface{
 		VoucherID() [16]byte 
@@ -30,7 +31,11 @@ type (
 	VoucherArea_Service_Register_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+
+type (
 	VoucherArea_Service_Count_Request interface{
 		VoucherID() [16]byte
 	}
@@ -38,17 +43,25 @@ type (
 	VoucherArea_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+)
+
+
+
+type (
 	VoucherArea_Service_Get_Request interface{
 		VoucherID() [16]byte
 		VersionOffset() uint64
 	}
-	
+
 	VoucherArea_Service_Get_Response interface{
 		VoucherArea
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	
+
+
+)
+type (
 	VoucherArea_Service_FindByArea_Request interface{
 		AreaID() [16]byte
 		Offset() uint64

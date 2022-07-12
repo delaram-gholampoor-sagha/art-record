@@ -42,24 +42,21 @@ const (
 )
 
 
+
 type (
 	Voucher_Service_Register_Request interface {
-		Type() Voucher_Type  
-	}
+			Type() Voucher_Type  
+		}
 
 	Voucher_Service_Register_Response interface {
 		VoucherID() [16]byte 
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
-	Voucher_Service_Count_Request interface {
-		VoucherID() [16]byte
-	}
+)
 
-	Voucher_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
 
+type (
 	Voucher_Service_Get_Request interface {
 		VoucherID() [16]byte
 		VersionOffset() uint64
@@ -70,9 +67,28 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
-	// Admins services
-	Voucher_Service_ChangeStatus_Request interface {
-		Voucher
-	}
 )
 
+type (
+	Voucher_Service_Count_Request interface {
+		VoucherID() [16]byte
+	}
+
+	Voucher_Service_Count_Response interface {
+		NumberOfVersion() protocol.NumberOfVersion
+	}
+
+
+
+
+)
+
+type (
+		Voucher_Service_ChangeStatus_Request interface {
+		Time() protocol.Time 
+	}
+
+	Voucher_Service_ChangeStatus_Response interface {
+	  VoucherID() [16]byte 
+	}
+)

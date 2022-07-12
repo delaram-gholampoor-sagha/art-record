@@ -19,6 +19,7 @@ type VoucherAnalyticUtcDay_StorageServices interface {
 
 
 type (
+
 	VoucherAnalyticUtcDay_Service_Register_Request interface{
 		Day() utc.DayElapsed                  
 	  Issued() uint64                       
@@ -28,14 +29,24 @@ type (
 	VoucherAnalyticUtcDay_Service_Register_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	VoucherAnalyticUtcDay_Service_Count_Request interface{
+
+)
+
+
+type (
+
+		VoucherAnalyticUtcDay_Service_Count_Request interface{
 		VoucherID() [16]byte
 	}
 	
 	VoucherAnalyticUtcDay_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+)
+
+
+type (
 	VoucherAnalyticUtcDay_Service_Get_Request interface{
 		VoucherID() [16]byte
 		VersionOffset() uint64
