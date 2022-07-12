@@ -24,7 +24,8 @@ type CategorySubstitute_StorageServices interface {
 }
 
 type (
-	CategorySubstitute_Service_Register_Request interface {
+
+		CategorySubstitute_Service_Register_Request interface {
 		CategoryID() [16]byte  
 		Priority() uint64       
 		SubstituteID() [16]byte 
@@ -32,7 +33,11 @@ type (
 	CategorySubstitute_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-			
+
+)
+
+type (
+
 	CategorySubstitute_Service_Count_Request interface {
 		CategoryID() [16]byte
 		Priority() uint64
@@ -42,7 +47,15 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
-	CategorySubstitute_Service_Get_Request interface {
+	
+)
+
+
+
+
+type (
+
+		CategorySubstitute_Service_Get_Request interface {
 		CategoryID() [16]byte
 		priority() uint64    
 		Vo() protocol.VersionOffset
@@ -51,6 +64,11 @@ type (
 		CategorySubstitute
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+type (
 	CategorySubstitute_Service_ListSubstitutes_Request interface {
 		SubstituteID() [16]byte
 		Offset() uint64
@@ -61,6 +79,11 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+type (
+
 	CategorySubstitute_Service_ListCategories_Request interface {
 		SubstituteID() [16]byte
 		Offset() uint64
@@ -72,6 +95,12 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 		
 	}
+	
+)
+
+
+type (
+	
 	CategorySubstitute_Service_ListPriorities_Request interface {
 		SubstituteID() [16]byte
 		Offset() uint64

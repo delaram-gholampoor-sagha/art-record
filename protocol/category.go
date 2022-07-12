@@ -17,7 +17,7 @@ type Category_StorageServices interface {
 	Save(c Category) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(categoryID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(categoryID [16]byte, vo protocol.VersionOffset) (gs CategoryStatus, nv protocol.NumberOfVersion, err protocol.Error)
+	Get(categoryID [16]byte, vo protocol.VersionOffset) (gs Category, nv protocol.NumberOfVersion, err protocol.Error)
 
 	GetIDs(offset, limit uint64) (categoryIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
@@ -30,7 +30,10 @@ type (
 		Category_Service_Register_Response interface {
 				NumberOfVersion() protocol.NumberOfVersion
 		}
-			
+
+)
+
+type (
 		Category_Service_Count_Request interface {
 				CategoryID() [16]byte
 
@@ -39,15 +42,26 @@ type (
 				NumberOfVersion() protocol.NumberOfVersion
 
 		}
-		Category_Service_Get_Request interface {
+	
+)
+
+
+type (
+	Category_Service_Get_Request interface {
 				CategoryID() [16]byte    
 				Vo() protocol.VersionOffset
 		}
 		Category_Service_Get_Response interface {
-				Gs() CategoryStatus
+				Category
 				NumberOfVersion() protocol.NumberOfVersion
 
 		}
+	
+)
+
+
+
+type (	
 		Category_Service_GetIDs_Request interface {
 			Offset() uint64
 			Limit() uint64

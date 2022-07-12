@@ -22,8 +22,15 @@ type CategoryStatus_StorageServices interface {
 	// protocol.EventTarget
 }
 
+type Category_Status Quiddity_Status
+
+const (
+// Category_Status_ = Category_Status(Quiddity_Status_FreeFlag << iota)
+)
+
+
 type (
-	CategoryStatus_Service_Register_Request interface {
+		CategoryStatus_Service_Register_Request interface {
 		CategoryID() [16]byte  
 		Status() Category_Status
 			
@@ -31,8 +38,11 @@ type (
 	CategoryStatus_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-			
-	CategoryStatus_Service_Count_Request interface {
+
+)
+
+type (
+		CategoryStatus_Service_Count_Request interface {
 		CategoryID() [16]byte
 			
 	}
@@ -40,7 +50,12 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
-	CategoryStatus_Service_Get_Request interface {
+	
+)
+
+
+type (
+		CategoryStatus_Service_Get_Request interface {
 		CategoryID() [16]byte 
 		Vo() protocol.VersionOffset
 	}
@@ -49,6 +64,11 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
+	
+)
+
+
+type (
 	CategoryStatus_Service_FilterByStatus_Request interface {
 		Status() CategoryStatus
 		Offset() uint64
@@ -60,8 +80,3 @@ type (
 	}
 )
 
-type Category_Status Quiddity_Status
-
-const (
-// Category_Status_ = Category_Status(Quiddity_Status_FreeFlag << iota)
-)

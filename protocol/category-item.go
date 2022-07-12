@@ -28,7 +28,7 @@ type CategoryItem_StorageServices interface {
 
 
 type (
-	CategoryItem_Service_Register_Request interface {
+		CategoryItem_Service_Register_Request interface {
 		CategoryID() [16]byte  
 		Priority() uint64 
 		ItemID() [16]byte 
@@ -38,8 +38,11 @@ type (
 	CategoryItem_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-			
-	CategoryItem_Service_Count_Request interface {
+
+)
+
+type (
+		CategoryItem_Service_Count_Request interface {
 		CategoryID() [16]byte
 		Priority() uint64 
 	}
@@ -48,8 +51,13 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 			
 	}
+	
+)
 
-	CategoryItem_Service_Get_Request interface {
+
+
+type (
+		CategoryItem_Service_Get_Request interface {
 		CategoryID() [16]byte
 		Priority() uint64 
 		Vo() protocol.VersionOffset
@@ -59,8 +67,13 @@ type (
 		CategoryItem
 		NumberOfVersion() protocol.NumberOfVersion	
 	}
+	
+)
 
-	CategoryItem_Service_ListCategories_Request interface {
+
+type (
+
+		CategoryItem_Service_ListCategories_Request interface {
 		ItemID() [16]byte
 		Offset() uint64
 		Limit() uint64
@@ -71,6 +84,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+type (
 	CategoryItem_Service_ListPriorities_Request interface {
 		ItemID() [16]byte
 		CategoryID() [16]byte
