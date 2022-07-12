@@ -31,7 +31,10 @@ type (
 		PosCash_Service_Register_Response interface {
 			NumberOfVersion() protocol.NumberOfVersion
 		}
-		
+
+)
+
+type (
 		PosCash_Service_Count_Request interface {
 			PosID() [16]byte
 		
@@ -40,6 +43,11 @@ type (
 			NumberOfVersion() protocol.NumberOfVersion
 		
 		}
+	
+)
+
+
+type (
 		PosCash_Service_Get_Request interface {
 			PosID() [16]byte    
 			Vo() protocol.VersionOffset

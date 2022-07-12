@@ -22,8 +22,17 @@ type PosStatus_StorageServices interface {
 
 	protocol.EventTarget
 }
+
+type Pos_Status Quiddity_Status
+
+const (
+	Pos_Status_CashLimitInactivated = Pos_Status(Quiddity_Status_FreeFlag << iota)
+)
+
+
+
 type (
-	PosStatus_Service_Register_Request interface {
+		PosStatus_Service_Register_Request interface {
 		PosID() [16]byte
 		Status() Pos_Status
 	
@@ -31,7 +40,10 @@ type (
 	PosStatus_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	PosStatus_Service_Count_Request interface {
 		PosID() [16]byte
 	
@@ -40,6 +52,12 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
+
+)
+
+
+
+type (
 	PosStatus_Service_Get_Request interface {
 		PosID() [16]byte    
 		Vo() protocol.VersionOffset
@@ -49,6 +67,13 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
+
+)
+
+
+
+type (
+	
 	PosStatus_Service_FilterByStatus_Request interface{
 		Status() Pos_Status
 		Offset() uint64
@@ -60,8 +85,3 @@ type (
 	}
 )
 
-type Pos_Status Quiddity_Status
-
-const (
-	Pos_Status_CashLimitInactivated = Pos_Status(Quiddity_Status_FreeFlag << iota)
-)

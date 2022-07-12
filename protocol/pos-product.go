@@ -19,18 +19,21 @@ type PosProduct_StorageServices interface {
 	Count(posID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(posID [16]byte, vo protocol.VersionOffset) (pp PosProduct, err protocol.Error)
 
-	Delete(posID [16]byte, vo protocol.VersionOffset) (nv protocol.NumberOfVersion, err protocol.Error)
+
 }
 
 type (
-	PosProduct_Service_Register_Request interface {
+		PosProduct_Service_Register_Request interface {
 		PosID() [16]byte
 		ProductID() [16]byte
 	}
 	PosProduct_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	PosProduct_Service_Count_Request interface {
 		PosID() [16]byte
 	
@@ -39,6 +42,11 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+
+type (
 	PosProduct_Service_Get_Request interface {
 		PosID() [16]byte    
 		Vo() protocol.VersionOffset
@@ -48,12 +56,6 @@ type (
 		
 	
 	}
-	PosProduct_Service_Delete_Request interface {
-		PosID() [16]byte    
-		Vo() protocol.VersionOffset
-	}
-	PosProduct_Service_Delete_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	
 )
+

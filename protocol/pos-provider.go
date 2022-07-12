@@ -20,6 +20,8 @@ type PosProvider_StorageServices interface {
 	Get(posID [16]byte, vo protocol.VersionOffset) (ps PosProvider, nv protocol.NumberOfVersion, err protocol.Error)
 	
 }
+
+
 type (
 	PosProvider_Service_Register_Request interface {
 		PosID() [16]byte
@@ -28,8 +30,11 @@ type (
 	PosProvider_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	PosProvider_Service_Count_Request interface {
+
+)
+
+type (
+		PosProvider_Service_Count_Request interface {
 		PosID() [16]byte
 	
 	}
@@ -37,6 +42,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
+)
+
+
+type (
 	PosProvider_Service_Get_Request interface {
 		PosID() [16]byte    
 		Vo() protocol.VersionOffset
