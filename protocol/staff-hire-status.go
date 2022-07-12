@@ -49,6 +49,7 @@ const (
 	StaffHire_Status_ContractProposal
 )
 
+
 type (
 	StaffHireStatus_Service_Register_Request interface {
 		UserID() [16]byte
@@ -59,13 +60,22 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
-	StaffHireStatus_Service_Count_Request interface {
+)
+
+type (
+		StaffHireStatus_Service_Count_Request interface {
 		StaffID() [16]byte
 	}
 
 	StaffHireStatus_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+
+type (
 	StaffHireStatus_Service_Get_Request interface {
 		StaffID() [16]byte
 		VersionOffset() uint64
@@ -74,7 +84,12 @@ type (
 	StaffHireStatus_Service_Get_Response interface {
 		StaffHireStatus
 	}
+	
+)
 
+
+
+type (
 	StaffHireStatus_Service_Last_Request interface {
 		StaffID() [16]byte
 	}

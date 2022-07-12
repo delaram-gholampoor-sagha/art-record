@@ -38,15 +38,24 @@ type (
 	StaffOvertimeStatus_Service_Register_Response interface{
       NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	StaffOvertimeStatus_Service_Count_Request interface{
+
+)
+
+type (
+		StaffOvertimeStatus_Service_Count_Request interface{
 		StaffID() [16]byte
 	}
 	
 	StaffOvertimeStatus_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	StaffOvertimeStatus_Service_Get_Request interface{
+
+)
+
+
+
+type (
+		StaffOvertimeStatus_Service_Get_Request interface{
 		StaffID() [16]byte
 		VersionOffset() uint64
 	}
@@ -54,7 +63,12 @@ type (
 	StaffOvertimeStatus_Service_Get_Response interface{
 		StaffOvertimeStatus
 	}
-	
+
+)
+
+
+
+type (
 	StaffOvertimeStatus_Service_Last_Request interface{
 		StaffID() [16]byte
 	}

@@ -35,14 +35,21 @@ type (
 	   NumberOfVersion() protocol.NumberOfVersion
 	}
 	
-	
-	StaffTakeLeaveAlternate_Service_Count_Request interface{
+)
+
+type (
+		StaffTakeLeaveAlternate_Service_Count_Request interface{
 		StaffID() [16]byte
 	}
 	
 	StaffTakeLeaveAlternate_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+type (
 	StaffTakeLeaveAlternate_Service_Get_Request interface{
 		StaffID() [16]byte
 		VersionOffset() uint64

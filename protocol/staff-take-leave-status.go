@@ -34,7 +34,7 @@ const (
 
 
 type (
-	StaffTakeLeaveStatus_Service_Register_Request interface{
+		StaffTakeLeaveStatus_Service_Register_Request interface{
 		StaffID() [16]byte             
 	  Day() utc.DayElapsed          
 	  Status() StaffTakeLeave_Status 
@@ -43,8 +43,11 @@ type (
 		StaffTakeLeaveStatus_Service_Register_Response interface{
 	   NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	
+
+)
+
+
+type (
 	StaffTakeLeaveStatus_Service_Count_Request interface{
 		StaffID() [16]byte
 	}
@@ -52,7 +55,13 @@ type (
 	StaffTakeLeaveStatus_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	StaffTakeLeaveStatus_Service_Get_Request interface{
+	
+)
+
+
+
+type (
+		StaffTakeLeaveStatus_Service_Get_Request interface{
 		StaffID() [16]byte
 		VersionOffset() uint64
 	}
@@ -62,3 +71,5 @@ type (
 	}
 	
 )
+
+

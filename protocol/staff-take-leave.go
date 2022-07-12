@@ -72,7 +72,7 @@ const (
 
 
 type (
-	StaffTakeLeave_Service_Register_Request interface{
+		StaffTakeLeave_Service_Register_Request interface{
 		StaffID() [16]byte         
    	Day() utc.DayElapsed       
    	DayHours() earth.DayHours 
@@ -82,7 +82,11 @@ type (
 	StaffTakeLeave_Service_Register_Response interface{
 	  NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+
+type (
 	StaffTakeLeave_Service_Count_Request interface{
 		StaffID() [16]byte
 	}
@@ -90,6 +94,11 @@ type (
 	StaffTakeLeave_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+)
+
+
+type (
 	StaffTakeLeave_Service_Get_Request interface{
 		StaffID() [16]byte
 		VersionOffset() uint64
@@ -99,7 +108,12 @@ type (
 		StaffTakeLeave
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+
+
+type (
 	StaffTakeLeave_Service_Last_Request interface{
 		StaffID() [16]byte
 	}

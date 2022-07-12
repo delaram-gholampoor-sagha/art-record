@@ -22,9 +22,9 @@ type StaffShift_StorageServices interface {
 }
 
 
+
 type (
-	
-	StaffShift_Service_Register_Request interface{
+		StaffShift_Service_Register_Request interface{
 	 StaffID() [16]byte   // staff domain
 	 Day() utc.DayElapsed //
 	 ShiftID() [16]byte   // org-shift domain
@@ -34,13 +34,23 @@ type (
    	NumberOfVersion() protocol.NumberOfVersion
 	}
 
-	StaffShift_Service_Count_Request interface{
+)
+
+
+type (
+		StaffShift_Service_Count_Request interface{
 		StaffID() [16]byte
 	}
 
 	StaffShift_Service_Count_Response interface{
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+)
+
+
+type (
+
 	StaffShift_Service_Get_Request interface{
 		StaffID() [16]byte
 		VersionOffset() uint64

@@ -29,6 +29,7 @@ const (
 	// Staff_Status_Inactive // Shift
 )
 
+
 type (
 	StaffStatus_Service_Register_Request interface {
 		StaffID() [16]byte
@@ -39,14 +40,24 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
-	StaffStatus_Service_Count_Request interface {
+)
+
+type (
+
+		StaffStatus_Service_Count_Request interface {
 		StaffID() [16]byte
 	}
 
 	StaffStatus_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	StaffStatus_Service_Get_Request interface {
+	
+)
+
+
+type (
+
+		StaffStatus_Service_Get_Request interface {
 		StaffID() [16]byte
 		VersionOffset() uint64
 	}
@@ -54,7 +65,12 @@ type (
 	StaffStatus_Service_Get_Response interface {
 		StaffStatus
 	}
+	
+)
 
+
+
+type (
 	StaffStatus_Service_FilterByStatus_Request interface {
 		StaffStatus
 		Offset() uint64
