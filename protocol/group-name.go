@@ -36,8 +36,7 @@ const (
 )
 
 type (
-	
-	GroupName_Service_Register_Request interface {
+		GroupName_Service_Register_Request interface {
 		GroupID() [16]byte                 
 		Name() string
 		Status() GroupName_Status  
@@ -46,12 +45,21 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
-	GroupName_Service_Count_Request interface { 
+)
+
+type (
+		GroupName_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupName_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+)
+
+
+
+
+type (
 	GroupName_Service_Get_Request interface { 
 		GroupID() [16]byte
 		VersionOffset() uint64
@@ -60,6 +68,11 @@ type (
 		GroupName
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+type (
 	GroupName_Service_FindByName_Request interface { 
 		Name() string
 	}

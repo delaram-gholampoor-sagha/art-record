@@ -41,8 +41,9 @@ const (
 	GroupPolicy_Policy_6stFriendshipCycle
 )
 
-type(
-	GroupPolicy_Service_Register_Request interface {
+
+type (
+		GroupPolicy_Service_Register_Request interface {
 		GroupID() [16]byte                 
 		GetPolicy() GroupPolicy_Policy     
 		SetPolicy() GroupPolicy_Policy    
@@ -52,13 +53,23 @@ type(
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 	
-	GroupPolicy_Service_Count_Request interface { 
+
+)
+
+type (
+		GroupPolicy_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupPolicy_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	GroupPolicy_Service_Get_Request interface { 
+	
+)
+
+
+
+type (
+		GroupPolicy_Service_Get_Request interface { 
 		GroupID() [16]byte
 		VersionOffset() uint64
 	}
@@ -66,6 +77,12 @@ type(
 		GroupPolicy
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+
+type (
 	GroupPolicy_Service_FindByUserID_Request interface { 
 		OwnerUserID() [16]byte
 		Offset() uint64

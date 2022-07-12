@@ -34,7 +34,6 @@ const (
 // TODO::: user send last time of active state record plus its ID and optional invited user id as invite code.
 
 type (
-	
 	GroupAssociatedStatus_Service_Register_Request interface {
 		GroupID() [16]byte              
   	UserID() [16]byte               
@@ -44,12 +43,21 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
-	GroupAssociatedStatus_Service_Count_Request interface { 
+)
+
+type (
+		GroupAssociatedStatus_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupAssociatedStatus_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+type (
+
 	GroupAssociatedStatus_Service_Get_Request interface { 
 		GroupID() [16]byte
 		VersionOffset() uint64

@@ -21,8 +21,15 @@ type GroupStatus_StorageServices interface {
 	// protocol.EventTarget
 }
 
+type Group_Status Quiddity_Status
+
+const (
+// Group_Status_ = Group_Status(Quiddity_Status_FreeFlag << iota)
+)
+
+
 type (
-	GroupStatus_Service_Register_Request interface {
+		GroupStatus_Service_Register_Request interface {
 		GroupID() [16]byte    
 		Status() Group_Status 
 	}
@@ -30,7 +37,10 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
-	
+
+)
+
+type (
 	GroupStatus_Service_Count_Request interface { 
 		GroupID() [16]byte 
 	
@@ -38,6 +48,11 @@ type (
 	GroupStatus_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+)
+
+
+type (
 	GroupStatus_Service_Get_Request interface { 
 		GroupID() [16]byte
 		VersionOffset() uint64
@@ -50,8 +65,3 @@ type (
 	}
 )
 
-type Group_Status Quiddity_Status
-
-const (
-// Group_Status_ = Group_Status(Quiddity_Status_FreeFlag << iota)
-)

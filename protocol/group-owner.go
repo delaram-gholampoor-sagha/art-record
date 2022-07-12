@@ -19,21 +19,32 @@ type GroupOwner_StorageServices interface {
 	FindByUserID(ownerUserID [16]byte, offset, limit uint64) (ids [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
+
+
 type (
-	GroupOwner_Service_Register_Request interface {
+		GroupOwner_Service_Register_Request interface {
 		GroupID() [16]byte                 
 		OwnerUserID() [16]byte    
 	}
 	GroupOwner_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+)
+
+type (
 	GroupOwner_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupOwner_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+
+type (
 	GroupOwner_Service_Get_Request interface { 
 		GroupID() [16]byte
 		VersionOffset() uint64
@@ -42,6 +53,11 @@ type (
 		GroupOwner
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+type (
+
 	GroupOwner_Service_FindByUserID_Request interface { 
 		OwnerUserID() [16]byte
 		Offset() uint64

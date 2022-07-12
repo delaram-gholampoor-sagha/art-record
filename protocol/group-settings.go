@@ -19,6 +19,14 @@ type GroupSettings_StorageServices interface {
 	Get(groupID [16]byte, versionOffset uint64) (gs GroupSettings, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
+type GroupSettings_Join uint8
+
+const (
+	GroupSettings_Join_Unset  GroupSettings_Join = 0
+	GroupSettings_Join_Invite GroupSettings_Join = (1 << iota)
+	GroupSettings_Join_AddByMembers
+)
+
 type (
 	GroupSettings_Service_Register_Request interface {
 		GroupID() [16]byte                     
@@ -30,14 +38,23 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	
 	}
-	
-	GroupSettings_Service_Count_Request interface { 
+
+)
+
+type (
+		GroupSettings_Service_Count_Request interface { 
 		GroupID() [16]byte 
 	
 	}
 	GroupSettings_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+
+type (
 	GroupSettings_Service_Get_Request interface { 
 		GroupID() [16]byte
 		VersionOffset() uint64
@@ -50,10 +67,4 @@ type (
 	}
 	
 )
-type GroupSettings_Join uint8
 
-const (
-	GroupSettings_Join_Unset  GroupSettings_Join = 0
-	GroupSettings_Join_Invite GroupSettings_Join = (1 << iota)
-	GroupSettings_Join_AddByMembers
-)

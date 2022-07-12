@@ -22,9 +22,9 @@ type GroupAssociated_StorageServices interface {
 
 // TODO::: user send last time of active state record plus its ID and optional invited user id as invite code.
 
+
 type (
-	
-	GroupAssociated_Service_Register_Request interface {
+		GroupAssociated_Service_Register_Request interface {
 		GroupID() [16]byte  
 		UserID() [16]byte    
 		JoinBy() [16]byte    
@@ -33,12 +33,19 @@ type (
 		NumberOfVersion() protocol.NumberOfVersion
 	}
 
+)
+
+type (
 	GroupAssociated_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupAssociated_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+)
+
+type (
 	GroupAssociated_Service_Get_Request interface { 
 		GroupID() [16]byte
 		VersionOffset() uint64

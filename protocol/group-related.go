@@ -20,7 +20,6 @@ type GroupRelated_StorageServices interface {
 }
 
 
-
 type (
 	GroupRelated_Service_Register_Request interface {
 	 GroupID() [16]byte        
@@ -29,14 +28,22 @@ type (
 	GroupRelated_Service_Register_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
-	GroupRelated_Service_Count_Request interface { 
+
+)
+
+type (
+		GroupRelated_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
 	GroupRelated_Service_Count_Response interface {
 		NumberOfVersion() protocol.NumberOfVersion
 	}
-	GroupRelated_Service_Get_Request interface { 
+
+)
+
+
+type (
+		GroupRelated_Service_Get_Request interface { 
 		GroupID() [16]byte
 		VersionOffset() uint64
 	}
@@ -44,6 +51,13 @@ type (
 		GroupRelated
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+)
+
+
+
+type (
+	
 	GroupRelated_Service_FindByGroupID_Request interface { 
 		GroupID() [16]byte
 		Offset() uint64
