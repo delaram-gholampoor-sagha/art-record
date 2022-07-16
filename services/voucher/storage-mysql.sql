@@ -4,15 +4,18 @@ CREATE TABLE `Voucher` (
   `VoucherID` BINARY(16) ,
   `Type` SMALLINT ,
   `Time` TIMESTAMP ,
-  `RequestID` BINARY(16)
+  `RequestID` BINARY(16),
+   KEY(VoucherID)
 );
 
-INDEX Index_Voucher ON Voucher (`VoucherID`);
+
 
 
 DELIMITER $$
 
-CREATE PROCEDURE Save_Voucher (IN `IN_VoucherID` BINARY(16), IN `IN_Type` SMALLINT, IN `IN_Time` TIMESTAMP,IN `IN_RequestID` BINARY(16)) BEGIN
+CREATE PROCEDURE Save_Voucher (IN `IN_VoucherID` BINARY(16), IN `IN_Type` SMALLINT,
+ IN `IN_Time` TIMESTAMP,IN `IN_RequestID` BINARY(16) , OUT `NumberOfVersion` INT) 
+   BEGIN
     -- SQL EXCEPTION
     DECLARE EXIT HANDLER FOR SQLEXCEPTION
     BEGIN
@@ -22,7 +25,7 @@ CREATE PROCEDURE Save_Voucher (IN `IN_VoucherID` BINARY(16), IN `IN_Type` SMALLI
     START TRANSACTION;
         INSERT INTO Voucher (VoucherID , Type , Time , RequestID) VALUES (IN_VoucherID , IN_Type , IN_Time , IN_RequestID);
         
-        SELECT COUNT(VoucherID) AS Length_VoucherID FROM Voucher;
+        SELECT COUNT(VoucherID) INTO `NumberOfVersion` FROM Voucher WHERE `VoucherID` = `VoucherID` ;
     COMMIT;
 
 END$$
