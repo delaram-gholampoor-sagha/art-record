@@ -1,6 +1,8 @@
+/* For license and copyright information please see LEGAL file in repository */
+
 CREATE TABLE `Voucher_Analytic_UTC_Minute` (
-  `Minute` INT NOT NULL,
-  `Issued` INT NOT NULL,
-  `IssuedAmount` decimal(10 , 2) NOT NULL,
-  `Time` timestamp NOT NULL
+  `Minute` INT ,
+  `Issued` INT ,
+  `IssuedAmount` DECIMAL(10 , 2),
+  `Time` timestamp 
 );

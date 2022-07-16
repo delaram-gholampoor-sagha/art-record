@@ -1,11 +1,13 @@
+/* For license and copyright information please see LEGAL file in repository */
+
 CREATE TABLE `Voucher` (
-  `VoucherID` BINARY(16) PRIMARY KEY NOT NULL,
-  `Type` SMALLINT NOT NULL,
-  `Time` TIMESTAMP NOT NULL,
-  `RequestID` BINARY(16) NOT NULL
+  `VoucherID` BINARY(16) ,
+  `Type` SMALLINT ,
+  `Time` TIMESTAMP ,
+  `RequestID` BINARY(16)
 );
 
-CREATE INDEX Index_Voucher ON Voucher (`VoucherID`);
+INDEX Index_Voucher ON Voucher (`VoucherID`);
 
 
 DELIMITER $$
@@ -34,8 +36,7 @@ DELIMITER;
 SELECT COUNT(VoucherID) FROM `Voucher` WHERE `VoucherID` = ?;
 
 -- Return Get 
--- TODO:: Not sure we had Time order or not!
-SELECT *, COUNT(VoucherID) FROM Voucher WHERE `VoucherID` = ? ORDER BY Voucher.Time DESC LIMIT ?
+SELECT *, COUNT(VoucherID) FROM Voucher WHERE `VoucherID` = ?  LIMIT = ?
 
 
 

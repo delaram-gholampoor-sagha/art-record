@@ -20,7 +20,7 @@ type Voucher_StorageServices interface {
 	Get(voucherID [16]byte, versionOffset uint64) (v Voucher, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
-
+     
 
 type Voucher_Type uint32
 

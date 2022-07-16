@@ -1,8 +1,10 @@
+/* For license and copyright information please see LEGAL file in repository */
+
 CREATE TABLE `Voucher_Invoice` (
-  `VoucherID` BINARY(16) PRIMARY KEY NOT NULL,
-  `Each` tinyint NOT NULL,
-  `MinPrice` INT NOT NULL,
-  `MinAmount` INT NOT NULL,
-  `Time` timestamp NOT NULL,
-  `RequestID` BINARY(16) NOT NULL
+  `VoucherID` BINARY(16) ,
+  `Each` TIMESTAMP ,
+  `MinPrice` INT ,
+  `MinAmount` INT ,
+  `Time` TIMESTAMP ,
+  `RequestID` BINARY(16) 
 );

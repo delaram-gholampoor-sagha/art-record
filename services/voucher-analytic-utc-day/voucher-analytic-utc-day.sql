@@ -1,6 +1,8 @@
+/* For license and copyright information please see LEGAL file in repository */
+
 CREATE TABLE `Voucher_Analytic_UTC_Day` (
-  `Day` INT NOT NULL,
-  `Issued` INT NOT NULL,
-  `IssuedAmount` decimal(10 , 2) NOT NULL,
-  `Time` timestamp NOT NULL
+  `Day` INT ,
+  `Issued` INT ,
+  `IssuedAmount` DECIMAL(10 , 2),
+  `Time` timestamp 
 );

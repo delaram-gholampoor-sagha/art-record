@@ -1,6 +1,8 @@
+/* For license and copyright information please see LEGAL file in repository */
+
 CREATE TABLE `Voucher_Pos` (
-  `VoucherID` BINARY(16) PRIMARY KEY NOT NULL,
-  `PosID` BINARY(16) NOT NULL,
-  `Time` timestamp NOT NULL,
-  `RequestID` BINARY(16) NOT NULL
+  `VoucherID` BINARY(16) P,
+  `PosID` BINARY(16) ,
+  `Time` TIMESTAMP ,
+  `RequestID` BINARY(16) 
 );
