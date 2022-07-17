@@ -17,4 +17,4 @@
 # ingore it
 *_test/
 
-*.vscode/
+.vscode/
