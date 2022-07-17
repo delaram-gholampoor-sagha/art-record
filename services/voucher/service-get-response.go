@@ -5,16 +5,16 @@ import "github.com/Delaram-Gholampoor-Sagha/art-record/protocol"
 
 
 
-
+	
 
 
 type GetResponse struct {
-	voucherID [16]byte `json:"Type,string"`
-	nv protocol.NumberOfVersion `json:"Type,string"`
+	voucher protocol.Voucher                 `json:"protocol.Voucher,string"`
+	numberOfVersion protocol.NumberOfVersion `json:"protocol.NumberOfVersion,string"`
 }
 
-func (req *GetResponse) VoucherID() [16]byte      { return req.voucherID}
-func (req *GetResponse) Set_VoucherID(v [16]byte) {  req.voucherID = v }
+func (req *GetResponse) Voucher() [16]byte      { return req.voucher}
+func (req *GetResponse) Set_Voucher(v [16]byte) {  req.voucher = v }
 
-func (req *GetResponse) Nv() protocol.NumberOfVersion      { return req.nv}
-func (req *GetResponse) Set_nv(nv protocol.NumberOfVersion) {  req.nv = nv }
+func (req *GetResponse) NumberOfVersion() protocol.NumberOfVersion      { return req.numberOfVersion}
+func (req *GetResponse) Set_NumberOfVersion(nv protocol.NumberOfVersion) {  req.numberOfVersion = nv }

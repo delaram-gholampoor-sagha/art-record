@@ -2,13 +2,16 @@ package voucher
 
 
 
-
 type GetRequest struct {
-	voucher_type Voucher_Type `json:"Type,string"`
+		voucherID [16]byte      `json:"voucherID,string"`
+		versionOffset uint64    `json:"versionOffset,string"`
 }
 
-func (req *GetRequest) Voucher_type() Voucher_Type      { return req.voucher_type}
-func (req *GetRequest) Set_voucher_type(v Voucher_Type) {  req.voucher_type = v }
+func (req *GetRequest) VoucherID() [16]byte        { return req.voucherID}
+func (req *GetRequest) Set_voucherID(vi [16]byte)  {  req.voucherID = vi }
+
+func (req *GetRequest) VersionOffset() uint64      { return req.versionOffset}
+func (req *GetRequest) Set_versionOffset(v uint64) {  req.versionOffset = v }
 
 
 // JSON codec
