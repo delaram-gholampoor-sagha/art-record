@@ -24,17 +24,17 @@ DELIMITER ;    */
 
 DELIMITER &&
 
-CREATE PROCEDURE Voucher_Save (`VoucherID` BINARY(16),  `Type` SMALLINT,
-  `Time` TIMESTAMP, `RequestID` BINARY(16) , OUT `NumberOfVersion` INT) 
+CREATE PROCEDURE Voucher_Save (`voucherID` BINARY(16),  `type` SMALLINT,
+  `time` TIMESTAMP, `requestID` BINARY(16) , OUT `NumberOfVersion` INT) 
 
    BEGIN
 
     -- Everything between start transaction and commit is one atomic action. 
   
 
-        INSERT INTO Voucher (VoucherID , Type , Time , RequestID) VALUES (IN_VoucherID , IN_Type , IN_Time , IN_RequestID);
+        INSERT INTO Voucher (VoucherID , Type , Time , RequestID) VALUES (voucherID , type , time , requestID);
         
-        SELECT COUNT(VoucherID) INTO `NumberOfVersion` FROM Voucher WHERE `VoucherID` = `VoucherID` ;
+        SELECT COUNT(VoucherID) INTO `NumberOfVersion` FROM Voucher WHERE `voucherID` = `voucherID` ;
 
 
    END &&
@@ -47,10 +47,10 @@ DELIMITER;
 
 DELIMITER &&
 
-CREATE PROCEDURE Voucher_Count ( `VoucherID` BINARY(16), OUT `NumberOfVersion` INT) 
+CREATE PROCEDURE Voucher_Count ( `voucherID` BINARY(16), OUT `NumberOfVersion` INT) 
    BEGIN
   
-       SELECT COUNT(VoucherID) INTO `NumberOfVersion` FROM `Voucher` WHERE `VoucherID` = ?;
+       SELECT COUNT(VoucherID) INTO `NumberOfVersion` FROM `Voucher` WHERE `VoucherID` = `voucherID`; 
 
    END &&
 
@@ -61,16 +61,20 @@ DELIMITER;
 
 DELIMITER &&
 
-CREATE PROCEDURE Voucher_Get ( `VoucherID` BINARY(16), `versionOffset` INT  ,OUT `Voucher&Nv` INT) 
+CREATE PROCEDURE Voucher_Get ( `voucherID` BINARY(16), `versionOffset` INT ) 
 
    BEGIN
 
-       SELECT *, COUNT(VoucherID) FROM Voucher WHERE `VoucherID` = ?  LIMIT = ?
+       SELECT * FROM Voucher WHERE `VoucherID` = voucherID  LIMIT = versionOffset
+
+       SELECT COUNT(VoucherID) INTO `NumberOfVersion` FROM Voucher WHERE `voucherID` = `voucherID` ;
 
 
    END &&
 
 DELIMITER;
+
+
 
 
 
