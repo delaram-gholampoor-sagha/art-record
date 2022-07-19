@@ -30,14 +30,12 @@ const (
 )
 
 type (
-		RoleStatus_Service_Register_Request interface{
+	RoleStatus_Service_Register_Request interface{
 		RoleID() [16]byte    
   	Status()	RoleStatus
 	}
 
-		RoleStatus_Service_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	RoleStatus_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -46,9 +44,7 @@ type (
 		RoleID() [16]byte
 	}
 	
-	RoleStatus_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	RoleStatus_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -59,9 +55,11 @@ type (
 		VersionOffset() uint64
 	}
 	
-	RoleStatus_Service_Get_Response interface{
+	RoleStatus_Service_Get_Response1 interface{
 	  Status()	RoleStatus
 	}
+
+	RoleStatus_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -73,8 +71,9 @@ type (
 		Limit() uint64
 	}
 	
-	RoleStatus_Service_FilterByStatus_Response interface{
+	RoleStatus_Service_FilterByStatus_Response1 interface{
 		RoleIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	RoleStatus_Service_FilterByStatus_Response2 = protocol.NumberOfVersion
 )

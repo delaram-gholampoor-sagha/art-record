@@ -29,35 +29,26 @@ type (
 	  WeeklySalary() protocol.AmountOfMoney 
   }
 
-	RoleSalary_Service_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion      
-	}
-	
-
+	RoleSalary_Service_Register_Response = protocol.NumberOfVersion 
 )
 
 type (
-		RoleSalary_Service_Count_Request interface{
+	RoleSalary_Service_Count_Request interface{
 		RoleID() [16]byte
 	}
 	
-	RoleSalary_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+	RoleSalary_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
 type (
-		RoleSalary_Service_Get_Request interface{
+	RoleSalary_Service_Get_Request interface{
 		RoleID() [16]byte
 		VersionOffset() uint64
 	}
 	
-	RoleSalary_Service_Get_Response interface{
-		RoleSalary
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	RoleSalary_Service_Get_Response1 = RoleSalary
+	RoleSalary_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -66,8 +57,7 @@ type (
 		RoleID() [16]byte
 	}
 	
-	RoleSalary_Service_Last_Response interface{
-		RoleSalary
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	RoleSalary_Service_Last_Response1 = RoleSalary
+	RoleSalary_Service_Last_Response2 = protocol.NumberOfVersion
+	
 )

@@ -17,20 +17,17 @@ type RoleLocation_StorageServices interface {
 	Save(rl RoleLocation) protocol.Error
 
 	Count(roleID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(roleID [16]byte, versionOffset uint64) (rl RoleLocation, err protocol.Error)
+	Get(roleID [16]byte, versionOffset uint64) (rl RoleLocation, nv protocol.NumberOfVersion ,err protocol.Error)
 
 }
 
 type (
-		RoleLocation_Service_Register_Request interface{
+	RoleLocation_Service_Register_Request interface{
 		RoleID() [16]byte             
   	BuildingLocationID() [16]byte 
 	}
-
-
-		RoleLocation_Service_Register_Response interface{
-     NumberOfVersion() protocol.NumberOfVersion
-	}
+	
+	RoleLocation_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -39,9 +36,7 @@ type (
 		RoleID() [16]byte
 	}
 	
-	RoleLocation_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	RoleLocation_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -52,10 +47,8 @@ type (
 		VersionOffset() uint64
 	}
 	
-	RoleLocation_Service_Get_Response interface{
-		RoleLocation
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	RoleLocation_Service_Get_Response1= 	RoleLocation
+	RoleLocation_Service_Get_Response2 =  protocol.NumberOfVersion
 	
 )
 
@@ -65,8 +58,7 @@ type (
 		RoleID() [16]byte
 	}
 	
-	RoleLocation_Service_Last_Response interface{
-		RoleLocation
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	RoleLocation_Service_Last_Response1 = RoleLocation
+	RoleLocation_Service_Last_Response2 = protocol.NumberOfVersion
+
 )

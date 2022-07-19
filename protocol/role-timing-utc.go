@@ -16,7 +16,7 @@ type RoleTimingUTC_StorageServices interface {
 	Save(rt RoleTimingUTC) protocol.Error
 
 	Count(roleID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(roleID [16]byte, versionOffset uint64) (rt RoleTimingUTC, err protocol.Error)
+	Get(roleID [16]byte, versionOffset uint64) (rt RoleTimingUTC, nv protocol.NumberOfVersion  ,err protocol.Error)
 }
 
 
@@ -28,9 +28,7 @@ type (
 		DayHours() earth.DayHours
 	}
 
-	RoleTimingUTC_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	RoleTimingUTC_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -39,10 +37,7 @@ type (
 		RoleID() [16]byte
 	}
 
-	RoleTimingUTC_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+	RoleTimingUTC_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
@@ -53,8 +48,9 @@ type (
 		VersionOffset() uint64
 	}
 
-	RoleTimingUTC_Service_Get_Response interface {
+	RoleTimingUTC_Service_Get_Response1 interface {
 		RoleTimingUTC
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	RoleTimingUTC_Service_Get_Response2 = protocol.NumberOfVersion
 )

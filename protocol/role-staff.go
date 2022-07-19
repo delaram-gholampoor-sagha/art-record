@@ -18,7 +18,7 @@ type RoleStaff_StorageServices interface {
 	Save(rs RoleStaff) protocol.Error
 
 	Count(roleID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(roleID [16]byte, versionOffset uint64) (rs RoleStaff, err protocol.Error)
+	Get(roleID [16]byte, versionOffset uint64) (rs RoleStaff , nv protocol.NumberOfVersion , err protocol.Error)
 	
 }
 
@@ -33,9 +33,7 @@ type (
   }
 
 
-	RoleStaff_Service_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion      
-	}
+	RoleStaff_Service_Register_Response = protocol.NumberOfVersion 
 
 )
 
@@ -44,9 +42,7 @@ type (
 		RoleID() [16]byte
 	}
 	
-	RoleStaff_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	RoleStaff_Service_Count_Response = nv protocol.NumberOfVersion
 	
 )
 
@@ -57,10 +53,8 @@ type (
 		VersionOffset() uint64
 	}
 	
-	RoleStaff_Service_Get_Response interface{
-		RoleStaff
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	RoleStaff_Service_Get_Response1 = RoleStaff
+	RoleStaff_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -72,8 +66,9 @@ type (
 		RoleID() [16]byte
 	}
 	
-	RoleStaff_Service_Last_Response interface{
+	RoleStaff_Service_Last_Response1 interface{
 		RoleStaff
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+	RoleStaff_Service_Last_Response2 = protocol.NumberOfVersion
 )

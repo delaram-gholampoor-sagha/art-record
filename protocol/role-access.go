@@ -14,10 +14,8 @@ type RoleAccess_StorageServices interface {
 	Save(ra RoleAccess) protocol.Error
 
 	Count(roleID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(roleID [16]byte, versionOffset uint64) (ra RoleAccess, err protocol.Error)
+	Get(roleID [16]byte, versionOffset uint64) (ra RoleAccess, nv protocol.NumberOfVersion ,  err protocol.Error)
 	
-
-
 }
 
 // Get				GetRoleAccess
@@ -26,40 +24,34 @@ type RoleAccess_StorageServices interface {
 
 
 type (
-		RoleAccess_Service_Register_Request interface{
+	RoleAccess_Service_Register_Request interface{
 		RoleID() [16]byte                      
 	  AccessControl() protocol.AccessControl 
 	}
 
-	RoleAccess_Service_Register_Response interface{
-	  NumberOfVersion() protocol.NumberOfVersion 
-	}
+	RoleAccess_Service_Register_Response = protocol.NumberOfVersion 
 
 )
 
 type (
-		RoleAccess_Service_Count_Request interface{
+	RoleAccess_Service_Count_Request interface{
 		RoleID() [16]byte
 	}
 	
-	RoleAccess_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	RoleAccess_Service_Count_Response = protocol.NumberOfVersion 
 	
 )
 
 
 
 type (
-		RoleAccess_Service_Get_Request interface{
+	RoleAccess_Service_Get_Request interface{
 		RoleID() [16]byte
 		VersionOffset() uint64
 	}
 	
-	RoleAccess_Service_Get_Response interface{
-		RoleAccess
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	RoleAccess_Service_Get_Response1 = RoleAccess
+	RoleAccess_Service_Get_Response2 = protocol.NumberOfVersion 
 	
 )
 
@@ -70,8 +62,7 @@ type (
 		RoleID() [16]byte
 	}
 	
-	RoleAccess_Service_Last_Response interface{
-		RoleAccess
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	RoleAccess_Service_Last_Response1 = RoleAccess
+	RoleAccess_Service_Last_Response2 =  protocol.NumberOfVersion
+
 )
