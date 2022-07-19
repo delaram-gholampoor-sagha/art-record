@@ -48,10 +48,11 @@ type (
 			Type() Voucher_Type  
 		}
 
-	Voucher_Service_Register_Response interface {
+	Voucher_Service_Register_Response1 interface {
 		VoucherID() [16]byte 
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	Voucher_Service_Register_Response2 = protocol.NumberOfVersion
 
 )
 
@@ -62,10 +63,8 @@ type (
 		VersionOffset() uint64
 	}
 
-	Voucher_Service_Get_Response interface {
-		Voucher
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	Voucher_Service_Get_Response1 = Voucher
+	Voucher_Service_Get_Response2 = protocol.NumberOfVersion
 
 )
 
@@ -74,13 +73,7 @@ type (
 		VoucherID() [16]byte
 	}
 
-	Voucher_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
-
-
-
+	Voucher_Service_Count_Response = protocol.NumberOfVersion
 )
 
 type (
