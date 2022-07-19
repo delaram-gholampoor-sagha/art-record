@@ -1,4 +1,6 @@
-package protocol
+/* For license and copyright information please see LEGAL file in repository */
+
+package art
 
 // UserName indicate the domain record data fields.
 // it is use in many other services like send email(email address), ...

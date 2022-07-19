@@ -1,4 +1,8 @@
-package protocol
+/* For license and copyright information please see LEGAL file in repository */
+
+package art
+
+import "../libgo/protocol"
 type StaffMission interface {
 	StaffID() [16]byte        // staff domain
 	Day() utc.DayElapsed      //

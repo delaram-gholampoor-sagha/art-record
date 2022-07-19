@@ -1,4 +1,6 @@
-package protocol
+/* For license and copyright information please see LEGAL file in repository */
+
+package art
 
 // PersonPassword indicate the domain record data fields.
 // A person can decide to don't register password and deny authenticate by password.

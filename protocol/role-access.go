@@ -1,4 +1,6 @@
-package protocol
+/* For license and copyright information please see LEGAL file in repository */
+
+package art
 
 // RoleAccess indicate the domain record data fields.
 type RoleAccess interface {

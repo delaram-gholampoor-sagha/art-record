@@ -1,4 +1,6 @@
-package protocol
+/* For license and copyright information please see LEGAL file in repository */
+
+package art
 
 // VoucherUserType indicate the domain record data fields.
 // Use to restrict the voucher usage by specific user type.

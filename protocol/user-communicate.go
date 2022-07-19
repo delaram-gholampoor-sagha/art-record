@@ -1,4 +1,6 @@
-package protocol
+/* For license and copyright information please see LEGAL file in repository */
+
+package art
 
 // Communicate is the structure of private message to person or groups.
 type Communicate struct {

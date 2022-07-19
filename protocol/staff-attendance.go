@@ -1,4 +1,8 @@
-package protocol
+/* For license and copyright information please see LEGAL file in repository */
+
+package art
+
+import "../libgo/protocol"
 
 // StaffAttendance indicate the domain record data fields.
 type StaffAttendance interface {
