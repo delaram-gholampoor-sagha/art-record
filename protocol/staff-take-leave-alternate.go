@@ -18,7 +18,7 @@ type StaffTakeLeaveAlternate_StorageServices interface {
 	Save(stla StaffTakeLeaveAlternate) protocol.Error
 
 	Count(staffID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(staffID [16]byte, versionOffset uint64) (stla StaffTakeLeaveAlternate, err protocol.Error)
+	Get(staffID [16]byte, versionOffset uint64) (stla StaffTakeLeaveAlternate , nv protocol.NumberOfVersion , err protocol.Error)
 	
 
 	// FilterByStatus(status StaffTakeLeave_Status, offset, limit uint64) (staffIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
@@ -33,20 +33,16 @@ type (
   	PresentedID() [16]byte 
 	}
 
-		StaffTakeLeaveAlternate_Service_Register_Response interface{
-	   NumberOfVersion() protocol.NumberOfVersion
-	}
+	StaffTakeLeaveAlternate_Service_Register_Response = protocol.NumberOfVersion
 	
 )
 
 type (
-		StaffTakeLeaveAlternate_Service_Count_Request interface{
+	StaffTakeLeaveAlternate_Service_Count_Request interface{
 		StaffID() [16]byte
 	}
 	
-	StaffTakeLeaveAlternate_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	StaffTakeLeaveAlternate_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -57,8 +53,7 @@ type (
 		VersionOffset() uint64
 	}
 	
-	StaffTakeLeaveAlternate_Service_Get_Response interface{
-		StaffTakeLeaveAlternate
-	}
+	StaffTakeLeaveAlternate_Service_Get_Response1 = StaffTakeLeaveAlternate
+	StaffTakeLeaveAlternate_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )

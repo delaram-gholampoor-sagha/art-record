@@ -15,7 +15,7 @@ type StaffHireStatus_StorageServices interface {
 	Save(shs StaffHireStatus) protocol.Error
 
 	Count(userID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(userID [16]byte, versionOffset uint64) (shs StaffHireStatus, err protocol.Error)
+	Get(userID [16]byte, versionOffset uint64) (shs StaffHireStatus,nv protocol.NumberOfVersion , err protocol.Error)
 
 	// FilterByStatus(status StaffHire_Status, offset, limit uint64) (userIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	// protocol.EventTarget
@@ -58,21 +58,16 @@ type (
 		Status() StaffHire_Status
 	}
 
-	StaffHireStatus_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	StaffHireStatus_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		StaffHireStatus_Service_Count_Request interface {
+	StaffHireStatus_Service_Count_Request interface {
 		StaffID() [16]byte
 	}
 
-	StaffHireStatus_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+	StaffHireStatus_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
@@ -83,9 +78,8 @@ type (
 		VersionOffset() uint64
 	}
 
-	StaffHireStatus_Service_Get_Response interface {
-		StaffHireStatus
-	}
+	StaffHireStatus_Service_Get_Response1 = StaffHireStatus
+	StaffHireStatus_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -96,8 +90,6 @@ type (
 		StaffID() [16]byte
 	}
 
-	StaffHireStatus_Service_Last_Response interface {
-		StaffHireStatus
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	StaffHireStatus_Service_Last_Response1 = StaffHireStatus
+	StaffHireStatus_Service_Last_Response2 = protocol.NumberOfVersion
 )

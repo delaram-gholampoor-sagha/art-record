@@ -15,7 +15,7 @@ type StaffStatus_StorageServices interface {
 	Save(ss StaffStatus) protocol.Error
 
 	Count(staffID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(staffID [16]byte, versionOffset uint64) (ss StaffStatus, err protocol.Error)
+	Get(staffID [16]byte, versionOffset uint64) (ss StaffStatus, nv protocol.NumberOfVersion , err protocol.Error)
 
 	FilterByStatus(status Staff_Status, offset, limit uint64) (staffIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	// protocol.EventTarget
@@ -38,49 +38,40 @@ type (
 		Status() Staff_Status
 	}
 
-	StaffStatus_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	StaffStatus_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-
-		StaffStatus_Service_Count_Request interface {
+	StaffStatus_Service_Count_Request interface {
 		StaffID() [16]byte
 	}
 
-	StaffStatus_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+	StaffStatus_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
 type (
-
-		StaffStatus_Service_Get_Request interface {
+	StaffStatus_Service_Get_Request interface {
 		StaffID() [16]byte
 		VersionOffset() uint64
 	}
 
-	StaffStatus_Service_Get_Response interface {
-		StaffStatus
-	}
-	
-)
+	StaffStatus_Service_Get_Response1 = StaffStatus
 
+)
 
 
 type (
 	StaffStatus_Service_FilterByStatus_Request interface {
-		StaffStatus
+		Staff_Status() Quiddity_Status
 		Offset() uint64
 		Limit() uint64
 	}
 
-	StaffStatus_Service_FilterByStatus_Response interface {
+	StaffStatus_Service_FilterByStatus_Response1 interface {
 		StaffIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	StaffStatus_Service_FilterByStatus_Response2 = protocol.NumberOfVersion
 )

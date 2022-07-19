@@ -16,7 +16,7 @@ type StaffOvertimeStatus_StorageServices interface {
 	Save(gs StaffOvertimeStatus) protocol.Error
 
 	Count(staffID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(staffID [16]byte, versionOffset uint64) (gs StaffOvertimeStatus, err protocol.Error)
+	Get(staffID [16]byte, versionOffset uint64) (gs StaffOvertimeStatus, nv protocol.NumberOfVersion , err protocol.Error)
 	
 	// FilterByStatus(status StaffOvertime_Status, offset, limit uint64) (staffIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	// protocol.EventTarget
@@ -37,46 +37,31 @@ type (
   	Status() StaffOvertime_Status //
 	}
 
-	StaffOvertimeStatus_Service_Register_Response interface{
-      NumberOfVersion() protocol.NumberOfVersion
-	}
+	StaffOvertimeStatus_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		StaffOvertimeStatus_Service_Count_Request interface{
+ StaffOvertimeStatus_Service_Count_Request interface{
 		StaffID() [16]byte
 	}
 	
-	StaffOvertimeStatus_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	StaffOvertimeStatus_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
 
 
 type (
-		StaffOvertimeStatus_Service_Get_Request interface{
+	StaffOvertimeStatus_Service_Get_Request interface{
 		StaffID() [16]byte
 		VersionOffset() uint64
 	}
 	
-	StaffOvertimeStatus_Service_Get_Response interface{
-		StaffOvertimeStatus
-	}
+	StaffOvertimeStatus_Service_Get_Response1 = StaffOvertimeStatus
+	StaffOvertimeStatus_Service_Get_Response2 = protocol.NumberOfVersion
 
 )
 
 
 
-type (
-	StaffOvertimeStatus_Service_Last_Request interface{
-		StaffID() [16]byte
-	}
-	
-	StaffOvertimeStatus_Service_Last_Response interface{
-		StaffOvertimeStatus
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-)

@@ -16,7 +16,7 @@ type StaffTakeLeaveStatus_StorageServices interface {
 	Save(ss StaffTakeLeaveStatus) protocol.Error
 
 	Count(staffID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(staffID [16]byte, versionOffset uint64) (ss StaffTakeLeaveStatus, err protocol.Error)
+	Get(staffID [16]byte, versionOffset uint64) (ss StaffTakeLeaveStatus , nv protocol.NumberOfVersion, err protocol.Error)
 	
 
 	// FilterByStatus(status StaffTakeLeave_Status, offset, limit uint64) (staffIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
@@ -36,16 +36,13 @@ const (
 
 
 type (
-		StaffTakeLeaveStatus_Service_Register_Request interface{
+	StaffTakeLeaveStatus_Service_Register_Request interface{
 		StaffID() [16]byte             
 	  Day() utc.DayElapsed          
 	  Status() StaffTakeLeave_Status 
 	}
 
-		StaffTakeLeaveStatus_Service_Register_Response interface{
-	   NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	StaffTakeLeaveStatus_Service_Register_Response = protocol.NumberOfVersion
 )
 
 
@@ -54,23 +51,20 @@ type (
 		StaffID() [16]byte
 	}
 	
-	StaffTakeLeaveStatus_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	StaffTakeLeaveStatus_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
 
 
 type (
-		StaffTakeLeaveStatus_Service_Get_Request interface{
+	StaffTakeLeaveStatus_Service_Get_Request interface{
 		StaffID() [16]byte
 		VersionOffset() uint64
 	}
 	
-	StaffTakeLeaveStatus_Service_Get_Response interface{
-		StaffTakeLeaveStatus
-	}
+	StaffTakeLeaveStatus_Service_Get_Response1 = StaffTakeLeaveStatus
+	StaffTakeLeaveStatus_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 

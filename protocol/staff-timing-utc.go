@@ -23,52 +23,33 @@ type StaffTimingUTC_StorageServices interface {
 
 
 type (
-
-		StaffTimingUTC_Service_Register_Request interface{
+	StaffTimingUTC_Service_Register_Request interface{
 			StaffID() [16]byte        
 			ShiftID() [16]byte        
 			Day() utc.DayElapsed      
 			DayHours() earth.DayHours 
 	}
 
-	StaffTimingUTC_Service_Register_Response interface{
-	  NumberOfVersion() protocol.NumberOfVersion
-	}
+	StaffTimingUTC_Service_Register_Response = protocol.NumberOfVersion
 )
 
 type (
-
-		StaffTimingUTC_Service_Count_Request interface{
+	StaffTimingUTC_Service_Count_Request interface{
 		StaffID() [16]byte
 	}
 	
-	StaffTimingUTC_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	StaffTimingUTC_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
 
 type (
-
 	StaffTimingUTC_Service_Get_Request interface{
 		StaffID() [16]byte
 		VersionOffset() uint64
 	}
 	
-	StaffTimingUTC_Service_Get_Response interface{
-		StaffTimingUTC
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	StaffTimingUTC_Service_Get_Response1 = StaffTimingUTC
+	StaffTimingUTC_Service_Get_Response2 = protocol.NumberOfVersion
 )
 
-type (
-	StaffTimingUTC_Service_Last_Request interface{
-		StaffID() [16]byte
-	}
-	
-	StaffTimingUTC_Service_Last_Response interface{
-		StaffTimingUTC
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-)

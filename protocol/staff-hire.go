@@ -15,7 +15,7 @@ type StaffHire_StorageServices interface {
 	Save(sh StaffHire) protocol.Error
 
 	Count(userID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(userID [16]byte, versionOffset uint64) (sh StaffHire, err protocol.Error)
+	Get(userID [16]byte, versionOffset uint64) (sh StaffHire , nv protocol.NumberOfVersion, err protocol.Error)
 	
 
 	FindByRoleID(roleID [16]byte, offset, limit uint64) (userIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
@@ -25,25 +25,21 @@ type StaffHire_StorageServices interface {
 
 
 type (
-		StaffHire_Service_Register_Request interface {
+	StaffHire_Service_Register_Request interface {
 		UserID() [16]byte    
   	RoleID() [16]byte    
 	}
 
-		StaffHire_Service_Register_Response interface {
-	  	NumberOfVersion() protocol.NumberOfVersion
-	}
+	StaffHire_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		StaffHire_Service_Count_Request interface {
+	StaffHire_Service_Count_Request interface {
 		StaffID() [16]byte
 	}
 
-	StaffHire_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	StaffHire_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
@@ -53,9 +49,8 @@ type (
 		VersionOffset() uint64
 	}
 
-	StaffHire_Service_Get_Response interface {
-		StaffHire
-	}
+	StaffHire_Service_Get_Response1 = StaffHire
+	StaffHire_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -66,8 +61,9 @@ type (
 		Limit() uint64
 	}
 
-	StaffHire_Service_FindByRoleID_Response interface {
+	StaffHire_Service_FindByRoleID_Response1 interface {
 		StaffIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	StaffHire_Service_FindByRoleID_Response2 = protocol.NumberOfVersion 
 )
