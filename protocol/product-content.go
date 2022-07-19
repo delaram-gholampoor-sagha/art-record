@@ -26,20 +26,16 @@ type (
 		ProductID() [16]byte 
 		ContentID() [16]byte  
 	}
-	ProductContent_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
 
+	ProductContent_Service_Register_Response = protocol.NumberOfVersion
 )
 
 type (
 		ProductContent_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
-	ProductContent_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+
+	ProductContent_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
@@ -48,24 +44,24 @@ type (
 		ProductID() [16]byte
 		VersionOffset() uint64
 	}
-	ProductContent_Service_Get_Response interface {
-		ProductContent
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	ProductContent_Service_Get_Response1 = ProductContent
+	ProductContent_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
 
 
 type (
-	
 	ProductContent_Service_FindByContent_Request interface {
 		ContentID() [16]byte
 		Offset() uint64
-		Limit() uint64}
-	ProductContent_Service_FindByContent_Response interface {
-		ProductIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
+		Limit() uint64
 	}
+	ProductContent_Service_FindByContent_Response1 interface {
+		ProductIDs() [][16]byte
+	}
+	
+	ProductContent_Service_FindByContent_Response2 = protocol.NumberOfVersion
 	
 )

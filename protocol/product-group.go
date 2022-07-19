@@ -26,33 +26,28 @@ type (
 		ProductID() [16]byte 
 		GroupID() [16]byte  
 	}
-	ProductGroup_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductGroup_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		ProductGroup_Service_Count_Request interface {
+	ProductGroup_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
-	ProductGroup_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+
+	ProductGroup_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
 
 type (
-		ProductGroup_Service_Get_Request interface {
+	ProductGroup_Service_Get_Request interface {
 		ProductID() [16]byte
 		VersionOffset() uint64
 	}
-	ProductGroup_Service_Get_Response interface {
-		ProductGroup
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	ProductGroup_Service_Get_Response1 = 	ProductGroup
+	ProductGroup_Service_Get_Response2 =  protocol.NumberOfVersion
 	
 )
 
@@ -62,8 +57,9 @@ type (
 		GroupID() [16]byte
 		Offset() uint64
 		Limit() uint64}
-	ProductGroup_Service_FindByGroup_Response interface {
+	ProductGroup_Service_FindByGroup_Response1 interface {
 		ProductIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+	ProductGroup_Service_FindByGroup_Response2 = protocol.NumberOfVersion
 )

@@ -37,10 +37,7 @@ type (
 		Type() ProductSeat_Type
 		MapID() [16]byte 
 	}
-	ProductSeat_Services_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-
-	}
+	ProductSeat_Services_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -48,9 +45,7 @@ type (
 		ProductSeat_Service_Count_Request interface{
 		ProductID() [16]byte
 	}
-	ProductSeat_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion	
-	}
+	ProductSeat_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
@@ -61,9 +56,8 @@ type (
 		ProductID() [16]byte
 		VersionOffset() uint64
 	}
-	ProductSeat_Service_Get_Response interface{
-		ProductSeat
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	
+	ProductSeat_Service_Get_Response1 = ProductSeat
+	ProductSeat_Service_Get_Response2 = protocol.NumberOfVersion
 )
 

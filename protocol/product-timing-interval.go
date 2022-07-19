@@ -31,9 +31,7 @@ type (
 			Maximum() protocol.Duration  
 	}
 	
-	ProductTimingInterval_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductTimingInterval_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -43,10 +41,7 @@ type (
 		ProductID() [16]byte
 	}
 	
-	ProductTimingInterval_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	ProductTimingInterval_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
@@ -56,9 +51,7 @@ type (
 		VersionOffset() uint64
 	}
 	
-	ProductTimingInterval_Service_Get_Response interface {
-		ProductTimingInterval
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductTimingInterval_Service_Get_Response1 = ProductTimingInterval
+	ProductTimingInterval_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )

@@ -25,40 +25,34 @@ type ProductComplement_StorageServices interface {
 
 
 type (
-
 	ProductComplement_Service_Register_Request interface {
 		ProductID() [16]byte 
 		Priority() uint64       
 		ComplementID() [16]byte 
 	}
-	ProductComplement_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
 
+	ProductComplement_Service_Register_Response = protocol.NumberOfVersion
 )
 
 type (
-		ProductComplement_Service_Count_Request interface {
+	ProductComplement_Service_Count_Request interface {
 		ProductID() [16]byte
 		Priority() uint64
 	}
-	ProductComplement_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
 
+	ProductComplement_Service_Count_Response = protocol.NumberOfVersion
 )
 
 type (
-		ProductComplement_Service_Get_Request interface {
+	ProductComplement_Service_Get_Request interface {
 		ProductID() [16]byte
 		Priority() uint64       
 		VersionOffset() uint64
 	}
-	ProductComplement_Service_Get_Response interface {
-		ProductComplement
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+
+	ProductComplement_Service_Get_Response1 = ProductComplement
+	ProductComplement_Service_Get_Response2 = protocol.NumberOfVersion
+
 )
 
 
@@ -68,10 +62,11 @@ type (
 		Offset() uint64
 		Limit() uint64
 	}
-	ProductComplement_Service_ListProducts_Response interface {
+	ProductComplement_Service_ListProducts_Response1 interface {
 		ProductIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	ProductComplement_Service_ListProducts_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -84,8 +79,9 @@ type (
 		Offset() uint64
 		Limit() uint64
 	}
-	ProductComplement_Service_ListPriorities_Response interface {
+	ProductComplement_Service_ListPriorities_Response1 interface {
 		Priorities() []uint64
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	ProductComplement_Service_ListPriorities_Response2 = protocol.NumberOfVersion
 )

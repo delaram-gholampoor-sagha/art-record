@@ -34,9 +34,7 @@ type (
 	  End() protocol.Time   
 	}
 	
-	ProductTax_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductTax_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -45,9 +43,7 @@ type (
 		ProductID() [16]byte
 	}
 	
-	ProductTax_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductTax_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
@@ -57,9 +53,7 @@ type (
 		VersionOffset() uint64
 	}
 	
-	ProductTax_Service_Get_Response interface {
-		ProductTax
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductTax_Service_Get_Response1 = ProductTax
+	ProductTax_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )

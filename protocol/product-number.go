@@ -23,27 +23,24 @@ type ProductNumber_StorageServices interface {
 
 
 type (
-		ProductNumber_Service_Register_Request interface {
+	ProductNumber_Service_Register_Request interface {
 		ProductID() [16]byte        
 		Minimum() uint64             
 		Maximum() uint64             
 		MaximumInvoiceByBuy() uint64 
 	}
-	ProductNumber_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	ProductNumber_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 
 type (
-		ProductNumber_Service_Count_Request interface {
+	ProductNumber_Service_Count_Request interface {
 		ProductID() [16]byte
-		
 	}
-	ProductNumber_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	ProductNumber_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -54,8 +51,10 @@ type (
 		ProductID() [16]byte
 		VersionOffset() uint64
 	}
-	ProductNumber_Service_Get_Response interface {
+	ProductNumber_Service_Get_Response1 interface {
 		ProductNumber
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+	ProductNumber_Service_Get_Response2 = protocol.NumberOfVersion
 )

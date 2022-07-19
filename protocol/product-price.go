@@ -29,9 +29,7 @@ type (
 		ProductID() [16]byte
 		Currency() [16]byte
 	}
-	ProductPrice_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductPrice_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -40,9 +38,7 @@ type (
 		ProductID() [16]byte
 		Currency() uint64
 	}
-	ProductPrice_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductPrice_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
@@ -52,10 +48,9 @@ type (
 		Currency() uint64
 		VersionOffset() uint64
 	}
-	ProductPrice_Service_Get_Response interface {
-		ProductPrice
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	ProductPrice_Service_Get_Response1 = 	ProductPrice
+	ProductPrice_Service_Get_Response2 =  protocol.NumberOfVersion
 	
 )
 
@@ -65,9 +60,10 @@ type (
 		Offset()
 		Limit() uint64
 	}
-	ProductPrice_Service_ListProductCurrencies_Response interface {
+	ProductPrice_Service_ListProductCurrencies_Response1 interface {
 		Currencies() []uint64
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	ProductPrice_Service_ListProductCurrencies_Response2 = protocol.NumberOfVersion
 	
 )

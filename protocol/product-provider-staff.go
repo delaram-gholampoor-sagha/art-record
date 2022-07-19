@@ -28,35 +28,29 @@ type (
 		ProductID() [16]byte
 		StaffID() [16]byte
 	}
-	ProductProviderStaff_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	ProductProviderStaff_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		ProductProviderStaff_Service_Count_Request interface {
+	ProductProviderStaff_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
-	ProductProviderStaff_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
 
-	}
+	ProductProviderStaff_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
 
 type (
-		ProductProviderStaff_Service_Get_Request interface {
+  ProductProviderStaff_Service_Get_Request interface {
 		ProductID() [16]byte
 		VersionOffset() uint64	
 	}
-	ProductProviderStaff_Service_Get_Response interface {
-		ProductProviderStaff
-		NumberOfVersion() protocol.NumberOfVersion
 
-	}
-	
+	ProductProviderStaff_Service_Get_Response1  = 	ProductProviderStaff
+	ProductProviderStaff_Service_Get_Response2 = protocol.NumberOfVersion
 )
 
 
@@ -67,9 +61,10 @@ type (
 		Offset() uint64
 		Limit() uint64
 	}
-	ProductProviderStaff_Service_FindByStaff_Response interface {
+	ProductProviderStaff_Service_FindByStaff_Response1 interface {
 		ProductIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+	ProductProviderStaff_Service_FindByStaff_Response2 = protocol.NumberOfVersion
 )
 

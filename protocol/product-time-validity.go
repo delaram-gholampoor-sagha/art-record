@@ -30,9 +30,7 @@ type(
 	  End() protocol.Time   
 	}
 	
-	ProductTimeValidity_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductTimeValidity_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -41,9 +39,7 @@ type(
 		ProductID() [16]byte
 	}
 	
-	ProductTimeValidity_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductTimeValidity_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
@@ -55,9 +51,7 @@ type (
 		VersionOffset() uint64
 	}
 	
-	ProductTimeValidity_Service_Get_Response interface {
-		ProductTimeValidity
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductTimeValidity_Service_Get_Response1 = ProductTimeValidity
+	ProductTimeValidity_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )

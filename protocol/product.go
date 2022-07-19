@@ -84,10 +84,11 @@ type (
 	Product_Service_Register_Request interface{
 		Type() Product_Type
 	}
-	Product_Service_Register_Response interface{
+	Product_Service_Register_Response1 interface{
 		ProductID() [16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	Product_Service_Register_Response2 = protocol.NumberOfVersion
 
 )
 
@@ -96,25 +97,19 @@ type (
 		ProductID() [16]byte
 	}
 
-	Product_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+	Product_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
 
 type (
-		Product_Service_Get_Request interface{
+	Product_Service_Get_Request interface{
 		ProductID() [16]byte
 		VersionOffset() uint64
 	}
 
-	Product_Service_Get_Response interface{
-		Product
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+	Product_Service_Get_Response1 =	Product
+	Product_Service_Get_Response2 = protocol.NumberOfVersion
 )
 
 
@@ -125,8 +120,9 @@ type (
 		Limit() uint64
 	}
 
-	Product_Service_FilterByType_Response interface{
+	Product_Service_FilterByType_Response1 interface{
 		ProductIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	Product_Service_FilterByType_Response2 = protocol.NumberOfVersion
 )

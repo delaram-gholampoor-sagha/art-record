@@ -27,9 +27,7 @@ type (
 	  DayHours() earth.DayHours
 	}
 
-	ProductTimingUTC_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductTimingUTC_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -38,9 +36,7 @@ type (
 		ProductID() [16]byte
 	}
 
-	ProductTimingUTC_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductTimingUTC_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -50,8 +46,7 @@ type (
 		VersionOffset() uint64
 	}
 
-	ProductTimingUTC_Service_Get_Response interface {
-		ProductTimingUTC
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductTimingUTC_Service_Get_Response1 = ProductTimingUTC
+	ProductTimingUTC_Service_Get_Response2 = protocol.NumberOfVersion
+	
 )

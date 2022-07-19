@@ -21,26 +21,22 @@ type ProductReserveQuantity_StorageServices interface {
 }
 
 type (
-		ProductReserveQuantity_Service_Register_Request interface {
+	ProductReserveQuantity_Service_Register_Request interface {
 		ProductID() [16]byte
 		Quantity() uint64
 		Percent() uint64
 	}
-	ProductReserveQuantity_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductReserveQuantity_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 
 type (
-		ProductReserveQuantity_Service_Count_Request interface {
+	ProductReserveQuantity_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
-	ProductReserveQuantity_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	
-	}
+
+	ProductReserveQuantity_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -50,11 +46,9 @@ type (
 	ProductReserveQuantity_Service_Get_Request interface {
 		ProductID() [16]byte
 		VersionOffset() uint64
+	}
 	
-	}
-	ProductReserveQuantity_Service_Get_Response interface {
-		ProductReserveQuantity
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductReserveQuantity_Service_Get_Response1 = ProductReserveQuantity
+	ProductReserveQuantity_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )

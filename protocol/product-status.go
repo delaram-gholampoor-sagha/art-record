@@ -36,23 +36,15 @@ type (
 		Status() Product_Status 
 	}
 
-	ProductStatus_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	ProductStatus_Service_Register_Response = protocol.NumberOfVersion
 )
 
 type (
 	ProductStatus_Service_Count_Request interface {
 		ProductID() [16]byte    
-		
 	}
 
-	ProductStatus_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-		
-	}
-	
+	ProductStatus_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
@@ -61,11 +53,11 @@ type (
 		ProductID() [16]byte
 		VersionOffset() uint64
 	}
-	Product_Status_Service_Get_Response interface {
+	Product_Status_Service_Get_Response1 interface {
 		Status() Product_Status
-		NumberOfVersion() protocol.NumberOfVersion
-
 	}
+
+	Product_Status_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -75,8 +67,9 @@ type (
 		Offset() uint64
 		Limit() uint64
 	}
-	Product_Status_Service_FilterByStatus_Response interface{
+	Product_Status_Service_FilterByStatus_Response1 interface{
 		ProductIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	Product_Status_Service_FilterByStatus_Response2 = protocol.NumberOfVersion
 )

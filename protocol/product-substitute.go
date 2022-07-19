@@ -29,9 +29,7 @@ type (
 		Priority() uint64      
 		SubstituteID() [16]byte 
 	}
-	ProductSubstitute_Service_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductSubstitute_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -40,23 +38,19 @@ type (
 		ProductID() [16]byte
 	}
 
-	ProductSubstitute_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductSubstitute_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
 
 type (
-		ProductSubstitute_Service_Get_Request interface{
+	ProductSubstitute_Service_Get_Request interface{
 		ProductID() [16]byte
 		VersionOffset() uint64
 	}
 
-	ProductSubstitute_Service_Get_Response interface{
-		ProductSubstitute
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductSubstitute_Service_Get_Response1 = ProductSubstitute
+	ProductSubstitute_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -69,8 +63,9 @@ type (
 		Limit() uint64
 	}
 
-	ProductSubstitute_Service_FilterByType_Response interface{
+	ProductSubstitute_Service_FilterByType_Response1 interface{
 		ProductIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	ProductSubstitute_Service_FilterByType_Response2 = protocol.NumberOfVersion
 )

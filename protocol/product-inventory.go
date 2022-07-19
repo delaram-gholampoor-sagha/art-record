@@ -49,20 +49,16 @@ const (
 
 
 type (
-		ProductInventory_Service_Register_Request interface {
+	ProductInventory_Service_Register_Request interface {
 		ProductID() [16]byte               
 		BuildingLocationID() [16]byte       
 		ReferenceID() [16]byte              
 		ReferenceType() ProductInventory_RT 
 		Amount() int64                      
 		Stock() int64                       
-
-
 	}
 
-	ProductInventory_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductInventory_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -71,9 +67,7 @@ type (
 		ProductID()[16]byte
 		BuildingLocationID() [16]byte
 	}
-	ProductInventory_Service_Lock_Response interface {
-		ProductInventory
-	}
+	ProductInventory_Service_Lock_Response = ProductInventory
 	
 )
 
@@ -83,10 +77,8 @@ type (
 	ProductInventory_Service_Unlock_Request interface {
 		ProductInventory
 	}
-	ProductInventory_Service_Unlock_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	
-	}
+
+	ProductInventory_Service_Unlock_Response = protocol.NumberOfVersion
 	
 )
 
@@ -94,14 +86,12 @@ type (
 
 
 type (
-		ProductInventory_Service_Count_Request interface {
+	ProductInventory_Service_Count_Request interface {
 		ProductID() [16]byte
 		BuildingLocationID() [16]byte
-	
 	}
-	ProductInventory_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	ProductInventory_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -112,10 +102,10 @@ type (
 		BuildingLocationID() [16]byte    
 		VersionOffset() uint64
 	}
-	ProductInventory_Service_Get_Response interface {
-		ProductInventory
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	
+	ProductInventory_Service_Get_Response1 = 	ProductInventory
+	ProductInventory_Service_Get_Response2 = protocol.NumberOfVersion
+
 )
 
 

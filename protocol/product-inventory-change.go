@@ -35,9 +35,8 @@ type (
 		Amount() int64                      
 		Priority() uint64                   
 	}
-	ProductInventoryChange_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	ProductInventoryChange_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -45,9 +44,8 @@ type (
 	ProductInventoryChange_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
-	ProductInventoryChange_Service_Count_Response interface {
-		Numbers()uint64
-	}
+
+	ProductInventoryChange_Service_Count_Response = protocol.NumberOfVersion
 )
 
 type (
@@ -55,10 +53,9 @@ type (
 		ProductID() [16]byte
 		VersionOffset() uint64
 	}
-	ProductInventoryChange_Service_Get_Response interface {
-		ProductInventoryChange
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	ProductInventoryChange_Service_Get_Response1 = 	ProductInventoryChange
+	ProductInventoryChange_Service_Get_Response2 = protocol.NumberOfVersion
 
 )
 
@@ -67,10 +64,11 @@ type (
 		ProductID() [16]byte
 		Offset() uint64
 		Limit() uint64
+	}
 
-	}
-	ProductInventoryChange_Service_FindByProduct_Response interface {
+	ProductInventoryChange_Service_FindByProduct_Response1 interface {
 		ProductIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	ProductInventoryChange_Service_FindByProduct_Response2 = protocol.NumberOfVersion
 )

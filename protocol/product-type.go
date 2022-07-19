@@ -78,10 +78,7 @@ type (
 	  Type() Product_Type  
 	}
 
-	ProductType_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	ProductType_Service_Register_Response = protocol.NumberOfVersion
 )
 
 type (
@@ -89,9 +86,7 @@ type (
 		ProductID() [16]byte
 	}
 
-	ProductType_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductType_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
@@ -102,8 +97,6 @@ type (
 		VersionOffset() uint64
 	}
 
-	ProductType_Service_Get_Response interface {
-		ProductType
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductType_Service_Get_Response1 = ProductType
+	ProductType_Service_Get_Response2 = protocol.NumberOfVersion
 )

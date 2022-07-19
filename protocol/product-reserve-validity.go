@@ -24,9 +24,7 @@ type (
 		ProductID() [16]byte
 		Duration() protocol.Duration
 	}
-	ProductReserveValidity_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductReserveValidity_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -35,10 +33,7 @@ type (
 		ProductID() [16]byte
 	
 	}
-	ProductReserveValidity_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	
-	}
+	ProductReserveValidity_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -49,10 +44,9 @@ type (
 		ProductID() [16]byte
 		VersionOffset() uint64
 	}
-	ProductReserveValidity_Service_Get_Response interface {
-		ProductReserveValidity
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+
+
+	ProductReserveValidity_Service_Get_Response1 = ProductReserveValidity
+	ProductReserveValidity_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )

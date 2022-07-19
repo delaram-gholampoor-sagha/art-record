@@ -30,20 +30,16 @@ type (
 		ProductID() [16]byte
 		RoleID() [16]byte
 	}
-	ProductProviderRole_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductProviderRole_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-
-		ProductProviderRole_Service_Count_Request interface {
+	ProductProviderRole_Service_Count_Request interface {
 		ProductID() [16]byte
 	}
-	ProductProviderRole_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	ProductProviderRole_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -54,11 +50,9 @@ type (
 		ProductID() [16]byte
 		VersionOffset() uint64
 	}
-	ProductProviderRole_Service_Get_Response interface {
-		ProductProviderRole
-		NumberOfVersion() protocol.NumberOfVersion
-		
-	}
+
+	ProductProviderRole_Service_Get_Response1 =	ProductProviderRole
+	ProductProviderRole_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -70,9 +64,10 @@ type (
 		Offset() uint64
 		Limit() uint64
 	}
-	ProductProviderRole_Service_FindByRole_Response interface {
-		ProductionIds() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
+	ProductProviderRole_Service_FindByRole_Response1 interface {
+		ProductIDs() [][16]byte
 	}
+
+	ProductProviderRole_Service_FindByRole_Response2 = protocol.NumberOfVersion
 	
 )
