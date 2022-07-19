@@ -23,43 +23,31 @@ type VoucherGroup_StorageServices interface {
 
 
 type (
-
 	VoucherGroup_Service_Register_Request interface{
 		VoucherID() [16]byte 
 	  GroupID() [16]byte   
 	}
 	
-	VoucherGroup_Service_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	VoucherGroup_Service_Register_Response =  protocol.NumberOfVersion
 )
 
 type (
-
 	VoucherGroup_Service_Count_Request interface{
 		VoucherID() [16]byte
 	}
 	
-	VoucherGroup_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	VoucherGroup_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
 type (
-
-		VoucherGroup_Service_Get_Request interface{
+	VoucherGroup_Service_Get_Request interface{
 		VoucherID() [16]byte
 		VersionOffset() uint64
 	}
 	
-	VoucherGroup_Service_Get_Response interface{
-		VoucherGroup
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	VoucherGroup_Service_Get_Response1 = VoucherGroup
+	VoucherGroup_Service_Get_Response2 = protocol.NumberOfVersion
 )
 
 
@@ -71,8 +59,9 @@ type (
 		Limit() uint64
 	}
 	
-	VoucherGroup_Service_FindByGroup_Response interface{
+	VoucherGroup_Service_FindByGroup_Response1 interface{
 		VoucherIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	VoucherGroup_Service_FindByGroup_Response2 = protocol.NumberOfVersion
 )

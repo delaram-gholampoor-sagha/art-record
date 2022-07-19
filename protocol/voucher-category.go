@@ -31,9 +31,7 @@ type (
 	   CategoryID() [16]byte 
 	}
 	
-	VoucherCategory_Service_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherCategory_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -42,10 +40,7 @@ type (
 		VoucherID() [16]byte
 	}
 	
-	VoucherCategory_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	VoucherCategory_Service_Count_Response = protocol.NumberOfVersion
 )
 
 type (
@@ -54,9 +49,7 @@ type (
 		VersionOffset() uint64
 	}
 	
-	VoucherCategory_Service_Get_Response interface{
-		VoucherCategory
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherCategory_Service_Get_Response1 = VoucherCategory
+	VoucherCategory_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )

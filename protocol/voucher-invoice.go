@@ -31,22 +31,16 @@ type (
 	  MinAmount() uint64   
 	}
 	
-	VoucherInvoice_Service_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherInvoice_Service_Register_Response = protocol.NumberOfVersion
 )
 
 
 type (
-
 	VoucherInvoice_Service_Count_Request interface{
 		VoucherID() [16]byte
 	}
 	
-	VoucherInvoice_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	VoucherInvoice_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
@@ -56,9 +50,6 @@ type (
 		VersionOffset() uint64
 	}
 	
-	VoucherInvoice_Service_Get_Response interface{
-		VoucherInvoice
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+	VoucherInvoice_Service_Get_Response1 = VoucherInvoice
+	VoucherInvoice_Service_Get_Response2 = protocol.NumberOfVersion
 )

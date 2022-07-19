@@ -33,16 +33,13 @@ const (
 
 
 type (
-
-		VoucherSourceInvoice_Service_Register_Request interface{
+	VoucherSourceInvoice_Service_Register_Request interface{
 		VoucherID() [16]byte                    
 	  InvoiceID() [16]byte                    
 	  InvoiceType() VoucherSourceInvoice_Type 
 	}
 	
-	VoucherSourceInvoice_Service_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherSourceInvoice_Service_Register_Response = protocol.NumberOfVersion
 )
 
 
@@ -51,9 +48,7 @@ type (
 		VoucherID() [16]byte
 	}
 	
-	VoucherSourceInvoice_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherSourceInvoice_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
@@ -64,10 +59,8 @@ type (
 		VersionOffset() uint64
 	}
 	
-	VoucherSourceInvoice_Service_Get_Response interface{
-		VoucherSourceInvoice
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherSourceInvoice_Service_Get_Response1 = VoucherSourceInvoice
+	VoucherSourceInvoice_Service_Get_Response2 = protocol.NumberOfVersion
 )
 
 type(
@@ -77,8 +70,9 @@ type(
 		Limit() uint64
 	}
 	
-	VoucherSourceInvoice_Service_FindByInvoice_Response interface{
+	VoucherSourceInvoice_Service_FindByInvoice_Response1 interface{
 		VoucherIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	VoucherSourceInvoice_Service_FindByInvoice_Response2 = protocol.NumberOfVersion
 )

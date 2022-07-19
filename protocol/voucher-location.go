@@ -26,10 +26,7 @@ type (
 		BuildingLocationID() [16]byte
 	}
 
-	VoucherLocation_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	VoucherLocation_Service_Register_Response = protocol.NumberOfVersion
 )
 
 
@@ -38,9 +35,7 @@ type (
 		VoucherID() [16]byte
 	}
 
-	VoucherLocation_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherLocation_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
@@ -52,23 +47,22 @@ type (
 		VersionOffset() uint64
 	}
 
-	VoucherLocation_Service_Get_Response interface {
-		VoucherLocation
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherLocation_Service_Get_Response1 = VoucherLocation
+	VoucherLocation_Service_Get_Response2 = protocol.NumberOfVersion
+
 )
 
 
 type (
-
 	VoucherLocation_Service_FindByBuildingLocation_Request interface {
 		BuildingLocationID() [16]byte
 		Offset() uint64
 		Limit() uint64
 	}
 
-	VoucherLocation_Service_FindByBuildingLocation_Response interface {
+	VoucherLocation_Service_FindByBuildingLocation_Response1 interface {
 		VoucherIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	VoucherLocation_Service_FindByBuildingLocation_Response2 = protocol.NumberOfVersion
 )

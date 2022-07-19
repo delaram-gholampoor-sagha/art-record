@@ -24,16 +24,12 @@ type VoucherPOS_StorageServices interface {
 
 
 type (
-
-
 		VoucherPOS_Service_Register_Request interface {
 			VoucherID() [16]byte 
     	PosID() [16]byte    
 	  }
 	   
-		VoucherPOS_Service_Register_Response interface {
-			NumberOfVersion() protocol.NumberOfVersion
-		}
+		VoucherPOS_Service_Register_Response = protocol.NumberOfVersion
 )
 
 type (
@@ -41,9 +37,7 @@ type (
 			VoucherID() [16]byte
 		}
 		
-		VoucherPOS_Service_Count_Response interface {
-			NumberOfVersion() protocol.NumberOfVersion
-		}
+		VoucherPOS_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
@@ -55,10 +49,8 @@ type (
 		
 		}
 		
-		VoucherPOS_Service_Get_Response interface {
-			VoucherPOS
-			NumberOfVersion() protocol.NumberOfVersion
-		}
+		VoucherPOS_Service_Get_Response1 = VoucherPOS
+		VoucherPOS_Service_Get_Response2 = protocol.NumberOfVersion
 
 )
 
@@ -69,8 +61,9 @@ type (
 			Limit() uint64
 		}
 		
-		VoucherPOS_Service_FindByPOS_Response interface {
+		VoucherPOS_Service_FindByPOS_Response1 interface {
 			VoucherIDs() [][16]byte
-			NumberOfVersion() protocol.NumberOfVersion
 		}
+
+		VoucherPOS_Service_FindByPOS_Response2 = protocol.NumberOfVersion
 )

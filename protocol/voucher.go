@@ -79,7 +79,7 @@ type (
 )
 
 type (
-		Voucher_Service_ChangeStatus_Request interface {
+	Voucher_Service_ChangeStatus_Request interface {
 		Time() protocol.Time 
 	}
 

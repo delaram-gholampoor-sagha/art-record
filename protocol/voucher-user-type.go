@@ -27,46 +27,37 @@ type (
 			UserType() protocol.UserType 
 	}
 
-	VoucherUserType_Service_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+	VoucherUserType_Service_Register_Response = protocol.NumberOfVersion
 )
 
 
 type (
-
-		VoucherUserType_Service_Count_Request interface{
+	VoucherUserType_Service_Count_Request interface{
 		VoucherID() [16]byte
 	}
 
-	VoucherUserType_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherUserType_Service_Count_Response =  protocol.NumberOfVersion
 )
 
 type (
-
-		VoucherUserType_Service_Get_Request interface{
+	VoucherUserType_Service_Get_Request interface{
 		VoucherID() [16]byte
 		VersionOffset() uint64
 	}
-
-	VoucherUserType_Service_Get_Response interface{
-		VoucherUserType
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherUserType_Service_Get_Response1 = protocol.NumberOfVersion
+	VoucherUserType_Service_Get_Response2 = VoucherUserType
 )
 
 type (
-VoucherUserType_Service_FilterByUserType_Request interface{
+	VoucherUserType_Service_FilterByUserType_Request interface{
 		UserID() [16]byte
 		Offset() uint64
 		Limit() uint64
 	}
 
-	VoucherUserType_Service_FilterByUserType_Response interface{
+	VoucherUserType_Service_FilterByUserType_Response1 interface{
 		VoucherIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	VoucherUserType_Service_FilterByUserType_Response2 = protocol.NumberOfVersion
 )

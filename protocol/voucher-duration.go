@@ -30,7 +30,6 @@ const (
 )
 
 type (
-
 	VoucherDuration_Service_Register_Request interface{
 		VoucherID() [16]byte          
 	  Each() uint8                  
@@ -38,22 +37,16 @@ type (
   	Duration() protocol.Duration  
 	}
 	
-	VoucherDuration_Service_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherDuration_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-
 	VoucherDuration_Service_Count_Request interface{
 		VoucherID() [16]byte
 	}
 	
-	VoucherDuration_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	VoucherDuration_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
@@ -63,9 +56,7 @@ type (
 		VersionOffset() uint64
 	}
 	
-	VoucherDuration_Service_Get_Response interface{
-		VoucherDuration
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherDuration_Service_Get_Response1 = VoucherDuration
+	VoucherDuration_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )

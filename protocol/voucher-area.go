@@ -30,10 +30,7 @@ type (
 	  AreaID() [16]byte    
 	}
 	
-	VoucherArea_Service_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	VoucherArea_Service_Register_Response = protocol.NumberOfVersion
 )
 
 
@@ -42,9 +39,7 @@ type (
 		VoucherID() [16]byte
 	}
 	
-	VoucherArea_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherArea_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
@@ -56,13 +51,11 @@ type (
 		VersionOffset() uint64
 	}
 
-	VoucherArea_Service_Get_Response interface{
-		VoucherArea
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
-
+	VoucherArea_Service_Get_Response1 =VoucherArea
+	VoucherArea_Service_Get_Response2 = protocol.NumberOfVersion
 )
+
+
 type (
 	VoucherArea_Service_FindByArea_Request interface{
 		AreaID() [16]byte
@@ -70,8 +63,9 @@ type (
 		Limit() uint64
 	}
 	
-	VoucherArea_Service_FindByArea_Response interface{
+	VoucherArea_Service_FindByArea_Response1 interface{
 		VoucherIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	VoucherArea_Service_FindByArea_Response2 = protocol.NumberOfVersion
 )

@@ -36,51 +36,47 @@ const (
 
 
 type (
-		VoucherStatus_Service_Register_Request interface {
+	VoucherStatus_Service_Register_Request interface {
 		VoucherID() [16]byte    
   	Status() Voucher_Status 
 	}
 	
-	VoucherStatus_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherStatus_Service_Register_Response =   protocol.NumberOfVersion
 
 )
 
 type (
-
-		VoucherStatus_Service_Count_Request interface {
+	VoucherStatus_Service_Count_Request interface {
 		VoucherID() [16]byte
 	}
 	
-	VoucherStatus_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherStatus_Service_Count_Response1 = protocol.NumberOfVersion
+
 )
 
 
 type (
-		VoucherStatus_Service_Get_Request interface {
+	VoucherStatus_Service_Get_Request interface {
 		VoucherID() [16]byte 
 		VersionOffset() uint64
 	}
 	
-	VoucherStatus_Service_Get_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherStatus_Service_Get_Response1 = protocol.NumberOfVersion
+	VoucherStatus_Service_Get_Response2 = VoucherStatus
 	
 )
 
+
 type (
-	
 	VoucherStatus_Service_FilterByStatus_Request interface {
 		Voucher_Status() Quiddity_Status
 		offset() uint64
 		limit() uint64
 	}
 	
-	VoucherStatus_Service_FilterByStatus_Response interface {
+	VoucherStatus_Service_FilterByStatus_Response1 interface {
 		VoucherIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	VoucherStatus_Service_FilterByStatus_Response2 = protocol.NumberOfVersion
 )

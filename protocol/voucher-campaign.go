@@ -30,21 +30,15 @@ type (
   	CampaignID() [16]byte 
 	}
 	
-	VoucherCampaign_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherCampaign_Service_Register_Response = protocol.NumberOfVersion
 )
 
 type (
-
 	VoucherCampaign_Service_Count_Request interface {
 		VoucherID() [16]byte
 	}
 	
-	VoucherCampaign_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	VoucherCampaign_Service_Count_Response = protocol.NumberOfVersion
 )
 
 type (
@@ -53,10 +47,8 @@ type (
 		VersionOffset() uint64
 	}
 	
-	VoucherCampaign_Service_Get_Response interface {
-		VoucherCampaign
-		  NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherCampaign_Service_Get_Response1 = VoucherCampaign
+	VoucherCampaign_Service_Get_Response2 = protocol.NumberOfVersion
 
 )
 
@@ -67,8 +59,9 @@ type (
 		Limit() uint64
 	}
 	
-	VoucherCampaign_Service_FindByCampaign_Response interface {
+	VoucherCampaign_Service_FindByCampaign_Response1 interface {
 		VoucherIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	VoucherCampaign_Service_FindByCampaign_Response2 = protocol.NumberOfVersion
 )

@@ -29,24 +29,16 @@ type (
 		Price() protocol.AmountOfMoney 
 	}
 	
-	VoucherValue_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	VoucherValue_Service_Register_Response =  protocol.NumberOfVersion
 )
 
 
 type (
-
-	
 	VoucherValue_Service_Count_Request interface {
 		VoucherID() [16]byte
 	}
 	
-	VoucherValue_Service_Count_Response interface {
-	 NumberOfVersion() protocol.NumberOfVersion 
-	}
-	
+	VoucherValue_Service_Count_Response =  protocol.NumberOfVersion
 )
 
 type (
@@ -55,9 +47,6 @@ type (
 		versionOffset() uint64
 	}
 	
-	VoucherValue_Service_Get_Response interface {
-		 VoucherValue
-		 NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	VoucherValue_Service_Get_Response1 =  protocol.NumberOfVersion
+	VoucherValue_Service_Get_Response2 = VoucherValue
 )

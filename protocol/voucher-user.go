@@ -29,9 +29,7 @@ type (
 		UserID() [16]byte    
 	}
 
-	VoucherUser_Service_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherUser_Service_Register_Response = protocol.NumberOfVersion
 )
 
 type (
@@ -39,24 +37,18 @@ type (
 		VoucherID() [16]byte
 	}
 
-	VoucherUser_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	VoucherUser_Service_Count_Response = protocol.NumberOfVersion
 )
 
-type (
 
+type (
 		VoucherUser_Service_Get_Request interface{
 		VoucherID() [16]byte
 		VersionOffset() uint64
 	}
 
-	VoucherUser_Service_Get_Response interface{
-		VoucherUser
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	VoucherUser_Service_Get_Response1 = VoucherUser
+	VoucherUser_Service_Get_Response2 = protocol.NumberOfVersion
 )
 
 type (
@@ -67,8 +59,9 @@ type (
 		Limit() uint64
 	}
 
-	VoucherUser_Service_FindByUser_Response interface{
+	VoucherUser_Service_FindByUser_Response1 interface{
 		VoucherIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	VoucherUser_Service_FindByUser_Response2 = protocol.NumberOfVersion
 )

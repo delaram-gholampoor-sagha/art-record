@@ -27,22 +27,15 @@ type (
 	  IssuedAmount() protocol.AmountOfMoney
 	}
 	
-	VoucherAnalyticUtcMinute_Service_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	VoucherAnalyticUtcMinute_Service_Register_Response = protocol.NumberOfVersion
 )
 
 type (
-
-		VoucherAnalyticUtcMinute_Service_Count_Request interface{
+	VoucherAnalyticUtcMinute_Service_Count_Request interface{
 		VoucherID() [16]byte
 	}
 	
-	VoucherAnalyticUtcMinute_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	VoucherAnalyticUtcMinute_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
@@ -53,8 +46,6 @@ type (
 		VersionOffset() uint64
 	}
 	
-	VoucherAnalyticUtcMinute_Service_Get_Response interface{
-		VoucherAnalyticUtcMinute
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	VoucherAnalyticUtcMinute_Service_Get_Response1 = VoucherAnalyticUtcMinute
+	VoucherAnalyticUtcMinute_Service_Get_Response2 = protocol.NumberOfVersion
 )
