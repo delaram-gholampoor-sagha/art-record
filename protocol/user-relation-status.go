@@ -50,47 +50,37 @@ type (
 
 
 type (
-
 	UserRelationStatus_Service_Count_Request interface{
 		UserID() [16]byte
 	}
 
-	UserRelationStatus_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+	UserRelationStatus_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
-type (
 
+type (
 	UserRelationStatus_Service_Get_Request interface{
 		UserID() [16]byte
 		VersionOffset() uint64
 	}
 
-	UserRelationStatus_Service_Get_Response interface{
-		UserRelationStatus
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
-
+	UserRelationStatus_Service_Get_Response1 = UserRelationStatus
+	UserRelationStatus_Service_Get_Response2 = protocol.NumberOfVersion
 )
 
 type (
-
 	UserRelationStatus_Service_ListSides_Request interface{
 		UserID() [16]byte
 		Offset() uint64
 		Limit() uint64
 	}
 
-	UserRelationStatus_Service_ListSides_Response interface{
+	UserRelationStatus_Service_ListSides_Response1 interface{
 		SideIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
 
-
+	UserRelationStatus_Service_ListSides_Response2 = protocol.NumberOfVersion
 )
 
 type (
@@ -100,10 +90,11 @@ type (
 		Limit() uint64
 	}
 
-	UserRelationStatus_Service_ListUsers_Response interface{
+	UserRelationStatus_Service_ListUsers_Response1 interface{
 		UserIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	UserRelationStatus_Service_ListUsers_Response2 = protocol.NumberOfVersion
 )
 
 type (
@@ -115,8 +106,9 @@ type (
 		Limit() uint64
 	}
 
-	UserRelationStatus_Service_FilterByStatus_Response interface{
+	UserRelationStatus_Service_FilterByStatus_Response1 interface{
 		SideIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	UserRelationStatus_Service_FilterByStatus_Response2 = protocol.NumberOfVersion
 )

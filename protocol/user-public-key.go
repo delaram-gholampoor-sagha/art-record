@@ -44,21 +44,15 @@ type (
 		Status() UserPublicKey_Status 
 	}
 	
-	UserPublicKey_Service_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	UserPublicKey_Service_Register_Response = protocol.NumberOfVersion
 )
 
 type (
-
-		UserPublicKey_Service_Count_Request interface{
+	UserPublicKey_Service_Count_Request interface{
 		UserID() [16]byte
 	}
 	
-	UserPublicKey_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	UserPublicKey_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
@@ -68,10 +62,8 @@ type (
 		VersionOffset() uint64
 	}
 	
-	UserPublicKey_Service_Get_Response interface{
-		UserPublicKey
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	UserPublicKey_Service_Get_Response1 = UserPublicKey
+	UserPublicKey_Service_Get_Response2 = protocol.NumberOfVersion
 
 )
 

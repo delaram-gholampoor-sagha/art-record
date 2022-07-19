@@ -36,8 +36,7 @@ const (
 
 
 type (
-
-		UserDelegate_Service_Register_Request interface{
+	UserDelegate_Service_Register_Request interface{
 		GivenUserID() protocol.UserID  
    	GottenUserID() protocol.UserID 
   	OrgID() protocol.UserID        
@@ -45,39 +44,31 @@ type (
 	  Status() UserDelegate_Status   
 	}
 	
-	UserDelegate_Service_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	UserDelegate_Service_Register_Response = protocol.NumberOfVersion
 )
 
 type (
-		UserDelegate_Service_Count_Request interface{
-		GivenUserID()  [16]byte
-	  GottenUserID() [16]byte
-		RoleID() [16]byte
-		Vo() protocol.VersionOffset
-	}
-	
-
-	UserDelegate_Service_Count_Response interface{
-   	NumberOfVersion() protocol.NumberOfVersion
-	}
-
-)
-
-type (
-
-		UserDelegate_Service_Get_Request interface{
+	UserDelegate_Service_Count_Request interface{
 		GivenUserID()  [16]byte
 	  GottenUserID() [16]byte
 		RoleID() [16]byte
 	}
 	
 
-	UserDelegate_Service_Get_Response interface{
-		Ud() UserDelegate
-		NumberOfVersion() protocol.NumberOfVersion
+	UserDelegate_Service_Count_Response = protocol.NumberOfVersion
+
+)
+
+type (
+	UserDelegate_Service_Get_Request interface{
+		GivenUserID()  [16]byte
+	  GottenUserID() [16]byte
+		RoleID() [16]byte
+		VersionOffset() protocol.VersionOffset
 	}
+
+	UserDelegate_Service_Get_Response1 = UserDelegate
+	UserDelegate_Service_Get_Response2 = protocol.NumberOfVersion
 )
 
 
@@ -89,24 +80,25 @@ type (
 		Limit() uint64
 	}
 	
-	UserDelegate_Service_ListRoles_Response interface{
+	UserDelegate_Service_ListRoles_Response1 interface{
 	  RoleIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	UserDelegate_Service_ListRoles_Response2 = protocol.NumberOfVersion
 )
 
 type (
-
 	UserDelegate_Service_ListOrgs_Request interface{
 		GivenUserID() [16]byte
     Offset() uint64
     Limit() uint64
 	}
 	
-	UserDelegate_Service_ListOrgs_Response interface{
+	UserDelegate_Service_ListOrgs_Response1 interface{
 	  OrgIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	UserDelegate_Service_ListOrgs_Response2 = protocol.NumberOfVersion
 
 )
 
@@ -118,11 +110,11 @@ type (
     Offset() uint64
     Limit() uint64
 	}
-	
-	UserDelegate_Service_ListGottenDelegate_Response interface{
-	  GivenUserIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
+	UserDelegate_Service_ListGottenDelegate_Response1 interface{
+	  GivenUserIDs() [][16]byte 
 	}
+
+	UserDelegate_Service_ListGottenDelegate_Response2 = protocol.NumberOfVersion
 )
 
 type (
@@ -132,9 +124,10 @@ type (
     Limit() uint64
 	}
 	
-	UserDelegate_Service_ListUsers_Response interface{
+	UserDelegate_Service_ListUsers_Response1 interface{
 	  GottenUserIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	UserDelegate_Service_ListUsers_Response2 = protocol.NumberOfVersion
 	
 )

@@ -51,9 +51,7 @@ type (
 		Status() UserDomain_Status
 	}
 
-	UserDomain_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	UserDomain_Service_Register_Response = protocol.NumberOfVersion
 )
 
 type (
@@ -61,9 +59,7 @@ type (
 		Domain() string
 	}
 
-	UserDomain_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	UserDomain_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
@@ -74,10 +70,9 @@ type (
 		VersionOffset() uint64
 	}
 
-	UserDomain_Service_Get_Response interface {
-		UserDomain
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	UserDomain_Service_Get_Response1 = UserDomain
+
+	UserDomain_Service_Get_Response2 = protocol.NumberOfVersion
 
 )
 
@@ -88,8 +83,9 @@ type (
 		Limit() uint64
 	}
 
-	UserDomain_Service_FindByUserID_Response interface {
+	UserDomain_Service_FindByUserID_Response1 interface {
 		Domains() []string
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	UserDomain_Service_FindByUserID_Response2 = protocol.NumberOfVersion
 )

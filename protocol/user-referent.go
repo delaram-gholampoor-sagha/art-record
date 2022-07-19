@@ -27,21 +27,16 @@ type (
 	  ReferentUserID() [16]byte 
 	}
 	
-	UserReferent_Service_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	UserReferent_Service_Register_Response = protocol.NumberOfVersion
 )
 
 
 type (
-		UserReferent_Service_Count_Request interface{
+	UserReferent_Service_Count_Request interface{
 		UserID() [16]byte
 	}
 	
-	UserReferent_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	UserReferent_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
@@ -51,10 +46,8 @@ type (
 		VersionOffset() uint64
 	}
 	
-	UserReferent_Service_Get_Response interface{
-		UserReferent
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	UserReferent_Service_Get_Response1 = UserReferent
+	UserReferent_Service_Get_Response2 = protocol.NumberOfVersion
 )
 
 type (	
@@ -64,10 +57,9 @@ type (
 		Limit() uint64
 	}
 	
-	UserReferent_Service_FindByReferentUserID_Response interface{
-		UserIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
+	UserReferent_Service_FindByReferentUserID_Response1 interface{
+		UserIDs() [][16]byte 
 	}
-	
-	
+
+	UserReferent_Service_FindByReferentUserID_Response2 = protocol.NumberOfVersion	
 )

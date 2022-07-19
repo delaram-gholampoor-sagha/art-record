@@ -47,9 +47,8 @@ type (
 	UserName_Service_Count_Request interface {
 		UserID() protocol.UserID
 	}
-	UserName_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	UserName_Service_Count_Response = protocol.NumberOfVersion
 )
 
 type (
@@ -57,10 +56,9 @@ type (
 		UserID() protocol.UserID
 		VersionOffset() protocol.VersionOffset
 	}
-	UserName_Service_Get_Response1 interface {
-		UserName
-	}
-	UserName_Service_Get_Response2 protocol.NumberOfVersion
+
+	UserName_Service_Get_Response1 = UserName
+	UserName_Service_Get_Response2 = protocol.NumberOfVersion
 )
 
 type (
@@ -69,10 +67,11 @@ type (
 		Offset() uint64
 		Limit() uint64
 	}
-	UserName_Service_FindByUsername_Response interface {
+	UserName_Service_FindByUsername_Response1 interface {
 		UserIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	UserName_Service_FindByUsername_Response2 = protocol.NumberOfVersion
 )
 
 // Use to send verification token by email protocol to other organization software to verify username manually.
@@ -83,6 +82,8 @@ type (
 		Username() string
 	}
 )
+
+
 type (
 	UserName_Service_VerifyManually_Request interface {
 		UserID() protocol.UserID

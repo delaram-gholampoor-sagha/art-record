@@ -30,18 +30,20 @@ const (
 // User_Status_ = User_Status(Quiddity_Status_FreeFlag << iota)
 )
 
-type (
 
+
+type (
 	UserStatus_Service_Register_Request interface {
 		Status() User_Status
 	}
 
-	UserStatus_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
+	UserStatus_Service_Register_Response1 interface {
 		UserID() [16]byte
 	}
 
+	UserStatus_Service_Register_Response2 = protocol.NumberOfVersion
 )
+
 
 type (
 
@@ -49,24 +51,18 @@ type (
 		UserID() [16]byte
 	}
 
-	UserStatus_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
-
+	UserStatus_Service_Count_Response = protocol.NumberOfVersion
 )
 
-type (
 
+type (
 	UserStatus_Service_Get_Request interface {
 		UserID() [16]byte
 		VersionOffset() uint64
 	}
 
-	UserStatus_Service_Get_Response interface {
-		UserStatus
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	UserStatus_Service_Get_Response1 = UserStatus
+	UserStatus_Service_Get_Response2 = protocol.NumberOfVersion
 )
 
 
@@ -76,8 +72,9 @@ type (
 		Limit() uint64
 	}
 
-	UserStatus_Service_GetIDs_Response interface {
+	UserStatus_Service_GetIDs_Response1 interface {
 		UserIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	UserStatus_Service_GetIDs_Response2 = protocol.NumberOfVersion
 )

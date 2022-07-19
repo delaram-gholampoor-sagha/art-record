@@ -46,11 +46,7 @@ type (
 		Request() []byte     
 	}
 	
-	UserRequest_Service_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
-
+	UserRequest_Service_Register_Response = protocol.NumberOfVersion
 )
 
 
@@ -60,30 +56,24 @@ type (
 		UserID() [16]byte
 	}
 	
-	UserRequest_Service_Count_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	UserRequest_Service_Count_Response = protocol.NumberOfVersion
 )
 
+
 type (
-
-
 	UserRequest_Service_Get_Request interface{
 		UserID() [16]byte
 		VersionOffset() uint64
 	}
 	
-	UserRequest_Service_Get_Response interface{
-		UserRequest
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	UserRequest_Service_Get_Response1 = UserRequest
+	UserRequest_Service_Get_Response2 = protocol.NumberOfVersion
 
 )
 
 
 type (
-		UserRequest_Service_FindByDomain_Request interface{
+	UserRequest_Service_FindByDomain_Request interface{
 		DomainID() uint64
 		Offset() uint64
 		Limit() uint64
@@ -97,7 +87,6 @@ type (
 
 
 type (
-	
 	UserRequest_Service_FindByUser_Request interface{
 		UserID() [16]byte
 		Offset() uint64
