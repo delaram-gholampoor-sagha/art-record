@@ -5,4 +5,5 @@ CREATE TABLE `Voucher_Area` (
   `AreaID` BINARY(16) ,
   `Time` TIMESTAMP ,
   `RequestID` BINARY(16) 
+   Key(VoucherID)
 );

@@ -7,4 +7,5 @@ CREATE TABLE `Voucher_Duration` (
   `Duration` INT,
   `Time` TIMESTAMP ,
   `RequestID` BINARY(16) 
+   Key(VoucherID)
 );

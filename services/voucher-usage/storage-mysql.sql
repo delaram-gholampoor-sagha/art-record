@@ -6,4 +6,5 @@ CREATE TABLE `Voucher_Usage` (
   `MaximumInvoice` INT ,
   `Time` TIMESTAMP ,
   `RequestID` BINARY(16) 
+   Key(VoucherID)
 );

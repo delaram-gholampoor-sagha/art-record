@@ -7,4 +7,5 @@ CREATE TABLE `Voucher_Price` (
   `Price` DECIMAL(10 , 2) ,
   `Time` TIMESTAMP ,
   `RequestID` BINARY(16) 
+   Key(VoucherID)
 );

@@ -6,5 +6,6 @@ CREATE TABLE `Voucher_Category` (
   `CategoryID` BINARY(16) ,
   `Time` TIMESTAMP ,
   `RequestID` BINARY(16) 
+   Key(VoucherID)
 );
 

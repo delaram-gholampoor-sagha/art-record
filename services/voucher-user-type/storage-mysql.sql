@@ -5,4 +5,5 @@ CREATE TABLE `Voucher_User_Type` (
   `UserType` SMALLINT ,
   `Time` TIMESTAMP ,
   `RequestID` BINARY(16) 
+   Key(VoucherID)
 );

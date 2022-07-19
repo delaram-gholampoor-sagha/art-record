@@ -7,4 +7,5 @@ CREATE TABLE `Voucher_Invoice` (
   `MinAmount` INT ,
   `Time` TIMESTAMP ,
   `RequestID` BINARY(16) 
+   Key(VoucherID)
 );
