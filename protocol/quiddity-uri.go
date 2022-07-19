@@ -16,10 +16,10 @@ type QuiddityURI interface {
 }
 
 type QuiddityURI_StorageServices interface {
-	Save(q QuiddityURI) (err protocol.Error)
+	Save(q QuiddityURI) (nv protocol.NumberOfVersion,  err protocol.Error)
 
 	Count(uri []byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(uri []byte, versionOffset uint64) (q QuiddityURI, err protocol.Error)
+	Get(uri []byte, versionOffset uint64) (q QuiddityURI, nv protocol.NumberOfVersion  , err protocol.Error)
 
 
 	FindByQuiddityID(quiddityID [16]byte, offset, limit uint64) (uris [][]byte, nv protocol.NumberOfVersion, err protocol.Error)
@@ -32,20 +32,16 @@ type (
 		QuiddityID() [16]byte
 	}
 
-	QuiddityURI_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	QuiddityURI_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		QuiddityURI_Service_Count_Request interface {
+	QuiddityURI_Service_Count_Request interface {
 		URI() []byte	
 	}
 
-	QuiddityURI_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	QuiddityURI_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -56,9 +52,8 @@ type (
 		VersionOffset() uint64 
 	}
 
-	QuiddityURI_Service_Get_Response interface {
-		QuiddityURI
-	}
+	QuiddityURI_Service_Get_Response1 = QuiddityURI
+	QuiddityURI_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -69,7 +64,5 @@ type (
 		QuiddityID() [16]byte
 	}	
 
-	QuiddityURI_Service_FindQuiddityID_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	QuiddityURI_Service_FindQuiddityID_Response1 = protocol.NumberOfVersion
 )

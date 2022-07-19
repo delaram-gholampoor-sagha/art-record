@@ -15,11 +15,11 @@ type QuiddityAttribute interface {
 }
 
 
-type ProductAttribute_StorageServices interface {
-	Save(qi ProductAttribute) (err protocol.Error)
+type QuiddityAttribute_StorageServices interface {
+	Save(qi QuiddityAttribute) (nv protocol.NumberOfVersion , err protocol.Error)
 
 	Count(quiddityID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(quiddityID [16]byte, versionOffset uint64) (qi ProductAttribute, err protocol.Error)
+	Get(quiddityID [16]byte, versionOffset uint64) (qi QuiddityAttribute, err protocol.Error)
 
 }
 
@@ -31,3 +31,34 @@ const (
 	ProductAttribute_Type_MetricUnit // Number, Gram, Liter, Second
 )
 
+type (
+	QuiddityAttribute_Service_Register_Request interface {
+		QuiddityID() [16]byte
+		Type() ProductAttribute_Type 
+		Value() string  
+	}
+	
+	QuiddityAttribute_Service_Register_Response = protocol.NumberOfVersion
+
+)
+
+type (
+	QuiddityAttribute_Service_Count_Request interface {
+		QuiddityID() [16]byte
+	}
+
+	QuiddityAttribute_Service_Count_Response = protocol.NumberOfVersion
+	
+)
+
+
+type (
+	QuiddityAttribute_Service_Get_Request interface {
+		QuiddityID() [16]byte
+		VersionOffset() uint64
+	}
+
+	QuiddityAttribute_Service_Get_Response1 = QuiddityAttribute
+	QuiddityAttribute_Service_Get_Response2 = protocol.NumberOfVersion
+	
+)

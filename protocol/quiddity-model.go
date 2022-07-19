@@ -16,7 +16,7 @@ type QuiddityModel interface {
 // ProductAttribute_Type_MetricUnit // Number, Gram, Liter, Second
 
 type QuiddityModel_StorageServices interface {
-	Save(qm QuiddityModel) (err protocol.Error)
+	Save(qm QuiddityModel) (nv protocol.NumberOfVersion ,err protocol.Error)
 
 	Count(quiddityID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(quiddityID [16]byte, versionOffset uint64) (qm QuiddityModel, err protocol.Error)
@@ -32,9 +32,7 @@ type (
 		ObjectID() [16]byte
 	}
 	
-	QuiddityModel_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
-	}
+	QuiddityModel_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -42,9 +40,8 @@ type (
 	QuiddityModel_Service_Count_Request interface {
 		QuiddityID() [16]byte
 	}
-	QuiddityModel_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	QuiddityModel_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -53,9 +50,9 @@ type (
 		QuiddityID() [16]byte
 		VersionOffset() uint64
 	}
-	QuiddityModel_Service_Get_Response interface {
-		QuiddityModel
-	}
+
+	QuiddityModel_Service_Get_Response1 = QuiddityModel
+	QuiddityModel_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -65,8 +62,9 @@ type (
 		Offset() uint64
 		Limit() uint64
 	}
-	QuiddityModel_Service_FindByUserID_Response interface {
+	QuiddityModel_Service_FindByUserID_Response1 interface {
 		QuiddityIDs() [][32]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	QuiddityModel_Service_FindByUserID_Response2 = protocol.NumberOfVersion
 )

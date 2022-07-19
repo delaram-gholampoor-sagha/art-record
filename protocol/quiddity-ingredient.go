@@ -28,32 +28,26 @@ type (
 		QuiddityID() [16]byte    
 		IngredientID() [16]byte 
 	}
-	ProductIngredient_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ProductIngredient_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		ProductIngredient_Service_Count_Request interface {
+	ProductIngredient_Service_Count_Request interface {
 		QuiddityID() [16]byte
 	}
-	ProductIngredient_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+	ProductIngredient_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
 type (
-		ProductIngredient_Service_Get_Request interface {
+	ProductIngredient_Service_Get_Request interface {
 		QuiddityID() [16]byte
 		VersionOffset() uint64
 	}
-	ProductIngredient_Service_Get_Response interface {
-    QuiddityIngredient
- 		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	ProductIngredient_Service_Get_Response1 = QuiddityIngredient
+	ProductIngredient_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -65,8 +59,9 @@ type (
 		Limit() uint64
 	}
 
-	ProductIngredient_Service_FindByIngredient_Response interface {
+	ProductIngredient_Service_FindByIngredient_Response1 interface {
 		QuiddityIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+	ProductIngredient_Service_FindByIngredient_Response2 = protocol.NumberOfVersion
 )

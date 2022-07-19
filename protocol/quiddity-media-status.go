@@ -27,3 +27,37 @@ const (
 // QuiddityMedia_Status_ QuiddityMedia_Status = (Quiddity_Status_FreeFlag << iota)
 )
 
+
+type (
+	QuiddityMediaStatus_Service_Register_Request interface {
+		QuiddityID() [16]byte 
+	  ObjectID() [16]byte    
+	  Status() QuiddityMedia_Status  
+	}
+	
+	QuiddityMediaStatus_Service_Register_Response = protocol.NumberOfVersion
+
+)
+
+type (
+	QuiddityMediaStatus_Service_Count_Request interface {
+		QuiddityID() [16]byte
+		ObjectID() [16]byte 
+	}
+
+	QuiddityMediaStatus_Service_Count_Response = protocol.NumberOfVersion
+	
+)
+
+type (
+	QuiddityMediaStatus_Service_Get_Request interface {
+		QuiddityID() [16]byte
+		ObjectID() [16]byte 
+		VersionOffset() uint64
+	}
+
+	QuiddityMediaStatus_Service_Get_Response1 = QuiddityMediaStatus
+	QuiddityMediaStatus_Service_Get_Response2 = protocol.NumberOfVersion
+
+)
+

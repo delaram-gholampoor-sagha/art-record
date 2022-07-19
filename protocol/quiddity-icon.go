@@ -14,7 +14,7 @@ type QuiddityIcon interface {
 }
 
 type QuiddityIcon_StorageServices interface {
-	Save(qi QuiddityIcon) (err protocol.Error)
+	Save(qi QuiddityIcon) ( nv protocol.NumberOfVersion ,err protocol.Error)
 
 	Count(quiddityID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(quiddityID [16]byte, versionOffset uint64) (qi QuiddityIcon, err protocol.Error)
@@ -27,9 +27,7 @@ type (
 		Icon() [16]byte
 	}
 	
-	QuiddityIcon_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
-	}
+	QuiddityIcon_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -37,9 +35,8 @@ type (
 	QuiddityIcon_Service_Count_Request interface {
 		QuiddityID() [16]byte
 	}
-	QuiddityIcon_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	QuiddityIcon_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -49,8 +46,8 @@ type (
 		QuiddityID() [16]byte
 		VersionOffset() uint64
 	}
-	QuiddityIcon_Service_Get_Response interface {
-		QuiddityIcon
-	}
+
+	QuiddityIcon_Service_Get_Response1 = QuiddityIcon
+	QuiddityIcon_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )

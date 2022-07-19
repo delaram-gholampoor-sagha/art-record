@@ -23,3 +23,80 @@ type QuiddityMedia_StorageServices interface {
 	ListRelates(objectID [16]byte, offset, limit uint64) (quiddityIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	ListPriorities(objectID, quiddityID [16]byte, offset, limit uint64) (priorities []uint64, nv protocol.NumberOfVersion, err protocol.Error)
 }
+
+
+type (
+	QuiddityMedia_Service_Register_Request interface {
+		QuiddityID() [16]byte 
+	  Priority() uint64     
+	  ObjectID() [16]byte   
+	}
+	
+	QuiddityMedia_Service_Register_Response = protocol.NumberOfVersion
+
+)
+
+type (
+	QuiddityMedia_Service_Count_Request interface {
+		QuiddityID() [16]byte
+		Priority() uint64
+	}
+
+	QuiddityMedia_Service_Count_Response = protocol.NumberOfVersion
+	
+)
+
+type (
+	QuiddityMedia_Service_Get_Request interface {
+		QuiddityID() [16]byte
+		VersionOffset() uint64
+		Priority() uint64
+	}
+
+	QuiddityMedia_Service_Get_Response1 = QuiddityMedia
+	QuiddityMedia_Service_Get_Response2 = protocol.NumberOfVersion
+
+)
+
+type (
+	QuiddityMedia_Service_ListRelates_Request interface {
+		ObjectID() [16]byte
+		Offset() uint64
+		Limit() uint64
+	}
+	QuiddityMedia_Service_ListRelates_Response1 interface {
+    QuiddityIDs() [][16]byte
+	}
+
+	QuiddityMedia_Service_ListRelates_Response2 = protocol.NumberOfVersion
+		
+)
+
+type (
+	QuiddityMedia_Service_ListMedias_Request interface {
+  	QuiddityID() [16]byte
+		Offset() uint64
+		Limit() uint64
+	}
+	QuiddityMedia_Service_ListMedias_Response1 interface {
+    ObjectIDs() [][16]byte
+	}
+	
+	QuiddityMedia_Service_ListMedias_Response2 =  protocol.NumberOfVersion
+)
+
+
+type (
+	QuiddityMedia_Service_ListPriorities_Request interface {
+	  ObjectID() [16]byte
+		QuiddityID() [16]byte
+		Offset() uint64
+		Limit() uint64
+	}
+	QuiddityMedia_Service_ListPriorities_Response1 interface {
+    Priorities() []uint64
+	}	
+
+	QuiddityMedia_Service_ListPriorities_Response2 = protocol.NumberOfVersion
+
+)

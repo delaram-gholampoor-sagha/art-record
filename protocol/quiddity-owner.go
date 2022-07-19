@@ -13,10 +13,10 @@ type QuiddityOwner interface {
 }
 
 type QuiddityOwner_StorageServices interface {
-	Save(qo QuiddityOwner) (err protocol.Error)
+	Save(qo QuiddityOwner) (nv protocol.NumberOfVersion , err protocol.Error)
 
 	Count(quiddityID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(quiddityID [16]byte, versionOffset uint64) (qo QuiddityOwner, err protocol.Error)
+	Get(quiddityID [16]byte, versionOffset uint64) (qo QuiddityOwner,nv protocol.NumberOfVersion , err protocol.Error)
 
 
 	FindByOwnerID(userID [16]byte, offset, limit uint64) (quiddityIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
@@ -29,9 +29,7 @@ type (
 		UserID() [16]byte
 	}
 	
-	QuiddityOwner_Service_Register_Response interface {
-		Numbers() [16]byte
-	}
+	QuiddityOwner_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -39,9 +37,8 @@ type (
 	QuiddityOwner_Service_Count_Request interface {
 		QuiddityID() [16]byte
 	}
-	QuiddityOwner_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	QuiddityOwner_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -51,9 +48,8 @@ type (
 		QuiddityID() [16]byte
 		VersionOffset() uint64
 	}
-	QuiddityOwner_Service_Get_Response interface {
-		QuiddityOwner
-	}
+	QuiddityOwner_Service_Get_Response1 = QuiddityOwner
+	QuiddityOwner_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -65,8 +61,9 @@ type (
 		Offset() uint64
 		Limit() uint64
 	}
-	QuiddityOwner_Service_FindByUserID_Response interface {
+	QuiddityOwner_Service_FindByUserID_Response1 interface {
 		QuiddityIDs() [][32]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	QuiddityOwner_Service_FindByUserID_Response2 = protocol.NumberOfVersion
 )

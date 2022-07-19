@@ -13,9 +13,9 @@ type Quiddity interface {
 }
 
 type Quiddity_StorageServices interface {
-	Save(q Quiddity) (err protocol.Error)
+	Save(q Quiddity) (nv protocol.NumberOfVersion,  err protocol.Error)
 
-	Get(quiddityID [16]byte) (q Quiddity, err protocol.Error)
+	Get(quiddityID [16]byte) (q Quiddity, nv protocol.NumberOfVersion, err protocol.Error)
 
 	// FindByDomainID(domainID [16]byte, offset, limit uint64) (quiddityIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
@@ -27,9 +27,7 @@ type (
 		DomainID() [16]byte
 	}
 	
-	Quiddity_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	Quiddity_Service_Register_Response =  protocol.NumberOfVersion
 
 )
 
@@ -37,8 +35,8 @@ type (
 	Quiddity_Service_Get_Request interface {
 		QuiddityID() [16]byte
 	}
-	Quiddity_Service_Get_Response interface {
-		Quiddity
-	}
+
+	Quiddity_Service_Get_Response1 = Quiddity
+	Quiddity_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )

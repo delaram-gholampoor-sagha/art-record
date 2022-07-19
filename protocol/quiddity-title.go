@@ -12,10 +12,10 @@ type QuiddityTitle interface {
 }
 
 type QuiddityTitle_StorageServices interface {
-	Save(qt QuiddityTitle) (err protocol.Error)
+	Save(qt QuiddityTitle) (nv protocol.NumberOfVersion ,err protocol.Error)
 
 	Count(quiddityID [16]byte, language protocol.Language) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(quiddityID [16]byte, language protocol.Language, versionOffset uint64) (qt QuiddityTitle, err protocol.Error)
+	Get(quiddityID [16]byte, language protocol.Language, versionOffset uint64) (qt QuiddityTitle, nv protocol.NumberOfVersion ,err protocol.Error)
 	
 
 	ListQuiddityLanguages(quiddityID [16]byte, offset, limit uint64) (languages []protocol.Language, nv protocol.NumberOfVersion, err protocol.Error)
@@ -29,10 +29,7 @@ type (
 		Title()string
 	}
 	
-	QuiddityTitle_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-
+	QuiddityTitle_Service_Register_Response = protocol.NumberOfVersion
 )
 
 type (
@@ -41,9 +38,7 @@ type (
 		Language() protocol.Language
 	}
 	
-	QuiddityTitle_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	QuiddityTitle_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -55,9 +50,9 @@ type (
 		VersionOffset() uint64 
 	}
 	
-	QuiddityTitle_Service_Get_Response interface {
-		QuiddityTitle
-	}
+	QuiddityTitle_Service_Get_Response1 = QuiddityTitle
+
+	QuiddityTitle_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -69,8 +64,9 @@ type (
 		Limit() uint64
 	}
 	
-	QuiddityTitle_Service_ListQuiddityLanguages_Response interface {
+	QuiddityTitle_Service_ListQuiddityLanguages_Response1 interface {
 		Languages() []protocol.Language 
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	QuiddityTitle_Service_ListQuiddityLanguages_Response2 =  protocol.NumberOfVersion
 )
