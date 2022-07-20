@@ -17,7 +17,7 @@ type InvoiceItemTime_StorageServices interface {
 	Save(iit InvoiceItemTime) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(invoiceID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(invoiceID [16]byte, versionOffset uint64) (iit InvoiceItemTime, err protocol.Error)
+	Get(invoiceID [16]byte, versionOffset uint64) (iit InvoiceItemTime, nv protocol.NumberOfVersion ,err protocol.Error)
 }
 
 type InvoiceItemTime_Type uint8
@@ -39,21 +39,17 @@ type (
 		ProductID() [16]byte 
 		Type() InvoiceItemTime_Type
 	}
-	InvoiceItemTime_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	
-	}
+
+	InvoiceItemTime_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		InvoiceItemTime_Service_Count_Request interface { 
+	InvoiceItemTime_Service_Count_Request interface { 
 		InvoiceID() [16]byte 
-	
 	}
-	InvoiceItemTime_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	InvoiceItemTime_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -61,13 +57,11 @@ type (
 type (
 	InvoiceItemTime_Service_Get_Request interface { 
 		InvoiceID() [16]byte
-		VersionOffset() uint64
-	
-	
+		versionOffset() uint64
 	}
-	InvoiceItemTime_Service_Get_Response interface {
-		InvoiceItemTime
-	}
+
+	InvoiceItemTime_Service_Get_Response1 = 	InvoiceItemTime
+	InvoiceItemTime_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 

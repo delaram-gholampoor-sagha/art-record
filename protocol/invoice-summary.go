@@ -34,22 +34,17 @@ type (
 		PayablePrice() protocol.AmountOfMoney    
 		VAT() protocol.AmountOfMoney             
 	}
-	InvoiceSummary_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	
-	}
+
+	InvoiceSummary_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
 	InvoiceSummary_Service_Count_Request interface {
 		InvoiceID() [16]byte
-	
 	}
-	InvoiceSummary_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	
-	}
+
+	InvoiceSummary_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -58,11 +53,10 @@ type (
 type (
 	InvoiceSummary_Service_Get_Request interface { 
 		InvoiceID() [16]byte 
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
-	InvoiceSummary_Service_Get_Response interface {
-		InvoiceSummary
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	InvoiceSummary_Service_Get_Response1 = InvoiceSummary
+	InvoiceSummary_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )

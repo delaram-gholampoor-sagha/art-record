@@ -30,9 +30,8 @@ type (
 		Start() protocol.Time 
 		End() protocol.Time   
 	}
-	InvoiceItemReserveTime_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	InvoiceItemReserveTime_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -40,9 +39,8 @@ type (
 	InvoiceItemReserveTime_Service_Count_Request interface { 
 		InvoiceID() [16]byte 
 	}
-	InvoiceItemReserveTime_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	InvoiceItemReserveTime_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
@@ -51,10 +49,9 @@ type (
 type (
 	InvoiceItemReserveTime_Service_Get_Request interface { 
 		InvoiceID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
-	InvoiceItemReserveTime_Service_Get_Response interface {
-		InvoiceItemReserveTime
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	
+	InvoiceItemReserveTime_Service_Get_Response1 = InvoiceItemReserveTime
+	InvoiceItemReserveTime_Service_Get_Response2 = protocol.NumberOfVersion
 )

@@ -29,41 +29,32 @@ const (
 
 
 type (
-		InvoiceItemSeat_Service_Register_Request interface {
+	InvoiceItemSeat_Service_Register_Request interface {
 		InvoiceID() [16]byte           
 		ProductID() [16]byte           
 		SeatID() uint64                
 		Status() InvoiceItemSeat_Status      
 	}
-	InvoiceItemSeat_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	
-	}
 
+	InvoiceItemSeat_Service_Register_Response = protocol.NumberOfVersion
 )
 
 type (
 	InvoiceItemSeat_Service_Count_Request interface { 
 		InvoiceID() [16]byte 
-	
-	}
-	InvoiceItemSeat_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
 	}
 
+	InvoiceItemSeat_Service_Count_Response = protocol.NumberOfVersion
 )
 
 type (
 	InvoiceItemSeat_Service_Get_Request interface { 
 		InvoiceID() [16]byte
-		VersionOffset() uint64
-	
-	
+		versionOffset() uint64
 	}
-	InvoiceItemSeat_Service_Get_Response interface {
-		InvoiceItemSeat
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	
+	InvoiceItemSeat_Service_Get_Response1 = InvoiceItemSeat
+	InvoiceItemSeat_Service_Get_Response2 = protocol.NumberOfVersion
 )
 
 

@@ -16,7 +16,7 @@ type InvoicePOS interface {
 type InvoicePOS_StorageServices interface {
 	Save(ip InvoicePOS) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Get(invoiceID [16]byte) (ip InvoicePOS, err protocol.Error)
+	Get(invoiceID [16]byte) (ip InvoicePOS, nv protocol.NumberOfVersion ,err protocol.Error)
 
 	FindByPos(posID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	FindByStaff(staffID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
@@ -28,37 +28,34 @@ type (
 		PosID() [16]byte     
 		StaffID() [16]byte   
 	}
-	InvoicePOS_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	
-	}
+
+	InvoicePOS_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-
 	InvoicePOS_Service_Get_Request interface { 
 		InvoiceID() [16]byte 
-	
 	}
-	InvoicePOS_Service_Get_Response interface {
-		InvoicePOS
-	}
+
+	InvoicePOS_Service_Get_Response1 = InvoicePOS
+	InvoicePOS_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
 
 
 type (
-		InvoicePOS_Service_FindByPos_Request interface { 
+	InvoicePOS_Service_FindByPos_Request interface { 
 		PosID() [16]byte
 		Offset() uint64
 		Limit() uint64
 	}
-	InvoicePOS_Service_FindByPos_Response interface {
+	InvoicePOS_Service_FindByPos_Response1 interface {
 		InvoiceIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	InvoicePOS_Service_FindByPos_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -69,8 +66,9 @@ type (
 		Limit() uint64
 	}
 	
-	InvoicePOS_Service_FindByStaff_Response interface {
+	InvoicePOS_Service_FindByStaff_Response1 interface {
 		InvoiceIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	InvoicePOS_Service_FindByStaff_Response2 = protocol.NumberOfVersion
 )

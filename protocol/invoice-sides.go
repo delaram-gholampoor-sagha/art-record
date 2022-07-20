@@ -17,7 +17,7 @@ type InvoiceSides interface {
 type InvoiceSides_StorageServices interface {
 	Save(is InvoiceSides) (nv protocol.NumberOfVersion, err protocol.Error)
 
-	Get(invoiceID [16]byte) (is InvoiceSides, err protocol.Error)
+	Get(invoiceID [16]byte) (is InvoiceSides, nv protocol.NumberOfVersion ,err protocol.Error)
 
 	FindBySeller(sellerID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	FindByCustomer(customerID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
@@ -27,60 +27,67 @@ type InvoiceSides_StorageServices interface {
 type InvoiceSides_Type uint8
 
 type (
-
 	InvoiceSides_Service_Register_Request interface {
 		InvoiceID() [16]byte 
 		SellerID() [16]byte   
 		CustomerID() [16]byte 
 		AgentID() [16]byte      
 	}
-	InvoiceSides_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	
+
+	InvoiceSides_Service_Register_Response = protocol.NumberOfVersion
+
+)
+
+
+type (
+	InvoiceSides_Service_Get_Request interface {
+		InvoiceID() [16]byte      
 	}
+
+	InvoiceSides_Service_Get_Response2 = protocol.NumberOfVersion
 
 )
 
 type (
-
-		InvoiceSides_Service_FindBySeller_Request interface { 
+	InvoiceSides_Service_FindBySeller_Request interface { 
 		SellerID() [16]byte
 		Offset() uint64 
 		Limit() uint64
 	}
-	InvoiceSides_Service_FindBySeller_Response interface {
+	InvoiceSides_Service_FindBySeller_Response1 interface {
 		InvoiceIDs() [][16]byte 
-		NumberOfVersion() protocol.NumberOfVersion
-	
 	}
+
+	InvoiceSides_Service_FindBySeller_Response2 = protocol.NumberOfVersion
 
 )
 
 type (
-
-		InvoiceSides_Service_FindByCustomer_Request interface { 
+	InvoiceSides_Service_FindByCustomer_Request interface { 
 		CustomerID() uint64
 		Offset() uint64 
 		Limit() uint64
 	}
-	InvoiceSides_Service_FindByCustomer_Response interface {
+	InvoiceSides_Service_FindByCustomer_Response1 interface {
 		InvoiceIDs() [][16]byte 
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	InvoiceSides_Service_FindByCustomer_Response2 = protocol.NumberOfVersion
 	
 )
 
 
 type (
-	
 	InvoiceSides_Service_FindByAgent_Request interface { 
 		AgentID() [16]byte
 		Offset() uint64 
 		Limit() uint64
 	}
-	InvoiceSides_Service_FindByAgent_Response interface {
+	InvoiceSides_Service_FindByAgent_Response1 interface {
 		InvoiceIDs() [][16]byte 
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	InvoiceSides_Service_FindByAgent_Response2 = protocol.NumberOfVersion
+
 )
 

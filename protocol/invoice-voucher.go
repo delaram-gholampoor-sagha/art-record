@@ -26,53 +26,48 @@ type InvoiceVoucher_StorageServices interface {
 }
 
 type (
-		InvoiceVoucher_Service_Register_Request interface {
+	InvoiceVoucher_Service_Register_Request interface {
 		InvoiceID() [16]byte               
 		VoucherID() [16]byte               
 		Discounted() protocol.AmountOfMoney 
 	}
-	InvoiceVoucher_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	
-	}
+
+	InvoiceVoucher_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		InvoiceVoucher_Service_Count_Request interface {
+	InvoiceVoucher_Service_Count_Request interface {
 		InvoiceID() [16]byte
-		
-	
-	}
-	InvoiceVoucher_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
 	}
 
+	InvoiceVoucher_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
 type (
-		InvoiceVoucher_Service_Get_Request interface {
+
+	InvoiceVoucher_Service_Get_Request interface {
 		InvoiceID() [16]byte    
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
-	InvoiceVoucher_Service_Get_Response interface {
-		InvoiceVoucher
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	InvoiceVoucher_Service_Get_Response1 = InvoiceVoucher
+	InvoiceVoucher_Service_Get_Response2 = protocol.NumberOfVersion
 
 )
 
-type (
 
+type (
 	InvoiceVoucher_Service_FindByVoucherID_Request interface {
 		VoucherID() [16]byte
 		Offset() uint64
 		Limit() uint64	  
-		
 	}
-	InvoiceVoucher_Service_FindByVoucherID_Response interface {
+	InvoiceVoucher_Service_FindByVoucherID_Response1 interface {
 		InvoiceIDs() [][16]byte  
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	InvoiceVoucher_Service_FindByVoucherID_Response2 = protocol.NumberOfVersion
+	
 )

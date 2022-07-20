@@ -27,22 +27,17 @@ type (
 		VoucherID() [16]byte               
 		Discounted() protocol.AmountOfMoney 
 	}
-	InvoiceVoucherAnalyticUtcDay_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	
-	}
+
+	InvoiceVoucherAnalyticUtcDay_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
 	InvoiceVoucherAnalyticUtcDay_Service_Count_Request interface {
 		InvoiceID() [16]byte
-		
-	
 	}
-	InvoiceVoucherAnalyticUtcDay_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	InvoiceVoucherAnalyticUtcDay_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
@@ -50,11 +45,10 @@ type (
 type (
 	InvoiceVoucherAnalyticUtcDay_Service_Get_Request interface {
 		InvoiceID() [16]byte    
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
-	InvoiceVoucherAnalyticUtcDay_Service_Get_Response interface {
-		InvoiceVoucherAnalyticUtcDay
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	
+	InvoiceVoucherAnalyticUtcDay_Service_Get_Response1 = 	InvoiceVoucherAnalyticUtcDay
+	InvoiceVoucherAnalyticUtcDay_Service_Get_Response2 = protocol.NumberOfVersion
 
 )

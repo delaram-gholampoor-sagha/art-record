@@ -20,45 +20,41 @@ type InvoiceItem_StorageServices interface {
 	Save(ii InvoiceItem) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(invoiceID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(invoiceID [16]byte, versionOffset uint64) (ii InvoiceItem, err protocol.Error)
+	Get(invoiceID [16]byte, versionOffset uint64) (ii InvoiceItem, nv protocol.NumberOfVersion,  err protocol.Error)
 
 	FindByProductID(productID uint64, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (
-		InvoiceItem_Service_Register_Request interface {
+	InvoiceItem_Service_Register_Request interface {
 		InvoiceID() [16]byte 
 		ProductID() [16]byte 
 		Quantity() uint64    
 	}
-	InvoiceItem_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	
-	}
+
+	InvoiceItem_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		InvoiceItem_Service_Count_Request interface { 
+	InvoiceItem_Service_Count_Request interface { 
 		InvoiceID() [16]byte 
-	
 	}
-	InvoiceItem_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	InvoiceItem_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
 
 
 type (
-		InvoiceItem_Service_Get_Request interface { 
+	InvoiceItem_Service_Get_Request interface { 
 		InvoiceID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
-	InvoiceItem_Service_Get_Response interface {
-		InvoiceItem
-	}
+
+	InvoiceItem_Service_Get_Response1 = InvoiceItem
+	InvoiceItem_Service_Get_Response2 =  protocol.NumberOfVersion
 	
 )
 
@@ -70,10 +66,10 @@ type (
 		Offset() uint64
 		Limit() uint64
 	}
-	InvoiceItem_Service_FindByProductID_Response interface {
+	InvoiceItem_Service_FindByProductID_Response1 interface {
 		InvoiceIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
-	
 	}
+	
+	InvoiceItem_Service_FindByProductID_Response2 = protocol.NumberOfVersion
 	
 )

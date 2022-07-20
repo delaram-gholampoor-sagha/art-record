@@ -24,57 +24,51 @@ type InvoiceItemProvider_StorageServices interface {
 
 
 type (
-		InvoiceItemProvider_Service_Register_Request interface {
+	InvoiceItemProvider_Service_Register_Request interface {
 		InvoiceID() [16]byte 
 		ProductID() [16]byte 
 		StaffID() [16]byte   
 	}
-	InvoiceItemProvider_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	
-	}
+
+	InvoiceItemProvider_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 
 type (
-		InvoiceItemProvider_Service_Count_Request interface { 
+	InvoiceItemProvider_Service_Count_Request interface { 
 		InvoiceID() [16]byte 
-	
 	}
-	InvoiceItemProvider_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	InvoiceItemProvider_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
 
 type (
-		InvoiceItemProvider_Service_Get_Request interface { 
+	InvoiceItemProvider_Service_Get_Request interface { 
 		InvoiceID() [16]byte
-		VersionOffset() uint64
-	
-	
+		versionOffset() uint64
 	}
-	InvoiceItemProvider_Service_Get_Response interface {
-		InvoiceItemProvider
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+
+	InvoiceItemProvider_Service_Get_Response1 = InvoiceItemProvider
+	InvoiceItemProvider_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
 
 
 type (
-
 	InvoiceItemProvider_Service_FindByStaff_Request interface { 
 		StaffId() [16]byte
 		Offset() [16]byte
 		Limit() uint64
 	
 	}
-	InvoiceItemProvider_Service_FindByStaff_Response interface {
+	InvoiceItemProvider_Service_FindByStaff_Response1 interface {
 		InvoiceIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	InvoiceItemProvider_Service_FindByStaff_Response2 = protocol.NumberOfVersion
 )

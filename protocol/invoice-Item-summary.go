@@ -19,12 +19,12 @@ type InvoiceItemSummary_StorageServices interface {
 	Save(iis InvoiceItemSummary) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(invoiceID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(invoiceID [16]byte, versionOffset uint64) (iis InvoiceItemSummary, err protocol.Error)
+	Get(invoiceID [16]byte, versionOffset uint64) (iis InvoiceItemSummary,nv protocol.NumberOfVersion ,err protocol.Error)
 }
 
 
 type (
-		InvoiceItemSummary_Service_Register_Request interface {
+	InvoiceItemSummary_Service_Register_Request interface {
 		InvoiceID() [16]byte                     
 		ProductID() [16]byte                     
 		SuggestedPrice() protocol.AmountOfMoney  
@@ -32,34 +32,27 @@ type (
 		PayablePrice() protocol.AmountOfMoney    
 		VAT() protocol.AmountOfMoney              
 	}
-	InvoiceItemSummary_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	
-	}
+
+	InvoiceItemSummary_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		InvoiceItemSummary_Service_Count_Request interface { 
+	InvoiceItemSummary_Service_Count_Request interface { 
 		InvoiceID() [16]byte 
-	
 	}
-	InvoiceItemSummary_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	InvoiceItemSummary_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
 
 type (
-
 	InvoiceItemSummary_Service_Get_Request interface { 
 		InvoiceID() [16]byte
-		VersionOffset() uint64
-	
-	
+		versionOffset() uint64
 	}
-	InvoiceItemSummary_Service_Get_Response interface {
-		InvoiceItemSummary
-	}
+	
+	InvoiceItemSummary_Service_Get_Response1 = InvoiceItemSummary
+	InvoiceItemSummary_Service_Get_Response2 = protocol.NumberOfVersion
 )
