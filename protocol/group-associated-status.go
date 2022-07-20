@@ -41,32 +41,29 @@ type (
   	UserID() [16]byte               
 	  Status() GroupAssociated_Status  
 	}
-	GroupAssociatedStatus_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+
+	GroupAssociatedStatus_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		GroupAssociatedStatus_Service_Count_Request interface { 
+	GroupAssociatedStatus_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
-	GroupAssociatedStatus_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	GroupAssociatedStatus_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
 
 type (
-
 	GroupAssociatedStatus_Service_Get_Request interface { 
 		GroupID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
-	GroupAssociatedStatus_Service_Get_Response interface {
-		GroupAssociatedStatus
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	GroupAssociatedStatus_Service_Get_Response1 = 	GroupAssociatedStatus
+	GroupAssociatedStatus_Service_Get_Response2 = protocol.NumberOfVersion
 
 )

@@ -36,21 +36,17 @@ type (
 		BlockedWords() []string                
 		Join() GroupSettings                   
 	}
-	GroupSettings_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	
-	}
+
+	GroupSettings_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		GroupSettings_Service_Count_Request interface { 
+	GroupSettings_Service_Count_Request interface { 
 		GroupID() [16]byte 
-	
 	}
-	GroupSettings_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	GroupSettings_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -59,14 +55,11 @@ type (
 type (
 	GroupSettings_Service_Get_Request interface { 
 		GroupID() [16]byte
-		VersionOffset() uint64
-	
-	
+		versionOffset() uint64
 	}
-	GroupSettings_Service_Get_Response interface {
-		GroupSettings
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	GroupSettings_Service_Get_Response1 = GroupSettings
+	GroupSettings_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 

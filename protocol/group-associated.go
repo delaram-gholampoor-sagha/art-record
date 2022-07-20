@@ -26,14 +26,13 @@ type GroupAssociated_StorageServices interface {
 
 
 type (
-		GroupAssociated_Service_Register_Request interface {
+	GroupAssociated_Service_Register_Request interface {
 		GroupID() [16]byte  
 		UserID() [16]byte    
 		JoinBy() [16]byte    
 	}
-	GroupAssociated_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	GroupAssociated_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -41,20 +40,18 @@ type (
 	GroupAssociated_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
-	GroupAssociated_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	GroupAssociated_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
 type (
 	GroupAssociated_Service_Get_Request interface { 
 		GroupID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
-	GroupAssociated_Service_Get_Response interface {
-		GroupAssociated
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	GroupAssociated_Service_Get_Response1 =	GroupAssociated
+
+	GroupAssociated_Service_Get_Response2 = protocol.NumberOfVersion
 
 )

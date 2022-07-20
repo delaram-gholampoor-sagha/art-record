@@ -24,13 +24,12 @@ type GroupOwner_StorageServices interface {
 
 
 type (
-		GroupOwner_Service_Register_Request interface {
+	GroupOwner_Service_Register_Request interface {
 		GroupID() [16]byte                 
 		OwnerUserID() [16]byte    
 	}
-	GroupOwner_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	GroupOwner_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -38,9 +37,8 @@ type (
 	GroupOwner_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
-	GroupOwner_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	GroupOwner_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -49,24 +47,23 @@ type (
 type (
 	GroupOwner_Service_Get_Request interface { 
 		GroupID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
-	GroupOwner_Service_Get_Response interface {
-		GroupOwner
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	GroupOwner_Service_Get_Response1 = 	GroupOwner
+	GroupOwner_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
 type (
-
 	GroupOwner_Service_FindByUserID_Request interface { 
 		OwnerUserID() [16]byte
 		Offset() uint64
 		Limit() uint64
 	}
-	GroupOwner_Service_FindByUserID_Response interface {
+	GroupOwner_Service_FindByUserID_Response1 interface {
 		IDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	GroupOwner_Service_FindByUserID_Response2 = protocol.NumberOfVersion
 )

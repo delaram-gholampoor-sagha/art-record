@@ -20,7 +20,7 @@ type GroupName_StorageServices interface {
 	Count(groupID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(groupID [16]byte, versionOffset uint64) (gn GroupName, nv protocol.NumberOfVersion, err protocol.Error)
 
-	FindByName(name string) (groupID [16]byte, err protocol.Error)
+	FindByName(name string) (groupID [16]byte,nv protocol.NumberOfVersion , err protocol.Error)
 }
 
 
@@ -38,24 +38,21 @@ const (
 )
 
 type (
-		GroupName_Service_Register_Request interface {
+	GroupName_Service_Register_Request interface {
 		GroupID() [16]byte                 
 		Name() string
 		Status() GroupName_Status  
 	}
-	GroupName_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	GroupName_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		GroupName_Service_Count_Request interface { 
+	GroupName_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
-	GroupName_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	GroupName_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
@@ -64,12 +61,11 @@ type (
 type (
 	GroupName_Service_Get_Request interface { 
 		GroupID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
-	GroupName_Service_Get_Response interface {
-		GroupName
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	GroupName_Service_Get_Response1 = 	GroupName
+	GroupName_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -78,7 +74,9 @@ type (
 	GroupName_Service_FindByName_Request interface { 
 		Name() string
 	}
-	GroupName_Service_FindByName_Response interface {
+	GroupName_Service_FindByName_Response1 interface {
 		GroupID() [16]byte
 	}
+
+	GroupName_Service_FindByName_Response2 = protocol.NumberOfVersion
 )

@@ -26,32 +26,29 @@ type (
 		GroupID() [16]byte                     
 		AccessControl() protocol.AccessControl 	             
 	}
-	GroupRole_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	GroupRole_Service_Register_Response = protocol.NumberOfVersion
 )
 
 
 type (
-		GroupRole_Service_Count_Request interface { 
+	GroupRole_Service_Count_Request interface { 
 		GroupRoleID() [16]byte
 	}
-	GroupRole_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	GroupRole_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
 
 type (
-		GroupRole_Service_Get_Request interface { 
+	GroupRole_Service_Get_Request interface { 
 		GroupRoleID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
-	GroupRole_Service_Get_Response interface {
-		GroupRole
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	GroupRole_Service_Get_Response1 = GroupRole
+	GroupRole_Service_Get_Response2 = protocol.NumberOfVersion
 
 )
 
@@ -62,8 +59,9 @@ type (
 		Limit() uint64
 	}
 
-	GroupRole_Service_FindByGroupID_Response interface {
+	GroupRole_Service_FindByGroupID_Response1 interface {
 		GroupRoleIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	GroupRole_Service_FindByGroupID_Response2 = protocol.NumberOfVersion
 )

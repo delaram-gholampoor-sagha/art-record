@@ -31,25 +31,21 @@ const (
 
 
 type (
-		GroupStatus_Service_Register_Request interface {
+	GroupStatus_Service_Register_Request interface {
 		GroupID() [16]byte    
 		Status() Group_Status 
 	}
-	GroupStatus_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	
-	}
+
+	GroupStatus_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
 	GroupStatus_Service_Count_Request interface { 
 		GroupID() [16]byte 
-	
 	}
-	GroupStatus_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	GroupStatus_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
@@ -57,13 +53,10 @@ type (
 type (
 	GroupStatus_Service_Get_Request interface { 
 		GroupID() [16]byte
-		VersionOffset() uint64
-	
-	
+		versionOffset() uint64
 	}
-	GroupStatus_Service_Get_Response interface {
-		GroupStatus
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	
+	GroupStatus_Service_Get_Response1 = GroupStatus
+	GroupStatus_Service_Get_Response2 = protocol.NumberOfVersion
 )
 

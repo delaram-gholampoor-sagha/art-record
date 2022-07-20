@@ -45,40 +45,36 @@ const (
 
 
 type (
-		GroupPolicy_Service_Register_Request interface {
+	GroupPolicy_Service_Register_Request interface {
 		GroupID() [16]byte                 
 		GetPolicy() GroupPolicy_Policy     
 		SetPolicy() GroupPolicy_Policy    
 		ForwardPolicy() GroupPolicy_Policy            
 	}
-	GroupPolicy_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+
+	GroupPolicy_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		GroupPolicy_Service_Count_Request interface { 
+	GroupPolicy_Service_Count_Request interface { 
 		GroupID() [16]byte
 	}
-	GroupPolicy_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	GroupPolicy_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
 
 
 type (
-		GroupPolicy_Service_Get_Request interface { 
+	GroupPolicy_Service_Get_Request interface { 
 		GroupID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
-	GroupPolicy_Service_Get_Response interface {
-		GroupPolicy
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	GroupPolicy_Service_Get_Response1 = GroupPolicy
+	GroupPolicy_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -90,8 +86,9 @@ type (
 		Offset() uint64
 		Limit() uint64
 	}
-	GroupPolicy_Service_FindByUserID_Response interface {
+	GroupPolicy_Service_FindByUserID_Response1 interface {
 		IDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	GroupPolicy_Service_FindByUserID_Response2 =  protocol.NumberOfVersion
 )
