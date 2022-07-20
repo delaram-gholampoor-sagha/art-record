@@ -17,9 +17,9 @@ type CategoryStatus_StorageServices interface {
 	Save(gs CategoryStatus) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(categoryID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(categoryID [16]byte, vo protocol.VersionOffset) (gs CategoryStatus, nv protocol.NumberOfVersion, err protocol.Error)
+	Get(categoryID [16]byte, vo protocol.versionOffset) (gs CategoryStatus, nv protocol.NumberOfVersion, err protocol.Error)
 
-	FilterByStatus(status Category_Status, offset, limit uint64) (categoryIDs [][16]byte, err protocol.Error)
+	FilterByStatus(status Category_Status, offset, limit uint64) (categoryIDs [][16]byte , nv protocol.NumberOfVersion , err protocol.Error)
 
 	// protocol.EventTarget
 }
@@ -37,35 +37,28 @@ type (
 		Status() Category_Status
 			
 	}
-	CategoryStatus_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	CategoryStatus_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		CategoryStatus_Service_Count_Request interface {
-		CategoryID() [16]byte
-			
+	CategoryStatus_Service_Count_Request interface {
+		CategoryID() [16]byte	
 	}
-	CategoryStatus_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-			
-	}
+
+	CategoryStatus_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
 
 type (
-		CategoryStatus_Service_Get_Request interface {
+	CategoryStatus_Service_Get_Request interface {
 		CategoryID() [16]byte 
-		Vo() protocol.VersionOffset
+		versionOffset() protocol.versionOffset
 	}
-	CategoryStatus_Service_Get_Response interface {
-		CategoryStatus
-		NumberOfVersion() protocol.NumberOfVersion
-			
-	}
+
+	CategoryStatus_Service_Get_Response1 = CategoryStatus
+	CategoryStatus_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -76,9 +69,10 @@ type (
 		Offset() uint64
 		Limit() uint64
 	}
-	CategoryStatus_Service_FilterByStatus_Response interface {
+	CategoryStatus_Service_FilterByStatus_Response1 interface {
 		CategoryIDs() [][16]byte
-	
 	}
+
+	CategoryStatus_Service_FilterByStatus_Response2 = protocol.NumberOfVersion
 )
 

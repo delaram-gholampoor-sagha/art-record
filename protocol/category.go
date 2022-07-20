@@ -19,19 +19,21 @@ type Category_StorageServices interface {
 	Save(c Category) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(categoryID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(categoryID [16]byte, vo protocol.VersionOffset) (gs Category, nv protocol.NumberOfVersion, err protocol.Error)
+	Get(categoryID [16]byte, vo protocol.versionOffset) (gs Category, nv protocol.NumberOfVersion, err protocol.Error)
 
 	GetIDs(offset, limit uint64) (categoryIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (
 		Category_Service_Register_Request interface {
-			CategoryID() [16]byte
 			ParentID() [16]byte
 		}
-		Category_Service_Register_Response interface {
-				NumberOfVersion() protocol.NumberOfVersion
-		}
+
+		Category_Service_Register_Response1 interface {
+				CategoryID() [16]byte
+		}	
+
+		Category_Service_Register_Response2 = protocol.NumberOfVersion
 
 )
 
@@ -40,10 +42,7 @@ type (
 				CategoryID() [16]byte
 
 		}
-		Category_Service_Count_Response interface {
-				NumberOfVersion() protocol.NumberOfVersion
-
-		}
+		Category_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -51,13 +50,11 @@ type (
 type (
 	Category_Service_Get_Request interface {
 				CategoryID() [16]byte    
-				Vo() protocol.VersionOffset
-		}
-		Category_Service_Get_Response interface {
-				Category
-				NumberOfVersion() protocol.NumberOfVersion
+				versionOffset() protocol.versionOffset
+	}
 
-		}
+	Category_Service_Get_Response1 = 	Category
+	Category_Service_Get_Response2 =  protocol.NumberOfVersion
 	
 )
 
@@ -68,8 +65,9 @@ type (
 			Offset() uint64
 			Limit() uint64
 		}
-		Category_Service_GetIDs_Response interface {
+		Category_Service_GetIDs_Response1 interface {
 			CategoryIDs() [][16]byte
-			NumberOfVersion() protocol.NumberOfVersion
 		}
+
+		Category_Service_GetIDs_Response2 = protocol.NumberOfVersion
 )
