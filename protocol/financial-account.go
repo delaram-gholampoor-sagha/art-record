@@ -27,86 +27,85 @@ type FinancialAccount_StorageServices interface {
 }
 
 type (
-		FinancialAccount_Service_Register_Request interface {          
+	FinancialAccount_Service_Register_Request interface {          
 		Currency() [16]byte                 
 		UserID() [16]byte                   
 		MoneySettlementReference() [16]byte      
 	}
 	
 	
-	FinancialAccount_Service_Register_Response interface {
+	FinancialAccount_Service_Register_Response1 interface {
 		AccountID() [16]byte
-		 Nv() protocol.NumberOfVersion
 	}
+
+	FinancialAccount_Service_Register_Response2 = protocol.NumberOfVersion
 
 )
 
 type (
-		FinancialAccount_Service_Count_Request interface {
+	FinancialAccount_Service_Count_Request interface {
 		ReferenceID() [16]byte
-	
 	}
-	FinancialAccount_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	FinancialAccount_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
 
 
 type (
-		FinancialAccount_Service_Get_Request interface {
+	FinancialAccount_Service_Get_Request interface {
 		ReferenceID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
-	FinancialAccount_Service_Get_Response interface {
-		FinancialAccount
-	}
+	FinancialAccount_Service_Get_Response1 =  FinancialAccount
+	FinancialAccount_Service_Get_Response2 =  protocol.NumberOfVersion
 	
 )
 
 
 
 type (
-		FinancialAccount_Service_FindByUserID_Request interface {
+	FinancialAccount_Service_FindByUserID_Request interface {
 		UserID() [16]byte
 		Offset() uint64 
 		Limit() uint64
 	}
 	
-	FinancialAccount_Service_FindByUserID_Response interface {
+	FinancialAccount_Service_FindByUserID_Response1 interface {
 		AccountIDs() [][16]byte
-		 NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	FinancialAccount_Service_FindByUserID_Response2 = protocol.NumberOfVersion
 	
 )
 
 type (
-
 	FinancialAccount_Service_ListUserCurrencies_Request interface {
 		UserID() [16]byte
 		Offset() uint64 
 		Limit() uint64
 	}
 	
-	FinancialAccount_Service_ListUserCurrencies_Response interface {
+	FinancialAccount_Service_ListUserCurrencies_Response1 interface {
 		Currency() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	FinancialAccount_Service_ListUserCurrencies_Response2 = protocol.NumberOfVersion
 )
 
 
 type (
-	
 	FinancialAccount_Service_ListUserSettlementReferences_Request interface {
 		UserID() [16]byte
 		Offset() uint64 
 		Limit() uint64
 	}
 	
-	FinancialAccount_Service_ListUserSettlementReferences_Response interface {
+	FinancialAccount_Service_ListUserSettlementReferences_Response1 interface {
 		MoneySettlementReferences() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	FinancialAccount_Service_ListUserSettlementReferences_Response2 = protocol.NumberOfVersion
 )

@@ -20,13 +20,13 @@ type FinancialTransactionReference_StorageServices interface {
 	Save(ftr FinancialTransactionReference) (err protocol.Error)
 
 	Count(referenceID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(referenceID [16]byte, versionOffset uint64) (ftr FinancialTransactionReference, err protocol.Error)
+	Get(referenceID [16]byte, versionOffset uint64) (ftr FinancialTransactionReference ,nv protocol.NumberOfVersion , err protocol.Error)
 
 }
 
 
 type (
-		FinancialTransactionReference_Service_Register_Request interface {
+	FinancialTransactionReference_Service_Register_Request interface {
 		SenderAccountID() [16]byte     
 		SenderAccountOffset() uint64   
 		ReceiverAccountID() [16]byte   
@@ -41,13 +41,11 @@ type (
 )
 
 type (
-		FinancialTransactionReference_Service_Count_Request interface {
+	FinancialTransactionReference_Service_Count_Request interface {
 		ReferenceID() [16]byte
-	
 	}
-	FinancialTransactionReference_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	FinancialTransactionReference_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -55,11 +53,10 @@ type (
 type (
 	FinancialTransactionReference_Service_Get_Request interface {
 		ReferenceID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
-	FinancialTransactionReference_Service_Get_Response interface {
-		FinancialTransactionReference
-	}
+	FinancialTransactionReference_Service_Get_Response1 = FinancialTransactionReference
+	FinancialTransactionReference_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )

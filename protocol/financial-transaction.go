@@ -22,7 +22,7 @@ type FinancialTransaction_StorageServices interface {
 	Save(ft FinancialTransaction) (err protocol.Error)
 
 	Count(accountID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(accountID [16]byte, versionOffset uint64) (ft FinancialTransaction, err protocol.Error)
+	Get(accountID [16]byte, versionOffset uint64) (ft FinancialTransaction , nv protocol.NumberOfVersion ,err protocol.Error)
 
 
 	// TODO::: is it worth to uncomment below service?
@@ -69,44 +69,40 @@ const (
 
 
 type (
-		FinancialTransaction_Service_Register_Request interface {
+	FinancialTransaction_Service_Register_Request interface {
 		AccountSideID() [16]byte                
 		Reference() [16]byte                    
 		ReferenceType() FinancialTransaction_RT 
 		Amount() protocol.AmountOfMoney        
 		Balance() protocol.AmountOfMoney        
-	
 	}
 	
-	FinancialTransaction_Service_Register_Response interface {
+	FinancialTransaction_Service_Register_Response1 interface {
 		AccountID() [16]byte 
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	FinancialTransaction_Service_Register_Response2 = protocol.NumberOfVersion
 
 )
 
 type (
-		FinancialTransaction_Service_Count_Request interface {
+	FinancialTransaction_Service_Count_Request interface {
 		AccountID() [16]byte
-	
 	}
-	FinancialTransaction_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	FinancialTransaction_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
 
 
 type (
-
 	FinancialTransaction_Service_Get_Request interface {
 		AccountID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
-	FinancialTransaction_Service_Get_Response interface {
-		FinancialTransaction
-	}
+	FinancialTransaction_Service_Get_Response1 = 	FinancialTransaction
+	FinancialTransaction_Service_Get_Response2 =  protocol.NumberOfVersion	
 	
 )

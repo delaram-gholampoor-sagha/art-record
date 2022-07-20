@@ -18,42 +18,37 @@ type FinancialScore_StorageServices interface {
 	Save(ftr FinancialScore) (err protocol.Error)
 
 	Count(referenceID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(referenceID [16]byte, versionOffset uint64) (ftr FinancialScore, err protocol.Error)
+	Get(referenceID [16]byte, versionOffset uint64) (ftr FinancialScore, nv protocol.NumberOfVersion ,err protocol.Error)
 
 }
 
 type (
-		FinancialScore_Service_Register_Request interface {
+	FinancialScore_Service_Register_Request interface {
 		UserID() [16]byte    
 		Score() int64       
 	}
 	
 	
-	FinancialScore_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
-	}
+	FinancialScore_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		FinancialScore_Service_Count_Request interface {
+	FinancialScore_Service_Count_Request interface {
 		ReferenceID() [16]byte
-	
 	}
-	FinancialScore_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	FinancialScore_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
 type (
 	FinancialScore_Service_Get_Request interface {
 		ReferenceID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
-	FinancialScore_Service_Get_Response interface {
-		FinancialScore
-	}
+	FinancialScore_Service_Get_Response1 = FinancialScore
+	FinancialScore_Service_Get_Response2 = protocol.NumberOfVersion
 	  
 )

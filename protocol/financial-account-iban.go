@@ -14,10 +14,10 @@ type FinancialAccountIBAN_StorageServices interface {
 	Save(fai FinancialAccountIBAN) (err protocol.Error)
 
 	Count(accountID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(accountID [16]byte, versionOffset uint64) (fai FinancialAccountIBAN, err protocol.Error)
+	Get(accountID [16]byte, versionOffset uint64) (fai FinancialAccountIBAN,nv protocol.NumberOfVersion ,err protocol.Error)
 	
 
-	FindByIBAN(iban iso.IBAN) (accountID [16]byte, err protocol.Error)
+	FindByIBAN(iban iso.IBAN) (accountID [16]byte,nv protocol.NumberOfVersion ,err protocol.Error)
 }
 
 
@@ -28,9 +28,7 @@ type (
 		IBAN() iso.IBAN
 	}
 	
-	FinancialAccountIBAN_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
-	}
+	FinancialAccountIBAN_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -38,11 +36,11 @@ type (
 
 	FinancialAccountIBAN_Service_Get_Request interface {
 		AccountID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
-	FinancialAccountIBAN_Service_Get_Response interface {
-		FinancialAccountIBAN
-	}
+
+	FinancialAccountIBAN_Service_Get_Response1 = FinancialAccountIBAN
+	FinancialAccountIBAN_Service_Get_Response2 = protocol.NumberOfVersion
 )
 
 type (
@@ -51,29 +49,20 @@ type (
 	
 	}
 	
-	FinancialAccountIBAN_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
-	}
+	FinancialAccountIBAN_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
-type (
-	FinancialAccountIBAN_Service_GetLast_Request interface {
-		AccountID() [16]byte
-	}
-	FinancialAccountIBAN_Service_GetLast_Response interface {
-		FinancialAccountIBAN
-	}
-
-)
 
 type (
 	FinancialAccountIBAN_Service_FindByIBAN_Request interface {
 		Iban() iso.IBAN
 	}
 
-	FinancialAccountIBAN_Service_FindByIBAN_Response interface {
+	FinancialAccountIBAN_Service_FindByIBAN_Response1 interface {
 		AccountID() [16]byte
 	}
+
+	FinancialAccountIBAN_Service_FindByIBAN_Response2 = protocol.NumberOfVersion
 	
 )

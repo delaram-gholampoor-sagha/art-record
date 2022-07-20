@@ -19,12 +19,12 @@ type FinancialCredit_StorageServices interface {
 	Save(ftr FinancialCredit) (err protocol.Error)
 
 	Count(referenceID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(referenceID [16]byte, versionOffset uint64) (ftr FinancialCredit, err protocol.Error)
+	Get(referenceID [16]byte, versionOffset uint64) (ftr FinancialCredit,nv protocol.NumberOfVersion ,err protocol.Error)
 
 }
 
 type (
-		FinancialCredit_Service_Register_Request interface {
+	FinancialCredit_Service_Register_Request interface {
 		UserID() [16]byte                
 		Currency() [16]byte  
 		Amount() protocol.AmountOfMoney  
@@ -32,9 +32,7 @@ type (
 	}
   
   
-	FinancialCredit_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
-	}
+	FinancialCredit_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -43,19 +41,16 @@ type (
 		ReferenceID() [16]byte
 	
 	}
-	FinancialCredit_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	FinancialCredit_Service_Count_Response = protocol.NumberOfVersion
 )
 
 type (
 	FinancialCredit_Service_Get_Request interface {
 		ReferenceID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
-	FinancialCredit_Service_Get_Response interface {
-		FinancialCredit
-	}
+	FinancialCredit_Service_Get_Response1 = FinancialCredit
+	FinancialCredit_Service_Get_Response2 = protocol.NumberOfVersion
   
 )

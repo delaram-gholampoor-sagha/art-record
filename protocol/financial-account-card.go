@@ -16,10 +16,10 @@ type FinancialAccountCard_StorageServices interface {
 	Save(fai FinancialAccountCard) (err protocol.Error)
 
 	Count(accountID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(accountID [16]byte, versionOffset uint64) (fai FinancialAccountCard, err protocol.Error)
+	Get(accountID [16]byte, versionOffset uint64) (fai FinancialAccountCard,nv protocol.NumberOfVersion , err protocol.Error)
 	
 
-	FindByCardNumber(cardNumber iso.Card) (accountID [16]byte, err protocol.Error)
+	FindByCardNumber(cardNumber iso.Card) (accountID [16]byte,nv protocol.NumberOfVersion ,err protocol.Error)
 }
 
 type (
@@ -30,20 +30,8 @@ type (
 		CVC() uint16
 	}
 	
-	FinancialAccountCard_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
-	}
+	FinancialAccountCard_Service_Register_Response = protocol.NumberOfVersion
 
-)
-
-type (
-		FinancialAccountCard_Service_GetLast_Request interface {
-		AccountID() [16]byte
-	}
-	FinancialAccountCard_Service_GetLast_Response interface {
-		FinancialAccountCard
-	}
-	
 )
 
 
@@ -51,11 +39,11 @@ type (
 type (
 	FinancialAccountCard_Service_Get_Request interface {
 		AccountID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
-	FinancialAccountCard_Service_Get_Response interface {
-		FinancialAccountCard
-	}
+
+	FinancialAccountCard_Service_Get_Response1 = FinancialAccountCard
+	FinancialAccountCard_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -63,11 +51,9 @@ type (
 type (
 	FinancialAccountCard_Service_Count_Request interface {
 		AccountID() [16]byte
-	
 	}
-	FinancialAccountCard_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
-	}
+
+	FinancialAccountCard_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
@@ -77,7 +63,9 @@ type (
 		CardNumber() iso.Card
 	
 	}
-	FinancialAccountCard_Service_FindByCardNumber_Response interface {
+	FinancialAccountCard_Service_FindByCardNumber_Response1 interface {
 		AccountID() [16]byte
 	}
+
+	FinancialAccountCard_Service_FindByCardNumber_Response2 = protocol.NumberOfVersion
 )

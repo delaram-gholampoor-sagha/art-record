@@ -16,7 +16,7 @@ type FinancialAccountMain_StorageServices interface {
 	Save(fa FinancialAccountMain) (err protocol.Error)
 
 	Count(userID, currency [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(userID, currency [16]byte, versionOffset uint64) (fa FinancialAccountMain, err protocol.Error)
+	Get(userID, currency [16]byte, versionOffset uint64) (fa FinancialAccountMain, nv protocol.NumberOfVersion,err protocol.Error)
 
 }
 
@@ -28,9 +28,7 @@ type (
 	   	AccountID() [16]byte 
    }
    
-   FinancialAccountMain_Service_Register_Response interface {
-	   Nv() protocol.NumberOfVersion
-   }
+   FinancialAccountMain_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -39,9 +37,7 @@ type (
 	   AccountID() [16]byte
    
    }
-   FinancialAccountMain_Service_Count_Response interface {
-	   NumberOfVersion() protocol.NumberOfVersion
-   }
+   FinancialAccountMain_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -49,11 +45,10 @@ type (
 type (
    FinancialAccountMain_Service_Get_Request interface {
 	   AccountID() [16]byte
-	   VersionOffset() uint64
+	   versionOffset() uint64
    }
    
-   FinancialAccountMain_Service_Get_Response interface {
-	   FinancialAccountMain
-   }
+   FinancialAccountMain_Service_Get_Response1 =  FinancialAccountMain
+	 FinancialAccountMain_Service_Get_Response2 = protocol.NumberOfVersion
    
 )

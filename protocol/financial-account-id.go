@@ -20,30 +20,27 @@ type FinancialAccountID_StorageServices interface {
 	Count(accountID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(accountID [16]byte, versionOffset uint64) (fai FinancialAccountID, nv protocol.NumberOfVersion, err protocol.Error)
 
-	FindByID(id string) (accountIDs [][16]byte, err protocol.Error)
+	FindByID(id string) (accountIDs [][16]byte,nv protocol.NumberOfVersion ,err protocol.Error)
 }
 
 type (
-		FinancialAccountID_Service_Register_Request interface {
+	FinancialAccountID_Service_Register_Request interface {
 		AccountID() [16]byte
 		ID() string
 	}
 
-	FinancialAccountID_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	FinancialAccountID_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
 	FinancialAccountID_Service_Get_Request interface {
 		AccountID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
-	FinancialAccountID_Service_Get_Response interface {
-		FinancialAccountID
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	FinancialAccountID_Service_Get_Response1 = 	FinancialAccountID
+	FinancialAccountID_Service_Get_Response2 = protocol.NumberOfVersion
 
 )
 
@@ -51,8 +48,10 @@ type (
 	FinancialAccountID_Service_FindByID_Request interface {
 		ID() string
 	}
-	FinancialAccountID_Service_FindByID_Response interface {
+	FinancialAccountID_Service_FindByID_Response1 interface {
 		AccountIDs() [][16]byte
 	}
+
+	FinancialAccountID_Service_FindByID_Response2 = protocol.NumberOfVersion
 
 )

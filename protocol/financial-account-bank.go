@@ -17,67 +17,56 @@ type FinancialBankAccount_StorageServices interface {
 	Save(fba FinancialBankAccount) (err protocol.Error)
 
 	Count(accountID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(accountID [16]byte, versionOffset uint64) (fba FinancialBankAccount, err protocol.Error)
+	Get(accountID [16]byte, versionOffset uint64) (fba FinancialBankAccount, nv protocol.NumberOfVersion,err protocol.Error)
 	
 
-	FindByIBAN(iban iso.IBAN) (accountID [16]byte, err protocol.Error)
-	FindByCardNumber(cardNumber iso.Card) (accountID [16]byte, err protocol.Error)
+	FindByIBAN(iban iso.IBAN) (accountID [16]byte, nv protocol.NumberOfVersion, err protocol.Error)
+	FindByCardNumber(cardNumber iso.Card) (accountID [16]byte, nv protocol.NumberOfVersion,err protocol.Error)
 }
 
 type (
-		FinancialBankAccount_Service_Register_Request interface {
+	FinancialBankAccount_Service_Register_Request interface {
 		AccountID() [16]byte
 		IBAN() iso.IBAN       // International Bank Account Number
 		CardNumber() iso.Card // fixed size card number without any dash or space e.g. 1234123412341234
 		Currency() uint64
 	}
 	
-	FinancialBankAccount_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
-	}
+	FinancialBankAccount_Service_Register_Response = protocol.NumberOfVersion
 
 )
-type (
-		FinancialBankAccount_Service_GetLast_Request interface {
-		AccountID() [16]byte
-	}
-	FinancialBankAccount_Service_GetLast_Response interface {
-		FinancialBankAccount
-	}
-	
-)
+
+
 
 type (
 	FinancialBankAccount_Service_Get_Request interface {
 		AccountID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
-	FinancialBankAccount_Service_Get_Response interface {
-		FinancialBankAccount
-	}
+
+	FinancialBankAccount_Service_Get_Response1 = 	FinancialBankAccount
+	FinancialBankAccount_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
 type (
 	FinancialBankAccount_Service_Count_Request interface {
 		AccountID() [16]byte
-	
 	}
-	FinancialBankAccount_Service_Count_Response interface {
-		Nv() protocol.NumberOfVersion
-	}
+
+	FinancialBankAccount_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
 type (
-		FinancialBankAccount_Service_FindByIBAN_Request interface {
+	FinancialBankAccount_Service_FindByIBAN_Request interface {
 		Iban() iso.IBAN
-	
 	}
-	FinancialBankAccount_Service_FindByIBAN_Response interface {
+	FinancialBankAccount_Service_FindByIBAN_Response1 interface {
 		AccountID() [16]byte
 	}
-	
+
+	FinancialBankAccount_Service_FindByIBAN_Response2 = protocol.NumberOfVersion
 )
 
 type (
@@ -85,7 +74,10 @@ type (
 		CardNumber() iso.Card
 	
 	}
-	FinancialBankAccount_Service_FindByCardNumber_Response interface {
+	FinancialBankAccount_Service_FindByCardNumber_Response1 interface {
 		AccountID() [16]byte
 	}
+
+	FinancialBankAccount_Service_FindByCardNumber_Response2 = protocol.NumberOfVersion
+
 )

@@ -17,7 +17,7 @@ type FinancialCurrency_StorageServices interface {
 	Save(ftr FinancialCurrency) (err protocol.Error)
 
 	Count(referenceID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(referenceID [16]byte, versionOffset uint64) (ftr FinancialCurrency, err protocol.Error)
+	Get(referenceID [16]byte, versionOffset uint64) (ftr FinancialCurrency, nv protocol.NumberOfVersion ,err protocol.Error)
 
 }
 
@@ -28,9 +28,7 @@ type (
 	}
   
   
-	FinancialCurrency_Service_Register_Response interface {
-		Nv() protocol.NumberOfVersion
-	}
+	FinancialCurrency_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -38,9 +36,7 @@ type (
 	FinancialCurrency_Service_Count_Request interface {
 		ReferenceID() [16]byte
 	}
-	FinancialCurrency_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	FinancialCurrency_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -49,11 +45,10 @@ type (
   
 	FinancialCurrency_Service_Get_Request interface {
 		ReferenceID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
   
-	FinancialCurrency_Service_Get_Response interface {
-		FinancialCurrency
-	}
+	FinancialCurrency_Service_Get_Response1 = 	FinancialCurrency
+	FinancialCurrency_Service_Get_Response2 = protocol.NumberOfVersion
   
 )
