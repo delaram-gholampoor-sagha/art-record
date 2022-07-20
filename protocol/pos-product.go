@@ -19,7 +19,7 @@ type PosProduct_StorageServices interface {
 	Save(pp PosProduct) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(posID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(posID [16]byte, vo protocol.VersionOffset) (pp PosProduct, err protocol.Error)
+	Get(posID [16]byte, vo protocol.versionOffset) (pp PosProduct,nv protocol.NumberOfVersion ,  err protocol.Error)
 
 
 }
@@ -29,21 +29,18 @@ type (
 		PosID() [16]byte
 		ProductID() [16]byte
 	}
-	PosProduct_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	PosProduct_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
 	PosProduct_Service_Count_Request interface {
 		PosID() [16]byte
-	
 	}
-	PosProduct_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+
+	PosProduct_Service_Count_Response = protocol.NumberOfVersion
+
 )
 
 
@@ -51,13 +48,11 @@ type (
 type (
 	PosProduct_Service_Get_Request interface {
 		PosID() [16]byte    
-		Vo() protocol.VersionOffset
+		versionOffset() protocol.versionOffset
 	}
-	PosProduct_Service_Get_Response interface {
-		PosProduct
-		
-	
-	}
+
+	PosProduct_Service_Get_Response1 = 	PosProduct
+	PosProduct_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 

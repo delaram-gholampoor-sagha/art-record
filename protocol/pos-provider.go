@@ -19,7 +19,7 @@ type PosProvider_StorageServices interface {
 	Save(ps PosProvider) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(posID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(posID [16]byte, vo protocol.VersionOffset) (ps PosProvider, nv protocol.NumberOfVersion, err protocol.Error)
+	Get(posID [16]byte, vo protocol.versionOffset) (ps PosProvider, nv protocol.NumberOfVersion, err protocol.Error)
 	
 }
 
@@ -29,20 +29,17 @@ type (
 		PosID() [16]byte
 		RoleID() [16]byte
 	}
-	PosProvider_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	PosProvider_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		PosProvider_Service_Count_Request interface {
+
+	PosProvider_Service_Count_Request interface {
 		PosID() [16]byte
-	
 	}
-	PosProvider_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	PosProvider_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -50,13 +47,12 @@ type (
 type (
 	PosProvider_Service_Get_Request interface {
 		PosID() [16]byte    
-		Vo() protocol.VersionOffset
+		versionOffset() protocol.versionOffset
 	}
-	PosProvider_Service_Get_Response interface {
-		PosProvider
-		NumberOfVersion() protocol.NumberOfVersion
-	
-	}
+
+	PosProvider_Service_Get_Response1 =  PosProvider
+	PosProvider_Service_Get_Response2 =  protocol.NumberOfVersion
+
 )
 
 	

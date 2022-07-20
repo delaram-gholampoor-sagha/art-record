@@ -18,7 +18,7 @@ type PosStatus_StorageServices interface {
 	Save(ps PosStatus) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(posID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(posID [16]byte, vo protocol.VersionOffset) (ps PosStatus, nv protocol.NumberOfVersion, err protocol.Error)
+	Get(posID [16]byte, vo protocol.versionOffset) (ps PosStatus, nv protocol.NumberOfVersion, err protocol.Error)
 
 	FilterByStatus(status Pos_Status, offset, limit uint64) (posIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 
@@ -34,26 +34,21 @@ const (
 
 
 type (
-		PosStatus_Service_Register_Request interface {
+	PosStatus_Service_Register_Request interface {
 		PosID() [16]byte
 		Status() Pos_Status
-	
 	}
-	PosStatus_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	PosStatus_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
 	PosStatus_Service_Count_Request interface {
 		PosID() [16]byte
-	
 	}
-	PosStatus_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	
-	}
+
+	PosStatus_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
@@ -62,28 +57,26 @@ type (
 type (
 	PosStatus_Service_Get_Request interface {
 		PosID() [16]byte    
-		Vo() protocol.VersionOffset
+		versionOffset() protocol.versionOffset
 	}
-	PosStatus_Service_Get_Response interface {
-		PosStatus
-		NumberOfVersion() protocol.NumberOfVersion
-	
-	}
+
+	PosStatus_Service_Get_Response1 = PosStatus
+	PosStatus_Service_Get_Response2 = protocol.NumberOfVersion
 
 )
 
 
 
 type (
-	
 	PosStatus_Service_FilterByStatus_Request interface{
 		Status() Pos_Status
 		Offset() uint64
 		Limit() uint64
 	}
-	PosStatus_Service_FilterByStatus_Response interface{
+	PosStatus_Service_FilterByStatus_Response1 interface{
 		PosIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	PosStatus_Service_FilterByStatus_Response2 = protocol.NumberOfVersion
 )
 

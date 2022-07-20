@@ -21,7 +21,7 @@ type PosCash_StorageServices interface {
 	Save(ps PosFinancialAccount) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(posID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(posID [16]byte, vo protocol.VersionOffset) (ps PosCash, nv protocol.NumberOfVersion, err protocol.Error)
+	Get(posID [16]byte, vo protocol.versionOffset) (ps PosCash, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (
@@ -30,9 +30,7 @@ type (
 			AccountID() [16]byte
 		
 		}
-		PosCash_Service_Register_Response interface {
-			NumberOfVersion() protocol.NumberOfVersion
-		}
+		PosCash_Service_Register_Response =  protocol.NumberOfVersion
 
 )
 
@@ -41,10 +39,7 @@ type (
 			PosID() [16]byte
 		
 		}
-		PosCash_Service_Count_Response interface {
-			NumberOfVersion() protocol.NumberOfVersion
-		
-		}
+		PosCash_Service_Count_Response =  protocol.NumberOfVersion
 	
 )
 
@@ -52,11 +47,8 @@ type (
 type (
 		PosCash_Service_Get_Request interface {
 			PosID() [16]byte    
-			Vo() protocol.VersionOffset
+			versionOffset() protocol.versionOffset
 		}
-		PosCash_Service_Get_Response interface {
-			PosCash
-			NumberOfVersion() protocol.NumberOfVersion
-		
-		}
+		PosCash_Service_Get_Response1 =	PosCash
+		PosCash_Service_Get_Response2 = protocol.NumberOfVersion
 )
