@@ -16,7 +16,7 @@ type BuildingLocationUsage_StorageServices interface {
 	Save(c BuildingLocationUsage) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(BuildingLocationID [16]byte , BuildingID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(BuildingLocationID [16]byte, BuildingID [16]byte , vo protocol.VersionOffset) (gs BuildingLocationUsage, nv protocol.NumberOfVersion, err protocol.Error)
+	Get(BuildingLocationID [16]byte, BuildingID [16]byte , vo protocol.versionOffset) (gs BuildingLocationUsage, nv protocol.NumberOfVersion, err protocol.Error)
 
 	GetIDs(offset, limit uint64) (BuildingLocationIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
@@ -24,44 +24,37 @@ type BuildingLocationUsage_StorageServices interface {
 
 
 type (
-		BuildingLocationUsage_Service_Register_Request interface {
+	BuildingLocationUsage_Service_Register_Request interface {
 		BuildingLocationID() [16]byte  
 		BuildingID() uint64 
 		Usage() string
 	}
-	BuildingLocationUsage_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	
+	BuildingLocationUsage_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		BuildingLocationUsage_Service_Count_Request interface {
+	BuildingLocationUsage_Service_Count_Request interface {
 		BuildingLocationID() [16]byte  
 		BuildingID() uint64 
+	}
 
-			
-	}
-	BuildingLocationUsage_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-			
-	}
+	BuildingLocationUsage_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
 
 
 type (
-		BuildingLocationUsage_Service_Get_Request interface {
+	BuildingLocationUsage_Service_Get_Request interface {
 		BuildingLocationID() [16]byte  
 		BuildingID() uint64
-		Vo() protocol.VersionOffset
+		versionOffset() protocol.versionOffset
 	}
-	BuildingLocationUsage_Service_Get_Response interface {
-		BuildingLocationUsage
-		NumberOfVersion() protocol.NumberOfVersion
-			
-	}
+
+	BuildingLocationUsage_Service_Get_Response1 = BuildingLocationUsage
+	BuildingLocationUsage_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -71,11 +64,11 @@ type (
 		Offset() uint64
 		Limit() uint64
 	}
-	BuildingLocationUsage_Service_GetIDs_Response interface {
-		BuildingLocationIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
-			
+	BuildingLocationUsage_Service_GetIDs_Response1 interface {
+		BuildingLocationIDs() [][16]byte	
 	}
+
+	BuildingLocationUsage_Service_GetIDs_Response2 = protocol.NumberOfVersion
 
 )
 

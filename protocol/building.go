@@ -15,19 +15,18 @@ type Building_StorageServices interface {
 	Save(c Building) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(BuildingID [16]byte, AreaID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(BuildingID [16]byte, AreaID [16]byte, vo protocol.VersionOffset) (gs Building, nv protocol.NumberOfVersion, err protocol.Error)
+	Get(BuildingID [16]byte, AreaID [16]byte, vo protocol.versionOffset) (gs Building, nv protocol.NumberOfVersion, err protocol.Error)
 
 	GetIDs(offset, limit uint64) (BuildingIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (
-		Building_Service_Register_Request interface {
+	Building_Service_Register_Request interface {
 		BuildingID() [16]byte
 		AreaID() [16]byte
 	}
-	Building_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	Building_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -36,22 +35,20 @@ type (
 		BuildingID() [16]byte
 		AreaID() [16]byte
 	}
-	Building_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	
+	Building_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		Building_Service_Get_Request interface {
+	Building_Service_Get_Request interface {
 		BuildingID() [16]byte
 		AreaID() [16]byte
-		Vo() protocol.VersionOffset
+		versionOffset() protocol.versionOffset
 	}
-	Building_Service_Get_Response interface {
-		Building
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	Building_Service_Get_Response1 = Building
+	Building_Service_Get_Response2 =  protocol.NumberOfVersion
 )
 
 type (
@@ -59,8 +56,9 @@ type (
 		Offset() uint64
 		Limit() uint64
 	}
-	Building_Service_GetIDs_Response interface {
+	Building_Service_GetIDs_Response1 interface {
 		BuildingIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	Building_Service_GetIDs_Response2 = protocol.NumberOfVersion
 )

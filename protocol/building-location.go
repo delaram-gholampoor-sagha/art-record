@@ -17,33 +17,27 @@ type BuildingLocation_StorageServices interface {
 	Save(c BuildingLocation) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(BuildingLocationID [16]byte , BuildingID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(BuildingLocationID [16]byte, BuildingID [16]byte , vo protocol.VersionOffset) (gs BuildingLocation, nv protocol.NumberOfVersion, err protocol.Error)
+	Get(BuildingLocationID [16]byte, BuildingID [16]byte , vo protocol.versionOffset) (gs BuildingLocation, nv protocol.NumberOfVersion, err protocol.Error)
 
 	GetIDs(offset, limit uint64) (BuildingLocationIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type (
-		BuildingLocation_Service_Register_Request interface {
+	BuildingLocation_Service_Register_Request interface {
 		BuildingLocationID() [16]byte  
 		BuildingID() uint64 	
 	}
-	BuildingLocation_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	BuildingLocation_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		BuildingLocation_Service_Count_Request interface {
+	BuildingLocation_Service_Count_Request interface {
 		BuildingLocationID() [16]byte  
-		BuildingID() uint64 
-
-			
+		BuildingID() uint64 	
 	}
-	BuildingLocation_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-			
-	}
+	BuildingLocation_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
@@ -51,13 +45,11 @@ type (
 	BuildingLocation_Service_Get_Request interface {
 		BuildingLocationID() [16]byte  
 		BuildingID() uint64
-		Vo() protocol.VersionOffset
+		versionOffset() protocol.versionOffset
 	}
-	BuildingLocation_Service_Get_Response interface {
-		BuildingLocation
-		NumberOfVersion() protocol.NumberOfVersion
-			
-	}
+
+	BuildingLocation_Service_Get_Response1 = 	BuildingLocation
+	BuildingLocation_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -68,11 +60,11 @@ type (
 		Offset() uint64
 		Limit() uint64
 	}
-	BuildingLocation_Service_GetIDs_Response interface {
-		BuildingLocationIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
-			
+	BuildingLocation_Service_GetIDs_Response1 interface {
+		BuildingLocationIDs() [][16]byte			
 	}
+	
+	BuildingLocation_Service_GetIDs_Response2 = protocol.NumberOfVersion 
 
 )
 
