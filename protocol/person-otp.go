@@ -27,9 +27,7 @@ type (
 		OTPPattern() []byte   
 		OTPAdditional() int32	
 	}
-	PersonOTP_Service_Register_Response interface {
-		 NumberOfVersion() protocol.NumberOfVersion
-	}
+	PersonOTP_Service_Register_Response =  protocol.NumberOfVersion
 
 )
 
@@ -37,20 +35,17 @@ type (
 	PersonOTP_Service_Count_Request interface {
 		PersonID() [16]byte
 	}
-	PersonOTP_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	PersonOTP_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
 type (
 	PersonOTP_Service_Get_Request interface {
 		PersonID() [16]byte    
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
-	PersonOTP_Service_Get_Response interface {
-		PersonOTP
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	
+	PersonOTP_Service_Get_Response1 = PersonOTP
+	PersonOTP_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )

@@ -15,7 +15,7 @@ type PersonPassword_StorageServices interface {
 	Save(pp PersonPassword) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(personID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(personID [16]byte, vo protocol.VersionOffset) (pp PersonPassword, nv protocol.NumberOfVersion, err protocol.Error)
+	Get(personID [16]byte, vo protocol.versionOffset) (pp PersonPassword, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 // PersonPassword_Status indicate PersonPassword record status
