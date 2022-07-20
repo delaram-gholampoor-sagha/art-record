@@ -42,7 +42,7 @@ type (
 type (
 	ProductReserveValidity_Service_Get_Request interface {
 		ProductID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 
 

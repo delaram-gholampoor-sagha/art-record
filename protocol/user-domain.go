@@ -67,7 +67,7 @@ type (
 
 	UserDomain_Service_Get_Request interface {
 		Domain() string
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 
 	UserDomain_Service_Get_Response1 = UserDomain

@@ -10,7 +10,7 @@ type GetRequest struct {
 func (req *GetRequest) VoucherID() [16]byte        { return req.voucherID}
 func (req *GetRequest) Set_voucherID(vi [16]byte)  {  req.voucherID = vi }
 
-func (req *GetRequest) VersionOffset() uint64      { return req.versionOffset}
+func (req *GetRequest) versionOffset() uint64      { return req.versionOffset}
 func (req *GetRequest) Set_versionOffset(v uint64) {  req.versionOffset = v }
 
 

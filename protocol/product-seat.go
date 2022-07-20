@@ -54,7 +54,7 @@ type (
 type (
 	ProductSeat_Service_Get_Request interface{
 		ProductID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
 	ProductSeat_Service_Get_Response1 = ProductSeat

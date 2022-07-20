@@ -75,7 +75,7 @@ type (
 type (
 	StaffHireStatus_Service_Get_Request interface {
 		StaffID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 
 	StaffHireStatus_Service_Get_Response1 = StaffHireStatus

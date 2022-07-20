@@ -47,7 +47,7 @@ type (
 	ProductComplement_Service_Get_Request interface {
 		ProductID() [16]byte
 		Priority() uint64       
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 
 	ProductComplement_Service_Get_Response1 = ProductComplement

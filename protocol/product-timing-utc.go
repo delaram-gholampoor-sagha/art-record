@@ -43,7 +43,7 @@ type (
 type (
 	ProductTimingUTC_Service_Get_Request interface {
 		ProductID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 
 	ProductTimingUTC_Service_Get_Response1 = ProductTimingUTC

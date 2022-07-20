@@ -49,7 +49,7 @@ type (
 type (
 	QuiddityURI_Service_Get_Request interface {
 		URI() []byte
-		VersionOffset() uint64 
+		versionOffset() uint64 
 	}
 
 	QuiddityURI_Service_Get_Response1 = QuiddityURI

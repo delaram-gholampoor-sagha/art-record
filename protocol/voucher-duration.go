@@ -53,7 +53,7 @@ type (
 type (
 	VoucherDuration_Service_Get_Request interface{
 		VoucherID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
 	VoucherDuration_Service_Get_Response1 = VoucherDuration

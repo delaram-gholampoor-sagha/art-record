@@ -55,7 +55,7 @@ type (
 type (
 	StaffOvertimeStatus_Service_Get_Request interface{
 		StaffID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
 	StaffOvertimeStatus_Service_Get_Response1 = StaffOvertimeStatus

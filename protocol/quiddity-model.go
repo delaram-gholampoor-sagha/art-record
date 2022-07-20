@@ -48,7 +48,7 @@ type (
 type (
 	QuiddityModel_Service_Get_Request interface {
 		QuiddityID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 
 	QuiddityModel_Service_Get_Response1 = QuiddityModel

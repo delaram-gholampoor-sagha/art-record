@@ -59,7 +59,7 @@ type (
 type (
 	UserPublicKey_Service_Get_Request interface{
 		UserID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
 	UserPublicKey_Service_Get_Response1 = UserPublicKey

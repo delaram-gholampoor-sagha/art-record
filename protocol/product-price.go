@@ -46,7 +46,7 @@ type (
 	ProductPrice_Service_Get_Request interface {
 		ProductID() [16]byte
 		Currency() uint64
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 
 	ProductPrice_Service_Get_Response1 = 	ProductPrice

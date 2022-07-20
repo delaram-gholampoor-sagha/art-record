@@ -58,7 +58,7 @@ type (
 type (
 	UserStatus_Service_Get_Request interface {
 		UserID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 
 	UserStatus_Service_Get_Response1 = UserStatus

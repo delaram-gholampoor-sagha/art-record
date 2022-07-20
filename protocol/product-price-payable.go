@@ -48,7 +48,7 @@ type (
 	ProductPricePayable_Service_Get_Request interface {
 		ProductID() [16]byte
 		Currency() uint64
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
 	ProductPricePayable_Service_Get_Response1 = ProductPricePayable

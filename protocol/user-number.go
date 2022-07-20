@@ -18,7 +18,7 @@ type UserNumber_StorageServices interface {
 	Save(pn UserNumber) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(userID, orgID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(userID, orgID [16]byte, vo protocol.VersionOffset) (pn UserNumber, nv protocol.NumberOfVersion, err protocol.Error)
+	Get(userID, orgID [16]byte, vo protocol.versionOffset) (pn UserNumber, nv protocol.NumberOfVersion, err protocol.Error)
 
 	FindByNumber(number uint64, offset, limit uint64) (userIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }

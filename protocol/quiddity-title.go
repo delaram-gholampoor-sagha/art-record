@@ -47,7 +47,7 @@ type (
 	QuiddityTitle_Service_Get_Request interface {
 		QuiddityID() [16]byte
 		Language() protocol.Language
-		VersionOffset() uint64 
+		versionOffset() uint64 
 	}
 	
 	QuiddityTitle_Service_Get_Response1 = QuiddityTitle

@@ -94,7 +94,7 @@ type (
 type (
 	ProductType_Service_Get_Request interface {
 		ProductID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 
 	ProductType_Service_Get_Response1 = ProductType

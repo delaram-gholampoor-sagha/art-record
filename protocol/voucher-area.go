@@ -48,7 +48,7 @@ type (
 type (
 	VoucherArea_Service_Get_Request interface{
 		VoucherID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 
 	VoucherArea_Service_Get_Response1 =VoucherArea

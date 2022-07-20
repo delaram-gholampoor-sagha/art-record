@@ -47,7 +47,7 @@ type (
 type (
 	VoucherInvoice_Service_Get_Request interface{
 		VoucherID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
 	VoucherInvoice_Service_Get_Response1 = VoucherInvoice

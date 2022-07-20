@@ -18,7 +18,7 @@ type QuiddityMediaStatus_StorageServices interface {
 	Save(q QuiddityMediaStatus) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(quiddityID, objectID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(quiddityID, objectID [16]byte, vo protocol.VersionOffset) (q QuiddityMediaStatus, nv protocol.NumberOfVersion, err protocol.Error)
+	Get(quiddityID, objectID [16]byte, vo protocol.versionOffset) (q QuiddityMediaStatus, nv protocol.NumberOfVersion, err protocol.Error)
 }
 
 type QuiddityMedia_Status Quiddity_Status
@@ -53,7 +53,7 @@ type (
 	QuiddityMediaStatus_Service_Get_Request interface {
 		QuiddityID() [16]byte
 		ObjectID() [16]byte 
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 
 	QuiddityMediaStatus_Service_Get_Response1 = QuiddityMediaStatus

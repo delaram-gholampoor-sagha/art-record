@@ -50,7 +50,7 @@ type (
 type (
 	RoleStaff_Service_Get_Request interface{
 		RoleID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
 	RoleStaff_Service_Get_Response1 = RoleStaff

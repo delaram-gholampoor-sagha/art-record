@@ -52,7 +52,7 @@ type (
 type (
 	RoleStatus_Service_Get_Request interface{
 		RoleID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
 	RoleStatus_Service_Get_Response1 interface{

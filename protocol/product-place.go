@@ -45,7 +45,7 @@ type (
 type (
 	ProductPlace_Service_Get_Request interface {
 		ProductID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 
 	ProductPlace_Service_Get_Response1 = ProductPlace

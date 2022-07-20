@@ -17,7 +17,7 @@ type QuiddityMedia_StorageServices interface {
 	Save(p QuiddityMedia) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(quiddityID [16]byte, priority uint64) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(quiddityID [16]byte, priority uint64, vo protocol.VersionOffset) (p QuiddityMedia, nv protocol.NumberOfVersion, err protocol.Error)
+	Get(quiddityID [16]byte, priority uint64, vo protocol.versionOffset) (p QuiddityMedia, nv protocol.NumberOfVersion, err protocol.Error)
 
 	ListMedias(quiddityID [16]byte, offset, limit uint64) (objectIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	ListRelates(objectID [16]byte, offset, limit uint64) (quiddityIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
@@ -49,7 +49,7 @@ type (
 type (
 	QuiddityMedia_Service_Get_Request interface {
 		QuiddityID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 		Priority() uint64
 	}
 

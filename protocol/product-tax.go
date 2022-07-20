@@ -50,7 +50,7 @@ type (
 type (
 	ProductTax_Service_Get_Request interface {
 		ProductID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
 	ProductTax_Service_Get_Response1 = ProductTax

@@ -17,7 +17,7 @@ type UserDelegate_StorageServices interface {
   Save(ud UserDelegate) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(givenUserID, gottenUserID, roleID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(givenUserID, gottenUserID, roleID [16]byte, vo protocol.VersionOffset) (ud UserDelegate, nv protocol.NumberOfVersion, err protocol.Error)
+	Get(givenUserID, gottenUserID, roleID [16]byte, vo protocol.versionOffset) (ud UserDelegate, nv protocol.NumberOfVersion, err protocol.Error)
 
 	ListRoles(givenUserID, gottenUserID [16]byte, offset, limit uint64) (roleIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	ListOrgs(givenUserID [16]byte, offset, limit uint64) (orgIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
@@ -64,7 +64,7 @@ type (
 		GivenUserID()  [16]byte
 	  GottenUserID() [16]byte
 		RoleID() [16]byte
-		VersionOffset() protocol.VersionOffset
+		versionOffset() protocol.versionOffset
 	}
 
 	UserDelegate_Service_Get_Response1 = UserDelegate

@@ -56,7 +56,7 @@ type (
 type (
 	ProductInventoryChangeStatus_Service_Get_Request interface {
 		productInventoryChangeID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 
 	ProductInventoryChangeStatus_Service_Get_Response1 = 	ProductInventoryChangeStatus

@@ -17,7 +17,7 @@ type UserName_StorageServices interface {
 	Save(un UserName) (nv protocol.NumberOfVersion, err protocol.Error)
 
 	Count(userID, orgID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(userID, orgID [16]byte, vo protocol.VersionOffset) (un UserName, nv protocol.NumberOfVersion, err protocol.Error)
+	Get(userID, orgID [16]byte, vo protocol.versionOffset) (un UserName, nv protocol.NumberOfVersion, err protocol.Error)
 
 	FindByUsername(username string, offset, limit uint64) (userIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 
@@ -54,7 +54,7 @@ type (
 type (
 	UserName_Service_Get_Request interface {
 		UserID() protocol.UserID
-		VersionOffset() protocol.VersionOffset
+		versionOffset() protocol.versionOffset
 	}
 
 	UserName_Service_Get_Response1 = UserName

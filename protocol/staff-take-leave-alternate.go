@@ -50,7 +50,7 @@ type (
 type (
 	StaffTakeLeaveAlternate_Service_Get_Request interface{
 		StaffID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
 	StaffTakeLeaveAlternate_Service_Get_Response1 = StaffTakeLeaveAlternate

@@ -42,9 +42,7 @@ type (
   	Status() UserRelation_Status 
 	}
 
-	UserRelationStatus_Service_Register_Response interface{
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	UserRelationStatus_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -62,7 +60,7 @@ type (
 type (
 	UserRelationStatus_Service_Get_Request interface{
 		UserID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 
 	UserRelationStatus_Service_Get_Response1 = UserRelationStatus

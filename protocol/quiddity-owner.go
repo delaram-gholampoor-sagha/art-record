@@ -46,7 +46,7 @@ type (
 type (
 	QuiddityOwner_Service_Get_Request interface {
 		QuiddityID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	QuiddityOwner_Service_Get_Response1 = QuiddityOwner
 	QuiddityOwner_Service_Get_Response2 = protocol.NumberOfVersion

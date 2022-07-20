@@ -49,7 +49,7 @@ type (
 type (
 	StaffShift_Service_Get_Request interface{
 		StaffID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 
 	StaffShift_Service_Get_Response1 = 	StaffShift
