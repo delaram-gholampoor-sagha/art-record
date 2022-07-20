@@ -14,23 +14,21 @@ type CommentPin interface {
 }
 
 type CommentPin_StorageServices interface {
-	Save(cp CommentPin) protocol.Error
+	Save(cp CommentPin) (protocol.NumberOfVersion , protocol.Error)
 
-	Get(commentID [16]byte) (cp CommentPin, err protocol.Error)
+	Get(commentID [16]byte) (cp CommentPin,nv protocol.NumberOfVersion ,err protocol.Error)
 
 	FindByGroupID(groupID [16]byte, offset, limit uint64) (commentIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 }
 // Unpin service : Hidden status to unpin a comment
 
 type (
-		CommentPin_Service_Get_Request interface {
+	CommentPin_Service_Get_Request interface {
 		CommentID() [16]byte
 	}
 	
-	CommentPin_Service_Get_Response interface {
-		CommentPin
-	}
-
+	CommentPin_Service_Get_Response1 = CommentPin
+  CommentPin_Service_Get_Response2 = protocol.NumberOfVersion
 )
 
 
@@ -42,8 +40,9 @@ type (
 		Limit() uint64
 	}
 	
-	CommentPin_Service_FindByGroupID_Response interface {
+	CommentPin_Service_FindByGroupID_Response1 interface {
 		CommentIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+	
+	CommentPin_Service_FindByGroupID_Response2 = protocol.NumberOfVersion
 )

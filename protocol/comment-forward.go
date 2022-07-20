@@ -13,21 +13,19 @@ type CommentForward interface {
 }
 
 type CommentForward_StorageServices interface {
-	Save(cf CommentForward) protocol.Error
+	Save(cf CommentForward) ( protocol.NumberOfVersion, protocol.Error)
 
-	Get(commentID [16]byte) (cf CommentForward, err protocol.Error)
+	Get(commentID [16]byte) (cf CommentForward, nv protocol.NumberOfVersion,,err protocol.Error)
 
 }
 
 type (
-		CommentForward_Service_Register_Request interface {
+	CommentForward_Service_Register_Request interface {
 		CommentID() [16]byte   
 	  ForwardedID() [16]byte 
 	}
 
-	CommentForward_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	CommentForward_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -36,8 +34,7 @@ type (
 		CommentID() [16]byte
 	}
 	
-	CommentForward_Service_Get_Response interface {
-		 CommentForward
-	}
+	CommentForward_Service_Get_Response1 = CommentForward
+	CommentForward_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )

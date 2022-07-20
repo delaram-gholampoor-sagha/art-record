@@ -18,10 +18,10 @@ type Comment interface {
 }
 
 type Comment_StorageServices interface {
-	Save(c Comment) protocol.Error
+	Save(c Comment) ( protocol.NumberOfVersion , protocol.Error)
 
 	Count(groupID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(groupID [16]byte, versionOffset uint64) (c Comment, err protocol.Error)
+	Get(groupID [16]byte, versionOffset uint64) (c Comment,nv protocol.NumberOfVersion, err protocol.Error)
 
 
 	FindByReplyTo(groupID [16]byte, commentID [16]byte, offset, limit uint64) (versionOffsets []uint64, nv protocol.NumberOfVersion, err protocol.Error)
@@ -75,10 +75,11 @@ type (
 		Settings() Comment_Settings 
 	}
 
-	Comment_Service_Register_Response interface {
+	Comment_Service_Register_Response1 interface {
 		CommentID() [16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	Comment_Service_Register_Response2 = protocol.NumberOfVersion
 
 )
 
@@ -88,59 +89,57 @@ type (
 		GroupID() [16]byte
 	}
 
-	Comment_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	Comment_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
 
 
 type (
-		Comment_Service_Get_Request interface {
+	Comment_Service_Get_Request interface {
 		GroupID() [16]byte
 		versionOffset() uint64
 	}
 
-	Comment_Service_Get_Response interface {
-		Comment
-	}
-
-	
+	Comment_Service_Get_Response1 = Comment
+	Comment_Service_Get_Response2 = protocol.NumberOfVersion
 )
 
 
 
 type (
 
-		Comment_Service_FindByReplyTo_Request interface {
+	Comment_Service_FindByReplyTo_Request interface {
 		GroupID() [16]byte
 		CommentID() [16]byte
 		Offset() uint64
 		Limit() uint64
 	}
 
-	Comment_Service_FindByReplyTo_Response interface {
-		VersionOffsets() []uint64
+	Comment_Service_FindByReplyTo_Response1 interface {
+		versionOffsets() []uint64
 		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	Comment_Service_FindByReplyTo_Response2 = protocol.NumberOfVersion
 	
 )
 
 
 
 type (
-		Comment_Service_FindByUserID_Request interface {
+	Comment_Service_FindByUserID_Request interface {
 		GroupID() [16]byte
 		UserID() [16]byte
 		Offset() uint64
 		Limit() uint64
 	}
 
-	Comment_Service_FindByUserID_Response interface {
-		VersionOffsets() []uint64
-		NumberOfVersion() protocol.NumberOfVersion
+	Comment_Service_FindByUserID_Response1 interface {
+		versionOffsets() []uint64
 	}
+
+	Comment_Service_FindByUserID_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -152,8 +151,9 @@ type (
 		Limit() uint64
 	}
 
-	Comment_Service_ListUserGroups_Response interface {
+	Comment_Service_ListUserGroups_Response1 interface {
 		Ids() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	Comment_Service_ListUserGroups_Response2 = protocol.NumberOfVersion
 )

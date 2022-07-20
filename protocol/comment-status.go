@@ -13,10 +13,10 @@ type CommentStatus interface {
 }
 
 type CommentStatus_StorageServices interface {
-	Save(cs CommentStatus) protocol.Error
+	Save(cs CommentStatus) ( protocol.NumberOfVersion , protocol.Error)
 
 	Count(commentID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(commentID [16]byte, versionOffset uint64) (cs CommentStatus, err protocol.Error)
+	Get(commentID [16]byte, versionOffset uint64) (cs CommentStatus,nv protocol.NumberOfVersion ,err protocol.Error)
 	
 
 	// FilterByStatus(status Comment_Status, offset, limit uint64) (commentIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
@@ -31,38 +31,30 @@ const (
 
 
 type (
-		CommentStatus_Service_Register_Request interface {
+	CommentStatus_Service_Register_Request interface {
 		CommentID() [16]byte    
   	Status() Comment_Status 
 	}
 
-		CommentStatus_Service_Register_Response interface {
-	  NumberOfVersion() protocol.NumberOfVersion
-	}
-
-
+	CommentStatus_Service_Register_Response = protocol.NumberOfVersion
 )
 
 type (
 	CommentStatus_Service_Count_Request interface {
-	CommentID() [16]byte
+  	CommentID() [16]byte
 	}
 
-	CommentStatus_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+	CommentStatus_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
 
 type (
 	CommentStatus_Service_Get_Request interface {
-	CommentID() [16]byte
-	VersionOffset() uint64
+		CommentID() [16]byte
+		versionOffset() uint64
 	}
 
-	CommentStatus_Service_Get_Response interface {
-		CommentStatus
-	}
+	CommentStatus_Service_Get_Response1 =	CommentStatus
+	CommentStatus_Service_Get_Response2 = protocol.NumberOfVersion
 )

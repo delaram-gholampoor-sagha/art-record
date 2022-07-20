@@ -12,10 +12,10 @@ type CommentMentioned interface {
 }
 
 type CommentMentioned_StorageServices interface {
-	Save(cm CommentMentioned) protocol.Error
+	Save(cm CommentMentioned) (protocol.NumberOfVersion , protocol.Error)
 
 	Count(userID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(userID [16]byte, versionOffset uint64) (cm CommentMentioned, err protocol.Error)
+	Get(userID [16]byte, versionOffset uint64) (cm CommentMentioned,nv protocol.NumberOfVersion ,err protocol.Error)
 	
 }
 
@@ -25,32 +25,27 @@ type (
    	CommentID() [16]byte 
 	}
 
-	CommentMentioned_Service_Register_Response interface {
-  	NumberOfVersion() protocol.NumberOfVersion
-	}
+	CommentMentioned_Service_Register_Response =  protocol.NumberOfVersion
 
 )
 
 
 type (
-		CommentMentioned_Service_Count_Request interface {
+	CommentMentioned_Service_Count_Request interface {
 		UserID() [16]byte
 	}
 	
-	CommentMentioned_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	CommentMentioned_Service_Count_Response = protocol.NumberOfVersion
 
 )
 
 type (
 	CommentMentioned_Service_Get_Request interface {
 		UserID() [16]byte 
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
-	CommentMentioned_Service_Get_Response interface {
-		CommentMentioned
-	}
+	CommentMentioned_Service_Get_Response1 = CommentMentioned
+	CommentMentioned_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )

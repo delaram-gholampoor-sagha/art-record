@@ -14,21 +14,19 @@ type CommentThread interface {
 }
 
 type CommentThread_StorageServices interface {
-	Save(ct CommentThread) protocol.Error
+	Save(ct CommentThread) ( protocol.NumberOfVersion , protocol.Error)
 
-	Get(commentID [16]byte) (ct CommentThread, err protocol.Error)
+	Get(commentID [16]byte) (ct CommentThread,nv  protocol.NumberOfVersion ,err protocol.Error)
 }
 
 
 type (
-		CommentThread_Service_Register_Request interface {
+	CommentThread_Service_Register_Request interface {
 			CommentID() [16]byte             
     	ArchiveAfter() protocol.Duration 
 	}
 
-		CommentThread_Service_Register_Response interface {
-      NumberOfVersion() protocol.NumberOfVersion
-	}
+	CommentThread_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -37,7 +35,6 @@ type (
 		CommentID() [16]byte 
 	}
 	
-	CommentThread_Service_Get_Response interface {
-		CommentThread
-	}
+	CommentThread_Service_Get_Response1 = CommentThread
+	CommentThread_Service_Get_Response2 = protocol.NumberOfVersion
 )

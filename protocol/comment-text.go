@@ -13,10 +13,10 @@ type CommentText interface {
 }
 
 type CommentText_StorageServices interface {
-	Save(c CommentText) protocol.Error
+	Save(c CommentText) (protocol.NumberOfVersion , protocol.Error)
 
 	Count(commentID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(commentID [16]byte, versionOffset uint64) (c CommentText, err protocol.Error)
+	Get(commentID [16]byte, versionOffset uint64) (c CommentText, nv protocol.NumberOfVersion,err protocol.Error)
 	
 
 	FindByText(text string, offset, limit uint64) (commentIDs [16]byte, nv protocol.NumberOfVersion, err protocol.Error)
@@ -24,14 +24,12 @@ type CommentText_StorageServices interface {
 
 
 type (
-		CommentText_Service_Register_Request interface {
+	CommentText_Service_Register_Request interface {
 		CommentID() [16]byte 
 	  Text() string        
 	}
 
-	CommentText_Service_Register_Response interface {
-	   NumberOfVersion() protocol.NumberOfVersion        
-	}
+	CommentText_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -40,24 +38,20 @@ type (
 		CommentID() [16]byte
 	}
 
-	CommentText_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	CommentText_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
 
 
 type (
-		CommentText_Service_Get_Request interface {
+	CommentText_Service_Get_Request interface {
 		CommentID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 
-	CommentText_Service_Get_Response interface {
-		CommentText
-	}
-	
+	CommentText_Service_Get_Response1 = CommentText
+	CommentText_Service_Get_Response2 = protocol.NumberOfVersion
 )
 
 
@@ -69,10 +63,11 @@ type (
 		Limit() uint64
 	}
 
-	CommentText_Service_FindByText_Response interface {
+	CommentText_Service_FindByText_Response1 interface {
 		CommentIDs() [16]byte 
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	CommentText_Service_FindByText_Response2 = protocol.NumberOfVersion
 
 
 )
