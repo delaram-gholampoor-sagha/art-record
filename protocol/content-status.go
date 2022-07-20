@@ -15,7 +15,7 @@ type ContentStatus_StorageServices interface {
 	Save(cs ContentStatus) protocol.Error
 
 	Count(contentID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(contentID [16]byte, versionOffset uint64) (cs ContentStatus, err protocol.Error)
+	Get(contentID [16]byte, versionOffset uint64) (cs ContentStatus,nv protocol.NumberOfVersion ,err protocol.Error)
 	
 	// FilterByStatus(status Content_Status, offset, limit uint64) (contentIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
 	// protocol.EventTarget
@@ -33,21 +33,16 @@ type (
   	Status() Content_Status 
 	}
 
-	ContentStatus_Service_Register_Response interface {
-	 NumberOfVersion() protocol.NumberOfVersion
-	}
+	ContentStatus_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
 	ContentStatus_Service_Count_Request interface {
-	ContentID() [16]byte
+	  ContentID() [16]byte
 	}
 	
-	ContentStatus_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+	ContentStatus_Service_Count_Response = protocol.NumberOfVersion
 )
 
 
@@ -55,11 +50,10 @@ type (
 type (
 	ContentStatus_Service_Get_Request interface {
 	 ContentID() [16]byte
-	 VersionOffset() uint64
+	 versionOffset() uint64
 	}
 	
-	ContentStatus_Service_Get_Response interface {
-		ContentStatus
-	}
+	ContentStatus_Service_Get_Response1 = 	ContentStatus
+	ContentStatus_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )

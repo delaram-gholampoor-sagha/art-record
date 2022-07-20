@@ -58,22 +58,19 @@ type (
 		Type() Content_Type  
 	}
 
-		Content_Service_Register_Response interface {
-       ContentID() [16]byte 
-			 NumberOfVersion() protocol.NumberOfVersion
+	Content_Service_Register_Response1 interface {
+    ContentID() [16]byte 
 	}
 
+	Content_Service_Register_Response2 = protocol.NumberOfVersion
 )
 
 type (
-		Content_Service_Count_Request interface {
+	Content_Service_Count_Request interface {
 		ContentID() [16]byte
 	}
 	
-	Content_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
-	
+	Content_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -82,27 +79,27 @@ type (
 type (
 	Content_Service_Get_Request interface {
 		ContentID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
-	Content_Service_Get_Response interface {
-		Content
-	}
+	Content_Service_Get_Response1 = Content
+	Content_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
 
 
 type (
-		Content_Service_GetIDs_Request interface {
+	Content_Service_GetIDs_Request interface {
 		Offset() uint64
 		Limit() uint64
 	}
 	
-	Content_Service_GetIDs_Response interface {
+	Content_Service_GetIDs_Response1 interface {
 		ContentIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	Content_Service_GetIDs_Response2 = protocol.NumberOfVersion
 	
 )
 
@@ -114,10 +111,11 @@ type (
 		Limit() uint64
 	}
 	
-	Content_Service_FindByUserID_Response interface {
+	Content_Service_FindByUserID_Response1 interface {
 		ContentIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	Content_Service_FindByUserID_Response2 = protocol.NumberOfVersion
 	
 	
 )

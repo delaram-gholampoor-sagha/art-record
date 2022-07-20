@@ -15,7 +15,7 @@ type ContentAccess_StorageServices interface {
 	Save(ca ContentAccess) protocol.Error
 
 	Count(contentID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(contentID [16]byte, versionOffset uint64) (ca ContentAccess, err protocol.Error)
+	Get(contentID [16]byte, versionOffset uint64) (ca ContentAccess,nv protocol.NumberOfVersion ,err protocol.Error)
 	
 }
 
@@ -36,20 +36,16 @@ type (
   	Access() Content_Access 
 	}
 
-	ContentAccess_Service_Register_Response interface {
-     NumberOfVersion() protocol.NumberOfVersion
-	}
+	ContentAccess_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 type (
-		ContentAccess_Service_Count_Request interface {
+	ContentAccess_Service_Count_Request interface {
 		ContentID() [16]byte
 	}
 	
-	ContentAccess_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ContentAccess_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -58,11 +54,10 @@ type (
 type (
 	ContentAccess_Service_Get_Request interface {
 		ContentID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
-	ContentAccess_Service_Get_Response interface {
-		ContentAccess
-	}
+	ContentAccess_Service_Get_Response1 = ContentAccess
+	ContentAccess_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )

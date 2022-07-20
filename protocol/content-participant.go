@@ -18,7 +18,7 @@ type ContentParticipant_StorageServices interface {
 	Save(cp ContentParticipant) protocol.Error
 
 	Count(contentID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
-	Get(contentID [16]byte, versionOffset uint64) (cp ContentParticipant, err protocol.Error)
+	Get(contentID [16]byte, versionOffset uint64) (cp ContentParticipant,nv protocol.NumberOfVersion ,err protocol.Error)
 	
 
 	FindByUserID(userID [16]byte, offset, limit uint64) (contentIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
@@ -47,15 +47,13 @@ const (
 
 
 type (
-		ContentParticipant_Service_Register_Request interface {
+	ContentParticipant_Service_Register_Request interface {
 		ContentID() [16]byte           
   	Type() ContentParticipant_Type 
   	UserID() [16]byte              
 	}
 	
-	ContentParticipant_Service_Register_Response interface {
-	  NumberOfVersion() protocol.NumberOfVersion         
-	}
+	ContentParticipant_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
@@ -64,9 +62,7 @@ type (
 		ContentID() [16]byte
 	}
 	
-	ContentParticipant_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+	ContentParticipant_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -75,27 +71,26 @@ type (
 type (
 	ContentParticipant_Service_Get_Request interface {
 		ContentID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
 	
-	ContentParticipant_Service_Get_Response interface {
-		ContentParticipant
-	}
+	ContentParticipant_Service_Get_Response1 = 	ContentParticipant
+	ContentParticipant_Service_Get_Response2 = protocol.NumberOfVersion
 	
 )
 
 
 type (
-
 	ContentParticipant_Service_FindByUserID_Request interface {
 		UserID() [16]byte 
 		Offset() uint64
 		Limit() uint64
 	}
 	
-	ContentParticipant_Service_FindByUserID_Response interface {
+	ContentParticipant_Service_FindByUserID_Response1 interface {
 		ContentIDs() [][16]byte
-		NumberOfVersion() protocol.NumberOfVersion
 	}
+
+	ContentParticipant_Service_FindByUserID_Response2 =  protocol.NumberOfVersion
 	
 )
