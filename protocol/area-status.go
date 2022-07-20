@@ -17,7 +17,7 @@ type AreaStatus_StorageServices interface {
 	Count(areaID [16]byte) (nv protocol.NumberOfVersion, err protocol.Error)
 	Get(areaID [16]byte, versionOffset uint64) (as AreaStatus, err protocol.Error)
 
-	FilterByStatus(status Area_Status, offset, limit uint64) (areaIDs [][16]byte, err protocol.Error)
+	FilterByStatus(status Area_Status, offset, limit uint64) (areaIDs [][16]byte,nv protocol.NumberOfVersion,, err protocol.Error)
 	// protocol.EventTarget
 }
 
@@ -29,24 +29,22 @@ const (
 
 
 type (
-		AreaStatus_Service_Register_Request interface {
+	AreaStatus_Service_Register_Request interface {
 		AreaID() [16]byte
 		Status() Area_Status
 	}
-	AreaStatus_Service_Register_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	AreaStatus_Service_Register_Response = protocol.NumberOfVersion
 
 )
 
 
 type (
-		AreaStatus_Service_Count_Request interface {
+	AreaStatus_Service_Count_Request interface {
 		AreaID() [16]byte
 	}
-	AreaStatus_Service_Count_Response interface {
-		NumberOfVersion() protocol.NumberOfVersion
-	}
+
+	AreaStatus_Service_Count_Response = protocol.NumberOfVersion
 	
 )
 
@@ -55,24 +53,25 @@ type (
 type (
 	AreaStatus_Service_Get_Request interface {
 		AreaID() [16]byte
-		VersionOffset() uint64
+		versionOffset() uint64
 	}
-	AreaStatus_Service_Get_Response interface {
+	AreaStatus_Service_Get_Response1 interface {
 		Status() AreaStatus
-		NumberOfVersion() protocol.NumberOfVersion
 	}
-	
+
+	AreaStatus_Service_Get_Response2 = protocol.NumberOfVersion
 )
 
 
 type (
-
 	AreaStatus_Service_FilterByStatus_Request interface {
 		Status() AreaStatus
 		Offset() uint64
 		Limit() uint64
 	}
-	AreaStatus_Service_FilterByStatus_Response interface {
+	AreaStatus_Service_FilterByStatus_Response1 interface {
 		areaIDs() [][16]byte
 	}
+
+	AreaStatus_Service_FilterByStatus_Response2 = protocol.NumberOfVersion
 )
