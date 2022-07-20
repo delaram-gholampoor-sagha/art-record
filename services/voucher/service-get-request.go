@@ -1,6 +1,12 @@
 package voucher
 
 
+import (
+	"../../libgo/json"
+	"../../libgo/protocol"
+
+)
+
 
 type GetRequest struct {
 		voucherID [16]byte      `json:"voucherID,string"`
@@ -10,7 +16,7 @@ type GetRequest struct {
 func (req *GetRequest) VoucherID() [16]byte        { return req.voucherID}
 func (req *GetRequest) Set_voucherID(vi [16]byte)  {  req.voucherID = vi }
 
-func (req *GetRequest) versionOffset() uint64      { return req.versionOffset}
+func (req *GetRequest) VersionOffset() uint64      { return req.versionOffset}
 func (req *GetRequest) Set_versionOffset(v uint64) {  req.versionOffset = v }
 
 
@@ -38,6 +44,8 @@ func (req *GetRequest) FromJSON(payload []byte) (err protocol.Error) {
 	}
 	return
 }
+
+
 func (req *GetRequest) ToJSON(payload []byte) []byte {
 	var encoder = json.Encoder{Buf: payload}
 

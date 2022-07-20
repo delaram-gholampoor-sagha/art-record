@@ -1,8 +1,10 @@
 package voucher
 
-import "github.com/Delaram-Gholampoor-Sagha/art-record/protocol"
 
 
+import (
+		"../../libgo/protocol"
+)
 
 
 

@@ -2,6 +2,10 @@
 
 package voucher
 
+import (
+		"../../libgo/protocol"
+)
+
 
 type voucher struct {
 	voucherID [16]byte 
@@ -18,15 +22,15 @@ func (v *voucher) RequestID() [16]byte  { return v.requestID }
 
 
 // JSON codec
-func (q *Quiddity) FromJSON(payload []byte) (err protocol.Error) {
+func (q *voucher) FromJSON(payload []byte) (err protocol.Error) {
 	// TODO::: auto generate
 	return
 }
-func (q *Quiddity) ToJSON(payload []byte) []byte {
+func (q *voucher) ToJSON(payload []byte) []byte {
 	// TODO::: auto generate
 	return nil
 }
-func (q *Quiddity) LenAsJSON() (ln int) {
+func (q *voucher) LenAsJSON() (ln int) {
 	// TODO::: auto generate
 	return
 }

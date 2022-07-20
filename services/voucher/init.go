@@ -3,3 +3,14 @@
 package voucher
 
 
+import (
+		"../../libgo/protocol"
+)
+
+
+func Init() {
+	protocol.App.RegisterService(&RegisterService)
+	protocol.App.RegisterService(&GetService)
+	protocol.App.RegisterService(&CountService)
+}
+

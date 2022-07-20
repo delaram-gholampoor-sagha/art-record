@@ -6,27 +6,27 @@ import (
 	"sync"
 
 	"github.com/Delaram-Gholampoor-Sagha/art-record/protocol"
+	"../../libgo/protocol"
 )
-
 
 
 var storage vm
 
-var _ protocol.Voucher_StorageServices = &storage
+var _ art.Voucher_StorageServices = &storage
 
 type vm struct {
 	mutex sync.Mutex
 	ids [][16]byte
-	index_VoucherID map[[16]byte][]protocol.Voucher // PrimaryKey
+	index_VoucherID map[[16]byte][]art.Voucher // PrimaryKey
 }
 
 
-func (s *vm) Save(v protocol.Voucher) (nv protocol.NumberOfVersion , err protocol.Error) {
+func (s *vm) Save(v art.Voucher) (nv protocol.NumberOfVersion , err protocol.Error) {
 	s.mutex.Lock()
 		var voucherID = v.VoucherID()
 		var records, ok = s.index_VoucherID[voucherID]
 	if !ok {
-		s.index_VoucherID[voucherID] = []protocol.Voucher{v}
+		s.index_VoucherID[voucherID] = []art.Voucher{v}
 		s.ids = append(s.ids, voucherID)
 	} else {
 		records = append(records, v)
@@ -44,7 +44,7 @@ func (s *vm) Count(voucherID [16]byte) (nv protocol.NumberOfVersion , err protoc
 	return
 }
 
-func (s *vm) Get(voucherID [16]byte, versionOffset uint64) (nv protocol.NumberOfVersion , v protocol.Voucher ,err protocol.Error) {
+func (s *vm) Get(voucherID [16]byte, versionOffset uint64) (nv protocol.NumberOfVersion , v art.Voucher ,err protocol.Error) {
 	s.mutex.Lock()
 	v = s.index_VoucherID[voucherID][versionOffset]
 	s.mutex.Unlock()
