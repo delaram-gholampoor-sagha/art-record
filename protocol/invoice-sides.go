@@ -7,35 +7,43 @@ import "../libgo/protocol"
 // InvoiceSides indicate the domain record data fields.
 type InvoiceSides interface {
 	InvoiceID() [16]byte  // invoice domain
-	SellerID() [16]byte   // user domain
-	CustomerID() [16]byte // user domain
-	AgentID() [16]byte    // user domain
+	UserID() [16]byte   // user domain
+	Type() InvoiceSides_Type // user domain
+	Status() [16]byte    // user domain
 	Time() protocol.Time  // save time
 	RequestID() [16]byte  // user-request domain
 }
 
 type InvoiceSides_StorageServices interface {
-	Save(is InvoiceSides) (nv protocol.NumberOfVersion, err protocol.Error)
+	Save(is InvoiceSides) (nv protocol.NumberOfVersion , err protocol.Error)
 
-	Get(invoiceID [16]byte) (is InvoiceSides, nv protocol.NumberOfVersion ,err protocol.Error)
+	Get(invoiceID [16]byte) (is InvoiceSides , nv protocol.NumberOfVersion,err protocol.Error)
+	Count(invoiceID [16]byte) (nv protocol.NumberOfVersion,err protocol.Error)
 
-	FindBySeller(sellerID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
-	FindByCustomer(customerID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
-	FindByAgent(agentID [16]byte, offset, limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
+	FindByUser(userID [16]byte , Type InvoiceSides_Type , offset uint64 , limit uint64) (invoiceIDs [][16]byte, nv protocol.NumberOfVersion, err protocol.Error)
+
 }
 
 type InvoiceSides_Type uint8
 
+const (
+	InvoiceSides_Type_Seller InvoiceSides_Type = iota
+	InvoiceSides_Type_Customer
+	InvoiceSides_Type_Agent
+	InvoiceSides_Type_Franchise
+)
+
+type InvoiceSides_Status = Quiddity_Status
+
+
 type (
 	InvoiceSides_Service_Register_Request interface {
-		InvoiceID() [16]byte 
-		SellerID() [16]byte   
-		CustomerID() [16]byte 
-		AgentID() [16]byte      
+		InvoiceID() [16]byte  
+	  UserID() [16]byte   
+	  Type() InvoiceSides_Type 
+    Status() [16]byte   
 	}
-
-	InvoiceSides_Service_Register_Response = protocol.NumberOfVersion
-
+		InvoiceSides_Service_Register_Response = protocol.NumberOfVersion
 )
 
 
@@ -44,17 +52,19 @@ type (
 		InvoiceID() [16]byte      
 	}
 
+	InvoiceSides_Service_Get_Response1 = InvoiceSides
 	InvoiceSides_Service_Get_Response2 = protocol.NumberOfVersion
 
 )
 
 type (
-	InvoiceSides_Service_FindBySeller_Request interface { 
-		SellerID() [16]byte
+	InvoiceSides_Service_FindByUser_Request interface { 
+	  UserID() [16]byte 
+	  Type() InvoiceSides_Type
 		Offset() uint64 
 		Limit() uint64
 	}
-	InvoiceSides_Service_FindBySeller_Response1 interface {
+	InvoiceSides_Service_FindByUser_Response1 interface {
 		InvoiceIDs() [][16]byte 
 	}
 
@@ -63,31 +73,13 @@ type (
 )
 
 type (
-	InvoiceSides_Service_FindByCustomer_Request interface { 
-		CustomerID() uint64
-		Offset() uint64 
-		Limit() uint64
-	}
-	InvoiceSides_Service_FindByCustomer_Response1 interface {
-		InvoiceIDs() [][16]byte 
+	InvoiceSides_Service_Count_Request interface { 
+	  InvoiceID() [16]byte 
 	}
 
-	InvoiceSides_Service_FindByCustomer_Response2 = protocol.NumberOfVersion
+	InvoiceSides_Service_Count_Response2 = protocol.NumberOfVersion
 	
 )
 
 
-type (
-	InvoiceSides_Service_FindByAgent_Request interface { 
-		AgentID() [16]byte
-		Offset() uint64 
-		Limit() uint64
-	}
-	InvoiceSides_Service_FindByAgent_Response1 interface {
-		InvoiceIDs() [][16]byte 
-	}
-
-	InvoiceSides_Service_FindByAgent_Response2 = protocol.NumberOfVersion
-
-)
 

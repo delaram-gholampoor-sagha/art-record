@@ -99,7 +99,7 @@ type (
 
 	UserRelationStatus_Service_FilterByStatus_Request interface{
 		UserID() [16]byte
-		UserRelationStatus
+		Status() UserRelationStatus
 		Offset() uint64
 		Limit() uint64
 	}
